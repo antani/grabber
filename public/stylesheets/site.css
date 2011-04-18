@@ -1,0 +1,259 @@
+a img {
+  border: 0;
+}
+#editorial_review, .goodreads, .stores
+
+{ 
+  font-family: 'Droid Sans','Puritan',sans-serif; 
+  font-size:normal;
+  border: 2px solid #DDDDDD;
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
+  margin-bottom: 5px;
+} /* hack retained to preserve specificity */
+
+#editorial_review h3
+{
+  color: #004B91;
+}
+#img_div
+{
+  float: left;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 200px;
+}
+#loader
+{
+  margin: 5px;
+}
+#book_att_container
+{
+  width: auto;
+  padding: 3px;
+  margin-right: 10px;
+  background: -moz-linear-gradient(center top , #C3D8E2, #FFFFFF) repeat scroll 0 0 transparent;
+  border-radius: 10px 10px 0 0;
+  border: 3px solid #E8F1F8;
+  margin-bottom: 10px;
+
+}
+table.book_attributes
+{
+}
+table.book_attributes td {
+  padding: 5px;
+  padding: 5px;
+  vertical-align: top;
+  overflow: auto;
+  font-size: 16px;
+}
+.desch3
+{
+  border-bottom:  1px solid #E8E8E8;
+}
+.about_author
+{
+  font-size: 15px;
+  font-weight: bold;
+}
+table.price_list
+{
+  border: 1px solid #E8E8E8;
+  border-radius: 5px 5px 5px 5px;
+  padding: 3px;
+  background-color: #EEEEEE;
+
+}
+table.price_list td
+{
+  padding: 5px;
+  /*border-top: 1px solid #EEEEEE;*/
+  border-bottom: 1px solid #FFFFFF;
+  border-top: 1px solid #CCCCCC;
+  padding: 5px;
+  vertical-align: top;
+
+}
+.gr_review_container
+{
+  padding: 3px;
+  border-bottom: 1px solid #FFFFFF;
+}
+.gr_reviews_header
+{
+    font-weight: bold;
+}
+.gr_reviews_showing
+{
+    font-size: small;
+    font-weight: normal;
+}
+.goodreads
+{
+  padding-top: 5px;
+}
+
+.item_review_title_left {
+    clear: left;
+    float: left;
+    width: 5%;
+}
+.tag_dummy
+{
+  display:none;
+}
+
+.tags{
+	margin:0;
+	padding:0;
+/*	position:absolute; */
+	right:24px;
+	bottom:-12px;
+	list-style:none;
+	}
+.tags li, .tags a{
+	float:left;
+	height:24px;
+	line-height:24px;
+	position:relative;
+	font-size:11px;
+	}        
+.tags a{
+	margin-left:20px;
+	padding:0 10px 0 12px;
+	background:#0089e0;
+	color:#fff;
+	text-decoration:none;
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;	
+	border-bottom-right-radius:4px;
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;	
+	border-top-right-radius:4px;	
+	} 
+.tags a:before{
+	content:"";
+	float:left;
+	position:absolute;
+	top:0;
+	left:-12px;
+	width:0;
+	height:0;
+	border-color:transparent #0089e0 transparent transparent;
+	border-style:solid;
+	border-width:12px 12px 12px 0;		
+	}
+.tags a:after{
+	content:"";
+	position:absolute;
+	top:10px;
+	left:0;
+	float:left;
+	width:4px;
+	height:4px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	background:#fff;
+	-moz-box-shadow:-1px -1px 2px #004977;
+	-webkit-box-shadow:-1px -1px 2px #004977;
+	box-shadow:-1px -1px 2px #004977;
+	}
+.tags a:hover{background:#555;}	
+.tags a:hover:before{border-color:transparent #555 transparent transparent;}        
+.searchwrapper
+{
+    clear: left;
+    float: left;
+    text-align:center;
+    position: relative;
+    z-index: 3;
+}
+.searchwrapper_inner
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #C1CAD2;
+}
+.searchwrapper-inner-border
+{
+    padding-bottom: 0.22em;
+    padding-right: 0.22em;
+    background-repeat: repeat-x;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FFFFFF;
+    height: 2.1em;
+    padding: 0.2em;
+    position: relative;  
+}
+.searchsubmit
+{
+    background-position: left -1672px;
+    background-repeat: repeat-x;
+    border: 0 none;
+    cursor: pointer;
+    font-weight: bold;
+    height: 1.8em;
+    overflow: visible;
+background-image: url("http://l1.yimg.com/a/i/ww/met/th/slate/gsprite_pg_slate_20100521.png");
+}
+.inputquery
+{
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #7B7B7B #CBCCCE #CBCCCE #7B7B7B;
+    border-right: 1px solid #CBCCCE;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    height: 1.5em;
+    padding: 0.3em 0.25em 0.2em 0.2em;
+    width: 31.5em;
+}
+.buttonwrapper
+{
+    background-color: #FCC530;
+    border-style: solid;
+    border: 1px solid #BD9E43;
+    float: left;
+    margin-left: 0.3em;
+    overflow: hidden;
+    padding: 0;
+}
+.price
+{
+    size: 100px;
+}
+
+
+
+.big {
+  font-size: large;
+}
+#container
+{
+  margin-top: 10px;
+}
+#container blockquote {
+  margin: 20px;
+  font-style: italic;
+}
+
+/* Stolen from Blueprint */
+/* https://github.com/joshuaclayton/blueprint-css/raw/master/blueprint/screen.css */
+#container h1, #container h2, #container h3, #container h4, #container h5, #container h6 {font-weight:normal;color:#111;}
+#container h1 {font-size:3em;line-height:1;margin-bottom:0.5em;margin-top:0.5em;}
+#container h2 {font-size:2em;margin-bottom:0.75em;margin-top:0.5em;}
+#container h3 {font-size:1.5em;line-height:1;margin-bottom:1em;margin-top:0.5em;}
+#container h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;margin-top:0.5em;}
+#container h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;margin-top:0.5em;}
+#container h6 {font-size:1em;font-weight:bold;margin-top:0.5em;}
+#container dl {margin:0 0 1.5em 0;margin-top:0.5em;}
+#container dl dt {font-weight:bold;}
+#container dd {margin-left:1.5em;}

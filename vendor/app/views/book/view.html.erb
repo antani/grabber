@@ -1,0 +1,158 @@
+
+<%= content_for :js do %>
+  var isbn = "<%= @isbn %>";
+<% end %>
+
+<% unless @bookinfo.nil? %>
+  <% content_for :title do %>Search for the best prices in India for the book <%= @bookinfo[:title] %> by <%= @bookinfo[:authors_as_string] %><% end %>
+  <% content_for :header do %>
+    <div id="book_att_container">
+      <% unless @bookinfo[:image].nil? %>
+        <div id="img_div">
+        <a href="<%= @bookinfo[:detail_page] %>"><img src="<%= @bookinfo[:image] %>" width="140" height="167" alt="<%= @bookinfo[:title] %>" /></a>
+        </div>
+      <% end %>
+     
+      <table class="book_attributes">
+        <tr>
+          <td>Book:</td>
+          <td class="big"><%= @bookinfo[:title] %></td>
+        </tr>
+        <tr>
+          <td>By:</td>
+          <td class="big"><%= @bookinfo[:authors_as_string] %></td>
+        </tr>
+        <tr>
+          <td>Publisher:</td>
+          <td class="big"><%= @bookinfo[:publisher] %></td>
+        </tr>
+        <tr>
+          <td>ISBN:</td>
+          <td class="big"><%= @isbn %></td>
+        </tr>
+        <tr>
+          <td>Language:</td>
+          <td class="big"><%= @bookinfo[:language] %></td>
+        </tr>
+        <tr>
+          <td>Publishing Date:</td>
+          <td class="big"><%= @bookinfo[:published_at] %></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+
+  <% unless @bookinfo[:rating].nil? %>
+    <div>
+      Average Customer Rating at <a href="<%= @bookinfo[:detail_page] %>"><%= @bookinfo[:info_source].capitalize %></a> : <%= @bookinfo[:rating] %> out of 5
+    </div>
+  <% end %>
+
+  <% unless @bookinfo[:review_source].nil? %>
+    <div id="editorial_review">
+      <h3 class="desch3"><%= @bookinfo[:review_source] %></h3>
+      <%= @bookinfo[:review_content].html_safe %>
+    </div>
+  <% end %>
+
+  <% unless @stores.nil? %>
+          <div class="stores">
+          <h3 class="desch3">Where to Buy</h3>
+            <table class="price_list">
+              <% @stores.each do |store, data|  %>
+              <% unless data[:price] == @not_available %>
+               <tr>
+                  <td>
+                    <a rel="nofollow" href="<%= data[:url] %>"><%= store %></a>
+                  </td>
+                    <td> 
+                        <span class="price" style="font-family:rupee">R</span> <%= data[:price] %>
+                    </td>
+                  <td>
+                    <ul class="tag_dummy">
+                      <li><a href="#">LOWEST</a></li>
+                    </ul>
+                  </td>
+                </tr>
+               <% end %> 
+              <% end %>
+            </table>
+            <br />
+          </div>
+  <% else %>
+          <div id="loader">
+          <img src='images/ajax-loader.gif' />
+          <p>
+          <strong>Fetching prices from <%= @prices.number_of_stores %> online stores... please be patient!</strong> (This page will be automatically refreshed, please do NOT manually refresh)
+          </p>
+          </div>
+          <% content_for :js do %>
+            $( function() {
+            setTimeout("location.reload(true)", 30 * 1000);
+            });
+          <% end %>
+  <% end %>
+
+  <div class="goodreads">
+    gt<h3 class="desch3">Reviews</h3>
+    <script type="text/javascript" charset="utf-8" src="http://www.goodreads.com/api/reviews_widget?did=DEVELOPER_ID&isbn=<%= @isbn %>&min_length=100&num_reviews=10"></script>
+  </div>
+
+  <% unless @bookseer.nil? %>
+    <h2>What to read next?</h2>
+    <a rel="nofollow" href="<%= @bookseer %>">Consult the Bookseer</a>
+  <% end %>
+
+
+<%else %>
+          <% unless @stores.nil? %>
+                <div class="stores">
+                <h3 class="desch3">Where to Buy</h3>
+                <table class="price_list">
+                  <% @stores.each do |data|  %>
+                  <% unless data[:price] == @not_available %>
+                   <tr>
+                      <td>
+                        <a rel="nofollow" href="<%= data[:url] %>"><%= data[:source] %></a>
+                      </td>
+                        <td>
+                            <span style="font-family:rupee">R</span> <%= data[:price] %>
+                        </td>
+                        <td>
+                              <%= data[:name] %>
+                        </td>
+                        <td>
+                            <%= data[:author] %>
+                        </td>
+
+                      <td>
+                        <ul class="tag_dummy">
+                          <li><a href="#">LOWEST</a></li>
+                        </ul>
+                      </td>
+                    </tr>
+                     <% end %> 
+                  <% end %>
+                </table>
+                <br />
+              </div>
+          <% else %>
+                <div id="loader">
+                <img src='images/ajax-loader.gif' />
+                <p>
+                <strong>Fetching prices from <%= @prices.number_of_stores %> online stores... please be patient!</strong> (This page will be automatically refreshed, please do NOT manually refresh)
+                </p>
+                </div>
+                <% content_for :js do %>
+                  $( function() {
+                  alert("refreshing");  
+                  setTimeout("location.reload(true)", 20 * 1000);
+                  });
+                <% end %>
+        <% end %>
+
+
+
+
+
+<% end %>

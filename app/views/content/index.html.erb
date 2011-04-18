@@ -1,0 +1,21 @@
+
+<% content_for :title do %>
+   Kick-ass price search engine.
+<% end %>
+
+<% content_for :header do %>
+  <h2>barga.in</h2>
+<% end %>
+
+<div class="searchwrapper">
+  <div class="searchwrapper-inner">
+    <div class="searchwrapper-inner-border">
+          <%= form_tag(view_path, :method => "get") do %>
+              <%= text_field_tag(:q,nil,:class=> "inputquery") %>
+              <span class="buttonwrapper">
+                <%= submit_tag("Search", :class=>"searchsubmit") %>
+              </span>  
+          <% end %>
+    </div>  
+  </div>
+</div>
