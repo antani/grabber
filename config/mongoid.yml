@@ -9,14 +9,14 @@ defaults: &defaults
 development:
   <<: *defaults
   host: localhost
-  database: isbnnetin_development
+  database: grbr_development
 
 test:
   <<: *defaults
-  host: localhost
-  database: isbnnetin_test
+  host: http://test-grabr-app.heroku.com/
+  database: grbr_test
 
 # set these environment variables on your prod server
 production:
-  host: localhost
-  database: isbnnetin_production
+  host: http://test-grabr-app.heroku.com/
+  database: grbr_production
