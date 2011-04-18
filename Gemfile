@@ -32,7 +32,6 @@ gem 'amazon-ecs', :require => 'amazon/ecs'
 
 #gem 'ruby-debug'
 gem 'ruby-debug19'
-
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
