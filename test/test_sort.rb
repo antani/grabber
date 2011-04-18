@@ -17,4 +17,19 @@ searchstr.split.each do |t|
 end
 puts weight
 
+tstr="  		
+			A WODEHOUSE BESTIARY (P.G. WODEHOUSE COLLECTION) (Paperback)
+		 
+		 
+		 P. G. Wodehouse, P.G. Wodehouse
+		 
+	
 
+"
+name="			A WODEHOUSE BESTIARY (P.G. WODEHOUSE COLLECTION)
+"
+name=name.strip()
+i= tstr.index(name)+name.length
+puts i
+j= tstr[i..tstr.length]
+puts j.strip()

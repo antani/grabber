@@ -146,7 +146,13 @@ class Generalsearch
           #@@logger.info (price_text[i])
           #@@logger.info (author_text[i])
           #@@logger.info (name_text[i])
-          weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+          if (name_text[i] == nil && author_text[i] != nil) then
+                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+          elsif (name_text[i] !=nil && author_text[i] == nil) then
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+          else
+                weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+          end      
 
           if (cost == 1 || weight > 1) then
             price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight} 
@@ -175,7 +181,14 @@ class Generalsearch
           #@@logger.info (price_text[i])
           #@@logger.info (author_text[i])
           #@@logger.info (name_text[i])
-          weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+          if (name_text[i] == nil && author_text[i] != nil) then
+                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+          elsif (name_text[i] !=nil && author_text[i] == nil) then
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+          else
+                weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+          end      
+
 
           if (cost==1 || weight > 1) then
             price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>"http://infibeam.com"+url_text[i], :source=>'Infibeam', :weight=>weight} 
@@ -195,9 +208,11 @@ class Generalsearch
 
 
       prices=[]
+#This is the worst formed website and dangers lurk in every corner.
+      begin
       price_text = page.search("span.salePrice").map { |e| "#{e.text.tr('A-Za-z,','')}" }
       name_text = page.search("table.section a.label").map{ |e| "#{e.text}" }
-      author_text = page.search("table.section td[@width='100%']").map{ |e| "#{e.to_html}" }
+      author_text = page.search("table.section td[@width='100%']").map{ |e| "#{e.text}" }
 
 #      author_text = page.search("ul.search_result li a[@href^='/Books/search']").map {|e| "#{e.text}" }
 
@@ -212,16 +227,32 @@ class Generalsearch
 #          @@logger.info (price_text[i])
           @@logger.info (author_text[i])
           @@logger.info (name_text[i])
-#          author = author_text[i]
-#          author = author[author.index("<br />")+ "<br />".length, author.index("</td>")]
-#          @@logger.info(author)
+          author = author_text[i]
+          name = name_text[i].strip
+          search_index = author.index(name) 
+          if search_index != nil then 
+            author = author[search_index+name.length..author.length]
+          end
+          @@logger.info(author)
+          if (name_text[i] == nil && author != nil) then
+                weight,cost = find_weight(author, "#{query[:search_term]}" )
+          elsif (name_text[i] !=nil && author == nil) then
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+          else
+                weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+          end      
+
 
  #         weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
 
 #          if (cost==1 || weight > 1) then
-            price_info = {:price => price_text[i],:author=>"", :name=>name_text[i], :url=>"", :source=>'A1Books', :weight=>4} 
+            price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"", :source=>'A1Books', :weight=>weight} 
             prices.push(price_info)
 #          end
+      end
+      rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
    end
