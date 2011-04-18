@@ -18989,3 +18989,231 @@ Initializing generalsearch
 {:search_term=>"BACH GODEL"}
 Rendered book/view.html.erb within layouts/application (5.8ms)
 Completed 200 OK in 10ms (Views: 8.8ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=bach+godel&commit=Search" for 127.0.0.1 at 2011-04-18 14:15:58 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"bach godel", "commit"=>"Search"}
+Inside BookController.view
+BACH GODEL
+Initializing generalsearch
+{:search_term=>"BACH GODEL"}
+Rendered book/view.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 18ms (Views: 16.2ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=android&commit=Search" for 127.0.0.1 at 2011-04-18 14:29:16 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"android", "commit"=>"Search"}
+Inside BookController.view
+ANDROID
+Initializing generalsearch
+{:search_term=>"ANDROID"}
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/ANDROID/}, {:_id=>1})
+Book ANDROID has been queued
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: ANDROID\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4dabfd643ef44117ba000005'), "updated_at"=>2011-04-18 08:59:16 UTC, "run_at"=>2011-04-18 08:59:16 UTC, "created_at"=>2011-04-18 08:59:16 UTC}])
+Rendered book/view.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 13ms (Views: 9.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=android&commit=Search" for 127.0.0.1 at 2011-04-18 14:29:26 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"android", "commit"=>"Search"}
+Inside BookController.view
+ANDROID
+Initializing generalsearch
+{:search_term=>"ANDROID"}
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/ANDROID/}, {:_id=>1})
+Book ANDROID is already queued
+Rendered book/view.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 13ms (Views: 11.5ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=android&commit=Search" for 127.0.0.1 at 2011-04-18 14:29:31 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"android", "commit"=>"Search"}
+Inside BookController.view
+ANDROID
+Initializing generalsearch
+{:search_term=>"ANDROID"}
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/ANDROID/}, {:_id=>1})
+Book ANDROID is already queued
+Rendered book/view.html.erb within layouts/application (41.1ms)
+Completed 200 OK in 47ms (Views: 44.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=android&commit=Search" for 127.0.0.1 at 2011-04-18 14:29:50 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"android", "commit"=>"Search"}
+Inside BookController.view
+ANDROID
+Initializing generalsearch
+{:search_term=>"ANDROID"}
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/ANDROID/}, {:_id=>1})
+Book ANDROID is already queued
+Rendered book/view.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 11ms (Views: 9.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=android&commit=Search" for 127.0.0.1 at 2011-04-18 14:29:53 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"android", "commit"=>"Search"}
+Inside BookController.view
+ANDROID
+Initializing generalsearch
+{:search_term=>"ANDROID"}
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/ANDROID/}, {:_id=>1})
+Book ANDROID is already queued
+Rendered book/view.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 11ms (Views: 8.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=android&commit=Search" for 127.0.0.1 at 2011-04-18 14:49:01 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"android", "commit"=>"Search"}
+Inside BookController.view
+ANDROID
+Initializing generalsearch
+{:search_term=>"ANDROID"}
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/ANDROID/}, {:_id=>1})
+Book ANDROID is already queued
+Rendered book/view.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 11ms (Views: 9.7ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse&commit=Search" for 127.0.0.1 at 2011-04-18 18:29:26 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE
+Initializing generalsearch
+{:search_term=>"WODEHOUSE"}
+Dalli::Server#connect localhost:11211
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/WODEHOUSE/}, {:_id=>1})
+Book WODEHOUSE has been queued
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: WODEHOUSE\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4dac35af3ef4417b07000001'), "updated_at"=>2011-04-18 12:59:27 UTC, "run_at"=>2011-04-18 12:59:27 UTC, "created_at"=>2011-04-18 12:59:27 UTC}])
+Rendered book/view.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 19ms (Views: 12.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse&commit=Search" for 127.0.0.1 at 2011-04-18 18:29:44 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE
+Initializing generalsearch
+{:search_term=>"WODEHOUSE"}
+Rendered book/view.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 10ms (Views: 8.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-18 18:30:06 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 14ms (Views: 12.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=what+ho+wodehouse&commit=Search" for 127.0.0.1 at 2011-04-18 18:30:11 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"what ho wodehouse", "commit"=>"Search"}
+Inside BookController.view
+WHAT HO WODEHOUSE
+Initializing generalsearch
+{:search_term=>"WHAT HO WODEHOUSE"}
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/WHAT HO WODEHOUSE/}, {:_id=>1})
+Book WHAT HO WODEHOUSE has been queued
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: WHAT HO WODEHOUSE\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4dac35db3ef4417b07000002'), "updated_at"=>2011-04-18 13:00:11 UTC, "run_at"=>2011-04-18 13:00:11 UTC, "created_at"=>2011-04-18 13:00:11 UTC}])
+Rendered book/view.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 13ms (Views: 9.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=what+ho+wodehouse&commit=Search" for 127.0.0.1 at 2011-04-18 18:30:31 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"what ho wodehouse", "commit"=>"Search"}
+Inside BookController.view
+WHAT HO WODEHOUSE
+Initializing generalsearch
+{:search_term=>"WHAT HO WODEHOUSE"}
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/WHAT HO WODEHOUSE/}, {:_id=>1})
+Book WHAT HO WODEHOUSE is already queued
+Rendered book/view.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 11ms (Views: 8.5ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=what+ho+wodehouse&commit=Search" for 127.0.0.1 at 2011-04-18 18:30:53 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"what ho wodehouse", "commit"=>"Search"}
+Inside BookController.view
+WHAT HO WODEHOUSE
+Initializing generalsearch
+{:search_term=>"WHAT HO WODEHOUSE"}
+Rendered book/view.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=what+ho+wodehouse&commit=Search" for 127.0.0.1 at 2011-04-18 18:31:01 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"what ho wodehouse", "commit"=>"Search"}
+Inside BookController.view
+WHAT HO WODEHOUSE
+Initializing generalsearch
+{:search_term=>"WHAT HO WODEHOUSE"}
+Rendered book/view.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 10ms (Views: 8.8ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Jeeves+wodehouse&commit=Search" for 127.0.0.1 at 2011-04-18 18:46:00 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Jeeves wodehouse", "commit"=>"Search"}
+Inside BookController.view
+JEEVES WODEHOUSE
+Initializing generalsearch
+{:search_term=>"JEEVES WODEHOUSE"}
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/JEEVES WODEHOUSE/}, {:_id=>1})
+Book JEEVES WODEHOUSE has been queued
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: JEEVES WODEHOUSE\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4dac39903ef4417b07000003'), "updated_at"=>2011-04-18 13:16:00 UTC, "run_at"=>2011-04-18 13:16:00 UTC, "created_at"=>2011-04-18 13:16:00 UTC}])
+Rendered book/view.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 12ms (Views: 9.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Jeeves+wodehouse&commit=Search" for 127.0.0.1 at 2011-04-18 18:46:27 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Jeeves wodehouse", "commit"=>"Search"}
+Inside BookController.view
+JEEVES WODEHOUSE
+Initializing generalsearch
+{:search_term=>"JEEVES WODEHOUSE"}
+Rendered book/view.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 11ms (Views: 9.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Carry+on+Jeeves+wodehouse&commit=Search" for 127.0.0.1 at 2011-04-18 18:46:51 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Carry on Jeeves wodehouse", "commit"=>"Search"}
+Inside BookController.view
+CARRY ON JEEVES WODEHOUSE
+Initializing generalsearch
+{:search_term=>"CARRY ON JEEVES WODEHOUSE"}
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].find({:handler=>/CARRY ON JEEVES WODEHOUSE/}, {:_id=>1})
+Book CARRY ON JEEVES WODEHOUSE has been queued
+MONGODB isbnnetin_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: CARRY ON JEEVES WODEHOUSE\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4dac39c33ef4417b07000004'), "updated_at"=>2011-04-18 13:16:51 UTC, "run_at"=>2011-04-18 13:16:51 UTC, "created_at"=>2011-04-18 13:16:51 UTC}])
+Rendered book/view.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 18ms (Views: 13.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Carry+on+Jeeves+wodehouse&commit=Search" for 127.0.0.1 at 2011-04-18 18:48:50 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Carry on Jeeves wodehouse", "commit"=>"Search"}
+Inside BookController.view
+CARRY ON JEEVES WODEHOUSE
+Initializing generalsearch
+{:search_term=>"CARRY ON JEEVES WODEHOUSE"}
+Rendered book/view.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
