@@ -13,10 +13,12 @@ development:
 
 test:
   <<: *defaults
-  host: http://test-grabr-app.heroku.com/
+  host: localhost
   database: grbr_test
 
 # set these environment variables on your prod server
 production:
-  host: http://test-grabr-app.heroku.com/
+  uri: <%= ENV['MONGOHQ_URL'] %>
+
+  #host: http://test-grabr-app.heroku.com/
   database: grbr_production
