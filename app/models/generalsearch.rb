@@ -198,42 +198,101 @@ class Generalsearch
       end
       prices
     end
+    
+    def search_rediff(query)
+      @@logger.info("Search rediffbooks..")
+      @@logger.info(query)
+      url = "http://books.rediff.com/book/#{query[:search_term]}"
+      page = self.fetch_page(url)
+      prices=[]
+      price_text = page.search("font#book-pric").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
+      name_text = page.search("font#book-titl").map{ |e| "#{e.text} " }
+      author_text = page.search("font#book-auth").map {|e| "#{e.text}" }
+      url_text = page.search("div#prod-detail2 b a").map{|e| "#{e.text}" }
+      (0...price_text.length).each do |i|
+          #@@logger.info (price_text[i])
+          #@@logger.info (author_text[i])
+          #@@logger.info (url_text[i])
+          if (name_text[i] == nil && author_text[i] != nil) then
+                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+          elsif (name_text[i] !=nil && author_text[i] == nil) then
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+          else
+                weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+          end      
 
-    def search_a1books(query)
+
+          if (cost==1 || weight > 1) then
+            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>url_text[i], :source=>'Rediff', :weight=>weight} 
+            prices.push(price_info)
+          end
+ 
+      end
+      prices
+   end
+   # Dont know why but we keep on getting execution expired from this site.
+   def search_indiaplaza(query)
+      @@logger.info("Search indiaplaza..")
+      @@logger.info(query)
+      prices=[]
+
+      begin
+      url = "http://www.indiaplaza.in/search.aspx?catname=Books&srchkey=&srchVal=#{query[:search_term]}"
+      page = self.fetch_page(url)
+
+      price_text = page.search("div.tier1box2 ul li:first-child span").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
+      name_text = page.search("ul.bookdetails li a").map{ |e| "#{e.text} " }
+      author_text = page.search("ul.bookdetails li:nth-child(2)").map {|e| "#{e.text}" }
+      url_text = page.search("ul.bookdetails li a").map{|e| "#{e.text}" }
+      (0...price_text.length).each do |i|
+          @@logger.info (price_text[i])
+          @@logger.info (author_text[i])
+          @@logger.info (name_text[i])
+          @@logger.info (url_text[i])
+          author_text[i] = author_text[i].gsub('Author:', '')
+
+          if (name_text[i] == nil && author_text[i] != nil) then
+                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+          elsif (name_text[i] !=nil && author_text[i] == nil) then
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+          else
+                weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+          end      
+
+
+          if (cost==1 || weight > 1) then
+            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>url_text[i], :source=>'Indiaplaza', :weight=>weight} 
+            prices.push(price_info)
+          end
+ 
+      end
+      rescue => ex
+         #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+  end
+
+      #This is the worst formed website and dangers lurk in every corner.
+   def search_a1books(query)
       @@logger.info("Search a1books..")
       @@logger.info(query)
       url ="http://www.a1books.co.in/searchresult.do?searchType=books&keyword=#{query[:search_term]}&fromSearchBox=Y&partnersite=a1india&imageField=Go"
-
       page = self.fetch_page(url)
-
-
       prices=[]
-#This is the worst formed website and dangers lurk in every corner.
       begin
       price_text = page.search("span.salePrice").map { |e| "#{e.text.tr('A-Za-z,','')}" }
       name_text = page.search("table.section a.label").map{ |e| "#{e.text}" }
       author_text = page.search("table.section td[@width='100%']").map{ |e| "#{e.text}" }
 
-#      author_text = page.search("ul.search_result li a[@href^='/Books/search']").map {|e| "#{e.text}" }
-
-#      url_text = page.search("h2.simple a[@href]").map{|e| e['href']}
-
-#       @@logger.info(name_text )
-#       @@logger.info(price_text)
-#       @@logger.info(author_text)
-#       @@logger.info("--------------------------------------------------------------------------------")
-
+    
       (0...price_text.length).each do |i|
-#          @@logger.info (price_text[i])
-          @@logger.info (author_text[i])
-          @@logger.info (name_text[i])
           author = author_text[i]
           name = name_text[i].strip
           search_index = author.index(name) 
           if search_index != nil then 
             author = author[search_index+name.length..author.length]
           end
-          @@logger.info(author)
           if (name_text[i] == nil && author != nil) then
                 weight,cost = find_weight(author, "#{query[:search_term]}" )
           elsif (name_text[i] !=nil && author == nil) then
@@ -242,13 +301,10 @@ class Generalsearch
                 weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
           end      
 
-
- #         weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
-
-#          if (cost==1 || weight > 1) then
+          if (cost==1 || weight > 1) then
             price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"", :source=>'A1Books', :weight=>weight} 
             prices.push(price_info)
-#          end
+          end
       end
       rescue => ex
         #Just ignore this error
@@ -256,5 +312,7 @@ class Generalsearch
       end
       prices
    end
+
   end
+
 end

@@ -169,7 +169,8 @@ table.price_list td
     float: left;
     text-align:center;
     position: relative;
-    z-index: 3;
+    width: 700px;
+    padding: 10px;
 }
 .searchwrapper_inner
 {
@@ -187,7 +188,9 @@ table.price_list td
     border-color: #FFFFFF;
     height: 2.1em;
     padding: 0.2em;
+    padding-bottom: 10px;
     position: relative;  
+    text-align: center;
 }
 .searchsubmit
 {
@@ -214,7 +217,10 @@ background-image: url("http://l1.yimg.com/a/i/ww/met/th/slate/gsprite_pg_slate_2
     float: left;
     height: 1.5em;
     padding: 0.3em 0.25em 0.2em 0.2em;
-    width: 31.5em;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+    width: 55.5em;
 }
 .buttonwrapper
 {
@@ -222,9 +228,10 @@ background-image: url("http://l1.yimg.com/a/i/ww/met/th/slate/gsprite_pg_slate_2
     border-style: solid;
     border: 1px solid #BD9E43;
     float: left;
-    margin-left: 0.3em;
     overflow: hidden;
     padding: 0;
+    text-align: center;
+    margin-left: 15px;
 }
 .price
 {
@@ -257,3 +264,57 @@ background-image: url("http://l1.yimg.com/a/i/ww/met/th/slate/gsprite_pg_slate_2
 #container dl {margin:0 0 1.5em 0;margin-top:0.5em;}
 #container dl dt {font-weight:bold;}
 #container dd {margin-left:1.5em;}
+
+
+
+
+.drop-shadow {
+   position:relative;
+   width:90%;
+   background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.drop-shadow:before,
+.drop-shadow:after {
+   content:"";
+   position:absolute;
+   z-index:-1;
+   bottom:15px;
+   left:10px;
+   width:50%;
+   height:20%;
+   max-width:300px;
+   -webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+   -moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+   box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+   -webkit-transform:rotate(-3deg);
+   -moz-transform:rotate(-3deg);
+   -o-transform:rotate(-3deg);
+   transform:rotate(-3deg);
+}
+
+.drop-shadow:after{
+   right:10px;
+   left:auto;
+   -webkit-transform:rotate(3deg);
+   -moz-transform:rotate(3deg);
+   -o-transform:rotate(3deg);
+   transform:rotate(3deg);
+ }
+
+
+ #thing {
+   padding: 10px;
+   border-radius: 5px;
+
+  /* HOVER OFF */
+   -webkit-transition: padding 2s;
+}
+
+#thing:hover {
+   padding: 20px;
+   border-radius: 15px;
+
+  /* HOVER ON */
+   -webkit-transition: border-radius 2s;
+}
