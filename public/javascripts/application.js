@@ -12,7 +12,7 @@ $(document).ready(function() {
       'opacity' : 0.08,
       'fallback' : '',
       'monochrome' : false
-    }).css('background-color', '#EDEBDE');
+    }).css('background-color', '#a2a096');
 
 
     var review_quote = "<div class='item_review_title_left'><img src='http://static.fkcdn.com/www/391/images/review_image.png' alt='*'></div>";

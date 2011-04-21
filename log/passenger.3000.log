@@ -20026,3 +20026,90 @@ Initializing generalsearch
 {:search_term=>"HEAD FIRST JAVA"}
 Rendered book/view.html.erb within layouts/application (6.2ms)
 Completed 200 OK in 10ms (Views: 9.3ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-21 20:52:45 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 13ms (Views: 12.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse&commit=Search" for 127.0.0.1 at 2011-04-21 20:53:10 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE
+Initializing generalsearch
+{:search_term=>"WODEHOUSE"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/WODEHOUSE/}, {:_id=>1})
+Book WODEHOUSE has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: WODEHOUSE\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db04bde3ef4410ce4000001'), "updated_at"=>2011-04-21 15:23:10 UTC, "run_at"=>2011-04-21 15:23:10 UTC, "created_at"=>2011-04-21 15:23:10 UTC}])
+Rendered book/view.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 16ms (Views: 11.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse&commit=Search" for 127.0.0.1 at 2011-04-21 20:53:28 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE
+Initializing generalsearch
+{:search_term=>"WODEHOUSE"}
+Rendered book/view.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 11ms (Views: 10.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-21 21:03:27 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 8ms (Views: 7.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-21 21:03:45 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-21 21:05:09 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 9ms (Views: 7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-21 21:06:35 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 8ms (Views: 7.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Lord+of+the+rings&commit=Search" for 127.0.0.1 at 2011-04-21 21:07:46 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Lord of the rings", "commit"=>"Search"}
+Inside BookController.view
+LORD OF THE RINGS
+Initializing generalsearch
+{:search_term=>"LORD OF THE RINGS"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/LORD OF THE RINGS/}, {:_id=>1})
+Book LORD OF THE RINGS has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: LORD OF THE RINGS\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db04f4a3ef4410ce4000002'), "updated_at"=>2011-04-21 15:37:46 UTC, "run_at"=>2011-04-21 15:37:46 UTC, "created_at"=>2011-04-21 15:37:46 UTC}])
+Rendered book/view.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 16ms (Views: 11.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Lord+of+the+rings&commit=Search" for 127.0.0.1 at 2011-04-21 21:08:03 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Lord of the rings", "commit"=>"Search"}
+Inside BookController.view
+LORD OF THE RINGS
+Initializing generalsearch
+{:search_term=>"LORD OF THE RINGS"}
+Rendered book/view.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 11ms (Views: 9.7ms)
