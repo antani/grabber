@@ -171,6 +171,7 @@ table.price_list td
     position: relative;
     width: 700px;
     padding: 10px;
+    background-color: #a7a7a7;
 }
 .searchwrapper_inner
 {
@@ -183,9 +184,6 @@ table.price_list td
     padding-bottom: 0.22em;
     padding-right: 0.22em;
     background-repeat: repeat-x;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #FFFFFF;
     height: 2.1em;
     padding: 0.2em;
     padding-bottom: 10px;
@@ -271,7 +269,7 @@ background-image: url("http://l1.yimg.com/a/i/ww/met/th/slate/gsprite_pg_slate_2
 .drop-shadow {
    position:relative;
    width:90%;
-   background: none repeat scroll 0 0 #FFFFFF;
+   background: none repeat scroll 0 0 #7f7d75;
 }
 
 .drop-shadow:before,

@@ -133,32 +133,37 @@ class Generalsearch
       @@logger.info(query)
       url = "http://www.flipkart.com/search.php?query=#{query[:search_term]}"
       prices=[]
-      page = self.fetch_page(url)
-      price_text = page.search(".price").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
-      name_text = page.search("div.right h2 a b").map{ |e| "#{e.text} " }
-      author_text = page.search("span.head-tail a:first-child").map {|e| "#{e.text}" }
-      url_text = page.search("div.right h2 a[@href]").map{|e| e['href']}
+      begin
+            page = self.fetch_page(url)
+            price_text = page.search(".price").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
+            name_text = page.search("div.right h2 a b").map{ |e| "#{e.text} " }
+            author_text = page.search("span.head-tail a:first-child").map {|e| "#{e.text}" }
+            url_text = page.search("div.right h2 a[@href]").map{|e| e['href']}
 #        @@logger.info(name_text )
 #        @@logger.info(price_text)
 #        @@logger.info(author_text)
 #        @@logger.info("--------------------------------------------------------------------------------")
-      (0...price_text.length).each do |i|
-          #@@logger.info (price_text[i])
-          #@@logger.info (author_text[i])
-          #@@logger.info (name_text[i])
-          if (name_text[i] == nil && author_text[i] != nil) then
-                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-          elsif (name_text[i] !=nil && author_text[i] == nil) then
-                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-          else
-                weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
-          end      
+            (0...price_text.length).each do |i|
+                #@@logger.info (price_text[i])
+                #@@logger.info (author_text[i])
+                #@@logger.info (name_text[i])
+                if (name_text[i] == nil && author_text[i] != nil) then
+                      weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author_text[i] == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+                end      
 
-          if (cost == 1 || weight > 1) then
-            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight} 
-            prices.push(price_info)
-          end
-        end
+                if (cost == 1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight} 
+                  prices.push(price_info)
+                end
+              end
+      rescue => ex
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+ 
         prices
     end
     
@@ -167,6 +172,7 @@ class Generalsearch
       @@logger.info(query)
       url = "http://www.infibeam.com/Books/search?q=#{query[:search_term]}"
       prices=[]
+      begin
       page = self.fetch_page(url)
       price_text = page.search("div.price b").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
       name_text = page.search("ul.search_result h2.simple a").map{ |e| "#{e.text} " }
@@ -196,6 +202,9 @@ class Generalsearch
           end
  
       end
+      rescue => ex
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
       prices
     end
     
@@ -205,29 +214,35 @@ class Generalsearch
       url = "http://books.rediff.com/book/#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
-      price_text = page.search("font#book-pric").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
-      name_text = page.search("font#book-titl").map{ |e| "#{e.text} " }
-      author_text = page.search("font#book-auth").map {|e| "#{e.text}" }
-      url_text = page.search("div#prod-detail2 b a").map{|e| "#{e.text}" }
-      (0...price_text.length).each do |i|
-          #@@logger.info (price_text[i])
-          #@@logger.info (author_text[i])
-          #@@logger.info (url_text[i])
-          if (name_text[i] == nil && author_text[i] != nil) then
-                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-          elsif (name_text[i] !=nil && author_text[i] == nil) then
-                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-          else
-                weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
-          end      
+      begin
+              price_text = page.search("font#book-pric").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
+              name_text = page.search("font#book-titl").map{ |e| "#{e.text} " }
+              author_text = page.search("font#book-auth").map {|e| "#{e.text}" }
+              url_text = page.search("div#prod-detail2 b a[@href]").map{|e| e['href'] }
+              (0...price_text.length).each do |i|
+                  #@@logger.info (price_text[i])
+                  #@@logger.info (author_text[i])
+                  #@@logger.info (url_text[i])
+                  if (name_text[i] == nil && author_text[i] != nil) then
+                        weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                  elsif (name_text[i] !=nil && author_text[i] == nil) then
+                        weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                  else
+                        weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+                  end      
 
 
-          if (cost==1 || weight > 1) then
-            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>url_text[i], :source=>'Rediff', :weight=>weight} 
-            prices.push(price_info)
-          end
- 
+                  if (cost==1 || weight > 1) then
+                    price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>url_text[i], :source=>'Rediff', :weight=>weight} 
+                    prices.push(price_info)
+                  end
+         
+              end
+      rescue => ex
+         #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
       end
+
       prices
    end
    # Dont know why but we keep on getting execution expired from this site.
@@ -235,6 +250,7 @@ class Generalsearch
       @@logger.info("Search indiaplaza..")
       @@logger.info(query)
       prices=[]
+#a[@href]").map{|e| e['href']}
 
       begin
       url = "http://www.indiaplaza.in/search.aspx?catname=Books&srchkey=&srchVal=#{query[:search_term]}"
@@ -284,6 +300,7 @@ class Generalsearch
       price_text = page.search("span.salePrice").map { |e| "#{e.text.tr('A-Za-z,','')}" }
       name_text = page.search("table.section a.label").map{ |e| "#{e.text}" }
       author_text = page.search("table.section td[@width='100%']").map{ |e| "#{e.text}" }
+      url_text = page.search("ul.bookdetails li a").map{|e| "#{e.text}" }
 
     
       (0...price_text.length).each do |i|
@@ -312,6 +329,362 @@ class Generalsearch
       end
       prices
    end
+     
+   def search_nbcindia(query)
+      @@logger.info("Search nbcindia..")
+      @@logger.info(query)
+ 
+      url = "http://www.nbcindia.com/Search-books.asp?q=#{query[:search_term]}"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("div.fieldset ul li:nth-child(2) font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
+            name_text = page.search("div.fieldset ul li:first-child b").map{ |e| "#{e.text}" }
+            author_text = page.search("div.fieldset ul li:first-child a:nth-child(2)").map{ |e| "#{e.text}" }
+            url_text = page.search("div.fieldset ul li:first-child a:first-child[@href]").map{|e| e['href'] }
+#a[@href]").map{|e| e['href']}
+
+            
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"http://www.nbcindia.com/"+url_text[i], :source=>'NBC India', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+   end
+
+   def search_pustak(query)
+      @@logger.info("Search pustak..")
+      @@logger.info(query)
+      url="http://pustak.co.in/pustak/books/search?searchType=book&q=#{query[:search_term]}&page=1&type=genericSearch"
+      #url = "http://www.pustak.co.in/pustak/books/product?bookId=#{query[:search_term]}"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
+            name_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child").map{ |e| "#{e.text}" }
+            author_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span#author:first-child").map{ |e| "#{e.text}" }
+            url_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+
+   end
+   def dont_search_coralhub(isbn)
+      @@logger.info("Search coralhub..")
+      @@logger.info(query)
+      url = "http://www.coralhub.com/SearchResults.aspx?pindex=1&cat=0&search=#{query[:search_term]}"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
+            name_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child").map{ |e| "#{e.text}" }
+            author_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span#author:first-child").map{ |e| "#{e.text}" }
+            url_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"http://pustak.co.in"+url_text[i], :source=>'Coral Hub', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+   end
+
+   def search_ebay(query)
+      @@logger.info("Search ebay..")
+      @@logger.info(query)
+      url="http://shop.ebay.in/?_from=R40&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=See-All-Categories"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("div#ResultSet table.li td.prc").map { |e| "#{e.text.tr('A-Za-z,','')}" }
+            name_text = page.search("div#ResultSet table.li td:nth-child(2) a").map{ |e| "#{e.text}" }
+            url_text = page.search("div#ResultSet table.li td:nth-child(2) a[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                price_sub = price_text[i]
+                search_index = name_text[i].index('by')
+                search_index = search_index + 'by'.length
+                name = name_text[i]
+                author = name[search_index..name.length]
+                name = name[0..search_index-'by'.length]
+                if (name == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name !=nil && author == nil) then
+                      weight,cost = find_weight(name, "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_sub[1..price_sub.length],:author=>author, :name=>name, :url=>url_text[i], :source=>'eBay India', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+ 
+   end
+
+
+   def search_bookadda(query)
+      @@logger.info("Search Bookadda..")
+      @@logger.info(query)
+      url = "http://www.bookadda.com/search/#{query[:search_term]}"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("div.searchpagebooktitle h2").map{ |e| "#{e.text}" }
+            author_text = page.search("span.searchbookauthor a").map{ |e| "#{e.text}" }
+            url_text = page.search("div.searchpagebooktitle a:first-child[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>url_text[i], :source=>'Book Adda', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+ 
+   end
+
+   def search_tradus(query)
+      @@logger.info("Search Tradeus..")
+      @@logger.info(query)
+      url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?solrsort=fs_uc_sell_price asc"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("div.search_prod_col tr td:nth-child(2) a:first-child").map{ |e| "#{e.text}" }
+            #There is no author text in the search result
+            #author_text = page.search("div.searchpagebooktitle a:first-child").map{ |e| "#{e.text}" }
+            url_text = page.search("div.search_prod_col tr td:nth-child(2) a:first-child a[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>"", :name=>name_text[i], :url=>"http://tradeus.in/"+url_text[i], :source=>'Trade us', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+   
+   end
+   def search_jumadi(query)
+      @@logger.info("Search Jumadi..")
+      @@logger.info(query)
+      url = "http://www.jumadi.in/#{query[:search_term]}"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("div.catDesc span#our_price_display").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("div.catDesc span.prodTitle a").map{ |e| "#{e.text}" }
+            author_text = page.search("div.catDesc span.prodAuthor a").map{ |e| "#{e.text}" }
+            url_text = page.search("div.catDesc span.prodTitle a[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>url_text[i], :source=>'Jumadi', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+   end
+
+   def dont_search_coinjoos(query)
+      @@logger.info("Search Coinjoos..")
+      @@logger.info(query)
+      url = "http://www.coinjoos.com/product/books/#{query[:search_term]}/1/"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("div.catDesc span#our_price_display").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("div.catDesc span.prodTitle a").map{ |e| "#{e.text}" }
+            author_text = page.search("div.catDesc span.prodAuthor a").map{ |e| "#{e.text}" }
+            url_text = page.search("div.catDesc span.prodTitle a[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>url_text[i], :source=>'Coinjoos', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+    end
+    def dont_search_friendsofbooks(isbn)
+      @@logger.info("Search Friends of books..")
+      @@logger.info(query)
+      url = "http://www.friendsofbooks.com/store/index.php?main_page=advanced_search_result&search_in_description=1&keyword=#{query[:search_term]}"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            common_text = page.search ("div#productListing tr td:nth-child(2) h2:first-child").map{ |e| "#{e.text}" }
+            price_text = page.search("span.productSpecialPrice").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+         #a[@href]").map{|e| e['href']}
+
+            (0...common_text.length).each do |i|
+                txts = common_text[i].split('by')
+
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>url_text[i], :source=>'Friends of Books', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+    end
+
+    def search_crossword(query)
+      @@logger.info("Search Crossword..")
+      @@logger.info(query)
+      url = "http://www.crossword.in/books/search?q=#{query[:search_term]}"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("ul#search-result-items li span.variant-final-price").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("ul#search-result-items li span.variant-title").map{ |e| "#{e.text}" }
+            author_text = page.search("ul#search-result-items li span.ctbr-name").map{ |e| "#{e.text}" }
+            url_text = page.search("ul#search-result-items li span.variant-title a[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"http://crossword.in/"+url_text[i], :source=>'Crossword', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+ 
+    end
+ 
+
+
 
   end
 
