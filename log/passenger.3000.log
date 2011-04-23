@@ -21225,3 +21225,847 @@ Initializing generalsearch
 {:search_term=>"TOO BIG TO FAIL"}
 Rendered book/view.html.erb within layouts/application (6.9ms)
 Completed 200 OK in 11ms (Views: 9.8ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:32:07 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 16ms (Views: 14.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:33:35 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 8ms (Views: 6.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:34:15 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 8ms (Views: 6.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:36:05 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 8ms (Views: 7.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:37:51 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:40:07 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:40:44 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 9ms (Views: 7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:41:27 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 8ms (Views: 6.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:42:26 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 9ms (Views: 7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:43:13 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:43:50 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 9ms (Views: 7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:44:37 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 9ms (Views: 7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:45:09 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 8ms (Views: 7.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 12:45:22 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 19:43:44 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 15ms (Views: 13.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:08:04 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:08:40 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 12ms (Views: 10.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:15:06 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:15:54 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 14ms (Views: 11.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:16:45 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:18:03 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:18:37 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 12ms (Views: 10.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:19:08 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 10ms (Views: 8.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:19:35 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:31:42 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:34:53 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 10ms (Views: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:39:16 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 11ms (Views: 9.4ms)
+
+
+Started GET "/images/flags/India.png" for 127.0.0.1 at 2011-04-23 20:39:17 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/India.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/India.png" for 127.0.0.1 at 2011-04-23 20:39:17 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/India.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:39:42 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 47ms (Views: 45.9ms)
+
+
+Started GET "/images/flags/png/India.png" for 127.0.0.1 at 2011-04-23 20:39:43 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/png/India.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/png/India.png" for 127.0.0.1 at 2011-04-23 20:39:43 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/png/India.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/flags/png/India.png" for 127.0.0.1 at 2011-04-23 20:40:05 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/png/India.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:40:18 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:41:02 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:42:18 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:43:07 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 20:43:24 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 10ms (Views: 8.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:11:53 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:12:11 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 47ms (Views: 45.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:14:10 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 11ms (Views: 9.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:15:03 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:15:33 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 47ms (Views: 9.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:15:33 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:15:34 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:15:41 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:19:06 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 11ms (Views: 8.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:19:17 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:19:17 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:19:18 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:20:40 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:20:40 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:20:41 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:22:22 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:22:33 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:22:33 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:22:34 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:23:43 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:24:19 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:25:06 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:25:37 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 47ms (Views: 45.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:25:37 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:25:38 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:27:48 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:28:05 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:28:05 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:28:06 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:34:57 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 8.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:34:57 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:34:57 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:35:56 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:35:57 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:35:57 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:37:03 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:37:16 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:37:17 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-23 21:37:18 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 21:37:54 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 10ms (Views: 8.2ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=algorithms+cormen&commit=Search" for 127.0.0.1 at 2011-04-23 21:40:07 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"algorithms cormen", "commit"=>"Search"}
+Inside BookController.view
+ALGORITHMS CORMEN
+Initializing generalsearch
+{:search_term=>"ALGORITHMS CORMEN"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/ALGORITHMS CORMEN/}, {:_id=>1})
+Book ALGORITHMS CORMEN has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: ALGORITHMS CORMEN\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db2f9df3ef4410a6c000001'), "updated_at"=>2011-04-23 16:10:07 UTC, "run_at"=>2011-04-23 16:10:07 UTC, "created_at"=>2011-04-23 16:10:07 UTC}])
+Rendered book/view.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 19ms (Views: 14.2ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=algorithms+cormen&commit=Search" for 127.0.0.1 at 2011-04-23 21:40:48 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"algorithms cormen", "commit"=>"Search"}
+Inside BookController.view
+ALGORITHMS CORMEN
+Initializing generalsearch
+{:search_term=>"ALGORITHMS CORMEN"}
+Rendered book/view.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 12ms (Views: 10.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-23 21:42:00 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE RIGHT HO
+Initializing generalsearch
+{:search_term=>"WODEHOUSE RIGHT HO"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/WODEHOUSE RIGHT HO/}, {:_id=>1})
+Book WODEHOUSE RIGHT HO has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: WODEHOUSE RIGHT HO\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db2fa513ef4410a6c000002'), "updated_at"=>2011-04-23 16:12:01 UTC, "run_at"=>2011-04-23 16:12:01 UTC, "created_at"=>2011-04-23 16:12:01 UTC}])
+Rendered book/view.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 23ms (Views: 19.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-23 21:42:31 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE RIGHT HO
+Initializing generalsearch
+{:search_term=>"WODEHOUSE RIGHT HO"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/WODEHOUSE RIGHT HO/}, {:_id=>1})
+Book WODEHOUSE RIGHT HO is already queued
+Rendered book/view.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 13ms (Views: 10.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-23 21:43:36 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE RIGHT HO
+Initializing generalsearch
+{:search_term=>"WODEHOUSE RIGHT HO"}
+Rendered book/view.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 12ms (Views: 10.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+&commit=Search" for 127.0.0.1 at 2011-04-23 21:46:07 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse ", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE 
+Initializing generalsearch
+{:search_term=>"WODEHOUSE "}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/WODEHOUSE /}, {:_id=>1})
+Book WODEHOUSE  has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: \"WODEHOUSE \"\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db2fb473ef4410a6c000003'), "updated_at"=>2011-04-23 16:16:07 UTC, "run_at"=>2011-04-23 16:16:07 UTC, "created_at"=>2011-04-23 16:16:07 UTC}])
+Rendered book/view.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 12ms (Views: 9.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+&commit=Search" for 127.0.0.1 at 2011-04-23 21:47:16 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse ", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE 
+Initializing generalsearch
+{:search_term=>"WODEHOUSE "}
+Rendered book/view.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 12ms (Views: 10.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-23 21:47:51 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE WHAT HO
+Initializing generalsearch
+{:search_term=>"WODEHOUSE WHAT HO"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/WODEHOUSE WHAT HO/}, {:_id=>1})
+Book WODEHOUSE WHAT HO has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: WODEHOUSE WHAT HO\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db2fbaf3ef4410a6c000004'), "updated_at"=>2011-04-23 16:17:51 UTC, "run_at"=>2011-04-23 16:17:51 UTC, "created_at"=>2011-04-23 16:17:51 UTC}])
+Rendered book/view.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 13ms (Views: 9.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-23 21:48:29 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+WODEHOUSE WHAT HO
+Initializing generalsearch
+{:search_term=>"WODEHOUSE WHAT HO"}
+Rendered book/view.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 11ms (Views: 9.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=the+gift&commit=Search" for 127.0.0.1 at 2011-04-23 21:48:54 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"the gift", "commit"=>"Search"}
+Inside BookController.view
+THE GIFT
+Initializing generalsearch
+{:search_term=>"THE GIFT"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/THE GIFT/}, {:_id=>1})
+Book THE GIFT has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: THE GIFT\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db2fbee3ef4410a6c000005'), "updated_at"=>2011-04-23 16:18:54 UTC, "run_at"=>2011-04-23 16:18:54 UTC, "created_at"=>2011-04-23 16:18:54 UTC}])
+Rendered book/view.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 14ms (Views: 10.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=the+gift&commit=Search" for 127.0.0.1 at 2011-04-23 21:49:23 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"the gift", "commit"=>"Search"}
+Inside BookController.view
+THE GIFT
+Initializing generalsearch
+{:search_term=>"THE GIFT"}
+Rendered book/view.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 12ms (Views: 10.8ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=blandings+castle&commit=Search" for 127.0.0.1 at 2011-04-23 21:50:34 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"blandings castle", "commit"=>"Search"}
+Inside BookController.view
+BLANDINGS CASTLE
+Initializing generalsearch
+{:search_term=>"BLANDINGS CASTLE"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/BLANDINGS CASTLE/}, {:_id=>1})
+Book BLANDINGS CASTLE has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: BLANDINGS CASTLE\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db2fc523ef4410a6c000006'), "updated_at"=>2011-04-23 16:20:34 UTC, "run_at"=>2011-04-23 16:20:34 UTC, "created_at"=>2011-04-23 16:20:34 UTC}])
+Rendered book/view.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 17ms (Views: 13.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=blandings+castle&commit=Search" for 127.0.0.1 at 2011-04-23 21:50:55 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"blandings castle", "commit"=>"Search"}
+Inside BookController.view
+BLANDINGS CASTLE
+Initializing generalsearch
+{:search_term=>"BLANDINGS CASTLE"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/BLANDINGS CASTLE/}, {:_id=>1})
+Book BLANDINGS CASTLE is already queued
+Rendered book/view.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 12ms (Views: 9.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=blandings+castle&commit=Search" for 127.0.0.1 at 2011-04-23 21:51:07 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"blandings castle", "commit"=>"Search"}
+Inside BookController.view
+BLANDINGS CASTLE
+Initializing generalsearch
+{:search_term=>"BLANDINGS CASTLE"}
+Rendered book/view.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 11ms (Views: 9.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=bourne+identity&commit=Search" for 127.0.0.1 at 2011-04-23 21:51:32 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"bourne identity", "commit"=>"Search"}
+Inside BookController.view
+BOURNE IDENTITY
+Initializing generalsearch
+{:search_term=>"BOURNE IDENTITY"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/BOURNE IDENTITY/}, {:_id=>1})
+Book BOURNE IDENTITY has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: BOURNE IDENTITY\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db2fc8c3ef4410a6c000007'), "updated_at"=>2011-04-23 16:21:32 UTC, "run_at"=>2011-04-23 16:21:32 UTC, "created_at"=>2011-04-23 16:21:32 UTC}])
+Rendered book/view.html.erb within layouts/application (44.6ms)
+Completed 200 OK in 51ms (Views: 48.2ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=bourne+identity&commit=Search" for 127.0.0.1 at 2011-04-23 21:52:02 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"bourne identity", "commit"=>"Search"}
+Inside BookController.view
+BOURNE IDENTITY
+Initializing generalsearch
+{:search_term=>"BOURNE IDENTITY"}
+Rendered book/view.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 11ms (Views: 9.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=the+afghan+forsyth&commit=Search" for 127.0.0.1 at 2011-04-23 21:52:54 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"the afghan forsyth", "commit"=>"Search"}
+Inside BookController.view
+THE AFGHAN FORSYTH
+Initializing generalsearch
+{:search_term=>"THE AFGHAN FORSYTH"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/THE AFGHAN FORSYTH/}, {:_id=>1})
+Book THE AFGHAN FORSYTH has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: THE AFGHAN FORSYTH\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db2fcde3ef4410a6c000008'), "updated_at"=>2011-04-23 16:22:54 UTC, "run_at"=>2011-04-23 16:22:54 UTC, "created_at"=>2011-04-23 16:22:54 UTC}])
+Rendered book/view.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 22ms (Views: 18.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=the+afghan+forsyth&commit=Search" for 127.0.0.1 at 2011-04-23 21:53:27 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"the afghan forsyth", "commit"=>"Search"}
+Inside BookController.view
+THE AFGHAN FORSYTH
+Initializing generalsearch
+{:search_term=>"THE AFGHAN FORSYTH"}
+Rendered book/view.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 12ms (Views: 10.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=the+afghan+forsyth&commit=Search" for 127.0.0.1 at 2011-04-23 21:54:21 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"the afghan forsyth", "commit"=>"Search"}
+Inside BookController.view
+THE AFGHAN FORSYTH
+Initializing generalsearch
+{:search_term=>"THE AFGHAN FORSYTH"}
+Rendered book/view.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 11ms (Views: 9.4ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/view?utf8=%E2%9C%93&q=the+afghan+forsyth&commit=Search" for 127.0.0.1 at 2011-04-23 22:00:54 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"the afghan forsyth", "commit"=>"Search"}
+Inside BookController.view
+THE AFGHAN FORSYTH
+Initializing generalsearch
+{:search_term=>"THE AFGHAN FORSYTH"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/THE AFGHAN FORSYTH/}, {:_id=>1})
+Book THE AFGHAN FORSYTH has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: THE AFGHAN FORSYTH\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db2febe3ef441169b000001'), "updated_at"=>2011-04-23 16:30:54 UTC, "run_at"=>2011-04-23 16:30:54 UTC, "created_at"=>2011-04-23 16:30:54 UTC}])
+Rendered book/view.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 15ms (Views: 9.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=the+afghan+forsyth&commit=Search" for 127.0.0.1 at 2011-04-23 22:01:26 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"the afghan forsyth", "commit"=>"Search"}
+Inside BookController.view
+THE AFGHAN FORSYTH
+Initializing generalsearch
+{:search_term=>"THE AFGHAN FORSYTH"}
+Rendered book/view.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 10ms (Views: 9.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=frederick+forsyth&commit=Search" for 127.0.0.1 at 2011-04-23 22:02:39 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"frederick forsyth", "commit"=>"Search"}
+Inside BookController.view
+FREDERICK FORSYTH
+Initializing generalsearch
+{:search_term=>"FREDERICK FORSYTH"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/FREDERICK FORSYTH/}, {:_id=>1})
+Book FREDERICK FORSYTH has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: FREDERICK FORSYTH\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db2ff273ef441169b000002'), "updated_at"=>2011-04-23 16:32:39 UTC, "run_at"=>2011-04-23 16:32:39 UTC, "created_at"=>2011-04-23 16:32:39 UTC}])
+Rendered book/view.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 17ms (Views: 12.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=frederick+forsyth&commit=Search" for 127.0.0.1 at 2011-04-23 22:03:12 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"frederick forsyth", "commit"=>"Search"}
+Inside BookController.view
+FREDERICK FORSYTH
+Initializing generalsearch
+{:search_term=>"FREDERICK FORSYTH"}
+Rendered book/view.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 13ms (Views: 11.2ms)

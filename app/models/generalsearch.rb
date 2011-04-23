@@ -453,10 +453,15 @@ class Generalsearch
             (0...price_text.length).each do |i|
                 price_sub = price_text[i]
                 search_index = name_text[i].index('by')
-                search_index = search_index + 'by'.length
-                name = name_text[i]
-                author = name[search_index..name.length]
-                name = name[0..search_index-'by'.length]
+                if search_index != nil then
+                    search_index = search_index + 'by'.length
+                    name = name_text[i]
+                    author = name[search_index..name.length]
+                    name = name[0..search_index-'by'.length]
+                else
+                    author = nil
+                    name = name_text[i]
+                end
                 if (name == nil && author != nil) then
                       weight,cost = find_weight(author, "#{query[:search_term]}" )
                 elsif (name !=nil && author == nil) then

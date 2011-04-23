@@ -4,8 +4,10 @@
 <% end %>
 
 <% content_for :header do %>
-  <img src='images/cheapr_S.png'/>
-<% end %>
+ <img src='images/cheapr_S.png'/>
+</br>
+
+ <% end %>
 
 <div class="searchwrapper drop-shadow curved curved-hz-1">
   <div class="searchwrapper-inner">
@@ -15,10 +17,11 @@
               <span class="buttonwrapper">
                 <%= submit_tag("Search", :class=>"searchsubmit") %>
               </span>  
-          <% end %>
+              <div id="searching_from"><img src='images/flags/<%=cookies[:country]%>.png'></div>
+            <% end %>
     </div>  
 <a href="#" class="primary button pill button">Books</a>
 <a href="#" class="pill button">Movies</a>
-<a href="#" class="pill button">Mobiles</a>
+<a href="#" class="pill button">Mobiles</a></br>
   </div>
 </div>
