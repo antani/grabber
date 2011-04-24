@@ -3,43 +3,50 @@
 
 
 $(document).ready(function() {
+
+   
+
     $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
+
     $('body').noisy({
       'intensity' : 1,
       'size' : 200,
       'opacity' : 0.08,
       'fallback' : '',
       'monochrome' : false
-    }).css('background-color', '#a2a096');
+    }).css('background-color', '#E8E8E2');
 
-// if the browser supports the w3c geo api
+$("#search_link").click( function()
+	{
+		$('#searchsubmit_btn').click();
+	});	
 
-if(readCookie("country")==null)
-{
-        
-        if(navigator.geolocation){
+$('.btn').append($('<span />').addClass('helper'));
 
-	  // get the current position
-	  navigator.geolocation.getCurrentPosition(
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+                        
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+                        
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
 
-	  // if this was successful, get the latitude and longitude
-	  function(position){
-	    var lat = position.coords.latitude;
-	    var lon = position.coords.longitude;
-	    yqlgeo.get([lat,lon],function(o){
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
 
-	       {  	  	
-		  country = o.place.country.content;
-		  createCookie("country",country,1);
-	       }
-	    })
-	  },
-	  // if there was an error
-	  function(error){
-		createCookie("country","USA",1);
-	  });
-	}
-}
+
+            
+
 function createCookie(name,value,days) {
 	if (days) {
 		var date = new Date();
@@ -65,21 +72,48 @@ function eraseCookie(name) {
 	createCookie(name,"",-1);
 }
 
+//Check if Geo location detection is supported
+if(readCookie("country") == null)
+{
+	if (geo_position_js.init()) {
+	
+                                geo_position_js.getCurrentPosition(
+				function geo_success(p)
+				{
+					 yqlgeo.get([p.coords.latitude,p.coords.longitude],function(o){
 
+					       {  	  	
+						  country = o.place.country.content;
+						  createCookie("country",country,1);
+					       }
+					 });
+					
+		  
+
+
+				},
+
+				function geo_error(p)
+				{
+					alert("USA");
+					createCookie("country","USA",1);
+					
+
+				});
+	}
+}
     var review_quote = "<div class='item_review_title_left'><img src='http://static.fkcdn.com/www/391/images/review_image.png' alt='*'></div>";
     $(review_quote).insertBefore('.gr_review_container.a');
-
     var editorial_review_books = $('#editorial_review').html();
     var start = editorial_review_books.search("About the Author");
-    if(start>0) {
-      var first_part = editorial_review_books.substring(0,start);
-      var second_part = editorial_review_books.substring(start + ('About the Author').length, editorial_review_books.length-1);
-      var final_parts = first_part + "<p class='about_author'>About the Author: <p>" + second_part;
-      $('#editorial_review').html(final_parts);
+    if(start>0) 
+    {
+	      var first_part = editorial_review_books.substring(0,start);
+	      var second_part = editorial_review_books.substring(start + ('About the Author').length, editorial_review_books.length-1);
+	      var final_parts = first_part + "<p class='about_author'>About the Author: <p>" + second_part;
+	      $('#editorial_review').html(final_parts);
     }
-  var url = '/ #searching_from';
-  $('#searching_from').load(url);  
-  //$("#searching_from").refresh();
 
 
+    	
 }); //end js  

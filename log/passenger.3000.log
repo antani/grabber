@@ -22069,3 +22069,3181 @@ Initializing generalsearch
 {:search_term=>"FREDERICK FORSYTH"}
 Rendered book/view.html.erb within layouts/application (8.0ms)
 Completed 200 OK in 13ms (Views: 11.2ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 11:51:17 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 17ms (Views: 15.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 11:51:37 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 11:51:55 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 11:51:56 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 11:51:56 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:14:24 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:14:24 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:14:26 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:14:46 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 9ms (Views: 7.2ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:14:46 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:14:47 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:14:50 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 9ms (Views: 7.2ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:14:50 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:14:50 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:15:09 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 8ms (Views: 7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:15:42 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (40.9ms)
+Completed 200 OK in 46ms (Views: 44.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:15:42 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:15:42 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:16:18 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 11ms (Views: 8.8ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:16:18 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:16:19 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:16:41 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 8ms (Views: 6.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:16:41 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:16:42 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:20:05 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 7.6ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:20:05 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:20:06 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:21:17 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 7.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:21:17 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:21:18 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:22:28 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 8ms (Views: 7.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:22:28 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:22:29 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:22:59 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 8ms (Views: 7.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:22:59 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:23:00 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:23:24 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 44ms (Views: 42.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:23:24 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:23:24 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:23:53 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:23:53 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:23:54 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:24:23 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 10ms (Views: 8.2ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:24:24 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:24:24 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:24:57 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 8ms (Views: 7.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:24:57 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:24:57 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:52:31 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:54:29 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 11ms (Views: 9.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:54:29 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:54:30 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:56:17 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:56:18 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:56:18 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:57:27 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 15ms (Views: 14.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:57:44 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.4ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:57:44 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 12:57:45 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 12:58:13 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 11ms (Views: 8.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:00:07 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:00:07 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:00:07 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:01:10 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 8ms (Views: 7.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:01:10 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:01:11 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:01:33 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 8ms (Views: 7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:08:10 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:10:05 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.6ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:10:24 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 10ms (Views: 8.8ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:10:24 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:10:24 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:10:55 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:10:55 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:10:56 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:11:18 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 7.2ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:11:18 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:11:19 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:15:38 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:16:18 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:17:27 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 10ms (Views: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:18:27 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:18:51 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:19:49 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 46ms (Views: 44.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:40:20 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:46:10 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:48:27 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 10ms (Views: 8.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 13:55:49 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:55:50 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (40.2ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 13:56:12 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:09:34 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:10:07 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 10ms (Views: 8.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:10:35 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:11:57 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:12:22 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:14:13 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 7.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:14:29 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:15:19 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 7.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:15:41 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:16:17 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 10ms (Views: 8.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 17:17:45 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:10:10 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 11ms (Views: 9.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:11:54 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 11ms (Views: 9.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:12:55 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/stylesheets/arrow.png" for 127.0.0.1 at 2011-04-24 18:12:59 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:14:20 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 48ms (Views: 9.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 18:14:22 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 18:14:52 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:14:53 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:21:31 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:22:12 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:27:17 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:28:33 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 18:28:34 +0530
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 18:28:34 +0530
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/jp.png" for 127.0.0.1 at 2011-04-24 18:28:34 +0530
+
+ActionController::RoutingError (No route matches "/jp.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 18:28:34 +0530
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 18:28:34 +0530
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 18:28:34 +0530
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 18:28:34 +0530
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 18:28:34 +0530
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 18:28:34 +0530
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 18:28:34 +0530
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/jp.png" for 127.0.0.1 at 2011-04-24 18:28:35 +0530
+
+ActionController::RoutingError (No route matches "/jp.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 18:28:35 +0530
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 18:28:35 +0530
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 18:28:35 +0530
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 18:28:35 +0530
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 18:28:35 +0530
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/stylesheets/arrow.png" for 127.0.0.1 at 2011-04-24 18:28:35 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:31:10 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 9ms (Views: 7.9ms)
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 18:31:10 +0530
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 18:31:10 +0530
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 18:31:10 +0530
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 18:31:10 +0530
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 18:31:10 +0530
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+MONGODB admin['$cmd'].find({:ismaster=>1})
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 18:31:10 +0530
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (11.2ms)
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/jp.png" for 127.0.0.1 at 2011-04-24 18:31:11 +0530
+
+ActionController::RoutingError (No route matches "/jp.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 18:31:11 +0530
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 18:31:11 +0530
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 18:31:11 +0530
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 18:31:11 +0530
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 18:31:11 +0530
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 18:31:11 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 18:31:12 +0530
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 18:31:12 +0530
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 18:31:59 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 18:31:59 +0530
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 18:31:59 +0530
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 18:31:59 +0530
+
+
+Started GET "/jp.png" for 127.0.0.1 at 2011-04-24 18:31:59 +0530
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 18:31:59 +0530
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 18:31:59 +0530
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 18:31:59 +0530
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 18:31:59 +0530
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/jp.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 18:32:00 +0530
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 18:32:00 +0530
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 18:32:00 +0530
+
+
+Started GET "/jp.png" for 127.0.0.1 at 2011-04-24 18:32:00 +0530
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 18:32:00 +0530
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 18:32:00 +0530
+
+ActionController::RoutingError (No route matches "/jp.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 18:32:00 +0530
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 18:32:00 +0530
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 18:32:00 +0530
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 19:37:51 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/jp.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/jp.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 19:37:52 +0530
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 19:37:53 +0530
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/jp.png" for 127.0.0.1 at 2011-04-24 19:37:53 +0530
+
+ActionController::RoutingError (No route matches "/jp.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 19:37:53 +0530
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 19:39:13 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 9ms (Views: 7.9ms)
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 19:39:13 +0530
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 19:39:13 +0530
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+MONGODB admin['$cmd'].find({:ismaster=>1})
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 19:39:13 +0530
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 19:39:13 +0530
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 19:39:13 +0530
+MONGODB admin['$cmd'].find({:ismaster=>1})
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.7ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 19:39:13 +0530
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+MONGODB admin['$cmd'].find({:ismaster=>1})
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/jp.png" for 127.0.0.1 at 2011-04-24 19:39:14 +0530
+
+ActionController::RoutingError (No route matches "/jp.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 19:39:14 +0530
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 19:39:14 +0530
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 19:39:14 +0530
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 19:39:14 +0530
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 19:39:14 +0530
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+MONGODB admin['$cmd'].find({:ismaster=>1})
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (81.2ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 19:39:15 +0530
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 19:39:15 +0530
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 19:39:32 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 7.8ms)
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 19:39:32 +0530
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 19:39:32 +0530
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 19:39:32 +0530
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 19:39:32 +0530
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+
+
+Started GET "/jp.png" for 127.0.0.1 at 2011-04-24 19:39:32 +0530
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 19:39:32 +0530
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 19:39:32 +0530
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 19:39:32 +0530
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/jp.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (20.3ms)
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (9.4ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/fr.png" for 127.0.0.1 at 2011-04-24 19:39:33 +0530
+
+
+Started GET "/de.png" for 127.0.0.1 at 2011-04-24 19:39:33 +0530
+
+
+Started GET "/br.png" for 127.0.0.1 at 2011-04-24 19:39:33 +0530
+
+
+Started GET "/cs.png" for 127.0.0.1 at 2011-04-24 19:39:33 +0530
+
+
+Started GET "/in.png" for 127.0.0.1 at 2011-04-24 19:39:33 +0530
+
+
+Started GET "/jp.png" for 127.0.0.1 at 2011-04-24 19:39:33 +0530
+
+ActionController::RoutingError (No route matches "/br.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/de.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/gb.png" for 127.0.0.1 at 2011-04-24 19:39:33 +0530
+
+ActionController::RoutingError (No route matches "/cs.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/us.png" for 127.0.0.1 at 2011-04-24 19:39:33 +0530
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+ActionController::RoutingError (No route matches "/in.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/gb.png"):
+  
+
+
+
+ActionController::RoutingError (No route matches "/fr.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+ActionController::RoutingError (No route matches "/jp.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+ActionController::RoutingError (No route matches "/us.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 19:41:28 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 7.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 19:43:38 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:06:17 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:07:49 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:09:28 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:10:20 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 7.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:10:54 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:11:56 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 10ms (Views: 8.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:12:20 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (57.4ms)
+Completed 200 OK in 65ms (Views: 62.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:15:04 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 9ms (Views: 8.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:15:05 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:15:19 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:15:20 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:16:06 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.4ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:16:07 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:16:40 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:16:41 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:17:47 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:17:48 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:17:55 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 47ms (Views: 8.8ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:17:56 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:18:24 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 15ms (Views: 12.9ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:18:25 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:18:34 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:18:35 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:18:50 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:18:51 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:19:04 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:20:35 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:20:36 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:21:05 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:21:06 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:21:18 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:21:37 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 8ms (Views: 7.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:21:38 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:21:58 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 9ms (Views: 8.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:22:00 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:22:23 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:22:24 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:23:15 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:23:16 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:23:49 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:23:50 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:34:21 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 7.4ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:34:22 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:34:46 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:34:47 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:35:01 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 13ms (Views: 10.9ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:35:02 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:35:09 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (42.6ms)
+Completed 200 OK in 48ms (Views: 46.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:35:10 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:35:15 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:35:16 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:35:53 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 10ms (Views: 9.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:35:54 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:36:24 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.8ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:36:25 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:38:28 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 13ms (Views: 11.4ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:38:29 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:39:00 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:39:01 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:39:41 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:39:43 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:39:56 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 20:39:57 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 20:39:57 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:39:57 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:40:40 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.6ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 20:40:40 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 20:40:41 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:40:41 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:40:44 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.5ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:40:45 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:49:09 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 7.8ms)
+
+
+Started GET "/images/white.jpg" for 127.0.0.1 at 2011-04-24 20:49:09 +0530
+
+ActionController::RoutingError (No route matches "/images/white.jpg"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:49:10 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:49:23 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 10ms (Views: 8.5ms)
+
+
+Started GET "/images/white.jpg" for 127.0.0.1 at 2011-04-24 20:49:24 +0530
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:49:24 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+ActionController::RoutingError (No route matches "/images/white.jpg"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:50:20 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 8ms (Views: 7.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:50:21 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:51:07 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 16ms (Views: 14.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:51:07 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:51:43 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:52:01 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:52:03 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:52:37 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:52:38 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:52:46 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:52:46 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:54:19 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:54:20 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:55:33 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 45ms (Views: 43.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:55:34 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:56:05 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:56:06 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:56:37 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:56:38 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:57:17 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:57:18 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:57:43 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:57:44 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 20:58:27 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 20:58:28 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:00:24 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:00:26 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:00:40 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:00:41 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:02:27 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:02:40 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 8.5ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:02:41 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:05:23 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:05:24 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:06:32 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:06:33 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:07:06 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 13ms (Views: 11.4ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:07:07 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:07:25 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 11ms (Views: 9.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:07:26 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:07:35 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 10ms (Views: 8.4ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:07:37 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:08:18 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:08:19 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:08:57 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 10ms (Views: 8.5ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:08:58 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:10:45 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:10:46 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:11:19 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 9ms (Views: 8.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:11:20 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:11:28 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:11:30 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:11:37 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 8ms (Views: 7.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:11:38 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:11:46 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 44ms (Views: 42.4ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:11:47 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:12:06 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 12ms (Views: 9.6ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:12:07 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:13:43 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 8.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:13:45 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:14:28 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:14:29 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:16:54 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.6ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:16:55 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:17:14 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:17:15 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=emperor+of+all+maladies" for 127.0.0.1 at 2011-04-24 21:17:33 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"emperor of all maladies"}
+Inside BookController.view
+EMPEROR OF ALL MALADIES
+Initializing generalsearch
+{:search_term=>"EMPEROR OF ALL MALADIES"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/EMPEROR OF ALL MALADIES/}, {:_id=>1})
+Book EMPEROR OF ALL MALADIES has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: EMPEROR OF ALL MALADIES\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db446153ef4411aac000001'), "updated_at"=>2011-04-24 15:47:33 UTC, "run_at"=>2011-04-24 15:47:33 UTC, "created_at"=>2011-04-24 15:47:33 UTC}])
+Rendered book/view.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 15ms (Views: 10.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=emperor+of+all+maladies" for 127.0.0.1 at 2011-04-24 21:18:04 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"emperor of all maladies"}
+Inside BookController.view
+EMPEROR OF ALL MALADIES
+Initializing generalsearch
+{:search_term=>"EMPEROR OF ALL MALADIES"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/EMPEROR OF ALL MALADIES/}, {:_id=>1})
+Book EMPEROR OF ALL MALADIES is already queued
+Rendered book/view.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 12ms (Views: 9.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=emperor+of+all+maladies" for 127.0.0.1 at 2011-04-24 21:18:11 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"emperor of all maladies"}
+Inside BookController.view
+EMPEROR OF ALL MALADIES
+Initializing generalsearch
+{:search_term=>"EMPEROR OF ALL MALADIES"}
+Rendered book/view.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 13ms (Views: 11.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:20:34 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:21:46 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.6ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:21:47 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=emperor+of+all+maladies" for 127.0.0.1 at 2011-04-24 21:22:00 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"emperor of all maladies"}
+Inside BookController.view
+EMPEROR OF ALL MALADIES
+Initializing generalsearch
+{:search_term=>"EMPEROR OF ALL MALADIES"}
+Rendered book/view.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 12ms (Views: 10.6ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:22:10 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:22:21 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 21:22:21 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 21:22:22 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:22:22 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=emperor+of+all+maladies" for 127.0.0.1 at 2011-04-24 21:22:32 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"emperor of all maladies"}
+Inside BookController.view
+EMPEROR OF ALL MALADIES
+Initializing generalsearch
+{:search_term=>"EMPEROR OF ALL MALADIES"}
+Rendered book/view.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 11ms (Views: 10.2ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 21:22:36 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/flags/.png" for 127.0.0.1 at 2011-04-24 21:22:36 +0530
+
+ActionController::RoutingError (No route matches "/images/flags/.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:22:36 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:24:53 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 7.6ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:24:54 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:27:00 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 10ms (Views: 8.5ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:27:01 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:27:16 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 7.7ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:27:17 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:28:16 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.3ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:28:17 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:29:10 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:29:11 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-24 21:29:54 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 10ms (Views: 8.3ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:29:55 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=emperor+of+all+maladies&commit=Search" for 127.0.0.1 at 2011-04-24 21:29:58 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"emperor of all maladies", "commit"=>"Search"}
+Inside BookController.view
+EMPEROR OF ALL MALADIES
+Initializing generalsearch
+{:search_term=>"EMPEROR OF ALL MALADIES"}
+Rendered book/view.html.erb within layouts/application (42.6ms)
+Completed 200 OK in 48ms (Views: 46.4ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:30:07 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=emperor+of+all+maladies&commit=Search" for 127.0.0.1 at 2011-04-24 21:30:15 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"emperor of all maladies", "commit"=>"Search"}
+Inside BookController.view
+EMPEROR OF ALL MALADIES
+Initializing generalsearch
+{:search_term=>"EMPEROR OF ALL MALADIES"}
+Rendered book/view.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 12ms (Views: 10.9ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:30:19 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=emperor+of+all+maladies&commit=Search" for 127.0.0.1 at 2011-04-24 21:30:20 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"emperor of all maladies", "commit"=>"Search"}
+Inside BookController.view
+EMPEROR OF ALL MALADIES
+Initializing generalsearch
+{:search_term=>"EMPEROR OF ALL MALADIES"}
+Rendered book/view.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 12ms (Views: 10.7ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:30:23 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=emperor+of+all+maladies&commit=Search" for 127.0.0.1 at 2011-04-24 21:30:37 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"emperor of all maladies", "commit"=>"Search"}
+Inside BookController.view
+EMPEROR OF ALL MALADIES
+Initializing generalsearch
+{:search_term=>"EMPEROR OF ALL MALADIES"}
+Rendered book/view.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 11ms (Views: 10.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-24 21:30:42 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)

@@ -3,6 +3,8 @@
     - price search engine.
 <% end %>
 
+
+
 <% content_for :header do %>
  <img src='images/cheapr_S.png'/>
 </br>
@@ -14,14 +16,30 @@
     <div class="searchwrapper-inner-border">
           <%= form_tag(view_path, :method => "get") do %>
               <%= text_field_tag(:q,nil,:class=> "inputquery") %>
+	      <a id="search_link" href="#" class="btn search">Search</a>
               <span class="buttonwrapper">
-                <%= submit_tag("Search", :class=>"searchsubmit") %>
+                <%= submit_tag("Search", :class=>"searchsubmit", :id=>"searchsubmit_btn") %>
               </span>  
-              <div id="searching_from"><img src='images/flags/<%=cookies[:country]%>.png'></div>
+<dl id="sample" class="dropdown">
+        <dt><a href="#"><span><img src='images/flags/<%=cookies[:country]%>.png'></span></a></dt>
+
+        <dd>
+            <ul>
+                <li><a href="#">India<img class="flag" src="images/flags/India.png" alt="" /><span class="value">IN</span></a></li>
+                <li><a href="#">USA<img class="flag" src="images/flags/United-States.png" alt="" /><span class="value">US</span></a></li>
+            </ul>
+
+        </dd>
+    </dl>
+
+
+
+
+              <div id="searching_from"></div>
             <% end %>
     </div>  
-<a href="#" class="primary button pill button">Books</a>
+<!--<a href="#" class="primary button pill button">Books</a>
 <a href="#" class="pill button">Movies</a>
-<a href="#" class="pill button">Mobiles</a></br>
+<a href="#" class="pill button">Mobiles</a></br> -->
   </div>
 </div>
