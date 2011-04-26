@@ -33,3 +33,13 @@ i= tstr.index(name)+name.length
 puts i
 j= tstr[i..tstr.length]
 puts j.strip()
+  def proper_case(str)
+    return str.split(/\s+/).each{ |word| word.capitalize! }.join(' ')  
+  end
+ 
+
+t = "INDIAN TEST CAPTAINS: SACHIN TENDULKAR, MOHAMMAD AZHARUDDIN, SUNIL GAVASKAR, SOURAV GANGULY, VIRENDER SEHWAG, MAHENDRA SINGH DHONI 	SACHIN TENDULKAR 10,000 (Paperback) Sharad Pawar "
+tt = proper_case(t)
+
+puts tt
+

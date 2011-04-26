@@ -44,7 +44,6 @@ class BookController < ApplicationController
       @not_available = Bookprice::NOT_AVAILABLE
      else
        @prices = Generalsearch.new(:search_term => @isbn)
-
        @stores = Rails.cache.fetch(@prices.cache_key)
         if @stores.nil?
           # Check if book is already queued.

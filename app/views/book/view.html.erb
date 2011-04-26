@@ -1,6 +1,7 @@
 
 <%= content_for :js do %>
   var isbn = "<%= @isbn %>";
+  var max_weight = "<%=@max_weight%>";
 <% end %>
 
          <% unless @stores.nil? %>
@@ -9,7 +10,7 @@
                 <table class="price_list">
                   <% @stores.each do |data|  %>
                   <% unless data[:price] == @not_available %>
-                   <tr>
+                     <tr>
                       <td>
                         <a rel="nofollow" href="<%= data[:url] %>"><%= data[:source] %></a>
                       </td>
@@ -44,6 +45,6 @@
                                 function ()
                                  {
                                     window.location.reload()
-                                 }, 30*1000); 
+                                 }, 15*1000); 
     <% end %>
 <% end %>

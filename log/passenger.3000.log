@@ -27626,3 +27626,1424 @@ Initializing generalsearch
 {:search_term=>"rushdie"}
 Rendered book/view.html.erb within layouts/application (44.6ms)
 Completed 200 OK in 50ms (Views: 47.9ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-26 19:41:49 +0530
+  Processing by ContentController#index as HTML
+Rendered content/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 10ms (Views: 8.1ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 19:41:50 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-26 19:41:57 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+right+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+right+ho"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+right+ho/}, {:_id=>1})
+Book wodehouse+right+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+right+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d2ad3ef4410b9f000001'), "updated_at"=>2011-04-26 14:11:57 UTC, "run_at"=>2011-04-26 14:11:57 UTC, "created_at"=>2011-04-26 14:11:57 UTC}])
+Rendered book/view.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 14ms (Views: 9.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-26 19:42:28 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+right+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+right+ho"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+right+ho/}, {:_id=>1})
+Book wodehouse+right+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+right+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d2cc3ef4410b9f000002'), "updated_at"=>2011-04-26 14:12:28 UTC, "run_at"=>2011-04-26 14:12:28 UTC, "created_at"=>2011-04-26 14:12:28 UTC}])
+Rendered book/view.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 48ms (Views: 45.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-26 19:42:43 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+right+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+right+ho"}
+Rendered book/view.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 11ms (Views: 9.9ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-26 19:46:35 +0530
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 19:46:35 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+right+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+right+ho"}
+Dalli::Server#connect localhost:11211
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+right+ho/}, {:_id=>1})
+Book wodehouse+right+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+right+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d3c43ef4410c85000001'), "updated_at"=>2011-04-26 14:16:36 UTC, "run_at"=>2011-04-26 14:16:36 UTC, "created_at"=>2011-04-26 14:16:36 UTC}])
+Rendered book/view.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 18ms (Views: 9.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-26 19:46:51 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+right+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+right+ho"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+right+ho/}, {:_id=>1})
+Book wodehouse+right+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+right+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d3d33ef4410c85000002'), "updated_at"=>2011-04-26 14:16:51 UTC, "run_at"=>2011-04-26 14:16:51 UTC, "created_at"=>2011-04-26 14:16:51 UTC}])
+Rendered book/view.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 12ms (Views: 9.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-26 19:47:07 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+right+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+right+ho"}
+Rendered book/view.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 12ms (Views: 10.3ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 19:50:00 +0530
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-26 19:50:00 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+right+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+right+ho"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+right+ho/}, {:_id=>1})
+Book wodehouse+right+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+right+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d4903ef4410d43000001'), "updated_at"=>2011-04-26 14:20:00 UTC, "run_at"=>2011-04-26 14:20:00 UTC, "created_at"=>2011-04-26 14:20:00 UTC}])
+Rendered book/view.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 16ms (Views: 10.5ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-26 19:50:16 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+right+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+right+ho"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+right+ho/}, {:_id=>1})
+Book wodehouse+right+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+right+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d4a03ef4410d43000002'), "updated_at"=>2011-04-26 14:20:16 UTC, "run_at"=>2011-04-26 14:20:16 UTC, "created_at"=>2011-04-26 14:20:16 UTC}])
+Rendered book/view.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 11ms (Views: 8.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+right+ho&commit=Search" for 127.0.0.1 at 2011-04-26 19:50:31 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse right ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+right+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+right+ho"}
+Rendered book/view.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 11ms (Views: 9.4ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 19:51:49 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Canon+550d&commit=Search" for 127.0.0.1 at 2011-04-26 19:51:52 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Canon 550d", "commit"=>"Search"}
+Inside BookController.view
+Canon+550d
+Initializing generalsearch
+{:search_term=>"Canon+550d"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Canon+550d/}, {:_id=>1})
+Book Canon+550d has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Canon+550d\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d5003ef4410d43000003'), "updated_at"=>2011-04-26 14:21:52 UTC, "run_at"=>2011-04-26 14:21:52 UTC, "created_at"=>2011-04-26 14:21:52 UTC}])
+Rendered book/view.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 24ms (Views: 18.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Canon+550d&commit=Search" for 127.0.0.1 at 2011-04-26 19:52:08 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Canon 550d", "commit"=>"Search"}
+Inside BookController.view
+Canon+550d
+Initializing generalsearch
+{:search_term=>"Canon+550d"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Canon+550d/}, {:_id=>1})
+Book Canon+550d has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Canon+550d\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d5103ef4410d43000004'), "updated_at"=>2011-04-26 14:22:08 UTC, "run_at"=>2011-04-26 14:22:08 UTC, "created_at"=>2011-04-26 14:22:08 UTC}])
+Rendered book/view.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 21ms (Views: 17.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Canon+550d&commit=Search" for 127.0.0.1 at 2011-04-26 19:52:25 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Canon 550d", "commit"=>"Search"}
+Inside BookController.view
+Canon+550d
+Initializing generalsearch
+{:search_term=>"Canon+550d"}
+Rendered book/view.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 12ms (Views: 10.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 19:54:01 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar&commit=Search" for 127.0.0.1 at 2011-04-26 19:54:36 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar/}, {:_id=>1})
+Book Sachin+Tendulkar has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d5a43ef4410d43000005'), "updated_at"=>2011-04-26 14:24:36 UTC, "run_at"=>2011-04-26 14:24:36 UTC, "created_at"=>2011-04-26 14:24:36 UTC}])
+Rendered book/view.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 17ms (Views: 13.5ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar&commit=Search" for 127.0.0.1 at 2011-04-26 19:54:52 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar/}, {:_id=>1})
+Book Sachin+Tendulkar has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d5b43ef4410d43000006'), "updated_at"=>2011-04-26 14:24:52 UTC, "run_at"=>2011-04-26 14:24:52 UTC, "created_at"=>2011-04-26 14:24:52 UTC}])
+Rendered book/view.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 13ms (Views: 9.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar&commit=Search" for 127.0.0.1 at 2011-04-26 19:55:07 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar"}
+Rendered book/view.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 10ms (Views: 9.1ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 20:00:26 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar&commit=Search" for 127.0.0.1 at 2011-04-26 20:00:55 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar/}, {:_id=>1})
+Book Sachin+Tendulkar has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d71f3ef4410ec7000001'), "updated_at"=>2011-04-26 14:30:55 UTC, "run_at"=>2011-04-26 14:30:55 UTC, "created_at"=>2011-04-26 14:30:55 UTC}])
+Rendered book/view.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 15ms (Views: 9.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar&commit=Search" for 127.0.0.1 at 2011-04-26 20:01:10 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar/}, {:_id=>1})
+Book Sachin+Tendulkar has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d72e3ef4410ec7000002'), "updated_at"=>2011-04-26 14:31:10 UTC, "run_at"=>2011-04-26 14:31:10 UTC, "created_at"=>2011-04-26 14:31:10 UTC}])
+Rendered book/view.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 13ms (Views: 9.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar&commit=Search" for 127.0.0.1 at 2011-04-26 20:01:26 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar"}
+Rendered book/view.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 46ms (Views: 44.4ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 20:03:38 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:03:56 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d7d43ef4410ec7000003'), "updated_at"=>2011-04-26 14:33:56 UTC, "run_at"=>2011-04-26 14:33:56 UTC, "created_at"=>2011-04-26 14:33:56 UTC}])
+Rendered book/view.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 18ms (Views: 13.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:04:12 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6d7e43ef4410ec7000004'), "updated_at"=>2011-04-26 14:34:12 UTC, "run_at"=>2011-04-26 14:34:12 UTC, "created_at"=>2011-04-26 14:34:12 UTC}])
+Rendered book/view.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 11ms (Views: 8.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:04:28 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+Rendered book/view.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 11ms (Views: 9.3ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 20:17:39 +0530
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:17:40 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6db0c3ef4411089000001'), "updated_at"=>2011-04-26 14:47:40 UTC, "run_at"=>2011-04-26 14:47:40 UTC, "created_at"=>2011-04-26 14:47:40 UTC}])
+Rendered book/view.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 19ms (Views: 11.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:17:55 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6db1b3ef4411089000002'), "updated_at"=>2011-04-26 14:47:55 UTC, "run_at"=>2011-04-26 14:47:55 UTC, "created_at"=>2011-04-26 14:47:55 UTC}])
+Rendered book/view.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 19ms (Views: 15.8ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:18:11 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6db2b3ef4411089000003'), "updated_at"=>2011-04-26 14:48:11 UTC, "run_at"=>2011-04-26 14:48:11 UTC, "created_at"=>2011-04-26 14:48:11 UTC}])
+Rendered book/view.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 16ms (Views: 11.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:18:26 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6db3a3ef4411089000004'), "updated_at"=>2011-04-26 14:48:26 UTC, "run_at"=>2011-04-26 14:48:26 UTC, "created_at"=>2011-04-26 14:48:26 UTC}])
+Rendered book/view.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 14ms (Views: 10.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:18:41 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6db4a3ef4411089000005'), "updated_at"=>2011-04-26 14:48:42 UTC, "run_at"=>2011-04-26 14:48:42 UTC, "created_at"=>2011-04-26 14:48:42 UTC}])
+Rendered book/view.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 12ms (Views: 8.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:18:57 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6db593ef4411089000006'), "updated_at"=>2011-04-26 14:48:57 UTC, "run_at"=>2011-04-26 14:48:57 UTC, "created_at"=>2011-04-26 14:48:57 UTC}])
+Rendered book/view.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 14ms (Views: 10.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:19:12 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6db683ef4411089000007'), "updated_at"=>2011-04-26 14:49:12 UTC, "run_at"=>2011-04-26 14:49:12 UTC, "created_at"=>2011-04-26 14:49:12 UTC}])
+Rendered book/view.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 12ms (Views: 9.2ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:19:28 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6db783ef4411089000008'), "updated_at"=>2011-04-26 14:49:28 UTC, "run_at"=>2011-04-26 14:49:28 UTC, "created_at"=>2011-04-26 14:49:28 UTC}])
+Rendered book/view.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 22ms (Views: 17.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:19:44 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6db883ef4411089000009'), "updated_at"=>2011-04-26 14:49:44 UTC, "run_at"=>2011-04-26 14:49:44 UTC, "created_at"=>2011-04-26 14:49:44 UTC}])
+Rendered book/view.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 17ms (Views: 9.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:19:59 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6db973ef441108900000a'), "updated_at"=>2011-04-26 14:49:59 UTC, "run_at"=>2011-04-26 14:49:59 UTC, "created_at"=>2011-04-26 14:49:59 UTC}])
+Rendered book/view.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 21ms (Views: 16.8ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:20:15 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dba73ef441108900000b'), "updated_at"=>2011-04-26 14:50:15 UTC, "run_at"=>2011-04-26 14:50:15 UTC, "created_at"=>2011-04-26 14:50:15 UTC}])
+Rendered book/view.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 12ms (Views: 8.8ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:20:31 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dbb73ef441108900000c'), "updated_at"=>2011-04-26 14:50:31 UTC, "run_at"=>2011-04-26 14:50:31 UTC, "created_at"=>2011-04-26 14:50:31 UTC}])
+Rendered book/view.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 13ms (Views: 9.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:20:47 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dbc73ef441108900000d'), "updated_at"=>2011-04-26 14:50:47 UTC, "run_at"=>2011-04-26 14:50:47 UTC, "created_at"=>2011-04-26 14:50:47 UTC}])
+Rendered book/view.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 25ms (Views: 15.8ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:21:02 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dbd63ef441108900000e'), "updated_at"=>2011-04-26 14:51:02 UTC, "run_at"=>2011-04-26 14:51:02 UTC, "created_at"=>2011-04-26 14:51:02 UTC}])
+Rendered book/view.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 18ms (Views: 13.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:21:18 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dbe63ef441108900000f'), "updated_at"=>2011-04-26 14:51:18 UTC, "run_at"=>2011-04-26 14:51:18 UTC, "created_at"=>2011-04-26 14:51:18 UTC}])
+Rendered book/view.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 13ms (Views: 8.8ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:21:34 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dbf63ef4411089000010'), "updated_at"=>2011-04-26 14:51:34 UTC, "run_at"=>2011-04-26 14:51:34 UTC, "created_at"=>2011-04-26 14:51:34 UTC}])
+Rendered book/view.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 16ms (Views: 11.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:21:49 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dc053ef4411089000011'), "updated_at"=>2011-04-26 14:51:49 UTC, "run_at"=>2011-04-26 14:51:49 UTC, "created_at"=>2011-04-26 14:51:49 UTC}])
+Rendered book/view.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 47ms (Views: 44.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:22:05 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dc153ef4411089000012'), "updated_at"=>2011-04-26 14:52:05 UTC, "run_at"=>2011-04-26 14:52:05 UTC, "created_at"=>2011-04-26 14:52:05 UTC}])
+Rendered book/view.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 12ms (Views: 9.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:22:20 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dc243ef4411089000013'), "updated_at"=>2011-04-26 14:52:20 UTC, "run_at"=>2011-04-26 14:52:20 UTC, "created_at"=>2011-04-26 14:52:20 UTC}])
+Rendered book/view.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 11ms (Views: 8.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:22:36 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dc343ef4411089000014'), "updated_at"=>2011-04-26 14:52:36 UTC, "run_at"=>2011-04-26 14:52:36 UTC, "created_at"=>2011-04-26 14:52:36 UTC}])
+Rendered book/view.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 13ms (Views: 9.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:22:52 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dc443ef4411089000015'), "updated_at"=>2011-04-26 14:52:52 UTC, "run_at"=>2011-04-26 14:52:52 UTC, "created_at"=>2011-04-26 14:52:52 UTC}])
+Rendered book/view.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 27ms (Views: 18.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:23:07 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dc533ef4411089000016'), "updated_at"=>2011-04-26 14:53:07 UTC, "run_at"=>2011-04-26 14:53:07 UTC, "created_at"=>2011-04-26 14:53:07 UTC}])
+Rendered book/view.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 12ms (Views: 8.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:23:23 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dc633ef4411089000017'), "updated_at"=>2011-04-26 14:53:23 UTC, "run_at"=>2011-04-26 14:53:23 UTC, "created_at"=>2011-04-26 14:53:23 UTC}])
+Rendered book/view.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 14ms (Views: 9.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:23:38 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dc733ef4411089000018'), "updated_at"=>2011-04-26 14:53:39 UTC, "run_at"=>2011-04-26 14:53:39 UTC, "created_at"=>2011-04-26 14:53:39 UTC}])
+Rendered book/view.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 14ms (Views: 10.5ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:23:54 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dc823ef4411089000019'), "updated_at"=>2011-04-26 14:53:54 UTC, "run_at"=>2011-04-26 14:53:54 UTC, "created_at"=>2011-04-26 14:53:54 UTC}])
+Rendered book/view.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 51ms (Views: 47.1ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:24:37 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+Completed   in 1ms
+
+NoMethodError (undefined method `max_weight' for #<Generalsearch:0xae60938>):
+  app/controllers/book_controller.rb:47:in `view'
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.5ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:26:59 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Sachin+Tendulkar+Biography/}, {:_id=>1})
+Book Sachin+Tendulkar+Biography has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Sachin+Tendulkar+Biography\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dd3b3ef44112e2000001'), "updated_at"=>2011-04-26 14:56:59 UTC, "run_at"=>2011-04-26 14:56:59 UTC, "created_at"=>2011-04-26 14:56:59 UTC}])
+Rendered book/view.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 15ms (Views: 9.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Sachin+Tendulkar+Biography&commit=Search" for 127.0.0.1 at 2011-04-26 20:27:15 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Sachin Tendulkar Biography", "commit"=>"Search"}
+Inside BookController.view
+Sachin+Tendulkar+Biography
+Initializing generalsearch
+{:search_term=>"Sachin+Tendulkar+Biography"}
+Rendered book/view.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 10ms (Views: 8.6ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 20:28:15 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:28:28 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dd943ef44112e2000002'), "updated_at"=>2011-04-26 14:58:28 UTC, "run_at"=>2011-04-26 14:58:28 UTC, "created_at"=>2011-04-26 14:58:28 UTC}])
+Rendered book/view.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 48ms (Views: 9.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:28:43 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dda33ef44112e2000003'), "updated_at"=>2011-04-26 14:58:43 UTC, "run_at"=>2011-04-26 14:58:43 UTC, "created_at"=>2011-04-26 14:58:43 UTC}])
+Rendered book/view.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 14ms (Views: 10.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:28:59 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6ddb33ef44112e2000004'), "updated_at"=>2011-04-26 14:58:59 UTC, "run_at"=>2011-04-26 14:58:59 UTC, "created_at"=>2011-04-26 14:58:59 UTC}])
+Rendered book/view.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 12ms (Views: 9.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:29:15 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6ddc33ef44112e2000005'), "updated_at"=>2011-04-26 14:59:15 UTC, "run_at"=>2011-04-26 14:59:15 UTC, "created_at"=>2011-04-26 14:59:15 UTC}])
+Rendered book/view.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 13ms (Views: 9.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:29:30 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6ddd23ef44112e2000006'), "updated_at"=>2011-04-26 14:59:30 UTC, "run_at"=>2011-04-26 14:59:30 UTC, "created_at"=>2011-04-26 14:59:30 UTC}])
+Rendered book/view.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 25ms (Views: 20.2ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:29:46 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dde23ef44112e2000007'), "updated_at"=>2011-04-26 14:59:46 UTC, "run_at"=>2011-04-26 14:59:46 UTC, "created_at"=>2011-04-26 14:59:46 UTC}])
+Rendered book/view.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 12ms (Views: 8.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:29:54 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6ddea3ef44112e2000008'), "updated_at"=>2011-04-26 14:59:54 UTC, "run_at"=>2011-04-26 14:59:54 UTC, "created_at"=>2011-04-26 14:59:54 UTC}])
+Rendered book/view.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 16ms (Views: 11.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:30:10 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6ddfa3ef44112e2000009'), "updated_at"=>2011-04-26 15:00:10 UTC, "run_at"=>2011-04-26 15:00:10 UTC, "created_at"=>2011-04-26 15:00:10 UTC}])
+Rendered book/view.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 24ms (Views: 19.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:30:25 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6de093ef44112e200000a'), "updated_at"=>2011-04-26 15:00:25 UTC, "run_at"=>2011-04-26 15:00:25 UTC, "created_at"=>2011-04-26 15:00:25 UTC}])
+Rendered book/view.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 48ms (Views: 44.5ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:30:41 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6de193ef44112e200000b'), "updated_at"=>2011-04-26 15:00:41 UTC, "run_at"=>2011-04-26 15:00:41 UTC, "created_at"=>2011-04-26 15:00:41 UTC}])
+Rendered book/view.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 23ms (Views: 18.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:30:57 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6de293ef44112e200000c'), "updated_at"=>2011-04-26 15:00:57 UTC, "run_at"=>2011-04-26 15:00:57 UTC, "created_at"=>2011-04-26 15:00:57 UTC}])
+Rendered book/view.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 25ms (Views: 20.2ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:31:13 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6de393ef44112e200000d'), "updated_at"=>2011-04-26 15:01:13 UTC, "run_at"=>2011-04-26 15:01:13 UTC, "created_at"=>2011-04-26 15:01:13 UTC}])
+Rendered book/view.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 17ms (Views: 12.5ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:31:28 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6de483ef44112e200000e'), "updated_at"=>2011-04-26 15:01:28 UTC, "run_at"=>2011-04-26 15:01:28 UTC, "created_at"=>2011-04-26 15:01:28 UTC}])
+Rendered book/view.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 12ms (Views: 8.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:31:44 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6de583ef44112e200000f'), "updated_at"=>2011-04-26 15:01:44 UTC, "run_at"=>2011-04-26 15:01:44 UTC, "created_at"=>2011-04-26 15:01:44 UTC}])
+Rendered book/view.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 26ms (Views: 21.3ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:32:00 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6de683ef44112e2000010'), "updated_at"=>2011-04-26 15:02:00 UTC, "run_at"=>2011-04-26 15:02:00 UTC, "created_at"=>2011-04-26 15:02:00 UTC}])
+Rendered book/view.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 24ms (Views: 18.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:32:16 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6de783ef44112e2000011'), "updated_at"=>2011-04-26 15:02:16 UTC, "run_at"=>2011-04-26 15:02:16 UTC, "created_at"=>2011-04-26 15:02:16 UTC}])
+Rendered book/view.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 12ms (Views: 8.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:32:32 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6de883ef44112e2000012'), "updated_at"=>2011-04-26 15:02:32 UTC, "run_at"=>2011-04-26 15:02:32 UTC, "created_at"=>2011-04-26 15:02:32 UTC}])
+Rendered book/view.html.erb within layouts/application (45.8ms)
+Completed 200 OK in 57ms (Views: 52.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:32:47 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6de983ef44112e2000013'), "updated_at"=>2011-04-26 15:02:48 UTC, "run_at"=>2011-04-26 15:02:48 UTC, "created_at"=>2011-04-26 15:02:48 UTC}])
+Rendered book/view.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 12ms (Views: 8.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:33:03 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dea73ef44112e2000014'), "updated_at"=>2011-04-26 15:03:03 UTC, "run_at"=>2011-04-26 15:03:03 UTC, "created_at"=>2011-04-26 15:03:03 UTC}])
+Rendered book/view.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 22ms (Views: 17.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:33:19 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6deb73ef44112e2000015'), "updated_at"=>2011-04-26 15:03:19 UTC, "run_at"=>2011-04-26 15:03:19 UTC, "created_at"=>2011-04-26 15:03:19 UTC}])
+Rendered book/view.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 18ms (Views: 13.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:33:35 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dec73ef44112e2000016'), "updated_at"=>2011-04-26 15:03:35 UTC, "run_at"=>2011-04-26 15:03:35 UTC, "created_at"=>2011-04-26 15:03:35 UTC}])
+Rendered book/view.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 21ms (Views: 15.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:33:50 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6ded63ef44112e2000017'), "updated_at"=>2011-04-26 15:03:50 UTC, "run_at"=>2011-04-26 15:03:50 UTC, "created_at"=>2011-04-26 15:03:50 UTC}])
+Rendered book/view.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 20ms (Views: 15.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:34:06 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6dee63ef44112e2000018'), "updated_at"=>2011-04-26 15:04:06 UTC, "run_at"=>2011-04-26 15:04:06 UTC, "created_at"=>2011-04-26 15:04:06 UTC}])
+Rendered book/view.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 27ms (Views: 22.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:34:21 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6def53ef44112e2000019'), "updated_at"=>2011-04-26 15:04:21 UTC, "run_at"=>2011-04-26 15:04:21 UTC, "created_at"=>2011-04-26 15:04:21 UTC}])
+Rendered book/view.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 11ms (Views: 8.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:34:37 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6df053ef44112e200001a'), "updated_at"=>2011-04-26 15:04:37 UTC, "run_at"=>2011-04-26 15:04:37 UTC, "created_at"=>2011-04-26 15:04:37 UTC}])
+Rendered book/view.html.erb within layouts/application (41.8ms)
+Completed 200 OK in 49ms (Views: 45.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:34:53 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/Agatha+Christie+Secret+of+the+chimneys/}, {:_id=>1})
+Book Agatha+Christie+Secret+of+the+chimneys has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: Agatha+Christie+Secret+of+the+chimneys\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6df153ef44112e200001b'), "updated_at"=>2011-04-26 15:04:53 UTC, "run_at"=>2011-04-26 15:04:53 UTC, "created_at"=>2011-04-26 15:04:53 UTC}])
+Rendered book/view.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 12ms (Views: 8.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=Agatha+Christie+Secret+of+the+chimneys&commit=Search" for 127.0.0.1 at 2011-04-26 20:35:08 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"Agatha Christie Secret of the chimneys", "commit"=>"Search"}
+Inside BookController.view
+Agatha+Christie+Secret+of+the+chimneys
+Initializing generalsearch
+{:search_term=>"Agatha+Christie+Secret+of+the+chimneys"}
+Rendered book/view.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 10ms (Views: 9.1ms)
+
+
+Started GET "/Agatha%20Christie:The%20Secret%20Of%20The%20Chimneys" for 127.0.0.1 at 2011-04-26 20:48:41 +0530
+
+ActionController::RoutingError (No route matches "/Agatha%20Christie:The%20Secret%20Of%20The%20Chimneys"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 20:54:29 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-26 20:54:36 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+what+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+what+ho"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+what+ho/}, {:_id=>1})
+Book wodehouse+what+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+what+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6e3b43ef44112e200001c'), "updated_at"=>2011-04-26 15:24:36 UTC, "run_at"=>2011-04-26 15:24:36 UTC, "created_at"=>2011-04-26 15:24:36 UTC}])
+Rendered book/view.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 12ms (Views: 8.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-26 20:54:52 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+what+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+what+ho"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+what+ho/}, {:_id=>1})
+Book wodehouse+what+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+what+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6e3c43ef44112e200001d'), "updated_at"=>2011-04-26 15:24:52 UTC, "run_at"=>2011-04-26 15:24:52 UTC, "created_at"=>2011-04-26 15:24:52 UTC}])
+Rendered book/view.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 23ms (Views: 18.7ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-26 20:55:07 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+what+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+what+ho"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+what+ho/}, {:_id=>1})
+Book wodehouse+what+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+what+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6e3d43ef44112e200001e'), "updated_at"=>2011-04-26 15:25:08 UTC, "run_at"=>2011-04-26 15:25:08 UTC, "created_at"=>2011-04-26 15:25:08 UTC}])
+Rendered book/view.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 19ms (Views: 14.6ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-26 20:55:23 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+what+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+what+ho"}
+Rendered book/view.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 9ms (Views: 8.1ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 21:08:29 +0530
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-26 21:08:29 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+what+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+what+ho"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+what+ho/}, {:_id=>1})
+Book wodehouse+what+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+what+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6e6f53ef44118ae000001'), "updated_at"=>2011-04-26 15:38:29 UTC, "run_at"=>2011-04-26 15:38:29 UTC, "created_at"=>2011-04-26 15:38:29 UTC}])
+Rendered book/view.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 14ms (Views: 9.2ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-26 21:08:45 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+what+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+what+ho"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+what+ho/}, {:_id=>1})
+Book wodehouse+what+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+what+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6e7053ef44118ae000002'), "updated_at"=>2011-04-26 15:38:45 UTC, "run_at"=>2011-04-26 15:38:45 UTC, "created_at"=>2011-04-26 15:38:45 UTC}])
+Rendered book/view.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 11ms (Views: 8.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-26 21:09:00 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+what+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+what+ho"}
+Rendered book/view.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 10ms (Views: 8.6ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 21:14:03 +0530
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-26 21:14:03 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+what+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+what+ho"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+what+ho/}, {:_id=>1})
+Book wodehouse+what+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+what+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6e8433ef4411994000001'), "updated_at"=>2011-04-26 15:44:03 UTC, "run_at"=>2011-04-26 15:44:03 UTC, "created_at"=>2011-04-26 15:44:03 UTC}])
+Rendered book/view.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 14ms (Views: 9.0ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=wodehouse+what+ho&commit=Search" for 127.0.0.1 at 2011-04-26 21:14:19 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"wodehouse what ho", "commit"=>"Search"}
+Inside BookController.view
+wodehouse+what+ho
+Initializing generalsearch
+{:search_term=>"wodehouse+what+ho"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/wodehouse+what+ho/}, {:_id=>1})
+Book wodehouse+what+ho has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: wodehouse+what+ho\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6e8533ef4411994000002'), "updated_at"=>2011-04-26 15:44:19 UTC, "run_at"=>2011-04-26 15:44:19 UTC, "created_at"=>2011-04-26 15:44:19 UTC}])
+Rendered book/view.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 21ms (Views: 9.9ms)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+Cannot execute '/home/ved/.passenger/standalone/3.0.7-x86-ruby1.9.2-linux-gcc4.4.5-1002/support/helper-scripts/prespawn http://0.0.0.0:3000': Permission denied (13)
+MongoDB logging. Please note that logging negatively impacts performance and should be disabled for high-performance production apps.
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+MONGODB admin['$cmd'].find({:ismaster=>1})
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 21:16:05 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=algorithms+cormen&commit=Search" for 127.0.0.1 at 2011-04-26 21:16:11 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"algorithms cormen", "commit"=>"Search"}
+Inside BookController.view
+algorithms+cormen
+Initializing generalsearch
+{:search_term=>"algorithms+cormen"}
+Dalli::Server#connect localhost:11211
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/algorithms+cormen/}, {:_id=>1})
+Book algorithms+cormen has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: algorithms+cormen\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6e8c33ef4411a86000001'), "updated_at"=>2011-04-26 15:46:11 UTC, "run_at"=>2011-04-26 15:46:11 UTC, "created_at"=>2011-04-26 15:46:11 UTC}])
+Rendered book/view.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 17ms (Views: 10.4ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=algorithms+cormen&commit=Search" for 127.0.0.1 at 2011-04-26 21:16:27 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"algorithms cormen", "commit"=>"Search"}
+Inside BookController.view
+algorithms+cormen
+Initializing generalsearch
+{:search_term=>"algorithms+cormen"}
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].find({:handler=>/algorithms+cormen/}, {:_id=>1})
+Book algorithms+cormen has been queued
+MONGODB grbr_development['delayed_backend_mongoid_jobs'].insert([{"priority"=>0, "attempts"=>0, "handler"=>"--- !ruby/struct:Delayed::PerformableMethod \nobject: !ruby/object:Generalsearch \n  search_term: \n    :search_term: algorithms+cormen\nmethod_name: :perform\nargs: []\n\n", "_id"=>BSON::ObjectId('4db6e8d33ef4411a86000002'), "updated_at"=>2011-04-26 15:46:27 UTC, "run_at"=>2011-04-26 15:46:27 UTC, "created_at"=>2011-04-26 15:46:27 UTC}])
+Rendered book/view.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 20ms (Views: 15.9ms)
+
+
+Started GET "/view?utf8=%E2%9C%93&q=algorithms+cormen&commit=Search" for 127.0.0.1 at 2011-04-26 21:16:43 +0530
+  Processing by BookController#view as HTML
+  Parameters: {"utf8"=>"✓", "q"=>"algorithms cormen", "commit"=>"Search"}
+Inside BookController.view
+algorithms+cormen
+Initializing generalsearch
+{:search_term=>"algorithms+cormen"}
+Rendered book/view.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 10ms (Views: 8.2ms)
+
+
+Started GET "/stylesheets/images/arrow.png" for 127.0.0.1 at 2011-04-26 21:17:42 +0530
+
+ActionController::RoutingError (No route matches "/stylesheets/images/arrow.png"):
+  
+
+
+Rendered /home/ved/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)

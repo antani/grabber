@@ -117,8 +117,12 @@ class Generalsearch
       final_prices
     end
     def find_weight(source_string, search_string)
+        #@@logger.info("-----------------------------Finding weight----------------------------------")
         weight,cost=0,0
-
+        search_string = de_canonicalize_isbn(search_string)
+        #@@logger.info(source_string)
+        #@@logger.info(search_string)
+ 
         search_string.downcase.split.each do |t|
           cost = cost + 1
           if(source_string.downcase.include? t) then
@@ -156,7 +160,7 @@ class Generalsearch
                 end      
 
                 if (cost == 1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight} 
                   prices.push(price_info)
                 end
               end
@@ -319,7 +323,7 @@ class Generalsearch
           end      
 
           if (cost==1 || weight > 1) then
-            price_info = {:price => proper_case(price_text[i]),:author=>author, :name=>name_text[i], :url=>"", :source=>'A1Books', :weight=>weight} 
+            price_info = {:price => price_text[i],:author=>proper_case(author), :name=>proper_case(name_text[i]), :url=>"", :source=>'A1Books', :weight=>weight} 
             prices.push(price_info)
           end
       end
@@ -471,7 +475,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_sub[1..price_sub.length],:author=>author, :name=>name, :url=>url_text[i], :source=>'eBay India', :weight=>weight} 
+                  price_info = {:price => price_sub[1..price_sub.length],:author=>proper_case(author), :name=>proper_case(name), :url=>url_text[i], :source=>'eBay India', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -687,11 +691,77 @@ class Generalsearch
       prices
  
     end
- 
 
+    def search_homeshop(query)
+      @@logger.info("Search HomeShop18..")
+      @@logger.info(query)
+      url= "http://www.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("span.srh_rslt_hsrate").map { |e| "#{e.text.tr('A-Za-z,.:','')}" }
+            name_text = page.search("span.srh_rslt_title a").map{ |e| "#{e.text}" }
+            url_text = page.search("span.srh_rslt_title a[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :url=>url_text[i], :source=>'Homeshop18', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+ 
+    end
+
+    def dont_search_landmark(query)
+      @@logger.info("Search Landmark..")
+      @@logger.info(query)
+      url= "http://www.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
+      page = self.fetch_page(url)
+      prices=[]
+      begin
+            price_text = page.search("span.srh_rslt_hsrate").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("span.srh_rslt_title a").map{ |e| "#{e.text}" }
+            url_text = page.search("span.srh_rslt_title a[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :url=>url_text[i], :source=>'Homeshop18', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        @@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+ 
+    end
+
+
+  #--------------------------------------------------------------------------------------------------------------------------------------
   def proper_case(str)
-    return str.split(/\s+/).each{ |word| word.capitalize! }.join(' ')  
+    st = str.to_s
+    return st.split(/\s+/).each{ |word| word.capitalize! }.join(' ')  
   end
+  def de_canonicalize_isbn(text)
+    unless text.nil?
+     text.to_s.gsub('+', ' ')
+    end
+  end
+
 
   end
 
