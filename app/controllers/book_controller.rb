@@ -5,6 +5,8 @@ class BookController < ApplicationController
   def view
     logger.info("Inside BookController.view")
     @isbn = canonicalize_isbn(params[:q])
+    #@isbn = (params[:q])
+
     logger.info(@isbn)
     @searchby = 'isbn'
 
@@ -71,7 +73,7 @@ class BookController < ApplicationController
 
   def canonicalize_isbn(text)
     unless text.nil?
-      text.to_s.gsub('-', '').upcase
+     text.to_s.gsub(' ', '+')
     end
   end
 

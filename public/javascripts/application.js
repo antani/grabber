@@ -1,20 +1,26 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
-
+//'#E8E8E2'
 
 $(document).ready(function() {
 
-   
+$().toastmessage({
+    text     : 'Hello World',
+    sticky   : true,
+    position : 'top-right',
+    type     : 'success',
+    close    : function () {console.log("toast is closed ...");}
+}); 
+  
 
-    $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
-
-    $('body').noisy({
+$('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
+$('body').noisy({
       'intensity' : 1,
       'size' : 200,
       'opacity' : 0.08,
       'fallback' : '',
       'monochrome' : false
-    }).css('background-color', '#E8E8E2');
+}).css('background-color', '#E8E8E2');
 
 $("#search_link").click( function()
 	{
@@ -44,7 +50,10 @@ $('.btn').append($('<span />').addClass('helper'));
                     $(".dropdown dd ul").hide();
             });
 
-
+function sendMessage(msg)
+{
+   $().toastmessage('showNoticeToast', msg);
+}
             
 
 function createCookie(name,value,days) {
@@ -85,6 +94,9 @@ if(readCookie("country") == null)
 					       {  	  	
 						  country = o.place.country.content;
 						  createCookie("country",country,1);
+                                                  sendMessage("Your location is set to : " + readCookie("country"));
+                                                  $('#sample').refresh();
+
 					       }
 					 });
 					
@@ -95,14 +107,16 @@ if(readCookie("country") == null)
 
 				function geo_error(p)
 				{
-					alert("USA");
 					createCookie("country","USA",1);
-					
+	                                sendMessage("Your location is set to : " + readCookie("country"));
+				
 
 				});
 	}
 }
-    var review_quote = "<div class='item_review_title_left'><img src='http://static.fkcdn.com/www/391/images/review_image.png' alt='*'></div>";
+
+
+/*    var review_quote = "<div class='item_review_title_left'><img src='http://static.fkcdn.com/www/391/images/review_image.png' alt='*'></div>";
     $(review_quote).insertBefore('.gr_review_container.a');
     var editorial_review_books = $('#editorial_review').html();
     var start = editorial_review_books.search("About the Author");
@@ -113,7 +127,6 @@ if(readCookie("country") == null)
 	      var final_parts = first_part + "<p class='about_author'>About the Author: <p>" + second_part;
 	      $('#editorial_review').html(final_parts);
     }
-
-
-    	
+*/
+   	
 }); //end js  

@@ -6,11 +6,28 @@ a img {
 { 
   font-family: 'Droid Sans','Puritan',sans-serif; 
   font-size:normal;
-  border: 2px solid #DDDDDD;
+  border: 2px solid #EAEAEA;
   border-radius: 10px 10px 0 0;
   padding: 10px;
   margin-bottom: 5px;
+  background: none repeat scroll 0 0 #EAEAEA;
+
 } /* hack retained to preserve specificity */
+#featured_container {
+    background: url("/images/feature_graphic.png") no-repeat scroll 27px 50% transparent;
+    height: 346px;
+    margin: 0 auto;
+    overflow: visible;
+    padding-left: 5px;
+    width: 950px;
+}
+#featured {
+    background: url("/images/feature_bg.png") repeat scroll 0 0 #2BA9D3;
+    margin: 0 auto;
+    overflow: visible;
+    padding-left: 5px;
+    height: 200px;
+}
 
 #editorial_review h3
 {
@@ -265,7 +282,7 @@ background-image: url("http://l1.yimg.com/a/i/ww/met/th/slate/gsprite_pg_slate_2
 
 
 
-
+/*#EAEAEA; #5BA0D0*/
 .drop-shadow {
    position:relative;
    width:90%;

@@ -131,7 +131,7 @@ class Generalsearch
     def search_flipkart(query)
       @@logger.info("Search flipkart..")
       @@logger.info(query)
-      url = "http://www.flipkart.com/search.php?query=#{query[:search_term]}"
+      url = "http://www.flipkart.com/search.php?query=#{query[:search_term]}&from=all"
       prices=[]
       begin
             page = self.fetch_page(url)
@@ -319,7 +319,7 @@ class Generalsearch
           end      
 
           if (cost==1 || weight > 1) then
-            price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"", :source=>'A1Books', :weight=>weight} 
+            price_info = {:price => proper_case(price_text[i]),:author=>author, :name=>name_text[i], :url=>"", :source=>'A1Books', :weight=>weight} 
             prices.push(price_info)
           end
       end
@@ -689,7 +689,9 @@ class Generalsearch
     end
  
 
-
+  def proper_case(str)
+    return str.split(/\s+/).each{ |word| word.capitalize! }.join(' ')  
+  end
 
   end
 
