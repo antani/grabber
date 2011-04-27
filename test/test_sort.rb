@@ -43,3 +43,6 @@ tt = proper_case(t)
 
 puts tt
 
+amount="Our Price: Rs. 15490.00"
+amount.sub!(/A-Za-z0-9/, '')
+puts amount
