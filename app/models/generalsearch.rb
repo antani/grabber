@@ -6,18 +6,20 @@ class Generalsearch
 
   NOT_AVAILABLE = 999_999
   @@logger = Logger.new(STDOUT)
-  attr_accessor :search_term
+  attr_accessor :search_term,:search_type
 
-  def initialize(given_search_term)
+  def initialize(given_search_term,search_type)
     @@logger.info("Initializing generalsearch")
     @@logger.info (given_search_term)
-    self.search_term= given_search_term
+    @@logger.info (search_type)
 
+    self.search_term= given_search_term
+    self.search_type= search_type
   end
   # For usage with DelayedJob : Bookprice.new(:isbn => "9789380032825").perform
   def perform
     @@logger.info("Performing job for #{self.search_term}")
-    prices = self.class.prices(self.search_term)
+    prices = self.class.prices(self.search_term,self.search_type)
     Rails.cache.write(self.cache_key, prices)
     prices
   end
@@ -56,10 +58,10 @@ class Generalsearch
       self.searches.map { |name, search| name.to_s }.sort.map(&:to_sym)
     end
     
-    def prices(query)
+    def prices(query,type)
      #@price_arr = []
      #isbn = check_isbn(isbn)
-      prices_array = self.searches.map { |name,search| [search.call(query)] }#.sort_by { |p| p[1][:price] }
+      prices_array = self.searches.map { |name,search| [search.call(query,type)] }#.sort_by { |p| p[1][:price] }
       price_array = prices_array.flatten
       #@@logger.info(price_array)
       prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
@@ -132,10 +134,20 @@ class Generalsearch
 
         return weight,cost
     end
-    def search_flipkart(query)
+    def search_flipkart(query,type)
       @@logger.info("Search flipkart..")
       @@logger.info(query)
-      url = "http://www.flipkart.com/search.php?query=#{query[:search_term]}&from=all"
+      @@logger.info(type)
+
+      what = type[:search_type]
+      if what == 'movies' then
+          url="http://www.flipkart.com/search-movie?dd=0&query=#{query[:search_term]}&Search=Search"
+      elsif what == 'mobiles' then
+          url="http://www.flipkart.com/search-mobile?dd=0&query=#{query[:search_term]}&Search=Search"
+      else
+          url = "http://www.flipkart.com/search.php?query=#{query[:search_term]}&from=all"
+      end
+
       prices=[]
       begin
             page = self.fetch_page(url)
@@ -171,10 +183,20 @@ class Generalsearch
         prices
     end
     
-    def search_infibeam(query)
+    def search_infibeam(query,type)
       @@logger.info("Search infibeam..")
       @@logger.info(query)
-      url = "http://www.infibeam.com/Books/search?q=#{query[:search_term]}"
+      @@logger.info(type)
+
+      what = type[:search_type]
+      if what == 'movies' then
+          url = "http://www.infibeam.com/Movies/search?q=#{query[:search_term]}"
+      elsif what == 'mobiles' then
+          url = "http://www.infibeam.com/Mobiles/search?q=#{query[:search_term]}"
+      else
+          url = "http://www.infibeam.com/Books/search?q=#{query[:search_term]}"
+      end
+
       prices=[]
       begin
       page = self.fetch_page(url)
@@ -211,8 +233,8 @@ class Generalsearch
       end
       prices
     end
-    
-    def search_rediff(query)
+    # todo 
+    def search_rediff(query,type)
       @@logger.info("Search rediffbooks..")
       @@logger.info(query)
       url = "http://books.rediff.com/book/#{query[:search_term]}"
@@ -250,20 +272,30 @@ class Generalsearch
       prices
    end
    # Dont know why but we keep on getting execution expired from this site.
-   def search_indiaplaza(query)
+   def search_indiaplaza(query,type)
       @@logger.info("Search indiaplaza..")
       @@logger.info(query)
+      @@logger.info(type)
+
+      what = type[:search_type]
+      if what == 'movies' then
+          url= "http://www.indiaplaza.com/newsearch/search.aspx?srchval=#{query[:search_term]}&Store=movies"
+      elsif what == 'mobiles' then
+          url= "http://www.indiaplaza.com/newsearch/search.aspx?srchval=#{query[:search_term]}&Store=mobiles"
+      else
+          url = "http://www.indiaplaza.in/search.aspx?catname=Books&srchkey=&srchVal=#{query[:search_term]}"
+      end
       prices=[]
 #a[@href]").map{|e| e['href']}
 
       begin
-      url = "http://www.indiaplaza.in/search.aspx?catname=Books&srchkey=&srchVal=#{query[:search_term]}"
+            
       page = self.fetch_page(url)
 
       price_text = page.search("div.tier1box2 ul li:first-child span").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
       name_text = page.search("ul.bookdetails li a").map{ |e| "#{e.text} " }
       author_text = page.search("ul.bookdetails li:nth-child(2)").map {|e| "#{e.text}" }
-      url_text = page.search("ul.bookdetails li a").map{|e| "#{e.text}" }
+      url_text = page.search("ul.bookdetails li a[@href]").map{|e| e['href'] }
       (0...price_text.length).each do |i|
           @@logger.info (price_text[i])
           @@logger.info (author_text[i])
@@ -281,7 +313,7 @@ class Generalsearch
 
 
           if (cost==1 || weight > 1) then
-            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>url_text[i], :source=>'Indiaplaza', :weight=>weight} 
+            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>"http://www.indiaplaza.com"+url_text[i], :source=>'Indiaplaza', :weight=>weight} 
             prices.push(price_info)
           end
  
@@ -292,9 +324,9 @@ class Generalsearch
       end
       prices
   end
-
-      #This is the worst formed website and dangers lurk in every corner.
-   def search_a1books(query)
+   # todo
+   #This is the worst formed website and dangers lurk in every corner.
+   def search_a1books(query,type)
       @@logger.info("Search a1books..")
       @@logger.info(query)
       url ="http://www.a1books.co.in/searchresult.do?searchType=books&keyword=#{query[:search_term]}&fromSearchBox=Y&partnersite=a1india&imageField=Go"
@@ -304,7 +336,7 @@ class Generalsearch
       price_text = page.search("span.salePrice").map { |e| "#{e.text.tr('A-Za-z,','')}" }
       name_text = page.search("table.section a.label").map{ |e| "#{e.text}" }
       author_text = page.search("table.section td[@width='100%']").map{ |e| "#{e.text}" }
-      url_text = page.search("ul.bookdetails li a").map{|e| "#{e.text}" }
+      url_text = page.search("table.section a.label[@href]").map{|e| e['href'] }
 
     
       (0...price_text.length).each do |i|
@@ -323,7 +355,7 @@ class Generalsearch
           end      
 
           if (cost==1 || weight > 1) then
-            price_info = {:price => price_text[i],:author=>proper_case(author), :name=>proper_case(name_text[i]), :url=>"", :source=>'A1Books', :weight=>weight} 
+            price_info = {:price => price_text[i],:author=>proper_case(author), :name=>proper_case(name_text[i]), :url=>"http://a1books.co.in"+url_text[i], :source=>'A1Books', :weight=>weight} 
             prices.push(price_info)
           end
       end
@@ -334,7 +366,7 @@ class Generalsearch
       prices
    end
      
-   def search_nbcindia(query)
+   def search_nbcindia(query,type)
       @@logger.info("Search nbcindia..")
       @@logger.info(query)
  
@@ -371,7 +403,7 @@ class Generalsearch
       prices
    end
 
-   def search_pustak(query)
+   def search_pustak(query,type)
       @@logger.info("Search pustak..")
       @@logger.info(query)
       url="http://pustak.co.in/pustak/books/search?searchType=book&q=#{query[:search_term]}&page=1&type=genericSearch"
@@ -442,7 +474,7 @@ class Generalsearch
       prices
    end
 
-   def search_ebay(query)
+   def search_ebay(query,type)
       @@logger.info("Search ebay..")
       @@logger.info(query)
       url="http://shop.ebay.in/?_from=R40&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=See-All-Categories"
@@ -488,7 +520,7 @@ class Generalsearch
    end
 
 
-   def search_bookadda(query)
+   def search_bookadda(query,type)
       @@logger.info("Search Bookadda..")
       @@logger.info(query)
       url = "http://www.bookadda.com/search/#{query[:search_term]}"
@@ -511,7 +543,7 @@ class Generalsearch
                       weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
                 end      
 
-                if (cost==1 || weight > 1) then
+                if (cost==1 || weight > 1)  && ( price_text[i].to_i > 0) then
                   price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>url_text[i], :source=>'Book Adda', :weight=>weight} 
                   prices.push(price_info)
                 end
@@ -524,7 +556,7 @@ class Generalsearch
  
    end
 
-   def search_tradus(query)
+   def search_tradus(query,type)
       @@logger.info("Search Tradeus..")
       @@logger.info(query)
       url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?solrsort=fs_uc_sell_price asc"
@@ -552,7 +584,7 @@ class Generalsearch
       prices
    
    end
-   def search_jumadi(query)
+   def search_jumadi(query,type)
       @@logger.info("Search Jumadi..")
       @@logger.info(query)
       url = "http://www.jumadi.in/#{query[:search_term]}"
@@ -656,7 +688,7 @@ class Generalsearch
       prices
     end
 
-    def search_crossword(query)
+    def search_crossword(query,type)
       @@logger.info("Search Crossword..")
       @@logger.info(query)
       url = "http://www.crossword.in/books/search?q=#{query[:search_term]}"
@@ -692,7 +724,7 @@ class Generalsearch
  
     end
 
-    def search_homeshop(query)
+    def search_homeshop(query,type)
       @@logger.info("Search HomeShop18..")
       @@logger.info(query)
       url= "http://www.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
@@ -721,7 +753,7 @@ class Generalsearch
  
     end
 
-    def dont_search_landmark(query)
+    def dont_search_landmark(query,type)
       @@logger.info("Search Landmark..")
       @@logger.info(query)
       url= "http://www.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"

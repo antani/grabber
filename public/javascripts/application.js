@@ -4,14 +4,7 @@
 
 $(document).ready(function() {
 
-$().toastmessage({
-    text     : 'Hello World',
-    sticky   : true,
-    position : 'top-right',
-    type     : 'success',
-    close    : function () {console.log("toast is closed ...");}
-}); 
-  
+ 
 
 $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
 $('body').noisy({
@@ -21,6 +14,30 @@ $('body').noisy({
       'fallback' : '',
       'monochrome' : false
 }).css('background-color', '#E8E8E2');
+
+$('#searchbooks').click(function() {
+            $('#search_type').val('books');
+            $(this).addClass('primary button pill button');
+            $('#searchmovies').removeClass('primary button').addClass('pill button');
+            $('#searchmobiles').removeClass('primary button').addClass('pill button');
+
+          });
+$('#searchmovies').click(function() {
+            $('#search_type').val('movies');
+            $(this).addClass('primary button pill button');
+            $('#searchbooks').removeClass('primary button').addClass('pill button');
+            $('#searchmobiles').removeClass('primary button').addClass('pill button');
+
+
+          });
+$('#searchmobiles').click(function() {
+            $('#search_type').val('mobiles');
+            $(this).addClass('primary button pill button');
+            $('#searchmovies').removeClass('primary button').addClass('pill button');
+            $('#searchbooks').removeClass('primary button').addClass('pill button');
+
+
+          });
 
 $("#search_link").click( function()
 	{

@@ -15,26 +15,28 @@
     <div class="searchwrapper-inner-border">
           <%= form_tag(view_path, :method => "get") do %>
               <%= text_field_tag(:q,nil,:class=> "inputquery") %>
+              <%= hidden_field_tag 'search_type', 'books' %>
 	      <a id="search_link" href="#" class="btn search">Search</a>
               <span class="buttonwrapper">
                 <%= submit_tag("Search", :class=>"searchsubmit", :id=>"searchsubmit_btn") %>
               </span>  
-          <dl id="sample" class="dropdown">
-                  <dt><a href="#"><span><img src='images/flags/<%=cookies[:country]%>.png'></span></a></dt>
+                    <dl id="sample" class="dropdown">
+                            <dt><a href="#"><span><img src='images/flags/<%=cookies[:country]%>.png'></span></a></dt>
 
-                  <dd>
-                      <ul>
-                          <li><a href="#">India<img class="flag" src="images/flags/India.png" alt="" /><span class="value">IN</span></a></li>
-                          <li><a href="#">USA<img class="flag" src="images/flags/United-States.png" alt="" /><span class="value">US</span></a></li>
-                      </ul>
+                            <dd>
+                                <ul>
+                                    <li><a href="#">India<img class="flag" src="images/flags/India.png" alt="" /><span class="value">IN</span></a></li>
+                                    <li><a href="#">USA<img class="flag" src="images/flags/United-States.png" alt="" /><span class="value">US</span></a></li>
+                                </ul>
 
-                  </dd>
-           </dl>
-           <div id="searching_from"></div>
+                            </dd>
+                     </dl>
+                     <div id="searching_from"></div>
+                      <a href="#" id="searchbooks" class="primary button pill button">Books</a>
+                      <a href="#" id="searchmovies" class="pill button">Movies</a>
+                      <a href="#" id="searchmobiles" class="pill button">Mobiles</a></br> 
+
            <% end %>
     </div>  
-<!--<a href="#" class="primary button pill button">Books</a>
-<a href="#" class="pill button">Movies</a>
-<a href="#" class="pill button">Mobiles</a></br> -->
   </div>
 </div>

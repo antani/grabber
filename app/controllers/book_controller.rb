@@ -5,9 +5,12 @@ class BookController < ApplicationController
   def view
     logger.info("Inside BookController.view")
     @isbn = canonicalize_isbn(params[:q])
+    @type = params[:search_type]
     #@isbn = (params[:q])
 
     logger.info(@isbn)
+    logger.info(@type)
+
     @searchby = 'isbn'
 
     if @isbn.nil? || !is_isbn(@isbn)
@@ -43,7 +46,7 @@ class BookController < ApplicationController
 
       @not_available = Bookprice::NOT_AVAILABLE
      else
-       @prices = Generalsearch.new(:search_term => @isbn)
+       @prices = Generalsearch.new({:search_term => @isbn}, {:search_type => @type})
        @stores = Rails.cache.fetch(@prices.cache_key)
         if @stores.nil?
           # Check if book is already queued.
