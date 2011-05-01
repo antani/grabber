@@ -155,6 +155,7 @@ class Generalsearch
             name_text = page.search("div.right h2 a b").map{ |e| "#{e.text} " }
             author_text = page.search("span.head-tail a:first-child").map {|e| "#{e.text}" }
             url_text = page.search("div.right h2 a[@href]").map{|e| e['href']}
+            img_text = page.search("div.rposition img[@src]").map {|e| e['src'] }
 #        @@logger.info(name_text )
 #        @@logger.info(price_text)
 #        @@logger.info(author_text)
@@ -172,7 +173,7 @@ class Generalsearch
                 end      
 
                 if (cost == 1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight} 
                   prices.push(price_info)
                 end
               end
@@ -204,6 +205,7 @@ class Generalsearch
       name_text = page.search("ul.search_result h2.simple a").map{ |e| "#{e.text} " }
       author_text = page.search("ul.search_result li a[@href^='/Books/search']").map {|e| "#{e.text}" }
       url_text = page.search("h2.simple a[@href]").map{|e| e['href']}
+      img_text = page.search("div.img img[@src]").map {|e| e['src'] }
 
 #       @@logger.info(name_text )
 #       @@logger.info(price_text)
@@ -223,7 +225,7 @@ class Generalsearch
 
 
           if (cost==1 || weight > 1) then
-            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>"http://infibeam.com"+url_text[i], :source=>'Infibeam', :weight=>weight} 
+            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>"http://infibeam.com"+url_text[i], :source=>'Infibeam', :weight=>weight} 
             prices.push(price_info)
           end
  
@@ -245,6 +247,8 @@ class Generalsearch
               name_text = page.search("font#book-titl").map{ |e| "#{e.text} " }
               author_text = page.search("font#book-auth").map {|e| "#{e.text}" }
               url_text = page.search("div#prod-detail2 b a[@href]").map{|e| e['href'] }
+              img_text = page.search("div#prod_detail1 img[@src]").map {|e| e['src'] }
+
               (0...price_text.length).each do |i|
                   #@@logger.info (price_text[i])
                   #@@logger.info (author_text[i])
@@ -259,7 +263,7 @@ class Generalsearch
 
 
                   if (cost==1 || weight > 1) then
-                    price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>url_text[i], :source=>'Rediff', :weight=>weight} 
+                    price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>url_text[i], :source=>'Rediff', :weight=>weight} 
                     prices.push(price_info)
                   end
          
@@ -296,6 +300,8 @@ class Generalsearch
       name_text = page.search("ul.bookdetails li a").map{ |e| "#{e.text} " }
       author_text = page.search("ul.bookdetails li:nth-child(2)").map {|e| "#{e.text}" }
       url_text = page.search("ul.bookdetails li a[@href]").map{|e| e['href'] }
+      img_text = page.search("div.tier1box1 img[@src]").map {|e| e['src'] }
+
       (0...price_text.length).each do |i|
           @@logger.info (price_text[i])
           @@logger.info (author_text[i])
@@ -313,7 +319,7 @@ class Generalsearch
 
 
           if (cost==1 || weight > 1) then
-            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :url=>"http://www.indiaplaza.com"+url_text[i], :source=>'Indiaplaza', :weight=>weight} 
+            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>"http://www.indiaplaza.com"+url_text[i], :source=>'Indiaplaza', :weight=>weight} 
             prices.push(price_info)
           end
  
@@ -355,7 +361,7 @@ class Generalsearch
           end      
 
           if (cost==1 || weight > 1) then
-            price_info = {:price => price_text[i],:author=>proper_case(author), :name=>proper_case(name_text[i]), :url=>"http://a1books.co.in"+url_text[i], :source=>'A1Books', :weight=>weight} 
+            price_info = {:price => price_text[i],:author=>proper_case(author), :name=>proper_case(name_text[i]), :img=>"/images/book.png",:url=>"http://a1books.co.in"+url_text[i], :source=>'A1Books', :weight=>weight} 
             prices.push(price_info)
           end
       end
@@ -378,6 +384,7 @@ class Generalsearch
             name_text = page.search("div.fieldset ul li:first-child b").map{ |e| "#{e.text}" }
             author_text = page.search("div.fieldset ul li:first-child a:nth-child(2)").map{ |e| "#{e.text}" }
             url_text = page.search("div.fieldset ul li:first-child a:first-child[@href]").map{|e| e['href'] }
+            img_text = page.search("div.imageset img[@src]").map {|e| e['src'] }
 #a[@href]").map{|e| e['href']}
 
             
@@ -392,7 +399,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"http://www.nbcindia.com/"+url_text[i], :source=>'NBC India', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=> img_text[i],:url=>"http://www.nbcindia.com/"+url_text[i], :source=>'NBC India', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -415,7 +422,8 @@ class Generalsearch
             name_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child").map{ |e| "#{e.text}" }
             author_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span#author:first-child").map{ |e| "#{e.text}" }
             url_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child[@href]").map{|e| e['href'] }
-         #a[@href]").map{|e| e['href']}
+            img_text = page.search("div.search_landing_left_col img[@src]").map {|e| e['src'] }
+        #a[@href]").map{|e| e['href']}
 
             (0...price_text.length).each do |i|
                 author = author_text[i]
@@ -428,7 +436,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -463,7 +471,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"http://pustak.co.in"+url_text[i], :source=>'Coral Hub', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>"", :url=>"http://pustak.co.in"+url_text[i], :source=>'Coral Hub', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -484,7 +492,8 @@ class Generalsearch
             price_text = page.search("div#ResultSet table.li td.prc").map { |e| "#{e.text.tr('A-Za-z,','')}" }
             name_text = page.search("div#ResultSet table.li td:nth-child(2) a").map{ |e| "#{e.text}" }
             url_text = page.search("div#ResultSet table.li td:nth-child(2) a[@href]").map{|e| e['href'] }
-         #a[@href]").map{|e| e['href']}
+            img_text = page.search("img.img[@src]").map {|e| e['src'] }
+        #a[@href]").map{|e| e['href']}
 
             (0...price_text.length).each do |i|
                 price_sub = price_text[i]
@@ -507,7 +516,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_sub[1..price_sub.length],:author=>proper_case(author), :name=>proper_case(name), :url=>url_text[i], :source=>'eBay India', :weight=>weight} 
+                  price_info = {:price => price_sub[1..price_sub.length],:author=>proper_case(author), :name=>proper_case(name), :img=>img_text[i],:url=>url_text[i], :source=>'eBay India', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -531,7 +540,8 @@ class Generalsearch
             name_text = page.search("div.searchpagebooktitle h2").map{ |e| "#{e.text}" }
             author_text = page.search("span.searchbookauthor a").map{ |e| "#{e.text}" }
             url_text = page.search("div.searchpagebooktitle a:first-child[@href]").map{|e| e['href'] }
-         #a[@href]").map{|e| e['href']}
+            img_text = page.search("div.img img[@src]").map {|e| e['src'] }
+        #a[@href]").map{|e| e['href']}
 
             (0...price_text.length).each do |i|
                 author = author_text[i]
@@ -544,7 +554,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1)  && ( price_text[i].to_i > 0) then
-                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>url_text[i], :source=>'Book Adda', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>img_text[i], :url=>url_text[i], :source=>'Book Adda', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -568,12 +578,13 @@ class Generalsearch
             #There is no author text in the search result
             #author_text = page.search("div.searchpagebooktitle a:first-child").map{ |e| "#{e.text}" }
             url_text = page.search("div.search_prod_col tr td:nth-child(2) a:first-child a[@href]").map{|e| e['href'] }
-         #a[@href]").map{|e| e['href']}
+            img_text = page.search("img#pimage img[@src]").map {|e| e['src'] }
+        #a[@href]").map{|e| e['href']}
 
             (0...price_text.length).each do |i|
                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>"", :name=>name_text[i], :url=>"http://tradeus.in/"+url_text[i], :source=>'Trade us', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>"", :name=>name_text[i], :img=>img_text[i], :url=>"http://tradeus.in/"+url_text[i], :source=>'Trade us', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -595,7 +606,8 @@ class Generalsearch
             name_text = page.search("div.catDesc span.prodTitle a").map{ |e| "#{e.text}" }
             author_text = page.search("div.catDesc span.prodAuthor a").map{ |e| "#{e.text}" }
             url_text = page.search("div.catDesc span.prodTitle a[@href]").map{|e| e['href'] }
-         #a[@href]").map{|e| e['href']}
+            img_text = page.search("td.prodImg img[@src]").map {|e| e['src'] }
+        #a[@href]").map{|e| e['href']}
 
             (0...price_text.length).each do |i|
                 author = author_text[i]
@@ -608,7 +620,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>url_text[i], :source=>'Jumadi', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>img_text[i], :url=>url_text[i], :source=>'Jumadi', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -643,7 +655,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>url_text[i], :source=>'Coinjoos', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=> "",:url=>url_text[i], :source=>'Coinjoos', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -677,7 +689,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>url_text[i], :source=>'Friends of Books', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>"", :url=>url_text[i], :source=>'Friends of Books', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -699,7 +711,8 @@ class Generalsearch
             name_text = page.search("ul#search-result-items li span.variant-title").map{ |e| "#{e.text}" }
             author_text = page.search("ul#search-result-items li span.ctbr-name").map{ |e| "#{e.text}" }
             url_text = page.search("ul#search-result-items li span.variant-title a[@href]").map{|e| e['href'] }
-         #a[@href]").map{|e| e['href']}
+            img_text = page.search("div.variant-image img[@src]").map {|e| e['src'] }
+  #a[@href]").map{|e| e['href']}
 
             (0...price_text.length).each do |i|
                 author = author_text[i]
@@ -712,7 +725,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :url=>"http://crossword.in/"+url_text[i], :source=>'Crossword', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>img_text[i], :url=>"http://crossword.in/"+url_text[i], :source=>'Crossword', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -734,14 +747,15 @@ class Generalsearch
             price_text = page.search("span.srh_rslt_hsrate").map { |e| "#{e.text.tr('A-Za-z,.:','')}" }
             name_text = page.search("span.srh_rslt_title a").map{ |e| "#{e.text}" }
             url_text = page.search("span.srh_rslt_title a[@href]").map{|e| e['href'] }
-         #a[@href]").map{|e| e['href']}
+            img_text = page.search("div.srch_rslt_item img[@src]").map {|e| e['src'] }
+        #a[@href]").map{|e| e['href']}
 
             (0...price_text.length).each do |i|
 
                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :url=>url_text[i], :source=>'Homeshop18', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :img=>img_text[i], :url=>url_text[i], :source=>'Homeshop18', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -770,7 +784,7 @@ class Generalsearch
                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :url=>url_text[i], :source=>'Homeshop18', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :img=>"", :url=>url_text[i], :source=>'Homeshop18', :weight=>weight} 
                   prices.push(price_info)
                 end
             end

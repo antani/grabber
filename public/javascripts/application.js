@@ -4,7 +4,6 @@
 
 $(document).ready(function() {
 
- 
 
 $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
 $('body').noisy({
@@ -14,6 +13,37 @@ $('body').noisy({
       'fallback' : '',
       'monochrome' : false
 }).css('background-color', '#E8E8E2');
+
+//$(".prod_img").aeImageResize({ height: 135, width: 87 });
+$('img.prod_img').each(function(){
+    $(this).load(function(){
+        var maxWidth = $(this).width(); // Max width for the image
+        var maxHeight = $(this).height();       // Max height for the image
+        $(this).css("width", "auto").css("height", "auto"); // Remove existing CSS
+        $(this).removeAttr("width").removeAttr("height"); // Remove HTML attributes
+        var width = $(this).width();    // Current image width
+        var height = $(this).height();  // Current image height
+ 
+        if(width > height) {
+ 
+                // Check if the current width is larger than the max
+                if(width > maxWidth){
+                        var ratio = maxWidth / width;   // get ratio for scaling image
+                        $(this).css("width", maxWidth); // Set new width
+                        $(this).css("height", height * ratio);  // Scale height based on ratio
+                       height = height * ratio;        // Reset height to match scaled image
+                }
+        } else {
+                // Check if current height is larger than max
+                if(height > maxHeight){
+                        var ratio = maxHeight / height; // get ratio for scaling image
+                        $(this).css("height", maxHeight);   // Set new height
+                        $(this).css("width", width * ratio);    // Scale width based on ratio
+                       width = width * ratio;  // Reset width to match scaled image
+                }
+        }
+    });
+});
 
 $('#searchbooks').click(function() {
             $('#search_type').val('books');
@@ -112,9 +142,7 @@ if(readCookie("country") == null)
 						  country = o.place.country.content;
 						  createCookie("country",country,1);
                                                   sendMessage("Your location is set to : " + readCookie("country"));
-                                                  $('#sample').refresh();
-
-					       }
+				       }
 					 });
 					
 		  
@@ -131,7 +159,7 @@ if(readCookie("country") == null)
 				});
 	}
 }
-
+	
 
 /*    var review_quote = "<div class='item_review_title_left'><img src='http://static.fkcdn.com/www/391/images/review_image.png' alt='*'></div>";
     $(review_quote).insertBefore('.gr_review_container.a');
@@ -145,5 +173,5 @@ if(readCookie("country") == null)
 	      $('#editorial_review').html(final_parts);
     }
 */
-   	
+  	
 }); //end js  

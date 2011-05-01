@@ -1,3 +1,6 @@
+<div id ="img_header">
+ <img src='images/cheapr_small.png'/>
+</div> 
 
 <%= content_for :js do %>
   var isbn = "<%= @isbn %>";
@@ -5,46 +8,58 @@
 <% end %>
 
          <% unless @stores.nil? %>
-                <div class="stores">
-                <h3 class="desch3">Lowest Prices</h3>
-                <table class="price_list">
-                  <% @stores.each do |data|  %>
-                  <% unless data[:price] == @not_available %>
-                     <tr>
-                      <td>
-                        <a rel="nofollow" href="<%= data[:url] %>"><%= data[:source] %></a>
-                      </td>
-                        <td>
-                            <span style="font-family:rupee">R</span> <%= data[:price] %>
-                        </td>
-                        <td>
-                              <%= data[:name] %>
-                        </td>
-                        <td>
-                            <%= data[:author] %>
-                        </td>
+            <div class="stores">
+            <h3 class="desch3">Lowest Prices</h3>
+            <table class="price_list">
 
-                      <td>
-                        <ul class="tag_dummy">
-                          <li><a href="#">LOWEST</a></li>
-                        </ul>
-                      </td>
-                    </tr>
-                     <% end %> 
+             <% @stores.each_with_index do |data,x|  %>
+
+                  <% unless data[:price] == @not_available %>
+
+                                      <% if x == 0 then
+                                          maxw = data[:weight]
+                                         end
+                                      %>
+                                  <tr>
+                                          <td>
+                                            <a rel="nofollow" href="<%= data[:url] %>"><%= data[:source] %></a>
+                                          </td>
+                                           <td>
+                                                <span style="font-family:rupee">R</span> <%= data[:price] %>
+                                            </td>
+                                            <td>
+                                                  <%= data[:name] %>
+                                            </td>
+                                            <td>
+                                                <%= data[:author] %>
+                                            </td>
+                                            <td>
+                                                <img src='<%= data[:img] %>' width="64" height="100" class='prod_img'>
+                                            </td>
+                                          <td>
+                                            <ul class="tag_dummy">
+                                              <li><a href="#">LOWEST</a></li>
+                                            </ul>
+                                          </td>
+                                        </tr>
                   <% end %>
-                </table>
+                <% end %>  
+                            </table>
+            
                 <br />
               </div>
           <% else %>
+
                 <div id="loader">
                 <img src='images/9.gif' /></br>
                 <strong>Fetching prices from <%= @prices.number_of_stores %> online stores... please be patient!</strong> (This page will be automatically refreshed, please do NOT manually refresh)
                 </div>
- <% content_for :js do %>
- var auto_refresh = setInterval(
-                                function ()
-                                 {
-                                    window.location.reload()
-                                 }, 15*1000); 
+                        <% content_for :js do %>
+                        var auto_refresh = setInterval(
+                                                    function ()
+                                                     {
+                                                        window.location.reload()
+                                                     }, 15*1000); 
+                        <% end %>
+
     <% end %>
-<% end %>

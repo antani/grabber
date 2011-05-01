@@ -6,7 +6,9 @@
 
 
 <% content_for :header do %>
- <img src='images/cheapr_S.png'/>
+<div id ="img_header">
+ <img src='images/cheapr.png'/>
+</div> 
 </br>
 
  <% end %>
@@ -20,9 +22,18 @@
               <span class="buttonwrapper">
                 <%= submit_tag("Search", :class=>"searchsubmit", :id=>"searchsubmit_btn") %>
               </span>  
+                    <div id="search_btn">
+                      <a href="#" id="searchall" class="primary button pill button">Everything</a>
+                      <a href="#" id="searchbooks" class="pill button">Books</a>
+                      <a href="#" id="searchmovies" class="pill button">Movies</a>
+                      <a href="#" id="searchmobiles" class="pill button">Mobiles</a> 
+                    </div> 
                     <dl id="sample" class="dropdown">
-                            <dt><a href="#"><span><img src='images/flags/<%=cookies[:country]%>.png'></span></a></dt>
-
+                            <% if cookies[:country] == nil %>
+                                  <dt><a id="flag" href="#"><span><img src='images/flags/India.png'></span></a></dt>
+                            <%else%>
+                                  <dt><a id="flag" href="#"><span><img src='images/flags/<%=cookies[:country]%>.png'></span></a></dt>
+                            <%end%>
                             <dd>
                                 <ul>
                                     <li><a href="#">India<img class="flag" src="images/flags/India.png" alt="" /><span class="value">IN</span></a></li>
@@ -31,12 +42,9 @@
 
                             </dd>
                      </dl>
-                     <div id="searching_from"></div>
-                      <a href="#" id="searchbooks" class="primary button pill button">Books</a>
-                      <a href="#" id="searchmovies" class="pill button">Movies</a>
-                      <a href="#" id="searchmobiles" class="pill button">Mobiles</a></br> 
 
-           <% end %>
+          <% end %>
     </div>  
   </div>
 </div>
+                    

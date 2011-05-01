@@ -1,6 +1,9 @@
 a img {
   border: 0;
 }
+#img_header
+{
+}
 #editorial_review, .goodreads, .stores
 
 { 
@@ -87,10 +90,11 @@ table.price_list td
 {
   padding: 5px;
   /*border-top: 1px solid #EEEEEE;*/
-  border-bottom: 1px solid #FFFFFF;
+  /*border-bottom: 1px solid #FFFFFF;*/
   border-top: 1px solid #CCCCCC;
   padding: 5px;
   vertical-align: top;
+  background-color: white;
 
 }
 .gr_review_container
@@ -333,6 +337,15 @@ background-image: url("http://l1.yimg.com/a/i/ww/met/th/slate/gsprite_pg_slate_2
   /* HOVER ON */
    -webkit-transition: border-radius 2s;
 }
+#searching_from
+{
+  display:block;
+  size: 80px;
+}
+#search_btn
+{
+  float: right; 
+}
 /*--------------------------------------------------------------------------------------
 Notifications
 #e4dfcb
@@ -346,7 +359,7 @@ Notifications
 .dropdown a, .dropdown a:visited { color:#816c5b; text-decoration:none; outline:none;}
 .dropdown a:hover { color:#5d4617;}
 
-.dropdown dt a {background: url('images/arrow.png') no-repeat scroll right center; display:block;  width:20px;}
+.dropdown dt a { display:block;  width:20px;}
 .dropdown dt a span {cursor:pointer; display:block; text-align: left;}
 .dropdown dd ul { background:#C7C7C1 none repeat scroll 0 0; border:1px solid #d4ca9a; color:#C5C0B0; display:none;
                   left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:170px; list-style:none;}
