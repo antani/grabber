@@ -1,3 +1,5 @@
+require 'text'
+
 a=[[[{:price=>"  190 ", :author=>"P. G. Wodehouse", :name=>"Right Ho Jeeves ", :url=>"", :source=>"Flipkart"}, {:price=>"  190 ", :author=>"P. G. Wodehouse", :name=>"Laughing Gas ", :url=>"", :source=>"Flipkart"}, {:price=>"  200 ", :author=>"P. G. Wodehouse", :name=>"The Inimitable Jeeves ", :url=>"", :source=>"Flipkart"}, {:price=>"  218 ", :author=>"P. G. Wodehouse", :name=>"The Code Of The Woosters ", :url=>"", :source=>"Flipkart"}, {:price=>"  245 ", :author=>"P G Wodehouse", :name=>"What Ho! : The Best Of Wodehouse ", :url=>"", :source=>"Flipkart"}, {:price=>"  190 ", :author=>"P. G. Wodehouse", :name=>"Thank You Jeeves ", :url=>"", :source=>"Flipkart"}, {:price=>"  218 ", :author=>"P G Wodehouse", :name=>"Uncle Fred An Omnibus ", :url=>"", :source=>"Flipkart"}, {:price=>"  190 ", :author=>"P. G. Wodehouse", :name=>"Leave It To P Smith ", :url=>"", :source=>"Flipkart"}, {:price=>"  198 ", :author=>"P. G. Wodehouse", :name=>"Something Fresh ", :url=>"", :source=>"Flipkart"}, {:price=>"  198 ", :author=>"P. G. Wodehouse", :name=>"The Small Bachelor ", :url=>"", :source=>"Flipkart"}]], [[{:price=>" 605", :author=>"Joseph Connolly", :name=>"Wodehouse ", :url=>"", :source=>"Infibeam"}, {:price=>" 388", :author=>"Robert Mc Crum", :name=>"Wodehouse ", :url=>"", :source=>"Infibeam"}, {:price=>" 1062", :author=>"John Wodehouse", :name=>"Wodehouses of Kimberly ", :url=>"", :source=>"Infibeam"}, {:price=>" 261", :author=>"P G Wodehouse", :name=>"Vintage Wodehouse ", :url=>"", :source=>"Infibeam"}, {:price=>" 803", :author=>"Richard Usborne", :name=>"Wodehouse Nuggets ", :url=>"", :source=>"Infibeam"}, {:price=>" 153", :author=>"P G Wodehouse Richard", :name=>"Wodehouse On Crime ", :url=>"", :source=>"Infibeam"}, {:price=>" 3365", :author=>"P G Wodehouse", :name=>"A Wodehouse Bestiary ", :url=>"", :source=>"Infibeam"}]]]
 
 c = a.flatten
@@ -46,3 +48,58 @@ puts tt
 amount="Our Price: Rs. 15490.00"
 amount.sub!(/A-Za-z0-9/, '')
 puts amount
+def soundex(string)
+  copy = string.upcase.tr '^A-Z', ''
+  return nil if copy.empty?
+  first_letter = copy[0, 1]
+  copy.tr_s! 'AEHIOUWYBFPVCGJKQSXZDTLMNR', '00000000111122222222334556'
+  copy.sub!(/^(.)\1*/, '').gsub!(/0/, '')
+  "#{first_letter}#{copy.ljust(3,"0")}"
+end
+
+ def find_weight(source_string, search_string)
+        p("-----------------------------Finding weight----------------------------------")
+        weight,cost=0,0
+
+        p(source_string)
+        p(search_string)
+	#Find word frequency in the source string
+	freqs=Hash.new(0)
+	#source_string.downcase.split.each { |word| freqs[word] += 1 }
+	#freqs.sort_by {|x,y| y }.reverse.each {|w, f| puts w+' '+f.to_s} 
+
+        #Start with small search string   
+        search_string.downcase.split.each do |t|
+          cost = cost + 1
+	  source_string.downcase.split.each do |tt|
+	          if(soundex(tt) == soundex(t)) then
+        	          weight = weight + 1
+			  freqs[t] += 1
+	          end
+          end 
+        end
+     freqs.sort_by {|x,y| y }.reverse.each {|w, f| puts w+' '+f.to_s} 
+        p(weight)
+	p(cost)
+        p("-----------------")
+	#reduce weight if there are duplicates
+	freqs.each do |k,v|
+		weight = weight - (v-1)
+	end
+
+
+        p(weight)
+        return weight,cost
+    end
+
+
+tt = "Piccadilly Jim"
+s = "piccadilly jim"
+puts Text::Levenshtein.distance(tt.downcase,s.downcase)
+
+puts soundex(tt)
+puts soundex(s)
+
+
+
+find_weight(tt,s)

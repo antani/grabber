@@ -118,12 +118,12 @@ class Generalsearch
       #b
       final_prices
     end
-    def find_weight(source_string, search_string)
-        #@@logger.info("-----------------------------Finding weight----------------------------------")
+    def old_find_weight(source_string, search_string)
+        @@logger.info("-----------------------------Finding weight----------------------------------")
         weight,cost=0,0
         search_string = de_canonicalize_isbn(search_string)
-        #@@logger.info(source_string)
-        #@@logger.info(search_string)
+        @@logger.info(source_string)
+        @@logger.info(search_string)
  
         search_string.downcase.split.each do |t|
           cost = cost + 1
@@ -131,9 +131,48 @@ class Generalsearch
                   weight = weight + 1
           end
         end
-
+        @@logger.info(weight)
+        @@logger.info(cost)
         return weight,cost
     end
+    #---------------Weight using SOUNDEX implementation----------------------------------------------------------------
+     def find_weight(source_string, search_string)
+        @@logger.info("-----------------------------Finding weight----------------------------------")
+        weight,cost=0,0
+	search_string = de_canonicalize_isbn(search_string)
+        @@logger.info(source_string)
+        @@logger.info(search_string)
+	#Find word frequency in the source string
+	freqs=Hash.new(0)
+	#source_string.downcase.split.each { |word| freqs[word] += 1 }
+	#freqs.sort_by {|x,y| y }.reverse.each {|w, f| puts w+' '+f.to_s} 
+
+        #Start with small search string   
+        search_string.downcase.split.each do |t|
+          cost = cost + 1
+	  source_string.downcase.split.each do |tt|
+	          if(soundex(tt) == soundex(t)) then
+        	          weight = weight + 1
+			  freqs[t] += 1
+	          end
+          end 
+        end
+        #freqs.sort_by {|x,y| y }.reverse.each {|w, f| @@logger.info (w+' '+f.to_s)} 
+        #@@logger.info(weight)
+	#@@logger.info(cost)
+        #@@logger.info("-----------------")
+	#reduce weight if there are duplicates
+	freqs.each do |k,v|
+		weight = weight - (v-1)
+	end
+
+
+        @@logger.info(weight)
+        return weight,cost
+    end
+
+
+
     def search_flipkart(query,type)
       @@logger.info("Search flipkart..")
       @@logger.info(query)
@@ -169,7 +208,7 @@ class Generalsearch
                 elsif (name_text[i] !=nil && author_text[i] == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                      weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+                      weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
                 end      
 
                 if (cost == 1 || weight > 1) then
@@ -220,7 +259,7 @@ class Generalsearch
           elsif (name_text[i] !=nil && author_text[i] == nil) then
                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
           else
-                weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+                weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
           end      
 
 
@@ -258,7 +297,7 @@ class Generalsearch
                   elsif (name_text[i] !=nil && author_text[i] == nil) then
                         weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                   else
-                        weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+                        weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
                   end      
 
 
@@ -314,7 +353,7 @@ class Generalsearch
           elsif (name_text[i] !=nil && author_text[i] == nil) then
                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
           else
-                weight,cost = find_weight(name_text[i]+author_text[i], "#{query[:search_term]}" )
+                weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
           end      
 
 
@@ -357,7 +396,7 @@ class Generalsearch
           elsif (name_text[i] !=nil && author == nil) then
                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
           else
-                weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
           end      
 
           if (cost==1 || weight > 1) then
@@ -395,7 +434,7 @@ class Generalsearch
                 elsif (name_text[i] !=nil && author == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
 
                 if (cost==1 || weight > 1) then
@@ -432,7 +471,7 @@ class Generalsearch
                 elsif (name_text[i] !=nil && author == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
 
                 if (cost==1 || weight > 1) then
@@ -467,7 +506,7 @@ class Generalsearch
                 elsif (name_text[i] !=nil && author == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
 
                 if (cost==1 || weight > 1) then
@@ -550,7 +589,7 @@ class Generalsearch
                 elsif (name_text[i] !=nil && author == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
 
                 if (cost==1 || weight > 1)  && ( price_text[i].to_i > 0) then
@@ -616,7 +655,7 @@ class Generalsearch
                 elsif (name_text[i] !=nil && author == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
 
                 if (cost==1 || weight > 1) then
@@ -651,7 +690,7 @@ class Generalsearch
                 elsif (name_text[i] !=nil && author == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
 
                 if (cost==1 || weight > 1) then
@@ -685,7 +724,7 @@ class Generalsearch
                 elsif (name_text[i] !=nil && author == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
 
                 if (cost==1 || weight > 1) then
@@ -721,7 +760,7 @@ class Generalsearch
                 elsif (name_text[i] !=nil && author == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                      weight,cost = find_weight(name_text[i]+author, "#{query[:search_term]}" )
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
 
                 if (cost==1 || weight > 1) then
@@ -807,8 +846,18 @@ class Generalsearch
      text.to_s.gsub('+', ' ')
     end
   end
+  #Soundex implemented as - http://www.infused.org/2005/12/23/soundex-for-ruby/
+  def soundex(string)
+  	copy = string.upcase.tr '^A-Z', ''
+        return nil if copy.empty?
+	  first_letter = copy[0, 1]
+	  copy.tr_s! 'AEHIOUWYBFPVCGJKQSXZDTLMNR', '00000000111122222222334556'
+	  copy.sub!(/^(.)\1*/, '').gsub!(/0/, '')
+	  "#{first_letter}#{copy.ljust(3,"0")}"
+  end
 
 
   end
 
 end
+
