@@ -285,7 +285,7 @@ class Generalsearch
               price_text = page.search("font#book-pric").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
               name_text = page.search("font#book-titl").map{ |e| "#{e.text} " }
               author_text = page.search("font#book-auth").map {|e| "#{e.text}" }
-              url_text = page.search("div#prod-detail2 b a[@href]").map{|e| e['href'] }
+              url_text = page.search("div#prod-detail2 a[@href]").map{|e| e['href'] }
               img_text = page.search("div#prod_detail1 img[@src]").map {|e| e['src'] }
 
               (0...price_text.length).each do |i|
@@ -400,7 +400,7 @@ class Generalsearch
           end      
 
           if (cost==1 || weight > 1) then
-            price_info = {:price => price_text[i],:author=>proper_case(author), :name=>proper_case(name_text[i]), :img=>"/images/book.png",:url=>"http://a1books.co.in"+url_text[i], :source=>'A1Books', :weight=>weight} 
+            price_info = {:price => price_text[i],:author=>proper_case(author), :name=>proper_case(name_text[i]), :img=>"",:url=>"http://a1books.co.in"+url_text[i], :source=>'A1Books', :weight=>weight} 
             prices.push(price_info)
           end
       end
@@ -475,7 +475,7 @@ class Generalsearch
                 end      
 
                 if (cost==1 || weight > 1) then
-                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight} 
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>"http://pustak.co.in"+img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -578,7 +578,7 @@ class Generalsearch
             price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
             name_text = page.search("div.searchpagebooktitle h2").map{ |e| "#{e.text}" }
             author_text = page.search("span.searchbookauthor a").map{ |e| "#{e.text}" }
-            url_text = page.search("div.searchpagebooktitle a:first-child[@href]").map{|e| e['href'] }
+            url_text = page.search("div.searchpagebooktitle a[@href]").map{|e| e['href'] }
             img_text = page.search("div.img img[@src]").map {|e| e['src'] }
         #a[@href]").map{|e| e['href']}
 

@@ -1,7 +1,7 @@
 <div id ="img_header">
  <img src='images/cheapr_small.png'/>
 </div> 
-
+<div id="result_content">
 <%= content_for :js do %>
   var isbn = "<%= @isbn %>";
   var max_weight = "<%=@max_weight%>";
@@ -51,15 +51,17 @@
           <% else %>
 
                 <div id="loader">
-                <img src='images/9.gif' /></br>
+                <img src='images/9.gif' />
                 <strong>Fetching prices from <%= @prices.number_of_stores %> online stores... please be patient!</strong> (This page will be automatically refreshed, please do NOT manually refresh)
                 </div>
-                        <% content_for :js do %>
-                        var auto_refresh = setInterval(
-                                                    function ()
-                                                     {
-                                                        window.location.reload()
-                                                     }, 15*1000); 
-                        <% end %>
+</div>
 
-    <% end %>
+<script> 
+var auto_refresh = setInterval(
+function()
+{
+//$('#loader').fadeOut('slow').load('/ #result_content').fadeIn("slow");
+$("#result_content").load(location.href+" #result_content>*","");
+}, 10000);
+</script>
+     <% end %>
