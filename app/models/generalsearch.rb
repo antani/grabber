@@ -25,7 +25,7 @@ class Generalsearch
   end
 
   def cache_key
-    "prices:#{self.search_term}"
+    "prices:#{self.search_term}:#{self.search_type}"
   end
 
   def number_of_stores
@@ -283,16 +283,19 @@ class Generalsearch
     def search_rediff(query,type)
       @@logger.info("Search rediffbooks..")
       @@logger.info(query)
+      mtype= type[:search_type]
+      @@logger.info(mtype)
+
       url = "http://books.rediff.com/book/#{query[:search_term]}"
       prices=[]
-      page = self.fetch_page(url)
-      if type != 'books' then
+      if mtype != 'books' then
               @@logger.info ('----------------Ignoring search on Rediff---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
       end
 
+      page = self.fetch_page(url)
        begin
               price_text = page.search("font#book-pric").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
               name_text = page.search("font#book-titl").map{ |e| "#{e.text} " }
@@ -386,16 +389,19 @@ class Generalsearch
    def search_a1books(query,type)
       @@logger.info("Search a1books..")
       @@logger.info(query)
-      url ="http://www.a1books.co.in/searchresult.do?searchType=books&keyword=#{query[:search_term]}&fromSearchBox=Y&partnersite=a1india&imageField=Go"
-      page = self.fetch_page(url)
+      mtype= type[:search_type]
+
+      @@logger.info(mtype)
+
       prices=[]
-      if type != 'books' then
+      if mtype != 'books' then
               @@logger.info ('----------------Ignoring search on a1books---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
       end
-
+      url ="http://www.a1books.co.in/searchresult.do?searchType=books&keyword=#{query[:search_term]}&fromSearchBox=Y&partnersite=a1india&imageField=Go"
+      page = self.fetch_page(url)
 
       begin
       price_text = page.search("span.salePrice").map { |e| "#{e.text.tr('A-Za-z,','')}" }
@@ -434,17 +440,20 @@ class Generalsearch
    def search_nbcindia(query,type)
       @@logger.info("Search nbcindia..")
       @@logger.info(query)
- 
-      url = "http://www.nbcindia.com/Search-books.asp?q=#{query[:search_term]}"
-      page = self.fetch_page(url)
+      mtype= type[:search_type]
+
+      @@logger.info(mtype)
+  
       prices=[]
-      if type != 'books' then
+      if mtype != 'books' then
               @@logger.info ('----------------Ignoring search on nbcindia---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
       end
-
+      url = "http://www.nbcindia.com/Search-books.asp?q=#{query[:search_term]}"
+      page = self.fetch_page(url)
+ 
 
       begin
             price_text = page.search("div.fieldset ul li:nth-child(2) font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
@@ -452,7 +461,6 @@ class Generalsearch
             author_text = page.search("div.fieldset ul li:first-child a:nth-child(2)").map{ |e| "#{e.text}" }
             url_text = page.search("div.fieldset ul li:first-child a:first-child[@href]").map{|e| e['href'] }
             img_text = page.search("div.imageset img[@src]").map {|e| e['src'] }
-#a[@href]").map{|e| e['href']}
 
             
             (0...price_text.length).each do |i|
@@ -480,17 +488,20 @@ class Generalsearch
    def search_pustak(query,type)
       @@logger.info("Search pustak..")
       @@logger.info(query)
-      url="http://pustak.co.in/pustak/books/search?searchType=book&q=#{query[:search_term]}&page=1&type=genericSearch"
-      #url = "http://www.pustak.co.in/pustak/books/product?bookId=#{query[:search_term]}"
-      page = self.fetch_page(url)
+      mtype= type[:search_type]
+
+      @@logger.info(mtype)
+
       prices=[]
-      if type != 'books' then
+      if mtype != 'books' then
               @@logger.info ('----------------Ignoring search on pustak---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
       end
-
+      url="http://pustak.co.in/pustak/books/search?searchType=book&q=#{query[:search_term]}&page=1&type=genericSearch"
+      page = self.fetch_page(url)
+ 
 
       begin
             price_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
@@ -568,6 +579,8 @@ class Generalsearch
    def search_ebay(query,type)
       @@logger.info("Search ebay..")
       @@logger.info(query)
+      @@logger.info(type)
+
       url="http://shop.ebay.in/?_from=R40&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=See-All-Categories"
       page = self.fetch_page(url)
       prices=[]
@@ -615,16 +628,20 @@ class Generalsearch
    def search_bookadda(query,type)
       @@logger.info("Search Bookadda..")
       @@logger.info(query)
-      url = "http://www.bookadda.com/search/#{query[:search_term]}"
-      page = self.fetch_page(url)
+      mtype= type[:search_type]
+
+      @@logger.info(mtype)
+
       prices=[]
-      if type != 'books' then
+      if mtype != 'books' then
               @@logger.info ('----------------Ignoring search on bookadda---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
       end
-
+      url = "http://www.bookadda.com/search/#{query[:search_term]}"
+      page = self.fetch_page(url)
+ 
 
       begin
             price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
@@ -660,16 +677,20 @@ class Generalsearch
    def search_tradus(query,type)
       @@logger.info("Search Tradeus..")
       @@logger.info(query)
-      url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?solrsort=fs_uc_sell_price asc"
-      page = self.fetch_page(url)
+      mtype= type[:search_type]
+
+      @@logger.info(mtype)
+
       prices=[]
-      if type != 'books' then
+      if mtype != 'books' then
               @@logger.info ('----------------Ignoring search on tradus---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
       end
-
+      url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?solrsort=fs_uc_sell_price asc"
+      page = self.fetch_page(url)
+ 
 
       begin
             price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
@@ -697,16 +718,20 @@ class Generalsearch
    def search_jumadi(query,type)
       @@logger.info("Search Jumadi..")
       @@logger.info(query)
-      url = "http://www.jumadi.in/#{query[:search_term]}"
-      page = self.fetch_page(url)
+      mtype= type[:search_type]
+
+      @@logger.info(mtype)
+
       prices=[]
-      if type != 'books' then
+      if mtype != 'books' then
               @@logger.info ('----------------Ignoring search on jumadi---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
       end
-
+      url = "http://www.jumadi.in/#{query[:search_term]}"
+      page = self.fetch_page(url)
+ 
 
       begin
             price_text = page.search("div.catDesc span#our_price_display").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
@@ -826,15 +851,18 @@ class Generalsearch
     def search_crossword(query,type)
       @@logger.info("Search Crossword..")
       @@logger.info(query)
-      url = "http://www.crossword.in/books/search?q=#{query[:search_term]}"
-      page = self.fetch_page(url)
+      mtype= type[:search_type]
+      @@logger.info(mtype)
+
       prices=[]
-      if type != 'books' then
+      if mtype != 'books' then
               @@logger.info ('----------------Ignoring search on crossword---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
       end
+      url = "http://www.crossword.in/books/search?q=#{query[:search_term]}"
+      page = self.fetch_page(url)
 
 
       begin
@@ -871,6 +899,8 @@ class Generalsearch
     def search_homeshop(query,type)
       @@logger.info("Search HomeShop18..")
       @@logger.info(query)
+      @@logger.info(type)
+
       url= "http://www.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
