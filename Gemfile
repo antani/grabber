@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails'
 gem 'jquery-rails'
-
+gem 'rake', '~> 0.8.7'
 # http://mongoid.org/docs/installation/
 gem 'mongoid'
 gem 'bson_ext'

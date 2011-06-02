@@ -72,9 +72,9 @@ class Generalsearch
       final_prices=[]
       prices_array.each do |tt|
         if(tt[:weight] == top_weight) then
-         top_prices.push(tt) 
-        else
-         rest_prices.push(tt) 
+         top_prices.push(tt) unless tt[:weight] == -999 
+       else
+         rest_prices.push(tt) unless tt[:weight] == -999 
         end
       end
       top_prices = top_prices.sort_by { |p| p[:price].to_i }
@@ -183,6 +183,8 @@ class Generalsearch
           url="http://www.flipkart.com/search-movie?dd=0&query=#{query[:search_term]}&Search=Search"
       elsif what == 'mobiles' then
           url="http://www.flipkart.com/search-mobile?dd=0&query=#{query[:search_term]}&Search=Search"
+      elsif what == 'books' then
+          url="http://www.flipkart.com/search-book?dd=0&query=#{query[:search_term]}&Search=Search"
       else
           url = "http://www.flipkart.com/search.php?query=#{query[:search_term]}&from=all"
       end
@@ -233,8 +235,11 @@ class Generalsearch
           url = "http://www.infibeam.com/Movies/search?q=#{query[:search_term]}"
       elsif what == 'mobiles' then
           url = "http://www.infibeam.com/Mobiles/search?q=#{query[:search_term]}"
-      else
+      elsif what == 'books' then
           url = "http://www.infibeam.com/Books/search?q=#{query[:search_term]}"
+      else
+          url = "http://www.infibeam.com/search?q=#{query[:search_term]}"
+
       end
 
       prices=[]
@@ -279,9 +284,16 @@ class Generalsearch
       @@logger.info("Search rediffbooks..")
       @@logger.info(query)
       url = "http://books.rediff.com/book/#{query[:search_term]}"
-      page = self.fetch_page(url)
       prices=[]
-      begin
+      page = self.fetch_page(url)
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on Rediff---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+       begin
               price_text = page.search("font#book-pric").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
               name_text = page.search("font#book-titl").map{ |e| "#{e.text} " }
               author_text = page.search("font#book-auth").map {|e| "#{e.text}" }
@@ -377,6 +389,14 @@ class Generalsearch
       url ="http://www.a1books.co.in/searchresult.do?searchType=books&keyword=#{query[:search_term]}&fromSearchBox=Y&partnersite=a1india&imageField=Go"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on a1books---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
       price_text = page.search("span.salePrice").map { |e| "#{e.text.tr('A-Za-z,','')}" }
       name_text = page.search("table.section a.label").map{ |e| "#{e.text}" }
@@ -418,6 +438,14 @@ class Generalsearch
       url = "http://www.nbcindia.com/Search-books.asp?q=#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on nbcindia---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
             price_text = page.search("div.fieldset ul li:nth-child(2) font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
             name_text = page.search("div.fieldset ul li:first-child b").map{ |e| "#{e.text}" }
@@ -456,6 +484,14 @@ class Generalsearch
       #url = "http://www.pustak.co.in/pustak/books/product?bookId=#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on pustak---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
             price_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
             name_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child").map{ |e| "#{e.text}" }
@@ -492,6 +528,14 @@ class Generalsearch
       url = "http://www.coralhub.com/SearchResults.aspx?pindex=1&cat=0&search=#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on coralhub---------------------------------------------')
+              price_info = {:price=> '-999', :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => '-999'}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
             price_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
             name_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child").map{ |e| "#{e.text}" }
@@ -574,6 +618,14 @@ class Generalsearch
       url = "http://www.bookadda.com/search/#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on bookadda---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
             price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
             name_text = page.search("div.searchpagebooktitle h2").map{ |e| "#{e.text}" }
@@ -611,6 +663,14 @@ class Generalsearch
       url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?solrsort=fs_uc_sell_price asc"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on tradus---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
             price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
             name_text = page.search("div.search_prod_col tr td:nth-child(2) a:first-child").map{ |e| "#{e.text}" }
@@ -640,6 +700,14 @@ class Generalsearch
       url = "http://www.jumadi.in/#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on jumadi---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
             price_text = page.search("div.catDesc span#our_price_display").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
             name_text = page.search("div.catDesc span.prodTitle a").map{ |e| "#{e.text}" }
@@ -676,6 +744,14 @@ class Generalsearch
       url = "http://www.coinjoos.com/product/books/#{query[:search_term]}/1/"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on coinjoos---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
             price_text = page.search("div.catDesc span#our_price_display").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
             name_text = page.search("div.catDesc span.prodTitle a").map{ |e| "#{e.text}" }
@@ -710,6 +786,14 @@ class Generalsearch
       url = "http://www.friendsofbooks.com/store/index.php?main_page=advanced_search_result&search_in_description=1&keyword=#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on coinjoos---------------------------------------------')
+              price_info = {:price=> '-999', :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => '-999'}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
             common_text = page.search ("div#productListing tr td:nth-child(2) h2:first-child").map{ |e| "#{e.text}" }
             price_text = page.search("span.productSpecialPrice").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
@@ -745,6 +829,14 @@ class Generalsearch
       url = "http://www.crossword.in/books/search?q=#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on crossword---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
             price_text = page.search("ul#search-result-items li span.variant-final-price").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
             name_text = page.search("ul#search-result-items li span.variant-title").map{ |e| "#{e.text}" }
@@ -812,6 +904,14 @@ class Generalsearch
       url= "http://www.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
+      if type != 'books' then
+              @@logger.info ('----------------Ignoring search on landmark---------------------------------------------')
+              price_info = {:price=> '-999', :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => '-999'}
+              prices.push(price_info)
+              return prices
+      end
+
+
       begin
             price_text = page.search("span.srh_rslt_hsrate").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
             name_text = page.search("span.srh_rslt_title a").map{ |e| "#{e.text}" }
