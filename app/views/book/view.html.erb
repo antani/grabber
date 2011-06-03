@@ -9,7 +9,7 @@
 
          <% unless @stores.nil? %>
             <div class="stores">
-            <h3 class="desch3">Lowest Prices</h3>
+            <h3 class="desch3">Lowest Prices for <i><%= @type %></i> matching <i><%= @search_string %></i></h3>
             <table class="price_list">
 
              <% @stores.each_with_index do |data,x|  %>
@@ -28,7 +28,10 @@
                                                 <span style="font-family:rupee">R</span> <%= data[:price] %>
                                             </td>
                                             <td  class="td_name">
-                                                  <%= data[:name] %>
+                                                  <b><%= data[:name] %></b></br>
+                                                  <span class="discount"> <%= data[:discount] %> </span>
+                                                  <span class="shipping"> <%= data[:shipping] %> </span>
+
                                             </td>
                                             <td  class="td_author">
                                                 <%= data[:author] %>

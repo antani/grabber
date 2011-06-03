@@ -16,7 +16,7 @@ gem 'configatron', :require => 'configatron' # https://github.com/markbates/conf
 
 gem 'mechanize', :require => 'mechanize'
 gem 'amazon-ecs', :require => 'amazon/ecs'
-
+#gem 'soundex_find', :git => 'git://github.com/waltjones/soundex_find.git'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

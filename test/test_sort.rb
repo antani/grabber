@@ -92,14 +92,60 @@ end
         return weight,cost
     end
 
+ def new_find_weight(source_string, search_string)
+        weight,cost=0,0
+	#Find word frequency in the source string
+	freqs=Hash.new(0)
+	#source_string.downcase.split.each { |word| freqs[word] += 1 }
+	#freqs.sort_by {|x,y| y }.reverse.each {|w, f| puts w+' '+f.to_s} 
+        soundex_source = soundex(source_string.downcase)
+        soundex_target = soundex(search_string.downcase)
+        if soundex_source[0] == soundex_target[0] then
+          weight =1
+        end
+        for xx in 1..soundex_source.length do
+          if soundex_source[xx] == soundex_target[xx] then
+              weight = weight + 5
+              p xx, weight
+          end
+        end
+                
 
-tt = "Piccadilly Jim"
-s = "piccadilly jim"
+        #Start with small search string   
+        search_string.downcase.split.each do |t|
+          cost = cost + 1
+	  source_string.downcase.split.each do |tt|
+	          if(soundex(tt) == soundex(t)) then
+        	          weight = weight + 1
+			  freqs[t] += 1
+	          end
+          end 
+        end
+        #freqs.sort_by {|x,y| y }.reverse.each {|w, f| @@logger.info (w+' '+f.to_s)} 
+        #@@logger.info(weight)
+	#@@logger.info(cost)
+        #@@logger.info("-----------------")
+	#reduce weight if there are duplicates
+	freqs.each do |k,v|
+		weight = weight - (v-1)
+	end
+
+
+        return weight,cost
+    end
+
+
+tt = "Leave The Office Earlier-productivity Pro Shows You How"
+s = "The Office"
 puts Text::Levenshtein.distance(tt.downcase,s.downcase)
 
-puts soundex(tt)
-puts soundex(s)
+soundtt= soundex(tt)
+sounds = soundex(s)
+p soundtt
+p sounds
 
+p soundtt.include?(sounds)
 
-
-find_weight(tt,s)
+w,c =  new_find_weight(tt,s)
+p w
+p c

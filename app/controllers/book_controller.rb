@@ -4,6 +4,7 @@ class BookController < ApplicationController
 
   def view
     logger.info("Inside BookController.view")
+    @search_string = decanonicalize_isbn(params[:q])
     @isbn = canonicalize_isbn(params[:q])
     @type = params[:search_type]
     #@isbn = (params[:q])
@@ -78,6 +79,12 @@ class BookController < ApplicationController
      text.to_s.gsub(' ', '+')
     end
   end
+  def decanonicalize_isbn(text)
+    unless text.nil?
+     text.to_s.gsub('+', ' ')
+    end
+  end
+
 
   def is_isbn(text)
     /^[0-9]{9}[0-9xx]$/.match(text) or /^[0-9]{13}$/.match(text)

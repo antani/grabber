@@ -71,7 +71,7 @@ table.book_attributes td {
 }
 .desch3
 {
-  border-bottom:  1px solid #E8E8E8;
+  border-bottom:  1px dotted #E8E8E8;
 }
 .about_author
 {
@@ -92,10 +92,15 @@ table.price_list td
   padding: 15px;
   /*border-top: 1px solid #EEEEEE;*/
   /*border-bottom: 1px solid #FFFFFF;*/
-  border-top: 1px solid #CCCCCC;
+  border-top: 1px dotted #CCCCCC;
   vertical-align: top;
   background-color: white;
 
+}
+.discount
+{
+  font-size: 10px;
+  color: red;
 }
 .td_name
 {
