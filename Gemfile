@@ -13,7 +13,7 @@ gem 'delayed_job_mongoid'
 gem 'dalli'
 
 gem 'configatron', :require => 'configatron' # https://github.com/markbates/configatron/
-gem 'jammit'
+gem 'jammit', '0.6'
 gem 'mechanize', :require => 'mechanize'
 gem 'amazon-ecs', :require => 'amazon/ecs'
 #gem 'soundex_find', :git => 'git://github.com/waltjones/soundex_find.git'
