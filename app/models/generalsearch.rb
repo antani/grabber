@@ -9,7 +9,7 @@ class Generalsearch
   attr_accessor :search_term,:search_type
 
   def initialize(given_search_term,search_type)
-    @@logger.info("Initializing generalsearch")
+    @@logger.info("Initializing generalsearch.............................................................................................")
     @@logger.info (given_search_term)
     @@logger.info (search_type)
 
@@ -25,7 +25,7 @@ class Generalsearch
   end
 
   def cache_key
-    "prices:#{self.search_term}:#{self.search_type}".downcase
+    "prices:#{self.search_term},#{self.search_type}".downcase
   end
 
   def number_of_stores
@@ -66,7 +66,7 @@ class Generalsearch
       #@@logger.info(price_array)
       prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
       top_weight = prices_array[0][:weight]
-      @@logger.info(top_weight)
+     # @@logger.info(top_weight)
       top_prices=[]
       rest_prices=[]
       final_prices=[]
@@ -81,7 +81,7 @@ class Generalsearch
       rest_prices = rest_prices.sort_by { |p| p[:price].to_i }
 
       final_prices = top_prices + rest_prices
-      @@logger.info(final_prices)
+      #@@logger.info(final_prices)
 
 #      final_prices = final_prices.sort_by { |p| p[:price].to_i }
 #      @@logger.info(prices_array)
@@ -137,11 +137,11 @@ class Generalsearch
     end
     #---------------Weight using SOUNDEX implementation----------------------------------------------------------------
      def find_weight(source_string, search_string)
-        @@logger.info("-----------------------------Finding weight----------------------------------")
+       # @@logger.info("-----------------------------Finding weight----------------------------------")
         weight,cost=0,0
 	search_string = de_canonicalize_isbn(search_string)
-        @@logger.info(source_string)
-        @@logger.info(search_string)
+        #@@logger.info(source_string)
+        #@@logger.info(search_string)
 	#Find word frequency in the source string
 	freqs=Hash.new(0)
 	#source_string.downcase.split.each { |word| freqs[word] += 1 }
@@ -179,7 +179,7 @@ class Generalsearch
 	end
 
 
-        @@logger.info(weight)
+        #@@logger.info(weight)
         return weight,cost
     end
 

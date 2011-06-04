@@ -4,4 +4,10 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Isbnnetin::Application.load_tasks
+grabber::Application.load_tasks
+namespace :assets do
+  task :package do
+    Jammit.package! :base_url => "http://cheapr.in/"
+  end
+end
+

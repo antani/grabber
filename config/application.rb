@@ -50,5 +50,8 @@ module Isbnnetin
 
     # Caching
     config.cache_store = :dalli_store, { :namespace => 'isbnnetin' }
+    
+    config.gem "jammit"
+
   end
 end

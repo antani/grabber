@@ -3,7 +3,7 @@ class BookController < ApplicationController
   respond_to :json, :only => :view
 
   def view
-    logger.info("Inside BookController.view")
+    logger.info("Inside BookController.view.........................................................................................")
     @search_string = decanonicalize_isbn(params[:q])
     @isbn = canonicalize_isbn(params[:q])
     @type = params[:search_type]

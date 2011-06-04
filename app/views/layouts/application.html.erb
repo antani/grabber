@@ -25,8 +25,6 @@
   <!--  Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
   <%#
   <!-- CSS : implied media="all" -->
   <link rel="stylesheet" href="css/style.css?v=2">
@@ -34,17 +32,12 @@
 
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
   <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
- 
+  <!--//41 --> 
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
   <script src="javascripts/js/libs/modernizr-1.6.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Puritan:regular,italic,bold' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag :all %>
-  <style>
-    <%= yield(:css) %>
-  </style>
-  <%= javascript_include_tag :all %>
   <%= csrf_meta_tag %>
 </head>
 
@@ -113,11 +106,10 @@
   })();
 
 </script>
-  
-  <script>
-  <%= yield(:js) %>
-  </script>
-  <script src="http://code.google.com/apis/gears/gears_init.js" type="text/javascript" charset="utf-8"></script>
+  <!-- // 109 -->
+  <%= include_stylesheets :common, :media => 'all' %>
+  <%= include_javascripts :workspace %>
+ <script src="http://code.google.com/apis/gears/gears_init.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 </body>
 </html>
