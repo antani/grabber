@@ -3,11 +3,10 @@ embed_assets: on # (on, off, datauri)
 compress_assets: off # (on, off)
 gzip_assets: on # (on, off)
 javascripts:
-
-workspace:
-    - public/javascripts/*.js
+    workspace:
+      - public/javascripts/*.js
 
 stylesheets:
-  common:
-    - public/stylesheets/*.css
+    common:
+      - public/stylesheets/*.css
 
