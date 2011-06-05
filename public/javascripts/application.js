@@ -127,7 +127,12 @@ function readCookie(name) {
 function eraseCookie(name) {
 	createCookie(name,"",-1);
 }
-
+$('#india-stores').qtip({
+   content: 'We search Flipkart, Infibeam, eBay, Rediff, IndiaPlaza, LetsBuy, Pustak, Crossword, A1Books, NBCIndia, BookAdda, TradeUs, Jumadi, HomeShop, FutureBazaar and we are adding new stores',  
+   show: 'mouseover',
+   hide: 'mouseout',
+   style: 'green'
+});
 //Check if Geo location detection is supported
 if(readCookie("country") == null)
 {
