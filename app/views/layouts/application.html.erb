@@ -38,6 +38,7 @@
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Puritan:regular,italic,bold' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Podkova' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tag %>
 </head>
 
@@ -113,5 +114,13 @@
   <%= include_javascripts :workspace %>
   <script src="http://code.google.com/apis/gears/gears_init.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  var uvOptions = {};
+  (function() {
+    var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+    uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/uCZRcPEhiUMJO331QHUCw.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+</script>
 </body>
 </html>
