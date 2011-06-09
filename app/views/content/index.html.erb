@@ -15,25 +15,35 @@
 <div class="searchwrapper drop-shadow curved curved-hz-1">
   <div class="searchwrapper-inner">
     <div class="searchwrapper-inner-border">
-          <%= form_tag(view_path, :method => "get") do %>
+          <%= form_tag(view_path, :method => "get", :id=>"searchfrm") do %>
               <%= text_field_tag(:q,nil,:class=> "inputquery") %>
               <%= hidden_field_tag 'search_type', 'books' %>
 	      <a id="search_link" href="#" class="btn search">Search</a>
               <span class="buttonwrapper">
                 <%= submit_tag("Search", :class=>"searchsubmit", :id=>"searchsubmit_btn") %>
-              </span>  
+              </span> <!-- 
                     <div id="search_btn">
-                      <!--<a href="#" id="searchall" class="primary button pill button">Everything</a> -->
+                      <a href="#" id="searchall" class="primary button pill button">Everything</a> 
                       <a href="#" id="searchbooks" class="primary pill button">Books</a>
                       <a href="#" id="searchmovies" class="pill button">Movies</a>
                       <a href="#" id="searchmobiles" class="pill button">Mobiles</a> 
-                    </div> 
+                    </div>  -->
                     <dl id="sample" class="dropdown">
+
                             <% if cookies[:country] == nil %>
                                   <dt><a id="flag" href="#"><span><img src='images/flags/India.png'></span></a></dt>
                             <%else%>
                                   <dt><a id="flag" href="#"><span><img src='images/flags/<%=cookies[:country]%>.png'></span></a></dt>
                             <%end%>
+                            <div class="search_wrap">
+                            <div class="tab oFlowH">
+                              <a id="searchbooks" class="left searchTypeLink active" onfocus="blur()" href="#">Books</a>
+                              <span class="left">|</span>
+                              <a id="searchmobiles" class="left searchTypeLink" onfocus="blur()" href="#">Mobiles</a>
+                              <span class="left">|</span>
+                              <a id="searchmovies" class="left searchTypeLink" onfocus="blur()" href="#">Movies</a>
+                             </div>
+                            </div> 
                             <dd>
                                 <ul>
                                     <li><a href="#">India<img class="flag" src="images/flags/India.png" alt="" /><span class="value">IN</span></a></li>

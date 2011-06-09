@@ -4,6 +4,13 @@
 
 $(document).ready(function() {
 
+//Add validations
+var validator = $('#searchfrm').validate(
+{
+  rules:{q: 'required' } ,
+  messages:{q: 'Hold on cowboy, give us something to search.'}
+}
+);
 
 $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
 $('body').noisy({
@@ -47,24 +54,24 @@ $('img.prod_img').each(function(){
 
 $('#searchbooks').click(function() {
             $('#search_type').val('books');
-            $(this).addClass('primary button pill button');
-            $('#searchmovies').removeClass('primary button').addClass('pill button');
-            $('#searchmobiles').removeClass('primary button').addClass('pill button');
+            $(this).addClass('active');
+            $('#searchmovies').removeClass('active');
+            $('#searchmobiles').removeClass('active');
 
           });
 $('#searchmovies').click(function() {
             $('#search_type').val('movies');
-            $(this).addClass('primary button pill button');
-            $('#searchbooks').removeClass('primary button').addClass('pill button');
-            $('#searchmobiles').removeClass('primary button').addClass('pill button');
+            $(this).addClass('active');
+            $('#searchbooks').removeClass('active');
+            $('#searchmobiles').removeClass('active');
 
 
           });
 $('#searchmobiles').click(function() {
             $('#search_type').val('mobiles');
-            $(this).addClass('primary button pill button');
-            $('#searchmovies').removeClass('primary button').addClass('pill button');
-            $('#searchbooks').removeClass('primary button').addClass('pill button');
+            $(this).addClass('active');
+            $('#searchmovies').removeClass('active');
+            $('#searchbooks').removeClass('active');
 
 
           });
