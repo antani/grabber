@@ -136,7 +136,7 @@ class Generalsearch
         return weight,cost
     end
     #---------------Weight using SOUNDEX implementation----------------------------------------------------------------
-     def find_weight(source_string, search_string)
+     def find_w(source_string, search_string)
         @@logger.info("-----------------------------Finding weight----------------------------------")
         weight,cost=0,0
 	search_string = de_canonicalize_isbn(search_string)
@@ -183,6 +183,54 @@ class Generalsearch
         return weight,cost
     end
 
+          def find_weight(source_string, search_string)
+            @@logger.info("---------Weight--------------")
+            @@logger.info (source_string)
+            #p search_string
+            # Assign 10 as weight for perfect word matches
+            word_match_w = 10
+            weight,cost =0,0
+            freqs = Hash.new(0)
+            filtered_source_string = ""
+            # Check if all the words in search string are present in the target
+            #Start with small search string   
+            search_string.downcase.split.each do |t|
+              cost = cost + 1
+              source_string.downcase.split.each do |tt|
+                      if(soundex(tt) == soundex(t)) then
+                              weight = weight + word_match_w
+                              freqs[t] += 1
+                              filtered_source_string << tt 
+                      end
+              end 
+            end
+            #p 'after adding characters', weight
+            #p filtered_source_string
+              #reduce weight if there are duplicates
+            #  freqs.each do |k,v|
+            #          p k , v
+            #          weight = weight - (v*word_match_w)
+            #  end
+            #p 'after removing duplicates' , weight
+                  soundex_source = soundex(source_string.downcase)
+                  soundex_target = soundex(search_string.downcase)
+                  if soundex_source[0] == soundex_target[0] then
+                          for xx in 1..soundex_source.length do
+                            if soundex_source[xx] == soundex_target[xx] then
+                                weight = weight + 5
+                            end
+                          end
+                  end 
+            #Match filtered source string on soundex
+            if soundex(search_string.gsub(" ","")) == soundex(filtered_source_string) then
+              weight += 5
+            end
+            @@logger.info("-----------------------")
+            @@logger.info(weight)
+            return weight, cost
+
+          end
+
 
 
     def search_flipkart(query,type)
@@ -228,7 +276,7 @@ class Generalsearch
                       weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
                 end      
 
-                if (cost == 1 || (cost > 1 and weight >= 1)) then
+                if ((weight >= 1)) then
                   price_info = {:price => price_text[i],:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                   prices.push(price_info)
                 end
@@ -284,7 +332,7 @@ class Generalsearch
                 weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
           end      
 
-          if (cost == 1 || (cost > 1 and weight >= 1)) then
+          if ((weight >= 1)) then
             price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>"http://infibeam.com"+url_text[i], :source=>'Infibeam', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
             prices.push(price_info)
           end
@@ -333,7 +381,7 @@ class Generalsearch
                         weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
                   end      
 
-                  if (cost == 1 || (cost > 1 and weight >= 1)) then
+                  if ((weight >= 1)) then
                     price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>url_text[i], :source=>'Rediff', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                     prices.push(price_info)
                   end
@@ -390,7 +438,7 @@ class Generalsearch
                 weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
           end      
 
-          if (cost == 1 || (cost > 1 and weight >= 1)) then
+          if ((weight >= 1)) then
             price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>"http://www.indiaplaza.com"+url_text[i], :source=>'Indiaplaza', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
             prices.push(price_info)
           end
@@ -444,7 +492,7 @@ class Generalsearch
           else
                 weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
           end      
-          if (cost == 1 || (cost > 1 and weight >= 1)) then
+          if ((weight >= 1)) then
             price_info = {:price => price_text[i],:author=>proper_case(author), :name=>proper_case(name_text[i]), :img=>"",:url=>"http://a1books.co.in"+url_text[i], :source=>'A1Books', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
             prices.push(price_info)
           end
@@ -493,7 +541,7 @@ class Generalsearch
                 else
                       weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
-                if (cost == 1 || (cost > 1 and weight >= 1)) then
+                if ((weight >= 1)) then
                   price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=> img_text[i],:url=>"http://www.nbcindia.com/"+url_text[i], :source=>'NBC India', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                   prices.push(price_info)
                 end
@@ -543,7 +591,7 @@ class Generalsearch
                 else
                       weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
-                if (cost == 1 || (cost > 1 and weight >= 1)) then
+                if ((weight >= 1)) then
                   price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>"http://pustak.co.in"+img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                   prices.push(price_info)
                 end
@@ -588,7 +636,7 @@ class Generalsearch
                 else
                       weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
-                if (cost == 1 || (cost > 1 and weight >= 1)) then
+                if ((weight >= 1)) then
                   price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>"", :url=>"http://pustak.co.in"+url_text[i], :source=>'Coral Hub', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                   prices.push(price_info)
                 end
@@ -644,7 +692,7 @@ class Generalsearch
                 else
                       weight,cost = find_weight(name+author, "#{query[:search_term]}" )
                 end      
-                if (cost == 1 || (cost > 1 and weight >= 1)) then
+                if ((weight >= 1)) then
                   price_info = {:price => price_sub[1..price_sub.length],:author=>proper_case(author), :name=>proper_case(name), :img=>img_text[i],:url=>url_text[i], :source=>'eBay India', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                   prices.push(price_info)
                 end
@@ -742,7 +790,7 @@ class Generalsearch
 
             (0...price_text.length).each do |i|
                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                if (cost == 1 || (cost > 1 and weight >= 1)) then
+                if ((weight >= 1)) then
                   price_info = {:price => price_text[i],:author=>"", :name=>name_text[i], :img=>img_text[i], :url=>"http://tradeus.in/"+url_text[i], :source=>'Trade us', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                   prices.push(price_info)
                 end
@@ -792,7 +840,7 @@ class Generalsearch
                       weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
 
-                if (cost == 1 || (cost > 1 and weight >= 1)) then
+                if ((weight >= 1)) then
                   price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>img_text[i], :url=>url_text[i], :source=>'Jumadi', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                   prices.push(price_info)
                 end
@@ -930,7 +978,7 @@ class Generalsearch
                 else
                       weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
-                if (cost == 1 || (cost > 1 and weight >= 1)) then
+                if ((weight >= 1)) then
                     price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>img_text[i], :url=>"http://crossword.in/"+url_text[i], :source=>'Crossword', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                     prices.push(price_info)
                 end
@@ -952,7 +1000,7 @@ class Generalsearch
       page = self.fetch_page(url)
       prices=[]
       begin
-            price_text = page.search("span.srh_rslt_hsrate").map { |e| "#{e.text.tr('A-Za-z,.:','')}" }
+            price_text = page.search("span.srh_rslt_hsrate").map { |e| "#{e.text}" }
             name_text = page.search("span.srh_rslt_title a").map{ |e| "#{e.text}" }
             url_text = page.search("span.srh_rslt_title a[@href]").map{|e| e['href'] }
             discount_text ="" 
@@ -963,8 +1011,10 @@ class Generalsearch
             (0...price_text.length).each do |i|
 
                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                if (cost == 1 || (cost > 1 and weight >= 1)) then
-                  price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :img=>img_text[i], :url=>url_text[i], :source=>'Homeshop18', :weight=>weight} 
+                if ((weight >= 1)) then
+                  fixed_price = price_text[i].gsub(/[A-Za-z\s:]/,'').gsub(/^[.]/,'')
+
+                  price_info = {:price => fixed_price,:author=>"", :name=>proper_case(name_text[i]), :img=>img_text[i], :url=>url_text[i], :source=>'Homeshop18', :weight=>weight} 
                   prices.push(price_info)
                 end
             end
@@ -998,7 +1048,7 @@ class Generalsearch
                       (0...price_text.length).each do |i|
 
                           weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                          if (cost == 1 || (cost > 1 and weight >= 1)) then
+                          if ((weight >= 1)) then
                             price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :img=>img_text[i], :url=>url_text[i], :source=>'Letsbuy', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                             prices.push(price_info)
                           end
@@ -1042,7 +1092,7 @@ class Generalsearch
           @@logger.info (url_text[i])
  
                         weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                        if (cost == 1 || (cost > 1 and weight >= 1)) then
+                        if ((weight >= 1)) then
                           price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :img=>img_text[i], :url=>"http://www.futurebazaar.com/"+url_text[i], :source=>'Futurebazaar', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
                           prices.push(price_info)
                         end

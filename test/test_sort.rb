@@ -86,10 +86,66 @@ end
 
         return weight,cost
     end
+#=======================================================================================================
+
+def find_w(source_string, search_string)
+
+  p source_string
+  p search_string
+  # Assign 10 as weight for perfect word matches
+  word_match_w = 10
+  weight,cost =0,0
+  freqs = Hash.new(0)
+  filtered_source_string = ""
+  # Check if all the words in search string are present in the target
+  #Start with small search string   
+  search_string.downcase.split.each do |t|
+    cost = cost + 1
+    source_string.downcase.split.each do |tt|
+            if(soundex(tt) == soundex(t)) then
+                    weight = weight + word_match_w
+                    freqs[t] += 1
+                    filtered_source_string << tt 
+            end
+    end 
+  end
+  p 'after adding characters', weight
+  p filtered_source_string
+    #reduce weight if there are duplicates
+  #  freqs.each do |k,v|
+  #          p k , v
+  #          weight = weight - (v*word_match_w)
+  #  end
+  #p 'after removing duplicates' , weight
+        soundex_source = soundex(source_string.downcase)
+        soundex_target = soundex(search_string.downcase)
+        if soundex_source[0] == soundex_target[0] then
+                for xx in 1..soundex_source.length do
+                  if soundex_source[xx] == soundex_target[xx] then
+                      weight = weight + 5
+                  end
+                end
+        end 
+  #Match filtered source string on soundex
+  if soundex(search_string.gsub(" ","")) == soundex(filtered_source_string) then
+    weight += 5
+  end
+  return weight, cost
+
+end
 
 
-tt = "Manorama Year Book 2006"
-s = "Manorama YearBook 2011"
+
+
+
+
+
+#tt = "Manorama Year Book 2006"
+#s = "Manorama Year Book 2011"
+#tt="New Samsung Galaxy S2 I9100, 3G, 8MP 1yr Warranty"
+tt= "THE AMAZING SAMSUNG GALAXY S2"
+s = "Samsung Galaxy S2"
+
 puts Text::Levenshtein.distance(tt.downcase,s.downcase)
 
 soundtt= soundex(tt)
@@ -97,8 +153,12 @@ sounds = soundex(s)
 p soundtt
 p sounds
 
-p soundtt.include?(sounds)
-p '=================================================================='
-w,c =  new_find_weight(tt,s)
+#p soundtt.include?(sounds)
+#p '=================================================================='
+w,c =  find_w(tt,s)
 p w
 p c
+
+rs="Our Price: Rs.14699.0"
+rs_tr= rs.gsub(/[A-Za-z\s:]/,'').gsub(/^[.]/,'')
+p rs_tr
