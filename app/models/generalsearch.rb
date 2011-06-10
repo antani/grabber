@@ -63,31 +63,33 @@ class Generalsearch
      #isbn = check_isbn(isbn)
       prices_array = self.searches.map { |name,search| [search.call(query,type)] }#.sort_by { |p| p[1][:price] }
       price_array = prices_array.flatten
-      price_array = price_array.sort_by { |p| [-p[:weight], p[:price] ] }
-      price_array
+#      price_array = price_array.sort_by { |p| [-p[:weight], p[:price] ] }
+#      price_array
 
 
-#      prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
-#      top_weight = prices_array[0][:weight]
+      prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
+      top_weight = prices_array[0][:weight]
       ##@@logger.info(price_array)
       ##@@logger.info("Top price---------------------------")
       ##@@logger.info(top_weight)
- #     top_prices=[]
- #     rest_prices=[]
- #     final_prices=[]
- #     prices_array.each do |tt|
- #       if(tt[:weight] == top_weight) then
- #        top_prices.push(tt) unless tt[:weight] == -999 
- #      else
- #        rest_prices.push(tt) unless tt[:weight] == -999 
- #       end
- #     end
- #     top_prices = top_prices.sort_by { |p| p[:price].to_i }
- #     rest_prices = rest_prices.sort_by { |p| p[:price].to_i }
+      top_prices=[]
+      rest_prices=[]
+      final_prices=[]
+      prices_array.each do |tt|
+        if(tt[:weight] == top_weight) then
+         top_prices.push(tt) unless tt[:weight] == -999 
+       else
+         rest_prices.push(tt) unless tt[:weight] == -999 
+        end
+      end
+      top_prices = top_prices.sort_by { |p| p[:price].to_i }
+      rest_prices = rest_prices.sort_by { |p| p[:price].to_i }
 
-  #    final_prices = top_prices + rest_prices
-  #    final_prices = final_prices.sort_by { |p| [-p[:weight], p[:price] ] }
+      final_prices = top_prices + rest_prices
 
+      final_prices = final_prices.sort_by { |p| -p[:weight] }
+
+      final_prices
    #   #@@logger.info("Final Price------------------------------------")
    #   #@@logger.info(final_prices)
 
