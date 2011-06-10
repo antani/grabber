@@ -137,11 +137,11 @@ class Generalsearch
     end
     #---------------Weight using SOUNDEX implementation----------------------------------------------------------------
      def find_weight(source_string, search_string)
-       # @@logger.info("-----------------------------Finding weight----------------------------------")
+        @@logger.info("-----------------------------Finding weight----------------------------------")
         weight,cost=0,0
 	search_string = de_canonicalize_isbn(search_string)
-        #@@logger.info(source_string)
-        #@@logger.info(search_string)
+        @@logger.info(source_string)
+        @@logger.info(search_string)
 	#Find word frequency in the source string
 	freqs=Hash.new(0)
 	#source_string.downcase.split.each { |word| freqs[word] += 1 }
@@ -170,16 +170,16 @@ class Generalsearch
           end 
         end
         #freqs.sort_by {|x,y| y }.reverse.each {|w, f| @@logger.info (w+' '+f.to_s)} 
-        #@@logger.info(weight)
-	#@@logger.info(cost)
-        #@@logger.info("-----------------")
+        @@logger.info(weight)
+	@@logger.info(cost)
+        @@logger.info("-----------------")
 	#reduce weight if there are duplicates
 	freqs.each do |k,v|
 		weight = weight - (v-1)
 	end
 
 
-        #@@logger.info(weight)
+        @@logger.info(weight)
         return weight,cost
     end
 
@@ -260,22 +260,22 @@ class Generalsearch
       prices=[]
       begin
       page = self.fetch_page(url)
-      price_text = page.search("div.price b").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
-      name_text = page.search("ul.search_result h2.simple a").map{ |e| "#{e.text} " }
+      price_text = page.search("div.price span.normal").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
+      name_text = page.search("ul.srch_result span.title").map{ |e| "#{e.text} " }
       author_text = page.search("ul.search_result li a[@href^='/Books/search']").map {|e| "#{e.text}" }
-      url_text = page.search("h2.simple a[@href]").map{|e| e['href']}
-      img_text = page.search("div.img img[@src]").map {|e| e['src'] }
+      url_text = page.search("ul.srch_result a[@href]").map{|e| e['href']}
+      img_text = page.search("ul.srch_result img[@src]").map {|e| e['src'] }
       discount_text ="" 
       shipping_text =""
       #
-#       @@logger.info(name_text )
-#       @@logger.info(price_text)
-#       @@logger.info(author_text)
-#       @@logger.info("--------------------------------------------------------------------------------")
+       @@logger.info(name_text )
+       @@logger.info(price_text)
+       @@logger.info(author_text)
+       @@logger.info("--------------------------------------------------------------------------------")
       (0...price_text.length).each do |i|
-          #@@logger.info (price_text[i])
-          #@@logger.info (author_text[i])
-          #@@logger.info (name_text[i])
+          @@logger.info (price_text[i])
+          @@logger.info (author_text[i])
+          @@logger.info (name_text[i])
           if (name_text[i] == nil && author_text[i] != nil) then
                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
           elsif (name_text[i] !=nil && author_text[i] == nil) then
