@@ -122,7 +122,7 @@ def find_w(source_string, search_string)
         if soundex_source[0] == soundex_target[0] then
                 for xx in 1..soundex_source.length do
                   if soundex_source[xx] == soundex_target[xx] then
-                      weight = weight + 5
+                      weight = weight + 1
                   end
                 end
         end 
@@ -143,8 +143,8 @@ end
 #tt = "Manorama Year Book 2006"
 #s = "Manorama Year Book 2011"
 #tt="New Samsung Galaxy S2 I9100, 3G, 8MP 1yr Warranty"
-tt= "THE AMAZING SAMSUNG GALAXY S2"
-s = "Samsung Galaxy S2"
+tt= "Just for Fun: Easy Rock Banjo Alfred Publishing"
+s = "Just for fun linus"
 
 puts Text::Levenshtein.distance(tt.downcase,s.downcase)
 

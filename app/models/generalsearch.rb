@@ -9,16 +9,16 @@ class Generalsearch
   attr_accessor :search_term,:search_type
 
   def initialize(given_search_term,search_type)
-    @@logger.info("Initializing generalsearch.............................................................................................")
-    @@logger.info (given_search_term)
-    @@logger.info (search_type)
+    #@@logger.info("Initializing generalsearch.............................................................................................")
+    #@@logger.info (given_search_term)
+    #@@logger.info (search_type)
 
     self.search_term= given_search_term
     self.search_type= search_type
   end
   # For usage with DelayedJob : Bookprice.new(:isbn => "9789380032825").perform
   def perform
-    @@logger.info("Performing job for #{self.search_term}")
+    #@@logger.info("Performing job for #{self.search_term}")
     prices = self.class.prices(self.search_term,self.search_type)
     Rails.cache.write(self.cache_key, prices)
     prices
@@ -36,7 +36,7 @@ class Generalsearch
   
   
    def fetch_page(url)
-   @@logger.info(url)
+   #@@logger.info(url)
       begin
         Timeout::timeout(configatron.store_timeout) do
           return Mechanize.new.get(url)
@@ -63,31 +63,39 @@ class Generalsearch
      #isbn = check_isbn(isbn)
       prices_array = self.searches.map { |name,search| [search.call(query,type)] }#.sort_by { |p| p[1][:price] }
       price_array = prices_array.flatten
-      #@@logger.info(price_array)
-      prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
-      top_weight = prices_array[0][:weight]
-     # @@logger.info(top_weight)
-      top_prices=[]
-      rest_prices=[]
-      final_prices=[]
-      prices_array.each do |tt|
-        if(tt[:weight] == top_weight) then
-         top_prices.push(tt) unless tt[:weight] == -999 
-       else
-         rest_prices.push(tt) unless tt[:weight] == -999 
-        end
-      end
-      top_prices = top_prices.sort_by { |p| p[:price].to_i }
-      rest_prices = rest_prices.sort_by { |p| p[:price].to_i }
+      price_array = price_array.sort_by { |p| [-p[:weight], p[:price] ] }
+      price_array
 
-      final_prices = top_prices + rest_prices
-      #@@logger.info(final_prices)
+
+#      prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
+#      top_weight = prices_array[0][:weight]
+      ##@@logger.info(price_array)
+      ##@@logger.info("Top price---------------------------")
+      ##@@logger.info(top_weight)
+ #     top_prices=[]
+ #     rest_prices=[]
+ #     final_prices=[]
+ #     prices_array.each do |tt|
+ #       if(tt[:weight] == top_weight) then
+ #        top_prices.push(tt) unless tt[:weight] == -999 
+ #      else
+ #        rest_prices.push(tt) unless tt[:weight] == -999 
+ #       end
+ #     end
+ #     top_prices = top_prices.sort_by { |p| p[:price].to_i }
+ #     rest_prices = rest_prices.sort_by { |p| p[:price].to_i }
+
+  #    final_prices = top_prices + rest_prices
+  #    final_prices = final_prices.sort_by { |p| [-p[:weight], p[:price] ] }
+
+   #   #@@logger.info("Final Price------------------------------------")
+   #   #@@logger.info(final_prices)
 
 #      final_prices = final_prices.sort_by { |p| p[:price].to_i }
-#      @@logger.info(prices_array)
-#      @@logger.info ("========================================================================================")
+#      #@@logger.info(prices_array)
+#      #@@logger.info ("========================================================================================")
  
-#      @@logger.info(prices_array)
+#      #@@logger.info(prices_array)
 
 
 #      [prices_array[0], prices_array[1].sort_by {|book| book[:price].to_i} ]
@@ -95,14 +103,14 @@ class Generalsearch
       #b= Hash[*prices_array]
       #      b.merge! (b) {|k,v| v.sort_by {|p| p[:price].to_i} }
       #b.to_a[0]
-#@@logger.info ("=========================================================================")
-#      @@logger.info (b)
+##@@logger.info ("=========================================================================")
+#      #@@logger.info (b)
 
 =begin
 
       prices_array.each_with_index do |item, index|
         if ( index > 0 && index%2 == 0 ) then
-          @@logger.info (item)
+          #@@logger.info (item)
            final_prices.push(item)           
         end
       end
@@ -113,17 +121,17 @@ class Generalsearch
 
 
       #prices_array.each do |price_info|
-      #  @@logger.info(price_info)
+      #  #@@logger.info(price_info)
       #end
       #b
-      final_prices
+    #  final_prices
     end
     def old_find_weight(source_string, search_string)
-        @@logger.info("-----------------------------Finding weight----------------------------------")
+        #@@logger.info("-----------------------------Finding weight----------------------------------")
         weight,cost=0,0
         search_string = de_canonicalize_isbn(search_string)
-        @@logger.info(source_string)
-        @@logger.info(search_string)
+        #@@logger.info(source_string)
+        #@@logger.info(search_string)
  
         search_string.downcase.split.each do |t|
           cost = cost + 1
@@ -131,17 +139,17 @@ class Generalsearch
                   weight = weight + 1
           end
         end
-        @@logger.info(weight)
-        @@logger.info(cost)
+        #@@logger.info(weight)
+        #@@logger.info(cost)
         return weight,cost
     end
     #---------------Weight using SOUNDEX implementation----------------------------------------------------------------
      def find_w(source_string, search_string)
-        @@logger.info("-----------------------------Finding weight----------------------------------")
+        #@@logger.info("-----------------------------Finding weight----------------------------------")
         weight,cost=0,0
 	search_string = de_canonicalize_isbn(search_string)
-        @@logger.info(source_string)
-        @@logger.info(search_string)
+        #@@logger.info(source_string)
+        #@@logger.info(search_string)
 	#Find word frequency in the source string
 	freqs=Hash.new(0)
 	#source_string.downcase.split.each { |word| freqs[word] += 1 }
@@ -169,23 +177,23 @@ class Generalsearch
 	          end
           end 
         end
-        #freqs.sort_by {|x,y| y }.reverse.each {|w, f| @@logger.info (w+' '+f.to_s)} 
-        @@logger.info(weight)
-	@@logger.info(cost)
-        @@logger.info("-----------------")
+        #freqs.sort_by {|x,y| y }.reverse.each {|w, f| #@@logger.info (w+' '+f.to_s)} 
+        #@@logger.info(weight)
+	#@@logger.info(cost)
+        #@@logger.info("-----------------")
 	#reduce weight if there are duplicates
 	freqs.each do |k,v|
 		weight = weight - (v-1)
 	end
 
 
-        @@logger.info(weight)
+        #@@logger.info(weight)
         return weight,cost
     end
 
           def find_weight(source_string, search_string)
-            @@logger.info("---------Weight--------------")
-            @@logger.info (source_string)
+            #@@logger.info("---------Weight--------------")
+            #@@logger.info (source_string)
             #p search_string
             # Assign 10 as weight for perfect word matches
             word_match_w = 10
@@ -217,7 +225,7 @@ class Generalsearch
                   if soundex_source[0] == soundex_target[0] then
                           for xx in 1..soundex_source.length do
                             if soundex_source[xx] == soundex_target[xx] then
-                                weight = weight + 5
+                                weight = weight + 1
                             end
                           end
                   end 
@@ -225,8 +233,8 @@ class Generalsearch
             if soundex(search_string.gsub(" ","")) == soundex(filtered_source_string) then
               weight += 5
             end
-            @@logger.info("-----------------------")
-            @@logger.info(weight)
+            #@@logger.info("-----------------------")
+            #@@logger.info(weight)
             return weight, cost
 
           end
@@ -234,9 +242,9 @@ class Generalsearch
 
 
     def search_flipkart(query,type)
-      @@logger.info("Search flipkart..")
-      @@logger.info(query)
-      @@logger.info(type)
+      #@@logger.info("Search flipkart..")
+      #@@logger.info(query)
+      #@@logger.info(type)
 
       what = type[:search_type]
       if what == 'movies' then
@@ -260,14 +268,14 @@ class Generalsearch
             discount_text = page.search("span.discount").map { |e| "#{e.text}" }
             shipping_text = page.search("div.ship-det b:nth-child(2)").map { |e| "#{e.text}" } 
             #shipping_text = shipping_text +"- " + page.search("span.search-shipping").map { |e| "#{e.text}" }
-#        @@logger.info(name_text )
-#        @@logger.info(price_text)
-        @@logger.info(shipping_text)
-#        @@logger.info("--------------------------------------------------------------------------------")
+#        #@@logger.info(name_text )
+#        #@@logger.info(price_text)
+        #@@logger.info(shipping_text)
+#        #@@logger.info("--------------------------------------------------------------------------------")
             (0...price_text.length).each do |i|
-                #@@logger.info (price_text[i])
-                #@@logger.info (author_text[i])
-                #@@logger.info (name_text[i])
+                ##@@logger.info (price_text[i])
+                ##@@logger.info (author_text[i])
+                ##@@logger.info (name_text[i])
                 if (name_text[i] == nil && author_text[i] != nil) then
                       weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                 elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -282,16 +290,16 @@ class Generalsearch
                 end
               end
       rescue => ex
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
  
         prices
     end
     
     def search_infibeam(query,type)
-      @@logger.info("Search infibeam..")
-      @@logger.info(query)
-      @@logger.info(type)
+      #@@logger.info("Search infibeam..")
+      #@@logger.info(query)
+      #@@logger.info(type)
 
       what = type[:search_type]
       if what == 'movies' then
@@ -316,14 +324,14 @@ class Generalsearch
       discount_text ="" 
       shipping_text =""
       #
-      # @@logger.info(name_text )
-      # @@logger.info(price_text)
-      # @@logger.info(author_text)
-      # @@logger.info("--------------------------------------------------------------------------------")
+      # #@@logger.info(name_text )
+      # #@@logger.info(price_text)
+      # #@@logger.info(author_text)
+      # #@@logger.info("--------------------------------------------------------------------------------")
       (0...price_text.length).each do |i|
-         # @@logger.info (price_text[i])
-         # @@logger.info (author_text[i])
-         # @@logger.info (name_text[i])
+         # #@@logger.info (price_text[i])
+         # #@@logger.info (author_text[i])
+         # #@@logger.info (name_text[i])
           if (name_text[i] == nil && author_text[i] != nil) then
                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -339,21 +347,21 @@ class Generalsearch
  
       end
       rescue => ex
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
     end
     # todo 
     def search_rediff(query,type)
-      @@logger.info("Search rediffbooks..")
-      @@logger.info(query)
+      #@@logger.info("Search rediffbooks..")
+      #@@logger.info(query)
       mtype= type[:search_type]
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
 
       url = "http://books.rediff.com/book/#{query[:search_term]}"
       prices=[]
       if mtype != 'books' then
-              @@logger.info ('----------------Ignoring search on Rediff---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on Rediff---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
@@ -370,9 +378,9 @@ class Generalsearch
               shipping_text =""
    
               (0...price_text.length).each do |i|
-                  #@@logger.info (price_text[i])
-                  #@@logger.info (author_text[i])
-                  #@@logger.info (url_text[i])
+                  ##@@logger.info (price_text[i])
+                  ##@@logger.info (author_text[i])
+                  ##@@logger.info (url_text[i])
                   if (name_text[i] == nil && author_text[i] != nil) then
                         weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                   elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -389,16 +397,16 @@ class Generalsearch
               end
       rescue => ex
          #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
 
       prices
    end
    # Dont know why but we keep on getting execution expired from this site.
    def search_indiaplaza(query,type)
-      @@logger.info("Search indiaplaza..")
-      @@logger.info(query)
-      @@logger.info(type)
+      #@@logger.info("Search indiaplaza..")
+      #@@logger.info(query)
+      #@@logger.info(type)
 
       what = type[:search_type]
       if what == 'movies' then
@@ -424,10 +432,10 @@ class Generalsearch
       shipping_text =""
  
       (0...price_text.length).each do |i|
-          @@logger.info (price_text[i])
-          @@logger.info (author_text[i])
-          @@logger.info (name_text[i])
-          @@logger.info (url_text[i])
+          #@@logger.info (price_text[i])
+          #@@logger.info (author_text[i])
+          #@@logger.info (name_text[i])
+          #@@logger.info (url_text[i])
           author_text[i] = author_text[i].gsub('Author:', '')
 
           if (name_text[i] == nil && author_text[i] != nil) then
@@ -446,22 +454,22 @@ class Generalsearch
       end
       rescue => ex
          #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
   end
    # todo
    #This is the worst formed website and dangers lurk in every corner.
    def search_a1books(query,type)
-      @@logger.info("Search a1books..")
-      @@logger.info(query)
+      #@@logger.info("Search a1books..")
+      #@@logger.info(query)
       mtype= type[:search_type]
 
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
 
       prices=[]
       if mtype != 'books' then
-              @@logger.info ('----------------Ignoring search on a1books---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on a1books---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
@@ -499,21 +507,21 @@ class Generalsearch
       end
       rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
    end
      
    def search_nbcindia(query,type)
-      @@logger.info("Search nbcindia..")
-      @@logger.info(query)
+      #@@logger.info("Search nbcindia..")
+      #@@logger.info(query)
       mtype= type[:search_type]
 
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
   
       prices=[]
       if mtype != 'books' then
-              @@logger.info ('----------------Ignoring search on nbcindia---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on nbcindia---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
@@ -548,21 +556,21 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
    end
 
    def search_pustak(query,type)
-      @@logger.info("Search pustak..")
-      @@logger.info(query)
+      #@@logger.info("Search pustak..")
+      #@@logger.info(query)
       mtype= type[:search_type]
 
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
 
       prices=[]
       if mtype != 'books' then
-              @@logger.info ('----------------Ignoring search on pustak---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on pustak---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
@@ -598,19 +606,19 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
 
    end
    def dont_search_coralhub(isbn)
-      @@logger.info("Search coralhub..")
-      @@logger.info(query)
+      #@@logger.info("Search coralhub..")
+      #@@logger.info(query)
       url = "http://www.coralhub.com/SearchResults.aspx?pindex=1&cat=0&search=#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
       if type != 'books' then
-              @@logger.info ('----------------Ignoring search on coralhub---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on coralhub---------------------------------------------')
               price_info = {:price=> '-999', :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => '-999'}
               prices.push(price_info)
               return prices
@@ -643,16 +651,16 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
    end
 
    def search_ebay(query,type)
-      @@logger.info("Search ebay..")
-      @@logger.info(query)
+      #@@logger.info("Search ebay..")
+      #@@logger.info(query)
       mtype = type[:search_type]
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
 
       if mtype =='mobiles' then  
         url="http://mobiles.shop.ebay.in/?_from=R40&_npmv=3&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=15032"
@@ -699,7 +707,7 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
  
@@ -707,15 +715,15 @@ class Generalsearch
 
 
    def search_bookadda(query,type)
-      @@logger.info("Search Bookadda..")
-      @@logger.info(query)
+      #@@logger.info("Search Bookadda..")
+      #@@logger.info(query)
       mtype= type[:search_type]
 
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
 
       prices=[]
       if mtype != 'books' then
-              @@logger.info ('----------------Ignoring search on bookadda---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on bookadda---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
@@ -752,22 +760,22 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
  
    end
 
    def search_tradus(query,type)
-      @@logger.info("Search Tradeus..")
-      @@logger.info(query)
+      #@@logger.info("Search Tradeus..")
+      #@@logger.info(query)
       mtype= type[:search_type]
 
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
 
       prices=[]
       if mtype != 'books' then
-              @@logger.info ('----------------Ignoring search on tradus---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on tradus---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
@@ -797,21 +805,21 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
    
    end
    def search_jumadi(query,type)
-      @@logger.info("Search Jumadi..")
-      @@logger.info(query)
+      #@@logger.info("Search Jumadi..")
+      #@@logger.info(query)
       mtype= type[:search_type]
 
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
 
       prices=[]
       if mtype != 'books' then
-              @@logger.info ('----------------Ignoring search on jumadi---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on jumadi---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
@@ -847,19 +855,19 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
    end
 
    def dont_search_coinjoos(query)
-      @@logger.info("Search Coinjoos..")
-      @@logger.info(query)
+      #@@logger.info("Search Coinjoos..")
+      #@@logger.info(query)
       url = "http://www.coinjoos.com/product/books/#{query[:search_term]}/1/"
       page = self.fetch_page(url)
       prices=[]
       if type != 'books' then
-              @@logger.info ('----------------Ignoring search on coinjoos---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on coinjoos---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
@@ -892,18 +900,18 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
     end
     def dont_search_friendsofbooks(isbn)
-      @@logger.info("Search Friends of books..")
-      @@logger.info(query)
+      #@@logger.info("Search Friends of books..")
+      #@@logger.info(query)
       url = "http://www.friendsofbooks.com/store/index.php?main_page=advanced_search_result&search_in_description=1&keyword=#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
       if type != 'books' then
-              @@logger.info ('----------------Ignoring search on coinjoos---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on coinjoos---------------------------------------------')
               price_info = {:price=> '-999', :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => '-999'}
               prices.push(price_info)
               return prices
@@ -936,20 +944,20 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
     end
 
     def search_crossword(query,type)
-      @@logger.info("Search Crossword..")
-      @@logger.info(query)
+      #@@logger.info("Search Crossword..")
+      #@@logger.info(query)
       mtype= type[:search_type]
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
 
       prices=[]
       if mtype != 'books' then
-              @@logger.info ('----------------Ignoring search on crossword---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on crossword---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
@@ -985,16 +993,16 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
  
     end
 
     def search_homeshop(query,type)
-      @@logger.info("Search HomeShop18..")
-      @@logger.info(query)
-      @@logger.info(type)
+      #@@logger.info("Search HomeShop18..")
+      #@@logger.info(query)
+      #@@logger.info(type)
 
       url= "http://www.homeshop18.com/#{query[:search_term]}/gsm-handsets/categoryid:3027/search:#{query[:search_term]}"
       page = self.fetch_page(url)
@@ -1020,17 +1028,17 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
  
     end
 
     def search_letsbuy(query,type)
-      @@logger.info("Search letsbuy..")
-      @@logger.info(query)
+      #@@logger.info("Search letsbuy..")
+      #@@logger.info(query)
       mtype = type[:search_type]
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
       prices=[]
 
       if mtype == 'mobiles' then
@@ -1055,11 +1063,11 @@ class Generalsearch
                       end
                       rescue => ex
                   #Just ignore this error
-                  @@logger.info ("#{ex.class} : #{ex.message}")
+                  #@@logger.info ("#{ex.class} : #{ex.message}")
                 end
                 return prices
        else
-              @@logger.info ('----------------Ignoring search on letsbuy---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on letsbuy---------------------------------------------')
               price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
               prices.push(price_info)
               return prices
@@ -1068,10 +1076,10 @@ class Generalsearch
  
     end
     def search_futurebazaar(query,type)
-      @@logger.info("Search futurebazaar..")
-      @@logger.info(query)
+      #@@logger.info("Search futurebazaar..")
+      #@@logger.info(query)
       mtype = type[:search_type]
-      @@logger.info(mtype)
+      #@@logger.info(mtype)
       prices=[]
       url="http://www.futurebazaar.com/search/?q=#{query[:search_term]}"
 
@@ -1086,10 +1094,10 @@ class Generalsearch
                 #a[@href]").map{|e| e['href']}
 
                     (0...price_text.length).each do |i|
-          @@logger.info (price_text[i])
-          @@logger.info (author_text[i])
-          @@logger.info (name_text[i])
-          @@logger.info (url_text[i])
+          #@@logger.info (price_text[i])
+          #@@logger.info (author_text[i])
+          #@@logger.info (name_text[i])
+          #@@logger.info (url_text[i])
  
                         weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                         if ((weight >= 1)) then
@@ -1099,7 +1107,7 @@ class Generalsearch
                     end
                     rescue => ex
                 #Just ignore this error
-                @@logger.info ("#{ex.class} : #{ex.message}")
+                #@@logger.info ("#{ex.class} : #{ex.message}")
               end
               return prices
 
@@ -1108,13 +1116,13 @@ class Generalsearch
 
 
     def dont_search_landmark(query,type)
-      @@logger.info("Search Landmark..")
-      @@logger.info(query)
+      #@@logger.info("Search Landmark..")
+      #@@logger.info(query)
       url= "http://www.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
       page = self.fetch_page(url)
       prices=[]
       if type != 'books' then
-              @@logger.info ('----------------Ignoring search on landmark---------------------------------------------')
+              #@@logger.info ('----------------Ignoring search on landmark---------------------------------------------')
               price_info = {:price=> '-999', :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => '-999'}
               prices.push(price_info)
               return prices
@@ -1128,10 +1136,10 @@ class Generalsearch
          #a[@href]").map{|e| e['href']}
 
             (0...price_text.length).each do |i|
-          @@logger.info (price_text[i])
-          @@logger.info (author_text[i])
-          @@logger.info (name_text[i])
-          @@logger.info (url_text[i])
+          #@@logger.info (price_text[i])
+          #@@logger.info (author_text[i])
+          #@@logger.info (name_text[i])
+          #@@logger.info (url_text[i])
  
                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
 
@@ -1142,7 +1150,7 @@ class Generalsearch
             end
             rescue => ex
         #Just ignore this error
-        @@logger.info ("#{ex.class} : #{ex.message}")
+        #@@logger.info ("#{ex.class} : #{ex.message}")
       end
       prices
  
