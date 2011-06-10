@@ -125,6 +125,11 @@ table.price_list td
 {
   width: 500px;
 }
+.td_price
+{
+  width: 200px;
+}
+
 .gr_review_container
 {
   padding: 3px;

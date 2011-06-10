@@ -1,5 +1,5 @@
 <div id ="img_header">
- <img src='images/cheapr_small.png'/>
+ <a href="/"><img src='images/cheapr_small.png'/></a>
 </div> 
 <div id="result_content">
 <%= content_for :js do %>
@@ -23,12 +23,12 @@
                                   <tr>
                                           <td>
                                             <a rel="nofollow" target="_blank" href="<%= data[:url] %>"><%= data[:source] %></a>
-                                           <td>
+                                           <td class="td_price">
                                                 <span style="font-family:rupee">R</span> <%= data[:price] %></span>
                                             <td  class="td_name">
                                                   <b><%= data[:name] %></b></br>
                                                   <span class="discount"> <%= data[:discount] %> </span>
-                                                  <span class="shipping">  </span>
+                                                  <span class="shipping"></span>
 
                                             </td>
                                             <td  class="td_author">
@@ -54,7 +54,7 @@
                 <div id="loader">
                 <div id="wait-text">
                 <img src='images/9.gif' />
-                Fetching prices from <%= @prices.number_of_stores %> online stores...<strong>please be patient!</strong> please do NOT manually refresh this page.</div>
+                We are fetching prices from <%= @prices.number_of_stores %> online stores...<strong>please be patient!</strong></div>
                 </div>
 </div>
 

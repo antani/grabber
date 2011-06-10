@@ -102,19 +102,36 @@ def find_w(source_string, search_string)
   search_string.downcase.split.each do |t|
     cost = cost + 1
     source_string.downcase.split.each do |tt|
-            if(soundex(tt) == soundex(t)) then
-                    weight = weight + word_match_w
-                    freqs[t] += 1
-                    filtered_source_string << tt 
+    #soundex always matches with numbers - need to ignore numbers. 
+            if(soundex(tt) == soundex(t) and (/\d/.match(tt) == nil)) then
+                    p t + " - " + tt + " Matches"
+                    
+		    if freqs[t] == 0 then	
+			    weight = weight + word_match_w
+	                    filtered_source_string << tt 
+		    end	
+		    freqs[t] += 1
+            end
+    #valid usecase for numbers like Nokia 5800
+            if (/\d/.match(tt) != nil and t==tt) then
+                    p t + " - " + tt + " Matches"
+                    
+                    
+		    if freqs[t] == 0 then	
+			    weight = weight + word_match_w
+	                    filtered_source_string << tt 
+		    end	
+		    freqs[t] += 1
             end
     end 
   end
-  p 'after adding characters', weight
+  puts 'after adding characters- '+ weight.to_s
+  
   p filtered_source_string
-    #reduce weight if there are duplicates
+  #reduce weight if there are duplicates
   #  freqs.each do |k,v|
-  #          p k , v
-  #          weight = weight - (v*word_match_w)
+  #         p k , v
+  #         weight = weight - (v*word_match_w)
   #  end
   #p 'after removing duplicates' , weight
         soundex_source = soundex(source_string.downcase)
@@ -126,10 +143,12 @@ def find_w(source_string, search_string)
                   end
                 end
         end 
+  puts 'after soundex match- '+ weight.to_s 
   #Match filtered source string on soundex
   if soundex(search_string.gsub(" ","")) == soundex(filtered_source_string) then
     weight += 5
   end
+  puts 'after soundex match for filter- '+ weight.to_s 
   return weight, cost
 
 end
@@ -143,22 +162,33 @@ end
 #tt = "Manorama Year Book 2006"
 #s = "Manorama Year Book 2011"
 #tt="New Samsung Galaxy S2 I9100, 3G, 8MP 1yr Warranty"
-tt= "Just for Fun: Easy Rock Banjo Alfred Publishing"
-s = "Just for fun linus"
+tt= "Linux: Linus Torvalds, Alan Cox, Tux, Agenda Vr3, Fedora, Liste Des Distributions Linux, Processus de Developpement de Linux"
+s = "Linus Torvalds"
 
-puts Text::Levenshtein.distance(tt.downcase,s.downcase)
+w,c =0,0
+#p soundtt.include?(sounds)
+#p '=================================================================='
+#w,c =  find_w(tt,s)
+#p w
+#p c
 
+#tt= "Just For Fun: The Story Of An Accidental Revolutionary Linus Torvalds "
+#s = "just for fun linus"
 soundtt= soundex(tt)
 sounds = soundex(s)
 p soundtt
 p sounds
 
-#p soundtt.include?(sounds)
-#p '=================================================================='
 w,c =  find_w(tt,s)
 p w
 p c
 
+
 rs="Our Price: Rs.14699.0"
 rs_tr= rs.gsub(/[A-Za-z\s:]/,'').gsub(/^[.]/,'')
 p rs_tr
+
+if 'Samsung Galaxy S2 Sii Wifi I9100 Video 2.3 Gingerbread'.downcase.include? 'samsung galaxy s2' then
+   puts 'true'
+end
+
