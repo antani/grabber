@@ -268,14 +268,14 @@ class Generalsearch
       discount_text ="" 
       shipping_text =""
       #
-       @@logger.info(name_text )
-       @@logger.info(price_text)
-       @@logger.info(author_text)
-       @@logger.info("--------------------------------------------------------------------------------")
+      # @@logger.info(name_text )
+      # @@logger.info(price_text)
+      # @@logger.info(author_text)
+      # @@logger.info("--------------------------------------------------------------------------------")
       (0...price_text.length).each do |i|
-          @@logger.info (price_text[i])
-          @@logger.info (author_text[i])
-          @@logger.info (name_text[i])
+         # @@logger.info (price_text[i])
+         # @@logger.info (author_text[i])
+         # @@logger.info (name_text[i])
           if (name_text[i] == nil && author_text[i] != nil) then
                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
           elsif (name_text[i] !=nil && author_text[i] == nil) then
