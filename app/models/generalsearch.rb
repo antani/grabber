@@ -209,6 +209,9 @@ end
           url="http://www.flipkart.com/search-mobile?dd=0&query=#{query[:search_term]}&Search=Search"
       elsif what == 'books' then
           url="http://www.flipkart.com/search-book?dd=0&query=#{query[:search_term]}&Search=Search"
+      elsif what == 'cameras' then
+          url="http://www.flipkart.com/search-cameras?query=#{query[:search_term]}&from=all&searchGroup=cameras"
+          #url="http://www.flipkart.com/search-book?dd=0&query=#{query[:search_term]}&Search=Search"
       else
           url = "http://www.flipkart.com/search.php?query=#{query[:search_term]}&from=all"
       end
@@ -264,6 +267,8 @@ end
           url = "http://www.infibeam.com/Mobiles/search?q=#{query[:search_term]}"
       elsif what == 'books' then
           url = "http://www.infibeam.com/Books/search?q=#{query[:search_term]}"
+      elsif what == 'cameras' then
+          url = "http://www.infibeam.com/Cameras/search?q=#{query[:search_term]}"
       else
           url = "http://www.infibeam.com/search?q=#{query[:search_term]}"
 
@@ -369,6 +374,8 @@ end
           url= "http://www.indiaplaza.com/newsearch/search.aspx?srchval=#{query[:search_term]}&Store=movies"
       elsif what == 'mobiles' then
           url= "http://www.indiaplaza.com/newsearch/search.aspx?srchval=#{query[:search_term]}&Store=mobiles"
+      elsif what == 'cameras' then
+          url= "http://www.indiaplaza.com/newsearch/search.aspx?srchval=#{query[:search_term]}&Store=cameras"
       else
           url = "http://www.indiaplaza.in/search.aspx?catname=Books&srchkey=&srchVal=#{query[:search_term]}"
       end
@@ -622,6 +629,8 @@ end
         url="http://mobiles.shop.ebay.in/?_from=R40&_npmv=3&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=15032"
       elsif mtype=='movies' then
         url="http://movies.shop.ebay.in/?_from=R40&_npmv=3&_trksid=m570&_nkw=#{query[:search_term]}&n_sacat=11232"
+      elsif mtype=='cameras' then
+        url="http://cameras.shop.ebay.in/?_from=R40&_npmv=3&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=625"
       else
         url="http://shop.ebay.in/?_from=R40&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=See-All-Categories"
       end  
@@ -958,10 +967,16 @@ end
     def search_homeshop(query,type)
       #@@logger.info("Search HomeShop18..")
       #@@logger.info(query)
-      #@@logger.info(type)
-
-      url= "http://www.homeshop18.com/#{query[:search_term]}/gsm-handsets/categoryid:3027/search:#{query[:search_term]}"
-      page = self.fetch_page(url)
+      mtype= type[:search_type]
+     #@@logger.info(type)
+      if mtype =='mobiles' then  
+        url= "http://www.homeshop18.com/#{query[:search_term]}/gsm-handsets/categoryid:3027/search:#{query[:search_term]}"
+      elsif mtype=='cameras' then
+        url="http://camera.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
+      else
+        url="http://www.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
+      end  
+            page = self.fetch_page(url)
       prices=[]
       begin
             price_text = page.search("span.srh_rslt_hsrate").map { |e| "#{e.text}" }
@@ -997,7 +1012,6 @@ end
       #@@logger.info(mtype)
       prices=[]
 
-      if mtype == 'mobiles' then
                 url= "http://www.letsbuy.com/advanced_search_result.php?keywords=#{query[:search_term]}"
                 page = self.fetch_page(url)
                 begin
@@ -1022,13 +1036,13 @@ end
                   #@@logger.info ("#{ex.class} : #{ex.message}")
                 end
                 return prices
-       else
+       #else
               #@@logger.info ('----------------Ignoring search on letsbuy---------------------------------------------')
-              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
-              prices.push(price_info)
-              return prices
+       #       price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+       #       prices.push(price_info)
+       #       return prices
 
-       end  
+       #end  
  
     end
     def search_futurebazaar(query,type)
@@ -1115,8 +1129,9 @@ end
 
   #--------------------------------------------------------------------------------------------------------------------------------------
   def proper_case(str)
-    st = str.to_s
-    return st.split(/\s+/).each{ |word| word.capitalize! }.join(' ')  
+    #st = str.to_s
+    #return st.split(/\s+/).each{ |word| word.capitalize! }.join(' ')  
+    return str
   end
   def de_canonicalize_isbn(text)
     unless text.nil?
