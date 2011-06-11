@@ -57,24 +57,30 @@ $('#searchbooks').click(function() {
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
             $('#searchmobiles').removeClass('active');
-
+            $('#searchcamera').removeClass('active');
           });
 $('#searchmovies').click(function() {
             $('#search_type').val('movies');
             $(this).addClass('active');
             $('#searchbooks').removeClass('active');
             $('#searchmobiles').removeClass('active');
-
-
+            $('#searchcamera').removeClass('active');
           });
 $('#searchmobiles').click(function() {
             $('#search_type').val('mobiles');
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
             $('#searchbooks').removeClass('active');
-
-
+            $('#searchcamera').removeClass('active');
           });
+$('#searchcamera').click(function() {
+            $('#search_type').val('cameras');
+            $(this).addClass('active');
+            $('#searchmovies').removeClass('active');
+            $('#searchbooks').removeClass('active');
+            $('#searchmobiles').removeClass('active');
+          });
+
 
 $("#search_link").click( function()
 	{
