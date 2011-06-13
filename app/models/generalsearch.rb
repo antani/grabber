@@ -1083,6 +1083,45 @@ end
 
     end
 
+    def search_adexmart(query,type)
+      #@@logger.info("Search futurebazaar..")
+      #@@logger.info(query)
+      mtype = type[:search_type]
+      #@@logger.info(mtype)
+      prices=[]
+      url="http://adexmart.com/search.php?orderby=position&orderway=desc&search_query=#{query[:search_term]}&submit_search=Search"
+              page = self.fetch_page(url)
+              begin
+                    price_text = page.search("ul#product_list div.right_block span.price").map { |e| "#{e.text}" }
+                    name_text = page.search("ul#product_list div.center_block h3 a").map{ |e| "#{e.text}" }
+                    url_text = page.search("ul#product_list div.center_block h3 a[@href]").map{|e| e['href'] }
+                    img_text = page.search("ul#product_list div.center_block img[@src]").map {|e| e['src'] }
+                    discount_text = ""
+                    shipping_text = ""
+                #a[@href]").map{|e| e['href']}
+
+                    (0...price_text.length).each do |i|
+          #@@logger.info (price_text[i])
+          #@@logger.info (author_text[i])
+          #@@logger.info (name_text[i])
+          #@@logger.info (url_text[i])
+ 
+                        weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                        final_price = price_text[i].gsub(/[A-Za-z\s]/,'').gsub(/[.]\d{2}/,'').gsub(/[,]/,'')
+
+                        if ((weight >= 1)) then
+                          price_info = {:price => final_price,:author=>"", :name=>proper_case(name_text[i]), :img=>"http://adexmart.com"+img_text[i], :url=>url_text[i], :source=>'Adexmart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
+                          prices.push(price_info)
+                        end
+                    end
+                    rescue => ex
+                #Just ignore this error
+                #@@logger.info ("#{ex.class} : #{ex.message}")
+              end
+              return prices
+
+    end
+
 
 
     def dont_search_landmark(query,type)
