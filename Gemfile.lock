@@ -32,6 +32,7 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
+    amatch (0.2.5)
     amazon-ecs (2.0.0)
       nokogiri (>= 1.4.0)
       ruby-hmac (>= 0.3.2)
@@ -126,6 +127,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amatch
   amazon-ecs
   awesome_print
   bson_ext
