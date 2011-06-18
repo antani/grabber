@@ -565,12 +565,12 @@ end
  
 
       begin
-            price_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
-            name_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child").map{ |e| "#{e.text}" }
-            author_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span#author:first-child").map{ |e| "#{e.text}" }
-            url_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child[@href]").map{|e| e['href'] }
-            img_text = page.search("div.search_landing_left_col img[@src]").map {|e| e['src'] }
-            discount_text ="" 
+            price_text = page.search("div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
+            name_text = page.search("div.search_landing_right_col a.txt_bold").map{ |e| "#{e.text}" }
+            author_text = page.search("div.search_landing_right_col span#author").map{ |e| "#{e.text}" }
+            url_text = page.search("div.search_landing_right_col a.txt_bold[@href]").map{|e| e['href'] }
+            img_text = page.search("div.search_landing_left_col a img[@src]").map {|e| e['src'] }
+            discount_text =page.search("div.search_landing_right_col span:nth-child(11)").map{ |e| "#{e.text}" }
             shipping_text =""
        
         #a[@href]").map{|e| e['href']}
@@ -585,7 +585,7 @@ end
                       weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
                 end      
                 if (weight > 0) then
-                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>"http://pustak.co.in"+img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>"http://pustak.co.in"+img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
                   prices.push(price_info)
                 end
             end
@@ -1034,7 +1034,8 @@ end
       mtype = type[:search_type]
       #@@logger.info(mtype)
       prices=[]
-
+      # Letsbuy does not have books listed.
+      if mtype != "books" then
                 url= "http://www.letsbuy.com/advanced_search_result.php?keywords=#{query[:search_term]}"
                 page = self.fetch_page(url)
                 begin
@@ -1059,13 +1060,13 @@ end
                   #@@logger.info ("#{ex.class} : #{ex.message}")
                 end
                 return prices
-       #else
+       else
               #@@logger.info ('----------------Ignoring search on letsbuy---------------------------------------------')
-       #       price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
-       #       prices.push(price_info)
-       #       return prices
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Letsbuy', :weight => -999}
+              prices.push(price_info)
+              return prices
 
-       #end  
+       end  
  
     end
     def search_futurebazaar(query,type)
@@ -1112,7 +1113,9 @@ end
       mtype = type[:search_type]
       #@@logger.info(mtype)
       prices=[]
-      url="http://adexmart.com/search.php?orderby=position&orderway=desc&search_query=#{query[:search_term]}&submit_search=Search"
+      # Letsbuy does not have books listed.
+      if mtype != "books" then
+      	      url="http://adexmart.com/search.php?orderby=position&orderway=desc&search_query=#{query[:search_term]}&submit_search=Search"
               page = self.fetch_page(url)
               begin
                     price_text = page.search("ul#product_list div.right_block span.price").map { |e| "#{e.text}" }
@@ -1142,6 +1145,13 @@ end
                 #@@logger.info ("#{ex.class} : #{ex.message}")
               end
               return prices
+       else
+              #@@logger.info ('----------------Ignoring search on letsbuy---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Adexmart', :weight => -999}
+              prices.push(price_info)
+              return prices
+
+       end  
 
     end
 
