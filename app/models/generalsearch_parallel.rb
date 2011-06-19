@@ -1115,8 +1115,8 @@ end
       @@hydra.queue request
       prices
    end
- #--------------------------------------------------------------------------------------------------------------------------------------
-   def search_letsbuy(query,type)
+ # FIX This--------------------------------------------------------------------------------------------------------------------------------------
+   def dont_search_letsbuy(query,type)
       #@@logger.info("Search letsbuy..")
       #@@logger.info(query)
       #@@logger.info(type)
