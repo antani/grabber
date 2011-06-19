@@ -417,6 +417,7 @@ Notifications
     font-weight: 700;
     padding-bottom:10px;
     text-transform: uppercase;
+    width: 450px;
 }
 .oFlowH {
     overflow: hidden;
@@ -431,7 +432,14 @@ Notifications
     color: #565656;
     padding: 0 6px 6px;
 }
-
+.search_wrap .tab p {
+    color: #565656;
+    padding: 0 6px 6px;
+}
+.comingsoon
+{
+   opacity: 0.5;
+}
 /*--Feedback slideshow--*/
 #slideshow {
     width: 900px;

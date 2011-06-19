@@ -11,12 +11,13 @@ gem 'delayed_job'
 gem 'delayed_job_mongoid'
 
 gem 'dalli'
-
+#gem 'hpricot'
 gem 'configatron', :require => 'configatron' # https://github.com/markbates/configatron/
 gem 'jammit', '0.6'
 gem 'mechanize', :require => 'mechanize'
 gem 'amazon-ecs', :require => 'amazon/ecs'
 gem 'amatch'
+gem 'typhoeus'
 #gem 'soundex_find', :git => 'git://github.com/waltjones/soundex_find.git'
 
 # Bundle edge Rails instead:
@@ -35,7 +36,7 @@ gem 'amatch'
 #gem 'ruby-debug19'
 # Bundle the extra gems:
 # gem 'bj'
-# gem 'nokogiri'
+gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 

@@ -1,0 +1,940 @@
+                        <% content_for :js do %>
+                       var auto_refresh = setInterval(
+                                                    function ()
+                                                     {
+                                                        window.location.reload()
+                                                     }, 15*1000); 
+                        <% end %>
+
+---41
+  <%= stylesheet_link_tag :all %>
+  <style>
+    <%= yield(:css) %>
+  </style>
+  <%= javascript_include_tag :all %>
+--109
+  <script>
+  <%= yield(:js) %>
+  </script>
+ 
+
+
+
+
+  <script>
+   var _gaq = [['_setAccount', '<%= google_analytics_id || 'UA-22984194-1' %>'], ['_trackPageview']];
+   (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+   })(document, 'script');
+  </script>-->
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22984194-1']);
+  _gaq.push(['_setDomainName', '.cheapr.in']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22984194-3']);
+  _gaq.push(['_setDomainName', '.cheapr.in']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+<script>var _gaq=[['_setAccount','UA-22984194-3'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+
+
+
+
+========================================================
+
+    # todo 
+    def search_rediff(query,type)
+      #@@logger.info("Search rediffbooks..")
+      #@@logger.info(query)
+      mtype= type[:search_type]
+      #@@logger.info(mtype)
+
+      url = "http://books.rediff.com/book/#{query[:search_term]}"
+      prices=[]
+      if mtype != 'books' then
+              #@@logger.info ('----------------Ignoring search on Rediff---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+      page= Typhoeus::Request.get(url)
+       begin
+              price_text = page.search("font#book-pric").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
+              name_text = page.search("font#book-titl").map{ |e| "#{e.text} " }
+              author_text = page.search("font#book-auth").map {|e| "#{e.text}" }
+              url_text = page.search("div#prod-detail2 a[@href]").map{|e| e['href'] }
+              img_text = page.search("div#prod_detail1 img[@src]").map {|e| e['src'] }
+              discount_text ="" 
+              shipping_text =""
+   
+              (0...price_text.length).each do |i|
+                  ##@@logger.info (price_text[i])
+                  ##@@logger.info (author_text[i])
+                  ##@@logger.info (url_text[i])
+                  if (name_text[i] == nil && author_text[i] != nil) then
+                        weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                  elsif (name_text[i] !=nil && author_text[i] == nil) then
+                        weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                  else
+                        weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                  end      
+
+                  if (weight > 0) then
+                    price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>url_text[i], :source=>'Rediff', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                    prices.push(price_info)
+                  end
+         
+              end
+      rescue => ex
+         #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+
+      prices
+   end
+   # Dont know why but we keep on getting execution expired from this site.
+   def search_indiaplaza(query,type)
+      #@@logger.info("Search indiaplaza..")
+      #@@logger.info(query)
+      #@@logger.info(type)
+
+      what = type[:search_type]
+      if what == 'movies' then
+          url= "http://www.indiaplaza.com/newsearch/search.aspx?srchval=#{query[:search_term]}&Store=movies"
+      elsif what == 'mobiles' then
+          url= "http://www.indiaplaza.com/newsearch/search.aspx?srchval=#{query[:search_term]}&Store=mobiles"
+      elsif what == 'cameras' then
+          url= "http://www.indiaplaza.com/newsearch/search.aspx?srchval=#{query[:search_term]}&Store=cameras"
+      else
+          url = "http://www.indiaplaza.in/search.aspx?catname=Books&srchkey=&srchVal=#{query[:search_term]}"
+      end
+      prices=[]
+#a[@href]").map{|e| e['href']}
+
+      begin
+            
+      page= Typhoeus::Request.get(url)
+
+      price_text = page.search("div.tier1box2 ul li:first-child span").map { |e| "#{e.text.tr('A-Za-z.,','')}" }
+      name_text = page.search("ul.bookdetails li a").map{ |e| "#{e.text} " }
+      author_text = page.search("ul.bookdetails li:nth-child(2)").map {|e| "#{e.text}" }
+      url_text = page.search("ul.bookdetails li a[@href]").map{|e| e['href'] }
+      img_text = page.search("div.tier1box1 img[@src]").map {|e| e['src'] }
+      discount_text ="" 
+      shipping_text =""
+ 
+      (0...price_text.length).each do |i|
+          #@@logger.info (price_text[i])
+          #@@logger.info (author_text[i])
+          #@@logger.info (name_text[i])
+          #@@logger.info (url_text[i])
+          author_text[i] = author_text[i].gsub('Author:', '')
+
+          if (name_text[i] == nil && author_text[i] != nil) then
+                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+          elsif (name_text[i] !=nil && author_text[i] == nil) then
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+          else
+                weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+          end      
+
+          if (weight > 0) then
+            price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>"http://www.indiaplaza.com"+url_text[i], :source=>'Indiaplaza', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+            prices.push(price_info)
+          end
+ 
+      end
+      rescue => ex
+         #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+  end
+   # todo
+   #This is the worst formed website and dangers lurk in every corner.
+   def search_a1books(query,type)
+      #@@logger.info("Search a1books..")
+      #@@logger.info(query)
+      mtype= type[:search_type]
+
+      #@@logger.info(mtype)
+
+      prices=[]
+      if mtype != 'books' then
+              #@@logger.info ('----------------Ignoring search on a1books---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+      url ="http://www.a1books.co.in/searchresult.do?searchType=books&keyword=#{query[:search_term]}&fromSearchBox=Y&partnersite=a1india&imageField=Go"
+      page= Typhoeus::Request.get(url)
+
+      begin
+      price_text = page.search("span.salePrice").map { |e| "#{e.text.tr('A-Za-z,','')}" }
+      name_text = page.search("table.section a.label").map{ |e| "#{e.text}" }
+      author_text = page.search("table.section td[@width='100%']").map{ |e| "#{e.text}" }
+      url_text = page.search("table.section a.label[@href]").map{|e| e['href'] }
+      discount_text ="" 
+      shipping_text =""
+ 
+    
+      (0...price_text.length).each do |i|
+          author = author_text[i]
+          name = name_text[i].strip
+          search_index = author.index(name) 
+          if search_index != nil then 
+            author = author[search_index+name.length..author.length]
+          end
+          if (name_text[i] == nil && author != nil) then
+                weight,cost = find_weight(author, "#{query[:search_term]}" )
+          elsif (name_text[i] !=nil && author == nil) then
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+          else
+                weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
+          end      
+          if (weight > 0) then
+            price_info = {:price => price_text[i],:author=>proper_case(author), :name=>proper_case(name_text[i]), :img=>"",:url=>"http://a1books.co.in"+url_text[i], :source=>'A1Books', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+            prices.push(price_info)
+          end
+      end
+      rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+   end
+     
+   def search_nbcindia(query,type)
+      #@@logger.info("Search nbcindia..")
+      #@@logger.info(query)
+      mtype= type[:search_type]
+
+      #@@logger.info(mtype)
+  
+      prices=[]
+      if mtype != 'books' then
+              #@@logger.info ('----------------Ignoring search on nbcindia---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+      url = "http://www.nbcindia.com/Search-books.asp?q=#{query[:search_term]}"
+      page= Typhoeus::Request.get(url)
+ 
+
+      begin
+            price_text = page.search("div.fieldset ul li:nth-child(2) font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
+            name_text = page.search("div.fieldset ul li:first-child b").map{ |e| "#{e.text}" }
+            author_text = page.search("div.fieldset ul li:first-child a:nth-child(2)").map{ |e| "#{e.text}" }
+            url_text = page.search("div.fieldset ul li:first-child a:first-child[@href]").map{|e| e['href'] }
+            img_text = page.search("div.imageset img[@src]").map {|e| e['src'] }
+            discount_text ="" 
+            shipping_text =""
+ 
+            
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
+                end      
+                if (weight > 0) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=> img_text[i],:url=>"http://www.nbcindia.com/"+url_text[i], :source=>'NBC India', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+   end
+
+   def search_pustak(query,type)
+      #@@logger.info("Search pustak..")
+      #@@logger.info(query)
+      mtype= type[:search_type]
+
+      #@@logger.info(mtype)
+
+      prices=[]
+      if mtype != 'books' then
+              #@@logger.info ('----------------Ignoring search on pustak---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+      url="http://pustak.co.in/pustak/books/search?searchType=book&q=#{query[:search_term]}&page=1&type=genericSearch"
+      page= Typhoeus::Request.get(url)
+ 
+
+      begin
+            price_text = page.search("div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
+            name_text = page.search("div.search_landing_right_col a.txt_bold").map{ |e| "#{e.text}" }
+            author_text = page.search("div.search_landing_right_col span#author").map{ |e| "#{e.text}" }
+            url_text = page.search("div.search_landing_right_col a.txt_bold[@href]").map{|e| e['href'] }
+            img_text = page.search("div.search_landing_left_col a img[@src]").map {|e| e['src'] }
+            discount_text =page.search("div.search_landing_right_col span:nth-child(11)").map{ |e| "#{e.text}" }
+            shipping_text =""
+       
+        #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
+                end      
+                if (weight > 0) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>"http://pustak.co.in"+img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+
+   end
+   def dont_search_coralhub(isbn)
+      #@@logger.info("Search coralhub..")
+      #@@logger.info(query)
+      url = "http://www.coralhub.com/SearchResults.aspx?pindex=1&cat=0&search=#{query[:search_term]}"
+      page= Typhoeus::Request.get(url)
+      prices=[]
+      if type != 'books' then
+              #@@logger.info ('----------------Ignoring search on coralhub---------------------------------------------')
+              price_info = {:price=> '-999', :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => '-999'}
+              prices.push(price_info)
+              return prices
+      end
+
+
+      begin
+            price_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.text.tr('A-Za-z,','')}" }
+            name_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child").map{ |e| "#{e.text}" }
+            author_text = page.search("div.prod_search_coll_holder div.search_landing_right_col span#author:first-child").map{ |e| "#{e.text}" }
+            url_text = page.search("div.prod_search_coll_holder div.search_landing_right_col a:first-child[@href]").map{|e| e['href'] }
+            discount_text ="" 
+            shipping_text =""
+              
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
+                end      
+                if (weight > 0) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>"", :url=>"http://pustak.co.in"+url_text[i], :source=>'Coral Hub', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+   end
+
+   def search_ebay(query,type)
+      #@@logger.info("Search ebay..")
+      #@@logger.info(query)
+      mtype = type[:search_type]
+      #@@logger.info(mtype)
+
+      if mtype =='mobiles' then  
+        url="http://mobiles.shop.ebay.in/?_from=R40&_npmv=3&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=15032"
+      elsif mtype=='movies' then
+        url="http://movies.shop.ebay.in/?_from=R40&_npmv=3&_trksid=m570&_nkw=#{query[:search_term]}&n_sacat=11232"
+      elsif mtype=='cameras' then
+        #url="http://cameras.shop.ebay.in/?_from=R40&_npmv=3&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=625"
+	url="http://cameras.shop.ebay.in/Digital-SLR-Cameras-/43453/i.html?_nkw=#{query[:search_term]}"
+      else
+        url="http://shop.ebay.in/?_from=R40&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=See-All-Categories"
+      end  
+      page= Typhoeus::Request.get(url)
+      prices=[]
+      begin
+            price_text = page.search("div#ResultSet table.li td.prc").map { |e| "#{e.text.tr('A-Za-z,','')}" }
+            name_text = page.search("div#ResultSet table.li td:nth-child(2) a").map{ |e| "#{e.text}" }
+            url_text = page.search("div#ResultSet table.li td:nth-child(2) a[@href]").map{|e| e['href'] }
+            img_text = page.search("img.img[@src]").map {|e| e['src'] }
+            discount_text ="" 
+            shipping_text =""
+             
+        #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                price_sub = price_text[i]
+                search_index = name_text[i].index('by')
+                if search_index != nil then
+                    search_index = search_index + 'by'.length
+                    name = name_text[i]
+                    author = name[search_index..name.length]
+                    name = name[0..search_index-'by'.length]
+                else
+                    author = nil
+                    name = name_text[i]
+                end
+                if (name == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name !=nil && author == nil) then
+                      weight,cost = find_weight(name, "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name+author, "#{query[:search_term]}" )
+                end      
+                if (weight > 0) then
+                  price_info = {:price => price_sub[1..price_sub.length],:author=>proper_case(author), :name=>proper_case(name), :img=>img_text[i],:url=>url_text[i], :source=>'eBay India', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+ 
+   end
+
+
+   def search_bookadda(query,type)
+      #@@logger.info("Search Bookadda..")
+      #@@logger.info(query)
+      mtype= type[:search_type]
+
+      #@@logger.info(mtype)
+
+      prices=[]
+      if mtype != 'books' then
+              #@@logger.info ('----------------Ignoring search on bookadda---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+      url = "http://www.bookadda.com/search/#{query[:search_term]}"
+      page= Typhoeus::Request.get(url)
+ 
+
+      begin
+            price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("div.searchpagebooktitle h2").map{ |e| "#{e.text}" }
+            author_text = page.search("span.searchbookauthor a").map{ |e| "#{e.text}" }
+            url_text = page.search("div.searchpagebooktitle a[@href]").map{|e| e['href'] }
+            img_text = page.search("div.img img[@src]").map {|e| e['src'] }
+            discount_text ="" 
+            shipping_text =""
+              
+        #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1)  && ( price_text[i].to_i > 0) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>img_text[i], :url=>url_text[i], :source=>'Book Adda', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+ 
+   end
+
+   def search_tradus(query,type)
+      #@@logger.info("Search Tradeus..")
+      #@@logger.info(query)
+      mtype= type[:search_type]
+
+      #@@logger.info(mtype)
+
+      prices=[]
+      if mtype != 'books' then
+              #@@logger.info ('----------------Ignoring search on tradus---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+      url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?solrsort=fs_uc_sell_price asc"
+      page= Typhoeus::Request.get(url)
+ 
+
+      begin
+            price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("div.search_prod_col tr td:nth-child(2) a:first-child").map{ |e| "#{e.text}" }
+            #There is no author text in the search result
+            #author_text = page.search("div.searchpagebooktitle a:first-child").map{ |e| "#{e.text}" }
+            url_text = page.search("div.search_prod_col tr td:nth-child(2) a:first-child a[@href]").map{|e| e['href'] }
+            img_text = page.search("img#pimage img[@src]").map {|e| e['src'] }
+            discount_text ="" 
+            shipping_text =""
+ 
+        #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                if (weight > 0) then
+                  price_info = {:price => price_text[i],:author=>"", :name=>name_text[i], :img=>img_text[i], :url=>"http://tradeus.in/"+url_text[i], :source=>'Trade us', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+   
+   end
+   def dont_search_jumadi(query,type)
+      #@@logger.info("Search Jumadi..")
+      #@@logger.info(query)
+      mtype= type[:search_type]
+
+      #@@logger.info(mtype)
+
+      prices=[]
+      if mtype != 'books' then
+              #@@logger.info ('----------------Ignoring search on jumadi---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+      url = "http://www.jumadi.in/#{query[:search_term]}"
+      page= Typhoeus::Request.get(url)
+ 
+
+      begin
+            price_text = page.search("div.catDesc span#our_price_display").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("div.catDesc span.prodTitle a").map{ |e| "#{e.text}" }
+            author_text = page.search("div.catDesc span.prodAuthor a").map{ |e| "#{e.text}" }
+            url_text = page.search("div.catDesc span.prodTitle a[@href]").map{|e| e['href'] }
+            discount_text ="" 
+            shipping_text =""
+            img_text = page.search("td.prodImg img[@src]").map {|e| e['src'] }
+        #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
+                end      
+
+                if (weight > 0) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>img_text[i], :url=>url_text[i], :source=>'Jumadi', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+   end
+
+   def dont_search_coinjoos(query)
+      #@@logger.info("Search Coinjoos..")
+      #@@logger.info(query)
+      url = "http://www.coinjoos.com/product/books/#{query[:search_term]}/1/"
+      page= Typhoeus::Request.get(url)
+      prices=[]
+      if type != 'books' then
+              #@@logger.info ('----------------Ignoring search on coinjoos---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+
+
+      begin
+            price_text = page.search("div.catDesc span#our_price_display").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("div.catDesc span.prodTitle a").map{ |e| "#{e.text}" }
+            author_text = page.search("div.catDesc span.prodAuthor a").map{ |e| "#{e.text}" }
+            discount_text ="" 
+            shipping_text =""
+            url_text = page.search("div.catDesc span.prodTitle a[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=> "",:url=>url_text[i], :source=>'Coinjoos', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+    end
+    def dont_search_friendsofbooks(isbn)
+      #@@logger.info("Search Friends of books..")
+      #@@logger.info(query)
+      url = "http://www.friendsofbooks.com/store/index.php?main_page=advanced_search_result&search_in_description=1&keyword=#{query[:search_term]}"
+      page= Typhoeus::Request.get(url)
+      prices=[]
+      if type != 'books' then
+              #@@logger.info ('----------------Ignoring search on coinjoos---------------------------------------------')
+              price_info = {:price=> '-999', :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => '-999'}
+              prices.push(price_info)
+              return prices
+      end
+
+
+      begin
+            common_text = page.search ("div#productListing tr td:nth-child(2) h2:first-child").map{ |e| "#{e.text}" }
+            price_text = page.search("span.productSpecialPrice").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+         #a[@href]").map{|e| e['href']}
+            discount_text ="" 
+            shipping_text =""
+ 
+            (0...common_text.length).each do |i|
+                txts = common_text[i].split('by')
+
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
+                end      
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>"", :url=>url_text[i], :source=>'Friends of Books', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+    end
+
+    def search_crossword(query,type)
+      #@@logger.info("Search Crossword..")
+      #@@logger.info(query)
+      mtype= type[:search_type]
+      #@@logger.info(mtype)
+
+      prices=[]
+      if mtype != 'books' then
+              #@@logger.info ('----------------Ignoring search on crossword---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => -999}
+              prices.push(price_info)
+              return prices
+      end
+      url = "http://www.crossword.in/books/search?q=#{query[:search_term]}"
+      page= Typhoeus::Request.get(url)
+
+
+      begin
+            price_text = page.search("ul#search-result-items li span.variant-final-price").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("ul#search-result-items li span.variant-title").map{ |e| "#{e.text}" }
+            author_text = page.search("ul#search-result-items li span.ctbr-name").map{ |e| "#{e.text}" }
+            url_text = page.search("ul#search-result-items li span.variant-title a[@href]").map{|e| e['href'] }
+            img_text = page.search("div.variant-image img[@src]").map {|e| e['src'] }
+            discount_text ="" 
+            shipping_text =""
+
+    #a[@href]").map{|e| e['href']}
+
+          (0...price_text.length).each do |i|
+                author = author_text[i]
+                if (name_text[i] == nil && author != nil) then
+                      weight,cost = find_weight(author, "#{query[:search_term]}" )
+                elsif (name_text[i] !=nil && author == nil) then
+                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                else
+                      weight,cost = find_weight(name_text[i]+" "+author, "#{query[:search_term]}" )
+                end      
+                if (weight > 0) then
+                    price_info = {:price => price_text[i],:author=>author, :name=>name_text[i], :img=>img_text[i], :url=>"http://crossword.in/"+url_text[i], :source=>'Crossword', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                    prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+ 
+    end
+
+    def search_homeshop(query,type)
+      #@@logger.info("Search HomeShop18..")
+      #@@logger.info(query)
+      mtype= type[:search_type]
+     #@@logger.info(type)
+      if mtype =='mobiles' then  
+        url= "http://www.homeshop18.com/#{query[:search_term]}/gsm-handsets/categoryid:3027/search:#{query[:search_term]}"
+      elsif mtype=='cameras' then
+        url="http://camera.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
+      else
+        url="http://www.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
+      end  
+            page= Typhoeus::Request.get(url)
+      prices=[]
+      begin
+            price_text = page.search("span.srh_rslt_hsrate").map { |e| "#{e.text}" }
+            name_text = page.search("span.srh_rslt_title a").map{ |e| "#{e.text}" }
+            url_text = page.search("span.srh_rslt_title a[@href]").map{|e| e['href'] }
+            discount_text ="" 
+            shipping_text =""
+            img_text = page.search("div.srch_rslt_item img[@src]").map {|e| e['src'] }
+        #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                if (weight > 0) then
+                  fixed_price = price_text[i].gsub(/[A-Za-z\s:]/,'').gsub(/^[.]/,'')
+
+                  price_info = {:price => fixed_price,:author=>"", :name=>proper_case(name_text[i]), :img=>img_text[i], :url=>url_text[i], :source=>'Homeshop18', :weight=>weight} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+ 
+    end
+
+    def search_letsbuy(query,type)
+      #@@logger.info("Search letsbuy..")
+      #@@logger.info(query)
+      mtype = type[:search_type]
+      #@@logger.info(mtype)
+      prices=[]
+      # Letsbuy does not have books listed.
+      if mtype != "books" then
+                url= "http://www.letsbuy.com/advanced_search_result.php?keywords=#{query[:search_term]}"
+                page= Typhoeus::Request.get(url)
+                begin
+                      price_text = page.search("span.text12_stb").map { |e| "#{e.text.tr('A-Za-z,.:','')}" }
+                      name_text = page.search("div.detailbox h2 a").map{ |e| "#{e.text}" }
+                      url_text = page.search("div.detailbox h2 a[@href]").map{|e| e['href'] }
+                      discount_text ="" 
+                      shipping_text =""
+                      img_text = page.search("div.search_products img[@src]").map {|e| e['src'] }
+                  #a[@href]").map{|e| e['href']}
+
+                      (0...price_text.length).each do |i|
+
+                          weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                          if (weight > 0) then
+                            price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :img=>img_text[i], :url=>url_text[i], :source=>'Letsbuy', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                            prices.push(price_info)
+                          end
+                      end
+                      rescue => ex
+                  #Just ignore this error
+                  #@@logger.info ("#{ex.class} : #{ex.message}")
+                end
+                return prices
+       else
+              #@@logger.info ('----------------Ignoring search on letsbuy---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Letsbuy', :weight => -999}
+              prices.push(price_info)
+              return prices
+
+       end  
+ 
+    end
+    def search_futurebazaar(query,type)
+      #@@logger.info("Search futurebazaar..")
+      #@@logger.info(query)
+      mtype = type[:search_type]
+      #@@logger.info(mtype)
+      prices=[]
+      url="http://www.futurebazaar.com/search/?q=#{query[:search_term]}"
+
+              page= Typhoeus::Request.get(url)
+              begin
+                    price_text = page.search("div.marb5 span.WebRupee + *").map { |e| "#{e.text.tr('A-Za-z,.:','')}" }
+                    name_text = page.search("div.greed_prod h3 a").map{ |e| "#{e.text}" }
+                    url_text = page.search("div.greed_prod h3 a[@href]").map{|e| e['href'] }
+                    img_text = page.search("div.ca img[@src]").map {|e| e['src'] }
+                    discount_text = page.search("div.value span.WebRupee + *").map { |e| "#{e.text.tr('A-Za-z,.:','')}" }
+                    shipping_text = ""
+                #a[@href]").map{|e| e['href']}
+
+                    (0...price_text.length).each do |i|
+          #@@logger.info (price_text[i])
+          #@@logger.info (author_text[i])
+          #@@logger.info (name_text[i])
+          #@@logger.info (url_text[i])
+ 
+                        weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                        if (weight > 0) then
+                          price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :img=>img_text[i], :url=>"http://www.futurebazaar.com/"+url_text[i], :source=>'Futurebazaar', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
+                          prices.push(price_info)
+                        end
+                    end
+                    rescue => ex
+                #Just ignore this error
+                #@@logger.info ("#{ex.class} : #{ex.message}")
+              end
+              return prices
+
+    end
+
+    def search_adexmart(query,type)
+      #@@logger.info("Search futurebazaar..")
+      #@@logger.info(query)
+      mtype = type[:search_type]
+      #@@logger.info(mtype)
+      prices=[]
+      # Letsbuy does not have books listed.
+      if mtype != "books" then
+      	      url="http://adexmart.com/search.php?orderby=position&orderway=desc&search_query=#{query[:search_term]}&submit_search=Search"
+              page= Typhoeus::Request.get(url)
+              begin
+                    price_text = page.search("ul#product_list div.right_block span.price").map { |e| "#{e.text}" }
+                    name_text = page.search("ul#product_list div.center_block h3 a").map{ |e| "#{e.text}" }
+                    url_text = page.search("ul#product_list div.center_block h3 a[@href]").map{|e| e['href'] }
+                    img_text = page.search("ul#product_list div.center_block img[@src]").map {|e| e['src'] }
+                    discount_text = ""
+                    shipping_text = ""
+                #a[@href]").map{|e| e['href']}
+
+                    (0...price_text.length).each do |i|
+          #@@logger.info (price_text[i])
+          #@@logger.info (author_text[i])
+          #@@logger.info (name_text[i])
+          #@@logger.info (url_text[i])
+ 
+                        weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                        final_price = price_text[i].gsub(/[A-Za-z\s]/,'').gsub(/[.]\d{2}/,'').gsub(/[,]/,'')
+
+                        if (weight > 0) then
+                          price_info = {:price => final_price,:author=>"", :name=>proper_case(name_text[i]), :img=>"http://adexmart.com"+img_text[i], :url=>url_text[i], :source=>'Adexmart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
+                          prices.push(price_info)
+                        end
+                    end
+                    rescue => ex
+                #Just ignore this error
+                #@@logger.info ("#{ex.class} : #{ex.message}")
+              end
+              return prices
+       else
+              #@@logger.info ('----------------Ignoring search on letsbuy---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Adexmart', :weight => -999}
+              prices.push(price_info)
+              return prices
+
+       end  
+
+    end
+
+
+
+    def dont_search_landmark(query,type)
+      #@@logger.info("Search Landmark..")
+      #@@logger.info(query)
+      url= "http://www.homeshop18.com/#{query[:search_term]}/search:#{query[:search_term]}"
+      page= Typhoeus::Request.get(url)
+      prices=[]
+      if type != 'books' then
+              #@@logger.info ('----------------Ignoring search on landmark---------------------------------------------')
+              price_info = {:price=> '-999', :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Rediff', :weight => '-999'}
+              prices.push(price_info)
+              return prices
+      end
+
+
+      begin
+            price_text = page.search("span.srh_rslt_hsrate").map { |e| "#{e.text.tr('A-Za-z,.','')}" }
+            name_text = page.search("span.srh_rslt_title a").map{ |e| "#{e.text}" }
+            url_text = page.search("span.srh_rslt_title a[@href]").map{|e| e['href'] }
+         #a[@href]").map{|e| e['href']}
+
+            (0...price_text.length).each do |i|
+          #@@logger.info (price_text[i])
+          #@@logger.info (author_text[i])
+          #@@logger.info (name_text[i])
+          #@@logger.info (url_text[i])
+ 
+                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+
+                if (cost==1 || weight > 1) then
+                  price_info = {:price => price_text[i],:author=>"", :name=>proper_case(name_text[i]), :img=>"", :url=>url_text[i], :source=>'Homeshop18', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                  prices.push(price_info)
+                end
+            end
+            rescue => ex
+        #Just ignore this error
+        #@@logger.info ("#{ex.class} : #{ex.message}")
+      end
+      prices
+ 
+    end
+

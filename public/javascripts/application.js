@@ -146,6 +146,8 @@ $('#india-stores').qtip({
    hide: 'mouseout',
    style: 'green'
 });
+
+$('.comingsoon').qtip({content: 'Coming very very soon', show:'mouseover',hide:'mouseout',style:'green'});
 //Check if Geo location detection is supported
 if(readCookie("country") == null)
 {

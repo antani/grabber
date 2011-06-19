@@ -5,6 +5,7 @@
 <%= content_for :js do %>
   var isbn = "<%= @isbn %>";
   var max_weight = "<%=@max_weight%>";
+  var need_refresh = <%=@stores.nil? %>;
 <% end %>
 
          <% unless @stores.nil? %>
@@ -28,7 +29,7 @@
                                             <td  class="td_name">
                                                   <b><%= data[:name] %></b></br>
                                                   <span class="discount"> <%= data[:discount] %> </span>
-                                                  <span class="shipping"></span>
+                                                  <span class="shipping"> </span>
 
                                             </td>
                                             <td  class="td_author">
@@ -54,16 +55,22 @@
                 <div id="loader">
                 <div id="wait-text">
                 <img src='images/9.gif' />
-                We are fetching prices from <%= @prices.number_of_stores %> online stores...<strong>please be patient!</strong></div>
+                    We are fetching prices from <%= @prices.number_of_stores %> online stores...<strong>please be patient!</strong></div>
                 </div>
-</div>
+                </div>
 
-<script> 
-var auto_refresh = setInterval(
-function()
-{
-//$('#loader').fadeOut('slow').load('/ #result_content').fadeIn("slow");
-$("#result_content").load(location.href+" #result_content>*","");
-}, 10000);
-</script>
+		<script> 
+		var auto_refresh = setInterval(
+		function()
+		{
+		//$('#loader').fadeOut('slow').load('/ #result_content').fadeIn("slow");
+		$("#result_content").load(location.href+" #result_content>*","");
+		}, 10000);
+
+		if (!need_refresh)
+			{
+				alert(need_refresh);
+				window.clearInterval(auto_refresh);
+			}
+		</script>
      <% end %>

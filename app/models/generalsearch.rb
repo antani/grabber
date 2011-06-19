@@ -768,7 +768,9 @@ end
               prices.push(price_info)
               return prices
       end
+    
       url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?solrsort=fs_uc_sell_price asc"
+      #url "http://www.tradus.in/search/tradus_search/#{query[:search_term]}"
       page = self.fetch_page(url)
  
 

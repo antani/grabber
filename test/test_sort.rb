@@ -182,14 +182,11 @@ p sounds
 w,c =  find_w(tt,s)
 p w
 p c
-
-rs = "Rs 18,690.00"
+#30,500.00 
+rs = "30,500.00"
 
 #rs="Our Price: Rs.14699.0"
-rs_tr= rs.gsub(/[A-Za-z\s]/,'').gsub(/[.]\d{2}/,'').gsub(/[,]/,'')
+rs_tr= rs.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+#.gsub(/[,]/,'')
 p rs_tr
-
-if 'Samsung Galaxy S2 Sii Wifi I9100 Video 2.3 Gingerbread'.downcase.include? 'samsung galaxy s2' then
-   puts 'true'
-end
 
