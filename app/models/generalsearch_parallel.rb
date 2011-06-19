@@ -145,12 +145,12 @@ def find_weight(source_string, search_string)
   m = LongestSubsequence.new(source_string.downcase)
   weight = m.match(search_string.downcase)
 
-  @@logger.info ("search----------------")
-  @@logger.info search_string
-  @@logger.info ("source----------------")
-  @@logger.info source_string
-  @@logger.info ("weight----------------")
-  @@logger.info weight
+#  @@logger.info ("search----------------")
+#  @@logger.info search_string
+#  @@logger.info ("source----------------")
+#  @@logger.info source_string
+#  @@logger.info ("weight----------------")
+#  @@logger.info weight
   return weight,0
 end
 
