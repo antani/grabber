@@ -1253,8 +1253,8 @@ end
       @@hydra.queue request
       prices
    end
-   #-----------------------------------------------------------------------------------------------------------------
-   def search_adexmart(query,type)
+   # TODO Fix this-----------------------------------------------------------------------------------------------------------------
+   def dont_search_adexmart(query,type)
       #@@logger.info("Search adexmart..")
       #@@logger.info(query)
       #@@logger.info(type)
