@@ -1157,6 +1157,55 @@ end
 
     end
 
+    def search_indiatimes(query,type)
+      #@@logger.info("Search futurebazaar..")
+      #@@logger.info(query)
+      mtype = type[:search_type]
+      #@@logger.info(mtype)
+      prices=[]
+      # Letsbuy does not have books listed.
+       if mtype != "books" then
+              url='http://shopping.indiatimes.com/#{query[:search_term]}/search/'
+      	      #url="http://adexmart.com/search.php?orderby=position&orderway=desc&search_query=#{query[:search_term]}&submit_search=Search"
+              page = self.fetch_page(url)
+              begin
+                    price_text = page.search("table.gridViewNametd span.Blackstrikered").map { |e| "#{e.text}" }
+                    name_text = page.search("table.searchViewTable div#parent span.bold").map{ |e| "#{e.text}" }
+                    url_text = page.search("div#parent a.searchLinks1 a[@href]").map{|e| e['href'] }
+                    img_text = page.search("td.searchimgtd img.img[@src]").map {|e| e['src'] }
+                    discount_text = ""
+                    shipping_text = ""
+                #a[@href]").map{|e| e['href']}
+
+                    (0...price_text.length).each do |i|
+          #@@logger.info (price_text[i])
+          #@@logger.info (author_text[i])
+          #@@logger.info (name_text[i])
+          #@@logger.info (url_text[i])
+ 
+                        weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                        final_price = price_text[i].gsub(/[A-Za-z\s]/,'').gsub(/[.]\d{2}/,'').gsub(/[,]/,'')
+
+                        if (weight > 0) then
+                          price_info = {:price => final_price,:author=>"", :name=>proper_case(name_text[i]), :img=>"http://shopping.indiatimes.com"+img_text[i], :url=>url_text[i], :source=>'Indiatimes', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
+                          prices.push(price_info)
+                        end
+                    end
+                    rescue => ex
+                #Just ignore this error
+                #@@logger.info ("#{ex.class} : #{ex.message}")
+              end
+              return prices
+       else
+              #@@logger.info ('----------------Ignoring search on letsbuy---------------------------------------------')
+              price_info = {:price=> -999, :author=> 'fake',:name=>'fake', :img => 'fake', :url => 'fake', :source=>'Adexmart', :weight => -999}
+              prices.push(price_info)
+              return prices
+
+       end  
+
+    end
+
 
 
     def dont_search_landmark(query,type)
