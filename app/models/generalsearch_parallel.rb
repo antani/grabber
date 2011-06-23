@@ -246,16 +246,19 @@ end
    end
    #Bad hack to run hydra.run in the end
    def search_zz(query,type)
-      #@@logger.info("Running hydra")
-      
+      @@logger.info("Running hydra")
+      #start_time = Time.now
       @@hydra.run	
+      #finish_time = Time.now
+      #@@logger.info("Total time to run hydra request..")
+      #@@logger.info (finish_time - start_time)
    end
 
    #------------------------------------------------------------------------------------------------------------------------------------------------    
    def search_flipkart(query,type)
-      ##@@logger.info("Search flipkart..")
-      ##@@logger.info(query)
-      ##@@logger.info(type)
+      @@logger.info("Search flipkart..")
+      @@logger.info(query)
+      @@logger.info(type)
 
       what = type[:search_type]
       if what == 'movies' then
@@ -392,9 +395,9 @@ end
     end
   #------------------------------------------------------------------------------------------------------------------------------------------------    
    def search_rediff(query,type)
-      #@@logger.info("Search rediff..")
-      #@@logger.info(query)
-      #@@logger.info(type)
+      @@logger.info("Search rediff..")
+      @@logger.info(query)
+      @@logger.info(type)
       prices=[]
       mtype = type[:search_type]
       if mtype != 'books' then

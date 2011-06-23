@@ -15,7 +15,7 @@
 <div class="searchwrapper drop-shadow curved curved-hz-1">
   <div class="searchwrapper-inner">
     <div class="searchwrapper-inner-border">
-          <%= form_tag(view_path, :method => "get", :id=>"searchfrm") do %>
+          <%= form_tag(view_path, :method => "get", :id=>"searchfrm" , :remote=>true) do %>
               <%= text_field_tag(:q,nil,:class=> "inputquery") %>
               <%= hidden_field_tag 'search_type', 'books' %>
 	      <a id="search_link" href="#" class="btn search">Search</a>

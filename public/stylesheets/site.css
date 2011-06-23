@@ -581,6 +581,76 @@ Notifications
     border-radius: 4px;
     background-color: #000;
 }
-
+/*----------------------------------------------Footer------------------------------------------------------*/
+.post-meta {
+    float: left;
+    font-size: 11px;
+    line-height: 18px;
+    margin: 4px 0 0 98px;
+    width: 140px;
+}
+.post-meta ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#footer-main .post-meta ul li.post-twitter a {
+    background-image: url("http://static.tumblr.com/reg4e01/vwjl6zqxt/icon-twitter-18.png");
+    background-position: 9px 3px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+#footer-main .post-meta ul li a {
+    background-color: rgba(0, 0, 0, 0.12);
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: #7B7D81;
+    text-shadow: 0 1px 0 #202228;
+}
+.post-meta ul li a {
+    -moz-transition: background-color 400ms ease-out 0s;
+    background-color: rgba(0, 0, 0, 0.06);
+    border-radius: 4px 4px 4px 4px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    color: rgba(102, 102, 102, 0.85);
+    display: block;
+    margin: 0 0 10px;
+    padding: 3px 10px 4px 34px;
+    text-shadow: 0 1px 0 #F8F8F8;
+}
+#footer-main .post-meta ul li.post-facebook a {
+    background-image: url("http://static.tumblr.com/reg4e01/eUIl6zr4c/icon-facebook-18.png");
+    background-position: 9px 3px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+#footer-main .post-meta ul li a {
+    background-color: rgba(0, 0, 0, 0.12);
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: #7B7D81;
+    text-shadow: 0 1px 0 #202228;
+}
+.post-meta ul li a {
+    -moz-transition: background-color 400ms ease-out 0s;
+    background-color: rgba(0, 0, 0, 0.06);
+    border-radius: 4px 4px 4px 4px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    color: rgba(102, 102, 102, 0.85);
+    display: block;
+    margin: 0 0 10px;
+    padding: 3px 10px 4px 34px;
+    text-shadow: 0 1px 0 #F8F8F8;
+}
+#page-footer {
+    background: url("http://static.tumblr.com/reg4e01/pNyl6zfk5/page-footer-bg.jpg") repeat-x scroll 0 0 transparent;
+    padding-top: 96px;
+}
+#LikePluginPagelet
+{
+	background: transparent;
+}
 
 

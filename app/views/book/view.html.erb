@@ -29,7 +29,7 @@
                                             <td  class="td_name">
                                                   <b><%= data[:name] %></b></br>
                                                   <span class="discount"> <%= data[:discount] %> </span>
-                                                  <span class="shipping"> </span>
+                                                  <span class="shipping"> <%= data[:weight] %> </span>
 
                                             </td>
                                             <td  class="td_author">
@@ -63,14 +63,9 @@
 		var auto_refresh = setInterval(
 		function()
 		{
-		//$('#loader').fadeOut('slow').load('/ #result_content').fadeIn("slow");
-		$("#result_content").load(location.href+" #result_content>*","");
-		}, 10000);
-
-		if (!need_refresh)
-			{
-				alert(need_refresh);
-				window.clearInterval(auto_refresh);
-			}
+       		$("#result_content").load(location.href+" #result_content>*","");
+		}, 2000);
+        //Clear interval after 10 seconds
+        setTimeout (function() { clearInterval(auto_refresh); }, 10000 );
 		</script>
      <% end %>

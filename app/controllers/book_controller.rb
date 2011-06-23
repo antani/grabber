@@ -47,17 +47,19 @@ class BookController < ApplicationController
 
       @not_available = Bookprice::NOT_AVAILABLE
      else
-       @prices = Generalsearch.new({:search_term => @isbn}, {:search_type => @type})
+       #@prices = Generalsearch_parallel.new({:search_term => @isbn}, {:search_type => @type})
+       @prices = Generalsearch_improved.new({:search_term => @isbn}, {:search_type => @type})
+
        @stores = Rails.cache.fetch(@prices.cache_key)
         if @stores.nil?
           # Check if book is already queued.
-          if Delayed::Backend::Mongoid::Job.where(:handler => /#{@isbn}/).empty?
+          #if Delayed::Backend::Mongoid::Job.where(:handler => /#{@isbn}/).empty?
             logger.info("Book #{@isbn} has been queued")
-                @prices.delay.perform
-		#@prices.perform
-          else
-            logger.info("Book #{@isbn} is already queued")
-          end
+            #    @prices.delay.perform
+		@prices.perform
+          #else
+           # logger.info("Book #{@isbn} is already queued")
+          #end
         end
  
 
