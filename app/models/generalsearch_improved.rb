@@ -258,7 +258,7 @@ class Generalsearch_improved
 
                      if mtype == 'books' then
                          prices.push(parse_rediff(req_rediff.handled_response,term, type)) unless req_rediff.handled_response =="failed"
-                         prices.push(parse_nbcindia(req_nbcindia.handled_response,term, type)) unless req_ncbindia.handled_response =="failed"
+                         prices.push(parse_nbcindia(req_nbcindia.handled_response,term, type)) unless req_nbcindia.handled_response =="failed"
                          prices.push(parse_pustak(req_pustak.handled_response,term, type)) unless req_pustak.handled_response =="failed"
                          prices.push(parse_bookadda(req_bookadda.handled_response,term, type)) unless req_bookadda.handled_response =="failed"
                          prices.push(parse_crossword(req_crossword.handled_response,term, type)) unless req_crossword.handled_response =="failed"
