@@ -61,10 +61,8 @@ class BookController < ApplicationController
            # logger.info("Book #{@isbn} is already queued")
           #end
         end
- 
-
-
     end   
+
     #@stores = @stores.reject { |store, data| store == :uread } ## XXX HACK
 
     #respond_with(@stores) do |format|
@@ -72,6 +70,7 @@ class BookController < ApplicationController
     #    render :json => @stores
     #  end
     #end
+    #respond_to :js
   end
 
 

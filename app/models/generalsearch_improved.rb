@@ -38,7 +38,7 @@ class Generalsearch_improved
                 @@logger.info("Time to process prices : ")
                 start_time = Time.now
                 price_array = prices_array.flatten
-                @@logger.info(price_array)
+                #@@logger.info(price_array)
                 @@logger.info("-------------------------------------------")
                 prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
                 ##@@logger.info(prices_array)
@@ -72,48 +72,58 @@ class Generalsearch_improved
                      #Books and everything else
                      url= get_flipkart_url(term, type)
                      
-                     req_flip= Typhoeus::Request.new(url)      
+                     req_flip= Typhoeus::Request.new(url,:timeout=> 5000)      
                      req_flip.on_complete do |response|
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
                             page
+                          else
+                            page="failed"
                           end  
                      end
                      url= get_infibeam_url(term, type)
-                     req_infibeam= Typhoeus::Request.new(url)      
+                     req_infibeam= Typhoeus::Request.new(url,:timeout=> 5000)      
                      req_infibeam.on_complete do |response|
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
                             page
+                          else
+                            page="failed"
                           end  
                      end
                      url= get_tradeus_url(term, type)
-                     req_tradeus= Typhoeus::Request.new(url)      
+                     req_tradeus= Typhoeus::Request.new(url,:timeout=> 5000)      
                      req_tradeus.on_complete do |response|
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
                             page
+                          else
+                            page="failed"
                           end  
                      end
                      url= get_homeshop_url(term, type)
-                     req_homeshop= Typhoeus::Request.new(url)      
+                     req_homeshop= Typhoeus::Request.new(url,:timeout=> 5000)      
                      req_homeshop.on_complete do |response|
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
                             page
+                          else
+                            page="failed"
                           end  
                      end
                      url= get_futurebazaar_url(term, type)
-                     req_futurebazaar= Typhoeus::Request.new(url)      
+                     req_futurebazaar= Typhoeus::Request.new(url,:timeout=> 5000)      
                      req_futurebazaar.on_complete do |response|
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
                             page
+                          else
+                            page="failed"
                           end  
                      end
                      #Queue all requests
@@ -124,12 +134,14 @@ class Generalsearch_improved
                      hydra.queue req_futurebazaar
                      if mtype !='movies' then
                            url= get_ebay_url(term, type)
-                           req_ebay= Typhoeus::Request.new(url)      
+                           req_ebay= Typhoeus::Request.new(url,:timeout=> 6000)      
                            req_ebay.on_complete do |response|
                                 if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
                                   page
+	                        else
+         		           page="failed"
                                 end  
                            end
                            hydra.queue req_ebay
@@ -138,50 +150,60 @@ class Generalsearch_improved
                      #Only books
                      if mtype == 'books' then
                            url= get_rediff_url(term, type)
-                           req_rediff= Typhoeus::Request.new(url)      
+                           req_rediff= Typhoeus::Request.new(url,:timeout=> 5000)      
                            req_rediff.on_complete do |response|
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
                                   page
+	                      else
+                                  page="failed"
                               end    
                            end
                            
                            url= get_nbcindia_url(term, type)
-                           req_nbcindia= Typhoeus::Request.new(url)      
+                           req_nbcindia= Typhoeus::Request.new(url,:timeout=> 5000)      
                            req_nbcindia.on_complete do |response|
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
                                   page
+                              else
+        		           page="failed"
                               end    
                            end
                            url= get_pustak_url(term, type)
-                           req_pustak= Typhoeus::Request.new(url)      
+                           req_pustak= Typhoeus::Request.new(url,:timeout=> 5000)      
                            req_pustak.on_complete do |response|
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
                                   page
+	                        else
+         		           page="failed"
                               end    
                            end
 
                            url= get_bookadda_url(term, type)
-                           req_bookadda= Typhoeus::Request.new(url)      
+                           req_bookadda= Typhoeus::Request.new(url,:timeout=> 5000)      
                            req_bookadda.on_complete do |response|
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
                                   page
+	                        else
+         		           page="failed"
                               end    
                            end
                            url= get_crossword_url(term, type)
-                           req_crossword = Typhoeus::Request.new(url)      
+                           req_crossword = Typhoeus::Request.new(url,:timeout=> 5000)      
                            req_crossword.on_complete do |response|
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
                                   page
+	                        else
+         		           page="failed"
                               end    
                            end
   
@@ -193,23 +215,27 @@ class Generalsearch_improved
                      else
                            # no books but everything else
                            url= get_letsbuy_url(term, type)
-                           req_letsbuy = Typhoeus::Request.new(url)      
+                           req_letsbuy = Typhoeus::Request.new(url,:timeout=> 5000)      
                            req_letsbuy.on_complete do |response|
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
                                   page
+	                        else
+         		           page="failed"
                               end    
                            end
                            hydra.queue req_letsbuy
 
                            url= get_adexmart_url(term, type)
-                           req_adexmart = Typhoeus::Request.new(url)      
+                           req_adexmart = Typhoeus::Request.new(url,:timeout=> 5000)      
                            req_adexmart.on_complete do |response|
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
                                   page
+	                        else
+         		           page="failed"
                               end    
                            end
                            hydra.queue req_adexmart
@@ -222,27 +248,27 @@ class Generalsearch_improved
                      hydra.run
                      prices=[]
 
-                     prices.push(parse_flipkart(req_flip.handled_response,term, type))
-                     prices.push(parse_infibeam(req_infibeam.handled_response,term, type))
-                     prices.push(parse_tradeus(req_tradeus.handled_response,term, type))
-                     prices.push(parse_homeshop(req_homeshop.handled_response,term, type))
-                     prices.push(parse_futurebazaar(req_futurebazaar.handled_response,term, type))
+                     prices.push(parse_flipkart(req_flip.handled_response,term, type)) unless req_flip.handled_response =="failed"
+                     prices.push(parse_infibeam(req_infibeam.handled_response,term, type)) unless req_infibeam.handled_response =="failed"
+                     prices.push(parse_tradeus(req_tradeus.handled_response,term, type)) unless req_tradeus.handled_response =="failed"
+                     prices.push(parse_homeshop(req_homeshop.handled_response,term, type)) unless req_homeshop.handled_response =="failed"
+                     prices.push(parse_futurebazaar(req_futurebazaar.handled_response,term, type)) unless req_futurebazaar.handled_response =="failed"
 
                   #   prices.push(parse_indiaplaza(req_indiaplaza.handled_response,term, type))
 
                      if mtype == 'books' then
-                         prices.push(parse_rediff(req_rediff.handled_response,term, type))
-                         prices.push(parse_nbcindia(req_nbcindia.handled_response,term, type))
-                         prices.push(parse_pustak(req_pustak.handled_response,term, type))
-                         prices.push(parse_bookadda(req_bookadda.handled_response,term, type))
-                         prices.push(parse_crossword(req_crossword.handled_response,term, type))
+                         prices.push(parse_rediff(req_rediff.handled_response,term, type)) unless req_rediff.handled_response =="failed"
+                         prices.push(parse_nbcindia(req_nbcindia.handled_response,term, type)) unless req_ncbindia.handled_response =="failed"
+                         prices.push(parse_pustak(req_pustak.handled_response,term, type)) unless req_pustak.handled_response =="failed"
+                         prices.push(parse_bookadda(req_bookadda.handled_response,term, type)) unless req_bookadda.handled_response =="failed"
+                         prices.push(parse_crossword(req_crossword.handled_response,term, type)) unless req_crossword.handled_response =="failed"
                      else
-                         prices.push(parse_letsbuy(req_letsbuy.handled_response,term, type))
-                         prices.push(parse_adexmart(req_adexmart.handled_response,term, type))
+                         prices.push(parse_letsbuy(req_letsbuy.handled_response,term, type)) unless req_letsbuy.handled_response =="failed"
+                         prices.push(parse_adexmart(req_adexmart.handled_response,term, type)) unless req_adexmart.handled_response =="failed"
 
                      end
                      if mtype !='movies' then
-                         prices.push(parse_ebay(req_ebay.handled_response,term, type))
+                         prices.push(parse_ebay(req_ebay.handled_response,term, type)) unless req_ebay.handled_response =="failed"
                      end
                      
                      @@logger.info ("Time for executing requests...")
@@ -566,14 +592,14 @@ class Generalsearch_improved
 
           def parse_ebay(page, query,type)
             begin
-                      price_text = page.search("div#ResultSet table.li td.prc").map { |e| "#{e.content}" }
+                      price_text = page.search("div#ResultSet table.li tr td.prc").map { |e| "#{e.content}" }
                       #@@logger.info (price_text)
-                      name_text = page.search("div#ResultSet table.li td:nth-child(2) a").map{ |e| "#{e.content} " }
+                      name_text = page.search("div#ResultSet table.li td:nth-child(2) div.ttl a").map{ |e| "#{e.content} " }
                       #@@logger.info (name_text)
                       author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
                       #@@logger.info (author_text )
                       url_text = []
-                          page.search("div#ResultSet table.li td:nth-child(2) a").each do |link|
+                          page.search("div#ResultSet table.li td:nth-child(2) div.ttl a").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
                       #@@logger.info (url_text )
@@ -590,9 +616,9 @@ class Generalsearch_improved
 
                       (0...price_text.length).each do |i|
 
-                          #@@logger.info (price_text[i])
-                          #@@logger.info (author_text[i])
-                          #@@logger.info (name_text[i])
+                          @@logger.info (price_text[i])
+                          @@logger.info (author_text[i])
+                          @@logger.info (name_text[i])
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -615,6 +641,7 @@ class Generalsearch_improved
           end
          
           def parse_bookadda(page,query,type)
+               begin
                   price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.content}" }
                   #@@logger.info (price_text)
                   name_text = page.search("div.searchpagebooktitle h2").map{ |e| "#{e.content} " }
@@ -653,50 +680,60 @@ class Generalsearch_improved
                         prices.push(price_info)
                       end
                   end
+ 		  rescue => ex
+                        #@@logger.info ("#{ex.class} : #{ex.message}")
+                        #@@logger.info (ex.backtrace)
+                  end
                   prices
           end
           def parse_tradeus(page,query,type)
-            price_text = page.search("div.prsng label").map { |e| "#{e.content}" }
-            #@@logger.info (price_text)
-            name_text = page.search("div.search_prod_col tr td:nth-child(2) a:first-child").map{ |e| "#{e.content} " }
-            #@@logger.info (name_text)
-            author_text = page.search("span.searchbookauthor a").map {|e| "#{e.content}" }
-            #@@logger.info (author_text )
-            url_text = []
-                  page.search("div.search_prod_col tr td:nth-child(2) a:first-child").each do |link|
-                  url_text << link.attributes['href'].content
-            end 	
-            #@@logger.info (url_text )
-            img_text = []
-            page.search("img#pimage").each do |img|
-              img_text << img.attributes['src'].content
-            end
-            #@@logger.info (img_text )
+            begin
+		    price_text = page.search("div.prsng label").map { |e| "#{e.content}" }
+		    #@@logger.info (price_text)
+		    name_text = page.search("div.search_prod_col tr td:nth-child(2) a:first-child").map{ |e| "#{e.content} " }
+		    #@@logger.info (name_text)
+		    author_text = page.search("span.searchbookauthor a").map {|e| "#{e.content}" }
+		    #@@logger.info (author_text )
+		    url_text = []
+		          page.search("div.search_prod_col tr td:nth-child(2) a:first-child").each do |link|
+		          url_text << link.attributes['href'].content
+		    end 	
+		    #@@logger.info (url_text )
+		    img_text = []
+		    page.search("img#pimage").each do |img|
+		      img_text << img.attributes['src'].content
+		    end
+		    #@@logger.info (img_text )
 
-            discount_text = ""
-            shipping_text = ""
-            prices=[]
+		    discount_text = ""
+		    shipping_text = ""
+		    prices=[]
 
-            (0...price_text.length).each do |i|
-                #@@logger.info (price_text[i])
-                #@@logger.info (author_text[i])
-                #@@logger.info (name_text[i])
-                if (name_text[i] == nil && author_text[i] != nil) then
-                      weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-                elsif (name_text[i] !=nil && author_text[i] == nil) then
-                      weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                else
-                      weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
-                end      
-                final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
-                if (weight > 0) then
-                  price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.tradus.in"+url_text[i], :source=>'Tradeus', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
-                  prices.push(price_info)
-                end
+		    (0...price_text.length).each do |i|
+		        #@@logger.info (price_text[i])
+		        #@@logger.info (author_text[i])
+		        #@@logger.info (name_text[i])
+		        if (name_text[i] == nil && author_text[i] != nil) then
+		              weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+		        elsif (name_text[i] !=nil && author_text[i] == nil) then
+		              weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+		        else
+		              weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+		        end      
+		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+		        if (weight > 0) then
+		          price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.tradus.in"+url_text[i], :source=>'Tradeus', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+		          prices.push(price_info)
+		        end
+		      end
+              rescue => ex
+                        #@@logger.info ("#{ex.class} : #{ex.message}")
+                        #@@logger.info (ex.backtrace)
               end
               prices
           end
           def parse_crossword(page,query,type)
+              begin 
                   price_text = page.search("ul#search-result-items li span.variant-final-price").map { |e| "#{e.content}" }
                   #@@logger.info (price_text)
                   name_text = page.search("ul#search-result-items li span.variant-title").map{ |e| "#{e.content} " }
@@ -735,9 +772,14 @@ class Generalsearch_improved
                         prices.push(price_info)
                       end
                   end
+                  rescue => ex
+                        #@@logger.info ("#{ex.class} : #{ex.message}")
+                        #@@logger.info (ex.backtrace)
+                  end
                   prices
           end
           def parse_homeshop(page,query,type)
+                   begin
                       price_text = page.search("product_new_price").map { |e| "#{e.content}" }
                       #@@logger.info (price_text)
                       name_text = page.search("p.product_title a").map{ |e| "#{e.content} " }
@@ -779,10 +821,15 @@ class Generalsearch_improved
                             prices.push(price_info)
                           end
                       end
+                    rescue => ex
+                        #@@logger.info ("#{ex.class} : #{ex.message}")
+                        #@@logger.info (ex.backtrace)
+                    end
                       prices
           end
 
           def parse_letsbuy(page,query,type)
+                  begin
                       price_text = page.search("span.text12_stb").map { |e| "#{e.content}" }
                       #@@logger.info (price_text)
                       name_text = page.search("div.detailbox h2 a").map{ |e| "#{e.content} " }
@@ -823,53 +870,63 @@ class Generalsearch_improved
                             prices.push(price_info)
                           end
                       end
-                      prices
+                    rescue => ex
+                        #@@logger.info ("#{ex.class} : #{ex.message}")
+                        #@@logger.info (ex.backtrace)
+                    end
+                    prices
           end
 
           def parse_futurebazaar(page,query,type)
-                  price_text = page.search("div.marb5 span.WebRupee + *").map { |e| "#{e.content}" }
-                  #@@logger.info (price_text)
-                  name_text = page.search("div.greed_prod h3 a").map{ |e| "#{e.content} " }
-                  #@@logger.info (name_text)
-                  author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
-                  #@@logger.info (author_text )
-                  url_text = []
-                  page.search("div.greed_prod h3 a").each do |link|
-                  url_text << link.attributes['href'].content
-                  end 	
-                  #@@logger.info (url_text )
-                  img_text = []
-                  page.search("div.ca img").each do |img|
-                  img_text << img.attributes['src'].content
-                  end
-                 
-                  #@@logger.info (img_text )
-                  discount_text = page.search("div.value span.WebRupee + *").map { |e| "#{e.content}" }
-                  shipping_text = ""
-                  prices=[]
+		begin
+		          price_text = page.search("div.marb5 span.WebRupee + *").map { |e| "#{e.content}" }
+		          #@@logger.info (price_text)
+		          name_text = page.search("div.greed_prod h3 a").map{ |e| "#{e.content} " }
+		          #@@logger.info (name_text)
+		          author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
+		          #@@logger.info (author_text )
+		          url_text = []
+		          page.search("div.greed_prod h3 a").each do |link|
+		          url_text << link.attributes['href'].content
+		          end 	
+		          #@@logger.info (url_text )
+		          img_text = []
+		          page.search("div.ca img").each do |img|
+		          img_text << img.attributes['src'].content
+		          end
+		         
+		          #@@logger.info (img_text )
+		          discount_text = page.search("div.value span.WebRupee + *").map { |e| "#{e.content}" }
+		          shipping_text = ""
+		          prices=[]
 
-                  (0...price_text.length).each do |i|
+		          (0...price_text.length).each do |i|
 
-                      #@@logger.info (price_text[i])
-                      #@@logger.info (author_text[i])
-                      #@@logger.info (name_text[i])
-                      if (name_text[i] == nil && author_text[i] != nil) then
-                            weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-                      elsif (name_text[i] !=nil && author_text[i] == nil) then
-                            weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                      else
-                            weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
-                      end      
-                      final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
-                                                       
-                      if (weight > 0) then
-                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.futurebazaar.com/"+url_text[i], :source=>'Futurebazaar', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
-                        prices.push(price_info)
-                      end
-                   end
+		              #@@logger.info (price_text[i])
+		              #@@logger.info (author_text[i])
+		              #@@logger.info (name_text[i])
+		              if (name_text[i] == nil && author_text[i] != nil) then
+		                    weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+		              elsif (name_text[i] !=nil && author_text[i] == nil) then
+		                    weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+		              else
+		                    weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+		              end      
+		              final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+		                                               
+		              if (weight > 0) then
+		                price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.futurebazaar.com/"+url_text[i], :source=>'Futurebazaar', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+		                prices.push(price_info)
+		              end
+		           end
+                   rescue => ex
+                        #@@logger.info ("#{ex.class} : #{ex.message}")
+                        #@@logger.info (ex.backtrace)
+                    end
                    prices 
           end
           def parse_adexmart(page,query,type)
+              begin
 		    price_text = page.search("ul#product_list div.right_block span.price").map { |e| "#{e.content}" }
 		    #@@logger.info (price_text)
 		    name_text = page.search("ul#product_list div.center_block h3 a").map{ |e| "#{e.content} " }
@@ -909,7 +966,11 @@ class Generalsearch_improved
 		          price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Adexmart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
 		          prices.push(price_info)
 		        end
-		      end
+		     end
+              rescue => ex
+                        #@@logger.info ("#{ex.class} : #{ex.message}")
+                        #@@logger.info (ex.backtrace)
+              end
               prices
           end
 #---------------------------------------------------------------------------------------------------------------------------
