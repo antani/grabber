@@ -6,7 +6,7 @@ gem 'rake', '~> 0.8.7'
 # http://mongoid.org/docs/installation/
 gem 'mongoid'
 gem 'bson_ext'
-
+gem 'mongo_mapper'
 gem 'delayed_job'
 gem 'delayed_job_mongoid'
 

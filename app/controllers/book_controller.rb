@@ -49,8 +49,25 @@ class BookController < ApplicationController
      else
        #@prices = Generalsearch_parallel.new({:search_term => @isbn}, {:search_type => @type})
        @prices = Generalsearch_improved.new({:search_term => @isbn}, {:search_type => @type})
+       tt = @type
+       ss = decanonicalize_isbn(@isbn)
 
        @stores = Rails.cache.fetch(@prices.cache_key)
+	 #Save top_search or increase existing count of a search
+            p = Topsearch.first(:conditions => {query: ss, type: @type}) 
+	    logger.info(p)
+	    if p==nil then
+		logger.info("No rows found")
+                 
+		topsearch = Topsearch.create ({:query=> ss, :type=> tt, :cnt=> 1})
+		topsearch.save
+            else
+		logger.info("Row found")
+                p.inc(:cnt,1)
+		p.save
+	    end
+
+
         if @stores.nil?
           # Check if book is already queued.
           #if Delayed::Backend::Mongoid::Job.where(:handler => /#{@isbn}/).empty?

@@ -37,10 +37,23 @@ a img {
     text-shadow: 0 2px 1px rgba(255, 255, 255, 0.9);
     font-size: 14px;
 }
-.textwrapper {
+.textwrapper{
     font-family: 'Podkova', 'Droid Sans','Puritan',sans-serif; 
     text-shadow: 0 2px 1px rgba(255, 255, 255, 0.9);
     font-size: 16px;
+    border-radius: 3px 3px 3px 3px;
+    clear: left;
+    float: left;
+    height: 100px;
+    padding: 10px;
+    padding-top: 20px;
+    position: relative;
+    text-align: center;
+    width: 800px;
+}
+.top_searches{
+    font-family:  Helvetica, 'Droid Sans','Puritan',sans-serif; 
+    font-size: 13px;
     border-radius: 3px 3px 3px 3px;
     clear: left;
     float: left;
@@ -443,15 +456,15 @@ Notifications
 /*--Feedback slideshow--*/
 #slideshow {
     width: 900px;
-    height: 200px;
+    height: 120px;
     overflow: hidden;
     position: relative;
-    margin: 20px auto;
+
 }
 
 #slideshow-reel {
     width: 5400px;
-    height: 150px;
+    height: 120px;
     position: absolute;
     top: 0;
     left: 0;
@@ -459,7 +472,7 @@ Notifications
 
 #slideshow-reel .slide {
     width: 900px;
-    height: 150px;
+    height: 120px;
     float: left;
     background-color: transparent;
 }
@@ -477,7 +490,7 @@ Notifications
 #slideshow p
 {
     font-family: 'Podkova','Droid Sans','Puritan',sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     padding: 20px 10px 10px;
     position: relative;
     text-shadow: 0 2px 1px rgba(255, 255, 255, 0.9);
@@ -506,11 +519,13 @@ Notifications
 #slideshow-left {
     left: 0;
     border-right-color: gray;
+    display: none;
 }
 
 #slideshow-right {
     right: 0;
     border-left-color: gray;
+    display: none;
 }
 
 /* bottom navigation */
@@ -561,8 +576,8 @@ Notifications
     position: absolute;
     top: 0;
     left: 0;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     margin-left: 60px;
     background-color: #8e8d8b;
     background-color: rgba(28, 27, 23, .5);
@@ -650,7 +665,7 @@ Notifications
 }
 #LikePluginPagelet
 {
-	background: transparent;
+	background-color: transparent;
 }
 
 

@@ -148,7 +148,15 @@ $('#india-stores').qtip({
 });
 
 $('.comingsoon').qtip({content: 'Coming very very soon', show:'mouseover',hide:'mouseout',style:'green'});
+
+/*--Feedback slidshow----------------*/
+$('#slideshow-reel').innerfade({animationtype: 'slide', speed: 750, timeout: 8000, type: 'random', containerheight: '1em' }); 
+        //$('#portfolio').innerfade({ speed: 'slow', timeout: 4000, type: 'sequence', containerheight: '220px' }); 
+        //$('.fade').innerfade({ speed: 'slow', timeout: 1000, type: 'sequence', containerheight: '1.5em' }); 
+
+
 //Check if Geo location detection is supported
+/*
 if(readCookie("country") == null)
 {
 	if (geo_position_js.init()) {
@@ -179,87 +187,9 @@ if(readCookie("country") == null)
 				});
 	}
 }
-	
-/*-----------------Feedback Slideshow----------------------------------*/
-function changeSlide( newSlide ) {
-        // cancel any timeout
-        clearTimeout( slideTimeout );
-        
-        // change the currSlide value
-        currSlide = newSlide;
-        
-        // make sure the currSlide value is not too low or high
-        if ( currSlide > maxSlide ) currSlide = 0;
-        else if ( currSlide < 0 ) currSlide = maxSlide;
-        
-        // animate the slide reel
-        $slideReel.animate({
-            left : currSlide * -900
-        }, 400, 'swing', function() {
-            // hide / show the arrows depending on which frame it's on
-            if ( currSlide == 0 ) $slideLeftNav.hide();
-            else $slideLeftNav.show();
-            
-            if ( currSlide == maxSlide ) $slideRightNav.hide();
-            else $slideRightNav.show();
-            
-            // set new timeout if active
-            if ( activeSlideshow ) slideTimeout = setTimeout(nextSlide, 5200);
-        });
-        
-        // animate the navigation indicator
-        $activeNavItem.animate({
-            left : currSlide * 150
-        }, 400, 'swing');
-    }
-    
-    function nextSlide() {
-        changeSlide( currSlide + 1 );
-    }
-    
-    // define some variables / DOM references
-    var activeSlideshow = true,
-    currSlide = 0,
-    slideTimeout,
-    $slideshow = $('#slideshow'),
-    $slideReel = $slideshow.find('#slideshow-reel'),
-    maxSlide = $slideReel.children().length - 1,
-    $slideLeftNav = $slideshow.find('#slideshow-left'),
-    $slideRightNav = $slideshow.find('#slideshow-right'),
-    $activeNavItem = $slideshow.find('#active-nav-item');
-    
-    // set navigation click events
-    
-    // left arrow
-    $slideLeftNav.click(function(ev) {
-        ev.preventDefault();
-        
-        activeSlideshow = false;
-        
-        changeSlide( currSlide - 1 );
-    });
-    
-    // right arrow
-    $slideRightNav.click(function(ev) {
-        ev.preventDefault();
-        
-        activeSlideshow = false;
-        
-        changeSlide( currSlide + 1 );
-    });
-    
-    // main navigation
-    $slideshow.find('#slideshow-nav a.nav-item').click(function(ev) {
-        ev.preventDefault();
-        
-        activeSlideshow = false;
-        
-        changeSlide( $(this).index() );
-    });
-    
-    // start the animation
-    slideTimeout = setTimeout(nextSlide, 5200);
+*/	
 
+ 		
 
 
 
@@ -511,6 +441,135 @@ var geo_position_js=function() {
         return pub;
 }();
 (function(d){d.fn.aeImageResize=function(a){var i=0,j=d.browser.msie&&6==~~d.browser.version;if(!a.height&&!a.width)return this;if(a.height&&a.width)i=a.width/a.height;return this.one("load",function(){this.removeAttribute("height");this.removeAttribute("width");this.style.height=this.style.width="";var e=this.height,f=this.width,g=f/e,b=a.height,c=a.width,h=i;h||(h=b?g+1:g-1);if(b&&e>b||c&&f>c){if(g>h)b=~~(e/f*c);else c=~~(f/e*b);this.height=b;this.width=c}}).each(function(){if(this.complete||j)d(this).trigger("load")})}})(jQuery);
+/* =========================================================
+
+// jquery.innerfade.js
+
+// Datum: 2008-02-14
+// Firma: Medienfreunde Hofmann & Baldes GbR
+// Author: Torsten Baldes
+// Mail: t.baldes@medienfreunde.com
+// Web: http://medienfreunde.com
+
+// based on the work of Matt Oakes http://portfolio.gizone.co.uk/applications/slideshow/
+// and Ralf S. Engelschall http://trainofthoughts.org/
+
+ *
+ *  <ul id="news"> 
+ *      <li>content 1</li>
+ *      <li>content 2</li>
+ *      <li>content 3</li>
+ *  </ul>
+ *  
+ *  $('#news').innerfade({ 
+ *	  animationtype: Type of animation 'fade' or 'slide' (Default: 'fade'), 
+ *	  speed: Fading-/Sliding-Speed in milliseconds or keywords (slow, normal or fast) (Default: 'normal'), 
+ *	  timeout: Time between the fades in milliseconds (Default: '2000'), 
+ *	  type: Type of slideshow: 'sequence', 'random' or 'random_start' (Default: 'sequence'), 
+ * 		containerheight: Height of the containing element in any css-height-value (Default: 'auto'),
+ *	  runningclass: CSS-Class which the container get’s applied (Default: 'innerfade'),
+ *	  children: optional children selector (Default: null)
+ *  }); 
+ *
+
+// ========================================================= */
+
+
+(function($) {
+
+    $.fn.innerfade = function(options) {
+        return this.each(function() {   
+            $.innerfade(this, options);
+        });
+    };
+
+    $.innerfade = function(container, options) {
+        var settings = {
+        		'animationtype':    'fade',
+            'speed':            'normal',
+            'type':             'sequence',
+            'timeout':          2000,
+            'containerheight':  'auto',
+            'runningclass':     'innerfade',
+            'children':         null
+        };
+        if (options)
+            $.extend(settings, options);
+        if (settings.children === null)
+            var elements = $(container).children();
+        else
+            var elements = $(container).children(settings.children);
+        if (elements.length > 1) {
+            $(container).css('position', 'relative').css('height', settings.containerheight).addClass(settings.runningclass);
+            for (var i = 0; i < elements.length; i++) {
+                $(elements[i]).css('z-index', String(elements.length-i)).css('position', 'absolute').hide();
+            };
+            if (settings.type == "sequence") {
+                setTimeout(function() {
+                    $.innerfade.next(elements, settings, 1, 0);
+                }, settings.timeout);
+                $(elements[0]).show();
+            } else if (settings.type == "random") {
+            		var last = Math.floor ( Math.random () * ( elements.length ) );
+                setTimeout(function() {
+                    do { 
+												current = Math.floor ( Math.random ( ) * ( elements.length ) );
+										} while (last == current );             
+										$.innerfade.next(elements, settings, current, last);
+                }, settings.timeout);
+                $(elements[last]).show();
+						} else if ( settings.type == 'random_start' ) {
+								settings.type = 'sequence';
+								var current = Math.floor ( Math.random () * ( elements.length ) );
+								setTimeout(function(){
+									$.innerfade.next(elements, settings, (current + 1) %  elements.length, current);
+								}, settings.timeout);
+								$(elements[current]).show();
+						}	else {
+							alert('Innerfade-Type must either be \'sequence\', \'random\' or \'random_start\'');
+						}
+				}
+    };
+
+    $.innerfade.next = function(elements, settings, current, last) {
+        if (settings.animationtype == 'slide') {
+            $(elements[last]).slideUp(settings.speed);
+            $(elements[current]).slideDown(settings.speed);
+        } else if (settings.animationtype == 'fade') {
+            $(elements[last]).fadeOut(settings.speed);
+            $(elements[current]).fadeIn(settings.speed, function() {
+							removeFilter($(this)[0]);
+						});
+        } else
+            alert('Innerfade-animationtype must either be \'slide\' or \'fade\'');
+        if (settings.type == "sequence") {
+            if ((current + 1) < elements.length) {
+                current = current + 1;
+                last = current - 1;
+            } else {
+                current = 0;
+                last = elements.length - 1;
+            }
+        } else if (settings.type == "random") {
+            last = current;
+            while (current == last)
+                current = Math.floor(Math.random() * elements.length);
+        } else
+            alert('Innerfade-Type must either be \'sequence\', \'random\' or \'random_start\'');
+        setTimeout((function() {
+            $.innerfade.next(elements, settings, current, last);
+        }), settings.timeout);
+    };
+
+})(jQuery);
+
+// **** remove Opacity-Filter in ie ****
+function removeFilter(element) {
+	if(element.style.removeAttribute){
+		element.style.removeAttribute('filter');
+	}
+}
+
 (function(c){c.fn.noisy=function(b){b=c.extend({},c.fn.noisy.defaults,b);var d,a;if(JSON&&localStorage.getItem)a=localStorage.getItem(JSON.stringify(b));if(a)d=a;else{a=document.createElement("canvas");if(a.getContext){a.width=a.height=b.size;for(var h=a.getContext("2d"),e=h.createImageData(a.width,a.height),i=b.intensity*Math.pow(b.size,2),j=255*b.opacity;i--;){var f=(~~(Math.random()*a.width)+~~(Math.random()*a.height)*e.width)*4,g=i%255;e.data[f]=g;e.data[f+1]=b.monochrome?g:~~(Math.random()*255);
 e.data[f+2]=b.monochrome?g:~~(Math.random()*255);e.data[f+3]=~~(Math.random()*j)}h.putImageData(e,0,0);d=a.toDataURL("image/png");if(d.indexOf("data:image/png")!=0||c.browser.msie&&c.browser.version.substr(0,1)<9&&d.length>32768)d=b.fallback}else d=b.fallback;JSON&&localStorage&&localStorage.setItem(JSON.stringify(b),d)}return this.each(function(){c(this).css("background-image","url('"+d+"'),"+c(this).css("background-image"))})};c.fn.noisy.defaults={intensity:0.9,size:200,opacity:0.08,fallback:"",
 monochrome:false}})(jQuery);
@@ -1040,3 +1099,24 @@ jQuery(function ($) {
 
 
 });
+
+/*
+* Slides, A Slideshow Plugin for jQuery
+* Intructions: http://slidesjs.com
+* By: Nathan Searles, http://nathansearles.com
+* Version: 1.1.8
+* Updated: June 1st, 2011
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+(function(A){A.fn.slides=function(B){B=A.extend({},A.fn.slides.option,B);return this.each(function(){A("."+B.container,A(this)).children().wrapAll('<div class="slides_control"/>');var V=A(this),J=A(".slides_control",V),Z=J.children().size(),Q=J.children().outerWidth(),M=J.children().outerHeight(),D=B.start-1,L=B.effect.indexOf(",")<0?B.effect:B.effect.replace(" ","").split(",")[0],S=B.effect.indexOf(",")<0?L:B.effect.replace(" ","").split(",")[1],O=0,N=0,C=0,P=0,U,H,I,X,W,T,K,F;function E(c,b,a){if(!H&&U){H=true;B.animationStart(P+1);switch(c){case"next":N=P;O=P+1;O=Z===O?0:O;X=Q*2;c=-Q*2;P=O;break;case"prev":N=P;O=P-1;O=O===-1?Z-1:O;X=0;c=0;P=O;break;case"pagination":O=parseInt(a,10);N=A("."+B.paginationClass+" li."+B.currentClass+" a",V).attr("href").match("[^#/]+$");if(O>N){X=Q*2;c=-Q*2;}else{X=0;c=0;}P=O;break;}if(b==="fade"){if(B.crossfade){J.children(":eq("+O+")",V).css({zIndex:10}).fadeIn(B.fadeSpeed,B.fadeEasing,function(){if(B.autoHeight){J.animate({height:J.children(":eq("+O+")",V).outerHeight()},B.autoHeightSpeed,function(){J.children(":eq("+N+")",V).css({display:"none",zIndex:0});J.children(":eq("+O+")",V).css({zIndex:0});B.animationComplete(O+1);H=false;});}else{J.children(":eq("+N+")",V).css({display:"none",zIndex:0});J.children(":eq("+O+")",V).css({zIndex:0});B.animationComplete(O+1);H=false;}});}else{J.children(":eq("+N+")",V).fadeOut(B.fadeSpeed,B.fadeEasing,function(){if(B.autoHeight){J.animate({height:J.children(":eq("+O+")",V).outerHeight()},B.autoHeightSpeed,function(){J.children(":eq("+O+")",V).fadeIn(B.fadeSpeed,B.fadeEasing);});}else{J.children(":eq("+O+")",V).fadeIn(B.fadeSpeed,B.fadeEasing,function(){if(A.browser.msie){A(this).get(0).style.removeAttribute("filter");}});}B.animationComplete(O+1);H=false;});}}else{J.children(":eq("+O+")").css({left:X,display:"block"});if(B.autoHeight){J.animate({left:c,height:J.children(":eq("+O+")").outerHeight()},B.slideSpeed,B.slideEasing,function(){J.css({left:-Q});J.children(":eq("+O+")").css({left:Q,zIndex:5});J.children(":eq("+N+")").css({left:Q,display:"none",zIndex:0});B.animationComplete(O+1);H=false;});}else{J.animate({left:c},B.slideSpeed,B.slideEasing,function(){J.css({left:-Q});J.children(":eq("+O+")").css({left:Q,zIndex:5});J.children(":eq("+N+")").css({left:Q,display:"none",zIndex:0});B.animationComplete(O+1);H=false;});}}if(B.pagination){A("."+B.paginationClass+" li."+B.currentClass,V).removeClass(B.currentClass);A("."+B.paginationClass+" li:eq("+O+")",V).addClass(B.currentClass);}}}function R(){clearInterval(V.data("interval"));}function G(){if(B.pause){clearTimeout(V.data("pause"));clearInterval(V.data("interval"));K=setTimeout(function(){clearTimeout(V.data("pause"));F=setInterval(function(){E("next",L);},B.play);V.data("interval",F);},B.pause);V.data("pause",K);}else{R();}}if(Z<2){return ;}if(D<0){D=0;}if(D>Z){D=Z-1;}if(B.start){P=D;}if(B.randomize){J.randomize();}A("."+B.container,V).css({overflow:"hidden",position:"relative"});J.children().css({position:"absolute",top:0,left:J.children().outerWidth(),zIndex:0,display:"none"});J.css({position:"relative",width:(Q*3),height:M,left:-Q});A("."+B.container,V).css({display:"block"});if(B.autoHeight){J.children().css({height:"auto"});J.animate({height:J.children(":eq("+D+")").outerHeight()},B.autoHeightSpeed);}if(B.preload&&J.find("img:eq("+D+")").length){A("."+B.container,V).css({background:"url("+B.preloadImage+") no-repeat 50% 50%"});var Y=J.find("img:eq("+D+")").attr("src")+"?"+(new Date()).getTime();if(A("img",V).parent().attr("class")!="slides_control"){T=J.children(":eq(0)")[0].tagName.toLowerCase();}else{T=J.find("img:eq("+D+")");}J.find("img:eq("+D+")").attr("src",Y).load(function(){J.find(T+":eq("+D+")").fadeIn(B.fadeSpeed,B.fadeEasing,function(){A(this).css({zIndex:5});A("."+B.container,V).css({background:""});U=true;B.slidesLoaded();});});}else{J.children(":eq("+D+")").fadeIn(B.fadeSpeed,B.fadeEasing,function(){U=true;B.slidesLoaded();});}if(B.bigTarget){J.children().css({cursor:"pointer"});J.children().click(function(){E("next",L);return false;});}if(B.hoverPause&&B.play){J.bind("mouseover",function(){R();});J.bind("mouseleave",function(){G();});}if(B.generateNextPrev){A("."+B.container,V).after('<a href="#" class="'+B.prev+'">Prev</a>');A("."+B.prev,V).after('<a href="#" class="'+B.next+'">Next</a>');}A("."+B.next,V).click(function(a){a.preventDefault();if(B.play){G();}E("next",L);});A("."+B.prev,V).click(function(a){a.preventDefault();if(B.play){G();}E("prev",L);});if(B.generatePagination){if(B.prependPagination){V.prepend("<ul class="+B.paginationClass+"></ul>");}else{V.append("<ul class="+B.paginationClass+"></ul>");}J.children().each(function(){A("."+B.paginationClass,V).append('<li><a href="#'+C+'">'+(C+1)+"</a></li>");C++;});}else{A("."+B.paginationClass+" li a",V).each(function(){A(this).attr("href","#"+C);C++;});}A("."+B.paginationClass+" li:eq("+D+")",V).addClass(B.currentClass);A("."+B.paginationClass+" li a",V).click(function(){if(B.play){G();}I=A(this).attr("href").match("[^#/]+$");if(P!=I){E("pagination",S,I);}return false;});A("a.link",V).click(function(){if(B.play){G();}I=A(this).attr("href").match("[^#/]+$")-1;if(P!=I){E("pagination",S,I);}return false;});if(B.play){F=setInterval(function(){E("next",L);},B.play);V.data("interval",F);}});};A.fn.slides.option={preload:false,preloadImage:"/img/loading.gif",container:"slides_container",generateNextPrev:false,next:"next",prev:"prev",pagination:true,generatePagination:true,prependPagination:false,paginationClass:"pagination",currentClass:"current",fadeSpeed:350,fadeEasing:"",slideSpeed:350,slideEasing:"",start:1,effect:"slide",crossfade:false,randomize:false,play:0,pause:0,hoverPause:false,autoHeight:false,autoHeightSpeed:350,bigTarget:false,animationStart:function(){},animationComplete:function(){},slidesLoaded:function(){}};A.fn.randomize=function(C){function B(){return(Math.round(Math.random())-0.5);}return(A(this).each(function(){var F=A(this);var E=F.children();var D=E.length;if(D>1){E.hide();var G=[];for(i=0;i<D;i++){G[G.length]=i;}G=G.sort(B);A.each(G,function(I,H){var K=E.eq(H);var J=K.clone(true);J.show().appendTo(F);if(C!==undefined){C(K,J);}K.remove();});}}));};})(jQuery);

@@ -15,12 +15,23 @@ class Generalsearch_improved
   def initialize(given_search_term,search_type)
     self.search_term= given_search_term
     self.search_type= search_type
+
   end
   def perform
     @@logger.info("Performing job for #{self.search_term}")
     prices = self.class.prices(self.search_term,self.search_type)
     Rails.cache.write(self.cache_key, prices)
-    prices
+   
+
+
+#    @topsearches  = @db.collection('topsearches')
+#    @record = {  :query => self.cache_key,
+# 	         :type => self.search_type,
+#                 :count => 1#
+#	         }
+#    @topsearches.save(@record)
+
+     prices
   end
 
   def cache_key
@@ -1114,9 +1125,15 @@ class Generalsearch_improved
             def find_weight(source_string, search_string)
                 search_string = de_canonicalize_isbn(search_string)
                 #weight = search_string.longest_subsequence_similar(source_string)
-                m = LongestSubsequence.new(source_string.downcase)
-                weight = m.match(search_string.downcase)
-                return weight,0
+               # m = LongestSubsequence.new(source_string.downcase)
+               # weight = m.match(search_string.downcase)
+		#mp = PairDistance.new (source_string.downcase)
+		#weight += mp.match(search_string.downcase)
+
+		m = LongestSubsequence.new(source_string.downcase)
+		weight = m.match(search_string.downcase)
+
+		return weight,0
             end
             def de_canonicalize_isbn(text)
               unless text.nil?

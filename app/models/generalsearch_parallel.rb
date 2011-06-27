@@ -20,6 +20,9 @@ class Generalsearch_parallel
 
     self.search_term= given_search_term
     self.search_type= search_type
+
+   
+
   end
   # For usage with DelayedJob : Bookprice.new(:isbn => "9789380032825").perform
   def perform

@@ -938,3 +938,178 @@
  
     end
 
+
+
+
+=============================================================
+
+<div id="slideshow">
+    <div id="slideshow-reel">
+        <div class="slide">
+        <p>I just purchased a Canon EOS 550D camera. I looked for good online deals and kept searching on various shops. Had I known <strong>Cheapr</strong> existed, I would have saved many hours. Incredible work guys...very simple and accurate tool. - <i>Kunal M. Bangalore</i></p>
+        </div>
+        
+        <div class="slide">
+        <p>I usually buy books every month. I used to open 3-4 online stores like flipkart and infibeam to check prices and order books. With <strong>Cheapr</strong> I can search best prices from 15 stores ! Great idea and a brilliant site. - <i>Meghna A. Bangalore</i></p>
+        </div>
+        
+        <div class="slide">
+        <p>Come on..nobody thought of this earlier? <strong>Cheapr</strong> always gets the best prices and great bargains. I don't know how I lived without <strong>cheapr</strong>- <i>Dhruv M. Mumbai</i></p>
+        </div>
+
+        <div class="slide">
+        <p>Who goes to so many sites to hunt for the cheapest bargain? Well, I don't anymore. <strong>Cheapr</strong> really changed the way I purchase things online. - <i>Niraj K. London</i></p>
+        <p style="text-align: right"><i>Dhruv M. Mumbai</i></p>
+        </div>
+
+        <div class="slide">
+        <p>Being a student, I need to buy cheap books almost every month. One of my friend told me about <strong>cheapr</strong> and I was amazed. I am still amazed :) - <i>Chintan P. Ahmedabad</i></p>
+       </div>
+        
+    </div>
+    
+    <a href="#" id="slideshow-left" class="slideshow-arrow"></a>
+    <a href="#" id="slideshow-right" class="slideshow-arrow"></a>
+    
+    <div id="slideshow-nav">
+        <a href="#" class="nav-item">
+            <span class="nav-item-line nav-item-line-hidden"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line"></span>
+        </a>
+        
+        <a href="#" class="nav-item">
+            <span class="nav-item-line"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line"></span>
+        </a>
+        
+        <a href="#" class="nav-item">
+            <span class="nav-item-line"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line"></span>
+        </a>
+        
+        <a href="#" class="nav-item">
+            <span class="nav-item-line"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line"></span>
+        </a>
+        
+        <a href="#" class="nav-item">
+            <span class="nav-item-line"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line"></span>
+        </a>
+        
+        <a href="#" class="nav-item">
+            <span class="nav-item-line"></span>
+            <span class="nav-item-dot"></span>
+            <span class="nav-item-line nav-item-line-hidden"></span>
+        </a>
+        
+        <span id="active-nav-item">
+            <span class="active-nav-item-inner"></span>
+        </span>
+    </div>
+</div>
+
+/*-----------------Feedback Slideshow----------------------------------*/
+function changeSlide( newSlide ) {
+        // cancel any timeout
+        clearTimeout( slideTimeout );
+        
+        // change the currSlide value
+        currSlide = newSlide;
+        
+        // make sure the currSlide value is not too low or high
+        if ( currSlide > maxSlide ) currSlide = 0;
+        else if ( currSlide < 0 ) currSlide = maxSlide;
+        
+        // animate the slide reel
+        $slideReel.animate({ left : currSlide * -900 }, 400, 'swing', function() {
+
+            // hide / show the arrows depending on which frame it's on
+/*            if ( currSlide == 0 ) $slideLeftNav.hide();
+            else $slideLeftNav.show();
+            
+            if ( currSlide == maxSlide ) $slideRightNav.hide();
+            else $slideRightNav.show(); */
+		$slideLeftNav.hide();
+		$slideRightNav.hide();
+            
+            // set new timeout if active
+            if ( activeSlideshow ) slideTimeout = setTimeout(nextSlide, 5200);
+        });
+        
+        // animate the navigation indicator
+        $activeNavItem.animate({
+            left : currSlide * 150
+        }, 400, 'swing');
+    }
+    
+    function nextSlide() {
+        changeSlide( currSlide + 1 );
+    }
+    
+    // define some variables / DOM references
+    var activeSlideshow = true,
+    currSlide = 0,
+    slideTimeout,
+    $slideshow = $('#slideshow'),
+    $slideReel = $slideshow.find('#slideshow-reel'),
+    maxSlide = $slideReel.children().length - 1,
+    $slideLeftNav = $slideshow.find('#slideshow-left'),
+    $slideRightNav = $slideshow.find('#slideshow-right'),
+    $activeNavItem = $slideshow.find('#active-nav-item');
+    
+    // set navigation click events
+    
+    // left arrow
+    $slideLeftNav.click(function(ev) {
+        ev.preventDefault();
+        
+        activeSlideshow = false;
+        
+        changeSlide( currSlide - 1 );
+    });
+    
+    // right arrow
+    $slideRightNav.click(function(ev) {
+        ev.preventDefault();
+        
+        activeSlideshow = false;
+        
+        changeSlide( currSlide + 1 );
+    });
+    
+    // main navigation
+    $slideshow.find('#slideshow-nav a.nav-item').click(function(ev) {
+        ev.preventDefault();
+        
+        activeSlideshow = false;
+        
+        changeSlide( $(this).index() );
+    });
+    
+    // start the animation
+    slideTimeout = setTimeout(nextSlide, 8200);
+
+
+
+
+<% if cookies[:country] == nil %>
+                                  <dt><a id="flag" href="#"><span><img src='images/flags/India.png'></span></a></dt>
+                            <%else%>
+                                  <dt><a id="flag" href="#"><span><img src='images/flags/<%=cookies[:country]%>.png'></span></a></dt>
+                            <%end%>
+
+
+
+  <!-- <dd>
+                                <ul>
+                                    <li><a href="#">India<img class="flag" src="images/flags/India.png" alt="" /><span class="value">IN</span></a></li>
+                                    <li><a href="#">USA<img class="flag" src="images/flags/United-States.png" alt="" /><span class="value">US</span></a></li>
+                                </ul>
+
+                            </dd> -->

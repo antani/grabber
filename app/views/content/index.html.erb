@@ -30,11 +30,7 @@
                     </div>  -->
                     <dl id="sample" class="dropdown">
 
-                            <% if cookies[:country] == nil %>
-                                  <dt><a id="flag" href="#"><span><img src='images/flags/India.png'></span></a></dt>
-                            <%else%>
-                                  <dt><a id="flag" href="#"><span><img src='images/flags/<%=cookies[:country]%>.png'></span></a></dt>
-                            <%end%>
+                            
                             <div class="search_wrap">
                             <div class="tab oFlowH">
                               <a id="searchbooks" class="left searchTypeLink active" onfocus="blur()" href="#">Books</a>
@@ -49,98 +45,89 @@
                               <span class="left">|</span>
                               <a id="searchcomputers" class="left comingsoon searchTypeLink" href="#">Computers</a>
                               </div> 
-                            <dd>
-                                <ul>
-                                    <li><a href="#">India<img class="flag" src="images/flags/India.png" alt="" /><span class="value">IN</span></a></li>
-                                    <li><a href="#">USA<img class="flag" src="images/flags/United-States.png" alt="" /><span class="value">US</span></a></li>
-                                </ul>
-
-                            </dd>
+                         
                      </dl>
 
           <% end %>
     </div>  
   </div>
 </div>
+
 <div class="textwrapper">
-Shopping is tricky. Online Shopping more so. We want to give you the best prices. We search prices from <span id="india-stores">many</span>  online stores in India (other countries coming soon). 
+Searching best prices from so many online shopping sites is very tricky - Cheapr brings you cheapest deals from <span id="india-stores">many</span> online stores in India and makes it very easy for you to chose the best deals.</br>
+<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cheapr.in/" data-text="Search best prices on online shopping stores in India #cheapr" data-count="none" data-via="ved_a">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<!-- <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=180693541986061&amp;xfbml=1"></script><fb:like href="http://cheapr.in/" send="true" layout="button_count" width="450" show_faces="true" font=""></fb:like> -->
 </div>
-<!--
+<div class="top_searches">
+<p>Top Searches</p>
+
+<div class="top_books">
+<%
+@top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 10 )
+@top_s.each do |s|
+	if s[:type] == 'books' then
+%>	
+
+	<a href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a>
+
+<%      end 
+end %>
+</div>
+
+<div class="top_mobiles">
+<%
+@top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 10 )
+@top_s.each do |s|
+	if s[:type] == 'mobiles' then
+%>	
+
+	<a href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a>
+
+<%      end 
+end %>
+</div>
+
+<div class="top_cameras">
+<%
+@top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 10 )
+@top_s.each do |s|
+	if s[:type] == 'cameras' then
+%>	
+
+	<a href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a>
+
+<%      end 
+end %>
+</div>
+
+
+</div>
+
 <div id="slideshow">
     <div id="slideshow-reel">
         <div class="slide">
-        <p>I just purchased a Canon EOS 550D camera. I looked for good online deals and kept searching on various shops. Never knew <strong>Cheapr</strong> existed or I would have saved many hours.
-        Incredible work guys...very simple and accurate tool</p>
-        <p style="text-align: right"><i>Kunal M. Bangalore</i></p>
+        <p>I just purchased a Canon EOS 550D camera. I looked for good online deals and kept searching on various shops. Had I known <strong>Cheapr</strong> existed, I would have saved many hours. Incredible work guys. - <i>Kunal M. Bangalore</i></p>
         </div>
         
         <div class="slide">
-        <p>I just purchased a Canon EOS 550D camera. I looked for good online deals and kept searching on various shops. Never knew <strong>Cheapr</strong> existed or I would have saved many hours.
-        Incredible work guys...very simple and accurate tool</p>
-        <p style="text-align: right"><i>Meghna A. Bangalore</i></p>
+        <p>I usually buy books every month. I used to open 3-4 online stores like flipkart and infibeam to check prices and order books. With <strong>Cheapr</strong> I can search best prices from 15 stores ! Great idea and a brilliant site. - <i>Meghna A. Bangalore</i></p>
         </div>
         
         <div class="slide">
-        <p>I just purchased a Canon EOS 550D camera. I looked for good online deals and kept searching on various shops. Never knew <strong>Cheapr</strong> existed or I would have saved many hours.
-        Incredible work guys...very simple and accurate tool</p>
-        <p style="text-align: right"><i>Niraj K. London</i></p>
+        <p>Come on..nobody thought of this earlier? <strong>Cheapr</strong> always gets the best prices and great bargains. I don't know how I lived without <strong>cheapr</strong>- <i>Dhruv M. Mumbai</i></p>
         </div>
-        
+
         <div class="slide">
-            <h1>Slide 4</h1>
+        <p>Who goes to so many sites to hunt for the cheapest bargain? Well, I don't anymore. <strong>Cheapr</strong> really changed the way I purchase things online. - <i>Niraj K. London</i></p>
+        <p style="text-align: right"><i>Dhruv M. Mumbai</i></p>
         </div>
-        
+
         <div class="slide">
-            <h1>Slide 5</h1>
-        </div>
+        <p>Being a student, I need to buy cheap books almost every month. One of my friend told me about <strong>cheapr</strong> and I was amazed. I am still amazed :) - <i>Chintan P. Ahmedabad</i></p>
+       </div>
         
-        <div class="slide">
-            <h1>Slide 6</h1>
-        </div> 
     </div>
-    
-    <a href="#" id="slideshow-left" class="slideshow-arrow"></a>
-    <a href="#" id="slideshow-right" class="slideshow-arrow"></a>
-    
-    <div id="slideshow-nav">
-        <a href="#" class="nav-item">
-            <span class="nav-item-line nav-item-line-hidden"></span>
-            <span class="nav-item-dot"></span>
-            <span class="nav-item-line"></span>
-        </a>
-        
-        <a href="#" class="nav-item">
-            <span class="nav-item-line"></span>
-            <span class="nav-item-dot"></span>
-            <span class="nav-item-line"></span>
-        </a>
-        
-        <a href="#" class="nav-item">
-            <span class="nav-item-line"></span>
-            <span class="nav-item-dot"></span>
-            <span class="nav-item-line"></span>
-        </a>
-        
-        <a href="#" class="nav-item">
-            <span class="nav-item-line"></span>
-            <span class="nav-item-dot"></span>
-            <span class="nav-item-line"></span>
-        </a>
-        
-        <a href="#" class="nav-item">
-            <span class="nav-item-line"></span>
-            <span class="nav-item-dot"></span>
-            <span class="nav-item-line"></span>
-        </a>
-        
-        <a href="#" class="nav-item">
-            <span class="nav-item-line"></span>
-            <span class="nav-item-dot"></span>
-            <span class="nav-item-line nav-item-line-hidden"></span>
-        </a>
-        
-        <span id="active-nav-item">
-            <span class="active-nav-item-inner"></span>
-        </span>
-    </div>
-</div> -->
+
+</div>
+	
+
