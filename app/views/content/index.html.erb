@@ -99,7 +99,18 @@ end %>
 <%      end 
 end %>
 </div>
+<div class="top_movies">
+<%
+@top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 10 )
+@top_s.each do |s|
+	if s[:type] == 'movies' then
+%>	
 
+	<a href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a>
+
+<%      end 
+end %>
+</div>
 
 </div>
 
