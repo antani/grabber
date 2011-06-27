@@ -317,12 +317,13 @@ a.button:hover span.icon.user, button:hover span.icon.user { background-position
 
 * {
   float: none;       /* Screens are not big enough to account for floats */
-  background: #fff;  /*  As much contrast as possible */
+/*  background: #fff;    As much contrast as possible */
   color: #000;
 }
 
 /* Slightly reducing font size to reduce need to scroll */
 body { font-size: 80%; }
+
 /* the norm */
 #gritter-notice-wrapper {
 	position:fixed;
@@ -1300,7 +1301,7 @@ Notifications
 }
 #LikePluginPagelet
 {
-	background-color: transparent;
+	background-color: transparent !important	;
 }
 
 

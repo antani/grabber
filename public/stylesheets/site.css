@@ -665,7 +665,7 @@ Notifications
 }
 #LikePluginPagelet
 {
-	background-color: transparent;
+	background-color: transparent !important	;
 }
 
 
