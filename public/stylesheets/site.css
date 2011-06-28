@@ -31,6 +31,14 @@ a img {
     padding-left: 5px;
     height: 200px;
 }
+.hrd {
+    border-bottom: 3px dotted #C9C4BA;
+    font-size: 2px;
+    height: 40px;
+    line-height: 2px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
 #wait-text
 {
     font-family: 'Podkova', 'Droid Sans','Puritan',sans-serif; 
@@ -38,9 +46,9 @@ a img {
     font-size: 14px;
 }
 .textwrapper{
-    font-family: 'Podkova', 'Droid Sans','Puritan',sans-serif; 
+    font-family: 'Droid Sans','Puritan',sans-serif; 
     text-shadow: 0 2px 1px rgba(255, 255, 255, 0.9);
-    font-size: 16px;
+    font-size: 12px;
     border-radius: 3px 3px 3px 3px;
     clear: left;
     float: left;
@@ -52,7 +60,7 @@ a img {
     width: 800px;
 }
 .top_searches{
-    font-family:  Helvetica, 'Droid Sans','Puritan',sans-serif; 
+    font-family:'Droid Sans','Puritan',sans-serif; 
     font-size: 13px;
     border-radius: 3px 3px 3px 3px;
     clear: left;
@@ -63,6 +71,14 @@ a img {
     position: relative;
     text-align: center;
     width: 800px;
+}
+
+
+.top_searches a:hover
+{
+color: #C24E42;
+text-decoration: none;
+font-weight: bold;
 }
 #editorial_review h3
 {
