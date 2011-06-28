@@ -1,5 +1,45 @@
 <div id ="img_header">
  <a href="/"><img src='images/cheapr_small.png'/></a>
+<div class="searchwrapper_small curved curved-hz-1">
+  <div class="searchwrapper-inner_small">
+    <div class="searchwrapper-inner-border_small">
+          <%= form_tag(view_path, :method => "get", :id=>"searchfrm" , :remote=>true) do %>
+              <%= text_field_tag(:q,nil,:class=> "inputquery_small") %>
+              <%= hidden_field_tag 'search_type', 'books' %>
+	      <a id="search_link" href="#" class="btn btnsmall search_small">Search</a>
+              <span class="buttonwrapper">
+                <%= submit_tag("Search", :class=>"searchsubmit", :id=>"searchsubmit_btn") %>
+              </span> <!-- 
+                    <div id="search_btn">
+                      <a href="#" id="searchall" class="primary button pill button">Everything</a> 
+                      <a href="#" id="searchbooks" class="primary pill button">Books</a>
+                      <a href="#" id="searchmovies" class="pill button">Movies</a>
+                      <a href="#" id="searchmobiles" class="pill button">Mobiles</a> 
+                    </div>  -->
+                    <dl id="sample" class="dropdown">
+
+                            
+                            <div class="search_wrap">
+                            <div class="tab oFlowH">
+                              <a id="searchbooks" class="left searchTypeLink active" onfocus="blur()" href="#">Books</a>
+                              <span class="left">|</span>
+                              <a id="searchmobiles" class="left searchTypeLink" onfocus="blur()" href="#">Mobiles</a>
+                              <span class="left">|</span>
+                              <a id="searchmovies" class="left searchTypeLink" onfocus="blur()" href="#">Movies</a>
+                              <span class="left">|</span>
+                              <a id="searchcamera" class="left searchTypeLink" onfocus="blur()" href="#">Cameras</a>
+                              <span class="left">|</span>
+                              <a id="searchelectronics" class="left comingsoon searchTypeLink" href="#">Electronics</a>
+                              <span class="left">|</span>
+                              <a id="searchcomputers" class="left comingsoon searchTypeLink" href="#">Computers</a>
+                              </div> 
+                         
+                     </dl>
+
+          <% end %>
+    </div>  
+  </div>
+</div>
 </div> 
 <div id="result_content">
 <%= content_for :js do %>

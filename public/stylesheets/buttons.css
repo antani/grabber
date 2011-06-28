@@ -1,6 +1,5 @@
 /* ------ buttons
 -----------------------------------------------*/
-
 .btn {
 float:left;
 display:inline-block;
@@ -10,8 +9,7 @@ padding:0 10px 0 50px;
 background:url('../images/white.jpg') repeat-x;
 /*color:#999;*/
 color: #666666;
-font-family: Arial,Helvetica,sans-serif;
-font-size: 12px;
+font-family: Helvetica,Arial,sans-serif;
 text-decoration:none;
 font-weight:bold;
 font-size:13px;
@@ -22,6 +20,21 @@ margin:20px 10px 10px 0;
 -moz-border-radius:8px;
 -webkit-border-radius:8px;
 border-radius:8px;
+}
+
+
+.btnsmall
+{
+height:35px;
+line-height:14px;
+font-size:10px;
+float: left;
+margin: 20px 5px 5px;
+padding: 0 5px 0 20px;
+}
+
+.btn.search_small span {
+background-image:url('../images/icons/search_small.png');
 }
 
 .btn:hover {

@@ -356,6 +356,18 @@ class Generalsearch_improved
                               page.search("ul.search_result div.img img:first-child").each do |img|
                                  img_text << img.attributes['src'].content
                               end
+                        elsif what == 'mobiles' then
+                              price_text = page.search("div#resultsPane ul.srch_result li div.price span.price").map { |e| "#{e.content.tr('A-Za-z.,','')}" }
+                              name_text = page.search("div#resultsPane ul.srch_result li a span.title").map{ |e| "#{e.content} " }
+                              author_text = page.search("ul.search_result li a[@href^='/Books/search']").map {|e| "#{e.content}" }
+                              url_text = []
+                              page.search("div#resultsPane ul.srch_result li a:first-child").each do |link|
+                                 url_text << link.attributes['href'].content
+                              end 	
+                              img_text = []
+                              page.search("div#resultsPane ul.srch_result li a img").each do |img|
+                                 img_text << img.attributes['src'].content
+                              end
                         else
                               price_text = page.search("ul.srch_result li div.price span.normal").map { |e| "#{e.content.tr('A-Za-z.,','')}" }
                             #  @@logger.info(price_text)
@@ -589,7 +601,7 @@ class Generalsearch_improved
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 0) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://pustak.co.in/"+url_text[i], :source=>'Pustak', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                         end

@@ -63,7 +63,7 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
 
 <div class="top_books">
 <%
-@top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 10 )
+@top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 30 )
 @top_s.each do |s|
 	if s[:type] == 'books' then
 %>	
@@ -76,7 +76,7 @@ end %>
 
 <div class="top_mobiles">
 <%
-@top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 10 )
+
 @top_s.each do |s|
 	if s[:type] == 'mobiles' then
 %>	
@@ -89,7 +89,7 @@ end %>
 
 <div class="top_cameras">
 <%
-@top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 10 )
+
 @top_s.each do |s|
 	if s[:type] == 'cameras' then
 %>	
@@ -101,7 +101,7 @@ end %>
 </div>
 <div class="top_movies">
 <%
-@top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 10 )
+
 @top_s.each do |s|
 	if s[:type] == 'movies' then
 %>	

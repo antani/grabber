@@ -259,6 +259,54 @@ table.price_list td
     position: relative;  
     text-align: center;
 }
+
+.searchwrapper_small
+{
+    clear: left;
+    float: right;
+    text-align:center;
+    position: relative;
+    width: 450px;
+    padding: 10px;
+    height: 70px;
+    border-radius: 3px 3px 3px 3px;
+    
+}
+.searchwrapper_inner_small
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B5B5AF;;
+}
+.searchwrapper-inner-border_small
+{
+    padding-bottom: 0.22em;
+    padding-right: 0.22em;
+    background-repeat: repeat-x;
+    height: 1.1em;
+    padding: 0.2em;
+    padding-bottom: 10px;
+    position: relative;  
+    text-align: center;
+}
+.inputquery_small
+{
+    border:1px solid #DFDFDF;
+    margin:20px 5px 10px 0;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;    
+    float: left;
+    height:29px;
+    padding: 0.3em 0.25em 0.2em 0.2em;
+    margin-left: auto;
+    margin-right: 5px;
+    display:block;
+    width: 27em;
+    font-family: 'Droid Sans','Puritan',sans-serif; 
+    font-size:13px;
+}
+
 .searchsubmit
 {
     background-position: left -1672px;
