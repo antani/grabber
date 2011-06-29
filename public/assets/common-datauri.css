@@ -796,7 +796,6 @@ a img {
 .link-highlight {
     background-color: #F5F0E9;
     border-radius: 3px 3px 3px 3px;
-    padding: 3px;
 }
 
 .top_searches a:hover
@@ -1590,10 +1589,10 @@ html { overflow-y: scroll; }
 
 /* accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active { outline: none; }
-
+/*
 a, a:active, a:visited { color: #607890; }
 a:hover { color: #036; }
-
+*/
 
 ul, ol { margin-left: 2em; }
 ol { list-style-type: decimal; }

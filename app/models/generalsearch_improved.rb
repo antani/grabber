@@ -171,18 +171,21 @@ class Generalsearch_improved
                                   page="failed"
                               end    
                            end
+                           #Brings lot of crap - mute for now
+			   #
+		           #        url= get_nbcindia_url(term, type)
+		           #        req_nbcindia= Typhoeus::Request.new(url,:timeout=> 5000)      
+		           #        req_nbcindia.on_complete do |response|
+		           #           if response.success?
+		           #               doc= response.body
+		           #               page = Nokogiri::HTML::parse(doc)
+		           #               page
+		           #           else
+		           #                page="failed"
+		           #           end    
+		           #        end
                            
-                           url= get_nbcindia_url(term, type)
-                           req_nbcindia= Typhoeus::Request.new(url,:timeout=> 5000)      
-                           req_nbcindia.on_complete do |response|
-                              if response.success?
-                                  doc= response.body
-                                  page = Nokogiri::HTML::parse(doc)
-                                  page
-                              else
-        		           page="failed"
-                              end    
-                           end
+
                            url= get_pustak_url(term, type)
                            req_pustak= Typhoeus::Request.new(url,:timeout=> 5000)      
                            req_pustak.on_complete do |response|
@@ -219,7 +222,7 @@ class Generalsearch_improved
                            end
   
                            hydra.queue req_rediff                            
-                           hydra.queue req_nbcindia                            
+                           #hydra.queue req_nbcindia                            
                            hydra.queue req_pustak                            
                            hydra.queue req_bookadda                            
                            hydra.queue req_crossword                            
@@ -269,7 +272,7 @@ class Generalsearch_improved
 
                      if mtype == 'books' then
                          prices.push(parse_rediff(req_rediff.handled_response,term, type)) unless req_rediff.handled_response =="failed"
-                         prices.push(parse_nbcindia(req_nbcindia.handled_response,term, type)) unless req_nbcindia.handled_response =="failed"
+                         #prices.push(parse_nbcindia(req_nbcindia.handled_response,term, type)) unless req_nbcindia.handled_response =="failed"
                          prices.push(parse_pustak(req_pustak.handled_response,term, type)) unless req_pustak.handled_response =="failed"
                          prices.push(parse_bookadda(req_bookadda.handled_response,term, type)) unless req_bookadda.handled_response =="failed"
                          prices.push(parse_crossword(req_crossword.handled_response,term, type)) unless req_crossword.handled_response =="failed"
