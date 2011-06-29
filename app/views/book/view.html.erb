@@ -1,12 +1,11 @@
 <div id ="img_header">
- <a href="/"><img src='images/cheapr_small.png'/></a>
-<div class="searchwrapper_small curved curved-hz-1">
+ <div class="searchwrapper_small curved curved-hz-1">
   <div class="searchwrapper-inner_small">
     <div class="searchwrapper-inner-border_small">
           <%= form_tag(view_path, :method => "get", :id=>"searchfrm" , :remote=>true) do %>
               <%= text_field_tag(:q,nil,:class=> "inputquery_small") %>
               <%= hidden_field_tag 'search_type', 'books' %>
-	      <a id="search_link" href="#" class="btn btnsmall search_small">Search</a>
+	      <!--<a id="search_link" href="#" class="btn btnsmall search_small">Search</a> -->
               <span class="buttonwrapper">
                 <%= submit_tag("Search", :class=>"searchsubmit", :id=>"searchsubmit_btn") %>
               </span> <!-- 
@@ -50,7 +49,7 @@
 
          <% unless @stores.nil? %>
             <div class="stores">
-            <h3 class="desch3">Lowest Prices for <i><%= @type %></i> matching <i><%= @search_string %></i></h3>
+            <p class="desch3">Lowest Prices for <i><%= @type %></i> matching <i><%= @search_string %></i></p>
             <table class="price_list">
 
              <% @stores.each_with_index do |data,x|  %>

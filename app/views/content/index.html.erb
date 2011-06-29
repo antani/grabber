@@ -6,9 +6,7 @@
 
 
 <% content_for :header do %>
-<div id ="img_header">
- <img src='images/cheapr.png'/>
-</div> 
+
 </br>
 
  <% end %>
@@ -55,90 +53,100 @@
 
 <div class="textwrapper">
 Searching best prices from so many online shopping sites is very tricky - Cheapr brings you cheapest deals from <span id="india-stores">many</span> online stores in India and makes it very easy for you to chose the best deals.</br>
-<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cheapr.in/" data-text="Search best prices on online shopping stores in India #cheapr" data-count="none" data-via="ved_a">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
 <!--<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=243916848967812&amp;xfbml=1"></script><fb:like href="http://cheapr.in/" send="false" layout="button_count" width="80" show_faces="false" font=""></fb:like> -->
 </div>
 
 
 <div class="top_searches">
-<p>Top Searches</p>
-
-<div class="top_books">
+<div class="fl grid_2 column">
+<p class="top_p">Top Books</p>
 <%
 @top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 30 )
 @top_s.each do |s|
 	if s[:type] == 'books' then
 %>	
 
-	<a href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %> / </a>
+	<a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
 
 <%      end 
 end %>
 </div>
 
-<div class="top_mobiles">
+<div class="fl grid_2 column">
+<p class="top_p">Top Mobiles</p>
 <%
 
 @top_s.each do |s|
 	if s[:type] == 'mobiles' then
 %>	
 
-	<a href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %> / </a>
+	<a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
 
 <%      end 
 end %>
 </div>
 
-<div class="top_cameras">
+<div class="fl grid_2 column">
+<p class="top_p">Top Cameras</p>
 <%
 
 @top_s.each do |s|
 	if s[:type] == 'cameras' then
 %>	
 
-	<a href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %> / </a>
+	<a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
 
 <%      end 
 end %>
 </div>
-<div class="top_movies">
+<div class="fl grid_2 column">
+<p class="top_p">Top Movies</p>
 <%
 
 @top_s.each do |s|
 	if s[:type] == 'movies' then
 %>	
 
-	<a href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %> / </a>
+	<a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
 
 <%      end 
 end %>
 </div>
 
-</div>
-<!--
-<div id="slideshow">
+
+
+<div id="slideshow" class="fl grid_3 column">
+<p class="top_p">Your Views</p>
     <div id="slideshow-reel">
         <div class="slide">
-        <p>I just purchased a Canon EOS 550D camera. I looked for good online deals and kept searching on various shops. Had I known <strong>Cheapr</strong> existed, I would have saved many hours. Incredible work guys. - <i>Kunal M. Bangalore</i></p>
+        <p>I just purchased a Canon EOS 550D camera. I looked for good online deals and kept searching on various shops. Had I known <b class="highlightb">Cheapr</b> existed, I would have saved many hours. Incredible work guys. - <i>Kunal M. Bangalore</i></p>
         </div>
         
         <div class="slide">
-        <p>I usually buy books every month. I used to open 3-4 online stores like flipkart and infibeam to check prices and order books. With <strong>Cheapr</strong> I can search best prices from 15 stores ! Great idea and a brilliant site. - <i>Meghna A. Bangalore</i></p>
+        <p>I usually buy books every month. I used to open 3-4 online stores like flipkart and infibeam to check prices and order books. With <b class="highlightb">Cheapr</b> I can search best prices from 15 stores ! Great idea and a brilliant site. - <i>Meghna A. Bangalore</i></p>
         </div>
         
         <div class="slide">
-        <p>Come on..nobody thought of this earlier? <strong>Cheapr</strong> always gets the best prices and great bargains. I don't know how I lived without <strong>cheapr</strong>- <i>Dhruv M. Mumbai</i></p>
+        <p>Come on..nobody thought of this earlier? <b class="highlightb">Cheapr</b> always gets the best prices and great bargains.- <i>Dhruv M. Mumbai</i></p>
         </div>
 
         <div class="slide">
-        <p>Who goes to so many sites to hunt for the cheapest bargain? Well, I don't anymore. <strong>Cheapr</strong> really changed the way I purchase things online. - <i>Niraj K. London</i></p>
-        <p style="text-align: right"><i>Dhruv M. Mumbai</i></p>
+        <p>Who goes to so many sites to hunt for the cheapest bargain? Well, I don't anymore. <b class="highlightb">Cheapr</b> really changed the way I purchase things online. - <i>Niraj K. London</i></p>
         </div>
 
         <div class="slide">
-        <p>Being a student, I need to buy cheap books almost every month. One of my friend told me about <strong>cheapr</strong> and I was amazed. I am still amazed :) - <i>Chintan P. Ahmedabad</i></p>
+        <p>Being a student, I need to buy cheap books almost every month. One of my friend told me about <b class="highlightb">cheapr</b> and I was amazed. I am still amazed :) - <i>Chintan P. Ahmedabad</i></p>
        </div>
     </div>
+
+
 </div>
--->	
+
+</div>
+
+
+
+
+	
 

@@ -19,7 +19,7 @@ $('body').noisy({
       'opacity' : 0.08,
       'fallback' : '',
       'monochrome' : false
-}).css('background-color', '#E8E8E2');
+}).css('background-color', '#FBFBF7');
 
 //$(".prod_img").aeImageResize({ height: 135, width: 87 });
 $('img.prod_img').each(function(){
