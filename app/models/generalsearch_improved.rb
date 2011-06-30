@@ -1261,14 +1261,14 @@ class Generalsearch_improved
                 #@@logger.info(search_string)
                 weight=0
                 search_string = de_canonicalize_isbn(search_string)
-                #m = LongestSubsequence.new(source_string.downcase)
-                #weight = m.match(search_string.downcase)
+                m = LongestSubsequence.new(source_string.downcase)
+                weight = m.match(search_string.downcase)
                 source_text = [source_string.gsub("\n","").gsub("\t","")]
                 engine = VSS::Engine.new(source_text)
                 results= engine.search(search_string)
                 ##@@logger.info(results)
                 results.each do |e|
-                          weight = e.rank 
+                          weight = weight+e.rank 
                 #          #@@logger.info (weight)
                 end
                 return weight,0
