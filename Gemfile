@@ -9,7 +9,7 @@ gem 'bson_ext'
 gem 'mongo_mapper'
 gem 'delayed_job'
 gem 'delayed_job_mongoid'
-gem "active_support"
+#gem "active_support"
 gem 'dalli'
 #gem 'hpricot'
 gem 'configatron', :require => 'configatron' # https://github.com/markbates/configatron/
@@ -19,6 +19,7 @@ gem 'amazon-ecs', :require => 'amazon/ecs'
 gem 'amatch'
 gem 'typhoeus'
 #gem 'soundex_find', :git => 'git://github.com/waltjones/soundex_find.git'
+gem 'vss'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

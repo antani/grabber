@@ -3,6 +3,7 @@
 require 'timeout'
 require 'amatch'
 require 'nokogiri'
+require 'vss'
 
 include Amatch
 
@@ -44,12 +45,15 @@ class Generalsearch_improved
 
   class << self
           def prices(term,type)
+
+               @@logger.info ("Singletons..............") 
+               @@logger.info (Generalsearch_improved.singleton_methods)   
                 #prices_array = self.searches.map { |name,search| [search.call(query,type)] }#.sort_by { |p| p[1][:price] }
                 prices_array = queue_requests(term,type)
                 @@logger.info("Time to process prices : ")
                 start_time = Time.now
                 price_array = prices_array.flatten
-                #@@logger.info(price_array)
+                @@logger.info(price_array)
                 @@logger.info("-------------------------------------------")
                 prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
                 ##@@logger.info(prices_array)
@@ -83,8 +87,11 @@ class Generalsearch_improved
                      #Books and everything else
                      url= get_flipkart_url(term, type)
                      
-                     req_flip= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_flip= Typhoeus::Request.new(url,:timeout=> 50000)      
                      req_flip.on_complete do |response|
+                          @@logger.info('Flipkart response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
@@ -94,8 +101,12 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_infibeam_url(term, type)
-                     req_infibeam= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_infibeam= Typhoeus::Request.new(url,:timeout=> 50000)      
                      req_infibeam.on_complete do |response|
+                          @@logger.info('Infibeam response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
@@ -105,8 +116,12 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_tradeus_url(term, type)
-                     req_tradeus= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_tradeus= Typhoeus::Request.new(url,:timeout=> 50000)      
                      req_tradeus.on_complete do |response|
+                          @@logger.info('tradeus response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
@@ -116,8 +131,12 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_homeshop_url(term, type)
-                     req_homeshop= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_homeshop= Typhoeus::Request.new(url,:timeout=> 50000)      
                      req_homeshop.on_complete do |response|
+                          @@logger.info('Homeshop response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
@@ -127,8 +146,12 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_futurebazaar_url(term, type)
-                     req_futurebazaar= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_futurebazaar= Typhoeus::Request.new(url,:timeout=> 50000)      
                      req_futurebazaar.on_complete do |response|
+                          @@logger.info('Futurebazaar response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
@@ -145,8 +168,13 @@ class Generalsearch_improved
                      hydra.queue req_futurebazaar
                      if mtype !='movies' then
                            url= get_ebay_url(term, type)
-                           req_ebay= Typhoeus::Request.new(url,:timeout=> 6000)      
+                           req_ebay= Typhoeus::Request.new(url,:timeout=> 50000)      
+                        
                            req_ebay.on_complete do |response|
+                          @@logger.info('Ebay response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                                 if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
@@ -161,8 +189,12 @@ class Generalsearch_improved
                      #Only books
                      if mtype == 'books' then
                            url= get_rediff_url(term, type)
-                           req_rediff= Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_rediff= Typhoeus::Request.new(url,:timeout=> 50000)      
                            req_rediff.on_complete do |response|
+                          @@logger.info('Rediff response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
@@ -174,7 +206,7 @@ class Generalsearch_improved
                            #Brings lot of crap - mute for now
 			   #
 		           #        url= get_nbcindia_url(term, type)
-		           #        req_nbcindia= Typhoeus::Request.new(url,:timeout=> 5000)      
+		           #        req_nbcindia= Typhoeus::Request.new(url,:timeout=> 50000)      
 		           #        req_nbcindia.on_complete do |response|
 		           #           if response.success?
 		           #               doc= response.body
@@ -187,8 +219,12 @@ class Generalsearch_improved
                            
 
                            url= get_pustak_url(term, type)
-                           req_pustak= Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_pustak= Typhoeus::Request.new(url,:timeout=> 50000)      
                            req_pustak.on_complete do |response|
+                          @@logger.info('Pustak response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
@@ -199,8 +235,12 @@ class Generalsearch_improved
                            end
 
                            url= get_bookadda_url(term, type)
-                           req_bookadda= Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_bookadda= Typhoeus::Request.new(url,:timeout=> 50000)      
                            req_bookadda.on_complete do |response|
+                          @@logger.info('Bookadda response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
@@ -210,8 +250,12 @@ class Generalsearch_improved
                               end    
                            end
                            url= get_crossword_url(term, type)
-                           req_crossword = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_crossword = Typhoeus::Request.new(url,:timeout=> 50000)      
                            req_crossword.on_complete do |response|
+                          @@logger.info('Crossword response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
@@ -229,8 +273,12 @@ class Generalsearch_improved
                      else
                            # no books but everything else
                            url= get_letsbuy_url(term, type)
-                           req_letsbuy = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_letsbuy = Typhoeus::Request.new(url,:timeout=> 50000)      
                            req_letsbuy.on_complete do |response|
+                          @@logger.info('Letsbuy response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
@@ -242,8 +290,12 @@ class Generalsearch_improved
                            hydra.queue req_letsbuy
 
                            url= get_adexmart_url(term, type)
-                           req_adexmart = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_adexmart = Typhoeus::Request.new(url,:timeout=> 50000)      
                            req_adexmart.on_complete do |response|
+                          @@logger.info('Adexmart response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
+
                               if response.success?
                                   doc= response.body
                                   page = Nokogiri::HTML::parse(doc)
@@ -429,33 +481,33 @@ class Generalsearch_improved
             @@logger.info('Searching Rediff')
             begin
                       price_text = page.search("font#book-pric").map { |e| "#{e.content}" }
-                      @@logger.info(price_text)
+                      #@@logger.info(price_text)
                       name_text = page.search("font#book-titl").map{ |e| "#{e.content} " }
-                      @@logger.info(name_text)
+                      #@@logger.info(name_text)
                       author_text = page.search("font#book-auth").map {|e| "#{e.content}" }
-                      @@logger.info(author_text)
+                      #@@logger.info(author_text)
 
                       url_text = []
                           page.search("html body div#container div#bookscontainer div#center_cont div#prod_detail div#prod_detail2 b a").each do |link|
                           url_text << link.attributes['href'].content
                       end 	
-                      @@logger.info(url_text)
+                      #@@logger.info(url_text)
                       img_text = []
                       page.search("html body div#container div#bookscontainer div#center_cont div#prod_detail div#prod_detail1 a img").each do |img|
                           img_text << img.attributes['src'].content
                       end
-                      @@logger.info(img_text)
+                      #@@logger.info(img_text)
                       discount_text = ""
                       shipping_text = ""
-                      @@logger.info(discount_text)
-                      @@logger.info(shipping_text)
+                      #@@logger.info(discount_text)
+                      #@@logger.info(shipping_text)
                       prices=[]
 
                       (0...price_text.length).each do |i|
-                         @@logger.info(price_text[i])
-                         @@logger.info(name_text[i])
-                         @@logger.info(author_text[i])
-                         @@logger.info(url_text[i])
+                       #  @@logger.info(price_text[i])
+                       #  @@logger.info(name_text[i])
+                       #  @@logger.info(author_text[i])
+                       #  @@logger.info(url_text[i])
 
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
@@ -1136,31 +1188,50 @@ class Generalsearch_improved
               url
            end
 #-------------------------------------------------------------------------------------------------------------------------------
-            #Finds the relevance of the search result
-            def find_weight(source_string, search_string)
+          #Using - http://madeofcode.com/posts/69-vss-a-vector-space-search-engine-in-ruby 
+          #def find_weight(source_string, search_string)
+          #      @@logger.info("Trying to find weight...................................")
+          #      search_string_de = de_canonicalize_isbn(search_string)
+          #      @source_text = source_string
+          #      source_array = [@source_text]
+
+          #      engine = VSS::Engine.new(source_array)
+          #      results= engine.search(search_string_de)
+          #      @@logger.info(results)
+          #      weight=0
+          #      results.each do |e|
+          #                weight = e.rank 
+          #                @@logger.info (weight.class)
+          #      end
+          #      return weight,0
+          #  end
+
+        #Finds the relevance of the search result
+        def find_weight(source_string, search_string)
                 search_string = de_canonicalize_isbn(search_string)
-                #weight = search_string.longest_subsequence_similar(source_string)
-               # m = LongestSubsequence.new(source_string.downcase)
-               # weight = m.match(search_string.downcase)
-		#mp = PairDistance.new (source_string.downcase)
-		#weight += mp.match(search_string.downcase)
+                m = LongestSubsequence.new(source_string.downcase)
+                weight = m.match(search_string.downcase)
+                source_text = [source_string.gsub("\n","").gsub("\t","")]
+                engine = VSS::Engine.new(source_text)
+                results= engine.search(search_string)
+                @@logger.info(results)
+                results.each do |e|
+                          weight = weight + e.rank 
+                          @@logger.info (weight)
+                end
+                return weight,0
+        end
 
-		m = LongestSubsequence.new(source_string.downcase)
-		weight = m.match(search_string.downcase)
-
-		return weight,0
-            end
-            def de_canonicalize_isbn(text)
+        def de_canonicalize_isbn(text)
               unless text.nil?
                text.to_s.gsub('+', ' ')
               end
-            end
-          def proper_case(str)
-            #st = str.to_s
-            #return st.split(/\s+/).each{ |word| word.capitalize! }.join(' ')  
-            return str
-          end
-
+        end
+   	    def proper_case(str)
+		    #st = str.to_s
+		    #return st.split(/\s+/).each{ |word| word.capitalize! }.join(' ')  
+		    return str
+	    end
 
   end #-------------------self -end
 
