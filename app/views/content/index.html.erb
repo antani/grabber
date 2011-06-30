@@ -63,13 +63,15 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
 <p class="top_p">Top Books</p>
 <%
 @top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 30 )
+i=0
 @top_s.each do |s|
-	if s[:type] == 'books' then
+	if s[:type] == 'books' and i < 8 then
 %>	
 
 	<a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
 
-<%      end 
+<%      i=i+1
+        end 
 end %>
 </div>
 
