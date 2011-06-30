@@ -55,7 +55,8 @@ class Generalsearch_improved
                 price_array = prices_array.flatten
      #           #@@logger.info(price_array)
      #           #@@logger.info("-------------------------------------------")
-                prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
+                #prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
+		prices_array = price_array.sort_by { |p| p[:weight] }
                 ###@@logger.info(prices_array)
                 top_weight = prices_array[0][:weight]
                 ###@@logger.info("Top price---------------------------")
@@ -66,7 +67,7 @@ class Generalsearch_improved
 
                 prices_array.each do |tt|
                   current_top_weight = tt[:weight] unless tt[:weight] == -999 
-                  if (current_top_weight < top_weight) then
+                  if (current_top_weight > top_weight) then
 			top_weight = current_top_weight
 			top_prices = top_prices.sort_by { |p| p[:price].to_i }
 		           top_prices.each do |tp|
@@ -1261,14 +1262,14 @@ class Generalsearch_improved
                 #@@logger.info(search_string)
                 weight=0
                 search_string = de_canonicalize_isbn(search_string)
-                m = LongestSubsequence.new(source_string.downcase)
-                weight = m.match(search_string.downcase)
+                #m = LongestSubsequence.new(source_string.downcase)
+                #weight = m.match(search_string.downcase)
                 source_text = [source_string.gsub("\n","").gsub("\t","")]
                 engine = VSS::Engine.new(source_text)
                 results= engine.search(search_string)
                 ##@@logger.info(results)
                 results.each do |e|
-                          weight = weight+e.rank 
+                          weight = e.rank 
                 #          #@@logger.info (weight)
                 end
                 return weight,0
