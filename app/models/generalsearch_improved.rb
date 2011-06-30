@@ -73,7 +73,7 @@ class Generalsearch_improved
                 top_prices = top_prices.sort_by { |p| p[:price].to_i }
                 rest_prices = rest_prices.sort_by { |p| p[:price].to_i }
                 final_prices = top_prices + rest_prices
-                final_prices = final_prices.sort_by { |p| [ p[:price].to_i, -p[:weight]] }
+                final_prices = final_prices.sort_by { |p| [-p[:weight], p[:price].to_i] }
                 @@logger.info(Time.now - start_time)
                 final_prices
           end
