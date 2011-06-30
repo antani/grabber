@@ -371,7 +371,9 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query}" )
                           else
-                                weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query}" )
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			        weight = weight_name + weight_author
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 0) then
@@ -455,7 +457,9 @@ class Generalsearch_improved
                                   elsif (name_text[i] !=nil && author_text[i] == nil) then
                                         weight,cost = find_weight(name_text[i], "#{query}" )
                                   else
-                                        weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query}" )
+		                        weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+		                        author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+					weight = weight_name + weight_author
                                   end      
                               else 
                                   if(name_text[i] != nil) then
@@ -514,7 +518,9 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
-                                weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			        weight = weight_name + weight_author
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 0) then
@@ -560,7 +566,10 @@ class Generalsearch_improved
                 elsif (name_text[i] !=nil && author_text[i] == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                      weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                        weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                        author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+		        weight = weight_name + weight_author
+
                 end      
                 final_price = price_text[i].to_s.tr('A-Za-z.,','')
                 if (weight > 0) then
@@ -652,7 +661,10 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
-                                weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			        weight = weight_name + weight_author
+
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 0) then
@@ -702,7 +714,10 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
-                                weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			        weight = weight_name + weight_author
+
                           end      
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
@@ -750,7 +765,10 @@ class Generalsearch_improved
                       elsif (name_text[i] !=nil && author_text[i] == nil) then
                             weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                       else
-                            weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			        weight = weight_name + weight_author
+
                       end      
                       final_price = price_text[i].to_s.tr('A-Za-z.,','')
                       if (weight > 0) then
@@ -796,7 +814,10 @@ class Generalsearch_improved
 		        elsif (name_text[i] !=nil && author_text[i] == nil) then
 		              weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
 		        else
-		              weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			        weight = weight_name + weight_author
+
 		        end      
 		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
 		        if (weight > 0) then
@@ -842,7 +863,10 @@ class Generalsearch_improved
                       elsif (name_text[i] !=nil && author_text[i] == nil) then
                             weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                       else
-                            weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			        weight = weight_name + weight_author
+
                       end      
                       final_price = price_text[i].to_s.tr('A-Za-z.,','')
                       if (weight > 0) then
@@ -890,7 +914,10 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
-                                weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			        weight = weight_name + weight_author
+
                           end      
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
@@ -939,7 +966,10 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
-                                weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			        weight = weight_name + weight_author
+
                           end      
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
@@ -988,7 +1018,10 @@ class Generalsearch_improved
 		              elsif (name_text[i] !=nil && author_text[i] == nil) then
 		                    weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
 		              else
-		                    weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+		                        weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+		                        author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+					weight = weight_name + weight_author
+
 		              end      
 		              final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
 		                                               
@@ -1036,7 +1069,10 @@ class Generalsearch_improved
 		        elsif (name_text[i] !=nil && author_text[i] == nil) then
 		              weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
 		        else
-		              weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			        weight = weight_name + weight_author
+
 		        end      
 		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
 		                                         
