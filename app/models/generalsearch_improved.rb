@@ -279,12 +279,30 @@ class Generalsearch_improved
          		           page="failed"
                               end    
                            end
+                           #url= get_coinjoos_url(term, type)
+                           #req_coinjoos = Typhoeus::Request.new(url,:timeout=> 20000)      
+                           #req_coinjoos.on_complete do |response|
+                #          #@@logger.info('Crossword response')
+                #          #@@logger.info(response.code)    # http status code
+                #          #@@logger.info(response.time)    # time in seconds the request took 
+
+                           #   if response.success?
+                           
+			   #       doc= response.body
+                           #       page = Nokogiri::HTML::parse(doc)
+                           #       page
+	                   
+                           #     else
+         		   #        page="failed"
+                           #   end    
+                           #end
   
                            hydra.queue req_rediff                            
                            #hydra.queue req_nbcindia                            
                            hydra.queue req_pustak                            
                            hydra.queue req_bookadda                            
                            hydra.queue req_crossword                            
+			   #hydra.queue req_coinjoos
                      else
                            # no books but everything else
                            url= get_letsbuy_url(term, type)
@@ -343,6 +361,7 @@ class Generalsearch_improved
                          prices.push(parse_pustak(req_pustak.handled_response,term, type)) unless req_pustak.handled_response =="failed"
                          prices.push(parse_bookadda(req_bookadda.handled_response,term, type)) unless req_bookadda.handled_response =="failed"
                          prices.push(parse_crossword(req_crossword.handled_response,term, type)) unless req_crossword.handled_response =="failed"
+                         #prices.push(parse_coinjoos(req_coinjoos.handled_response,term, type)) unless req_coinjoos.handled_response =="failed"
                      else
                          prices.push(parse_letsbuy(req_letsbuy.handled_response,term, type)) unless req_letsbuy.handled_response =="failed"
                          prices.push(parse_adexmart(req_adexmart.handled_response,term, type)) unless req_adexmart.handled_response =="failed"
@@ -441,6 +460,19 @@ class Generalsearch_improved
                               page.search("div#resultsPane ul.srch_result li a img").each do |img|
                                  img_text << img.attributes['src'].content
                               end
+                        elsif what == 'movies' then
+                              price_text = page.search("div#search_result ul.search_result li div.price b").map { |e| "#{e.content.tr('A-Za-z.,','')}" }
+                              name_text = page.search("div#search_result ul.search_result li h2 a").map{ |e| "#{e.content} " }
+                              author_text = page.search("ul.search_result li a[@href^='/Books/search']").map {|e| "#{e.content}" }
+                              url_text = []
+                              page.search("div#search_result ul.search_result li h2 a").each do |link|
+                                 url_text << link.attributes['href'].content
+                              end 	
+                              img_text = []
+                              page.search("div#search_result ul.search_result li div.img a img").each do |img|
+                                 img_text << img.attributes['src'].content
+                              end
+
                         else
                               price_text = page.search("ul.srch_result li div.price span.normal").map { |e| "#{e.content.tr('A-Za-z.,','')}" }
                             #  #@@logger.info(price_text)
@@ -1115,6 +1147,58 @@ class Generalsearch_improved
               end
               prices
           end
+     def dont_parse_coinjoos(page,query,type)
+              @@logger.info('Parsing coinjoos')
+              begin 
+                  price_text = page.search("ul#search-result-items li span.variant-final-price").map { |e| "#{e.content}" }
+                  @@logger.info (price_text)
+                  name_text = page.search("div.content div.contBg div.contSep div.midContent div.listItem div.searchRes div.resItem h2").map{ |e| "#{e.content} " }
+                  @@logger.info (name_text)
+                  author_text = page.search("ul#search-result-items li span.ctbr-name").map {|e| "#{e.content}" }
+                  @@logger.info (author_text )
+                  url_text = []
+                  page.search("ul#search-result-items li span.variant-title a").each do |link|
+                      url_text << link.attributes['href'].content
+                  end 	
+                  @@logger.info (url_text )
+                  img_text = []
+                  page.search("div.variant-image img").each do |img|
+                      img_text << img.attributes['src'].content
+                  end
+                  @@logger.info (img_text )
+                  prices=[]
+                  discount_text = ""
+                  shipping_text = ""
+
+
+                  (0...price_text.length).each do |i|
+                      ##@@logger.info (price_text[i])
+                      ##@@logger.info (author_text[i])
+                      ##@@logger.info (name_text[i])
+                      if (name_text[i] == nil && author_text[i] != nil) then
+                            weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                      elsif (name_text[i] !=nil && author_text[i] == nil) then
+                            weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                      else
+                                weight_author=0
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
+
+                      end      
+                      final_price = price_text[i].to_s.tr('A-Za-z.,','')
+                      if (weight > 0) then
+                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://crossword.in/"+url_text[i], :source=>'Coinjoos', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        prices.push(price_info)
+                      end
+                  end
+                  rescue => ex
+                        ##@@logger.info ("#{ex.class} : #{ex.message}")
+                        ##@@logger.info (ex.backtrace)
+                  end
+                  prices
+          end
+
 #---------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------Helpers to find correct URL to parse------------------------------------
           def get_flipkart_url(query, type)
@@ -1142,7 +1226,7 @@ class Generalsearch_improved
                   #@@logger.info(what)
  
                   if what == 'movies' then
-                      url = "http://www.infibeam.com/Movies/search?q=#{query[:search_term]}"
+                      url = "http://www.infibeam.com/Media/search?q=#{query[:search_term]}"
                   elsif what == 'mobiles' then
                       url = "http://www.infibeam.com/Mobiles/search?q=#{query[:search_term]}"
                   elsif what == 'books' then
@@ -1249,6 +1333,10 @@ class Generalsearch_improved
            end
            def get_adexmart_url(query,type)
       	      url="http://adexmart.com/search.php?orderby=position&orderway=desc&search_query=#{query[:search_term]}&submit_search=Search"
+              url
+           end
+           def get_coinjoos_url(query,type)
+              url="http://www.coinjoos.com/search/keywords/#{query[:search_term]}"
               url
            end
 #-------------------------------------------------------------------------------------------------------------------------------
