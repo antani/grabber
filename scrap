@@ -1113,3 +1113,8 @@ function changeSlide( newSlide ) {
                                 </ul>
 
                             </dd> -->
+
+
+
+
+@top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 30 )

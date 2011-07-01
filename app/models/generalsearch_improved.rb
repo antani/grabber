@@ -102,7 +102,7 @@ class Generalsearch_improved
                      #Books and everything else
                      url= get_flipkart_url(term, type)
                      
-                     req_flip= Typhoeus::Request.new(url,:timeout=> 20000)      
+                     req_flip= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_flip.on_complete do |response|
                           @@logger.info('Flipkart response')
                           @@logger.info(response.code)    # http status code
@@ -116,7 +116,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_infibeam_url(term, type)
-                     req_infibeam= Typhoeus::Request.new(url,:timeout=> 20000)      
+                     req_infibeam= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_infibeam.on_complete do |response|
                       @@logger.info('Infibeam response')
                       @@logger.info(response.code)    # http status code
@@ -131,7 +131,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_tradeus_url(term, type)
-                     req_tradeus= Typhoeus::Request.new(url,:timeout=> 20000)      
+                     req_tradeus= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_tradeus.on_complete do |response|
          #@@logger.info('tradeus response')
          #@@logger.info(response.code)    # http status code
@@ -146,7 +146,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_homeshop_url(term, type)
-                     req_homeshop= Typhoeus::Request.new(url,:timeout=> 20000)      
+                     req_homeshop= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_homeshop.on_complete do |response|
                           #@@logger.info('Homeshop response')
                           #@@logger.info(response.code)    # http status code
@@ -161,7 +161,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_futurebazaar_url(term, type)
-                     req_futurebazaar= Typhoeus::Request.new(url,:timeout=> 20000)      
+                     req_futurebazaar= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_futurebazaar.on_complete do |response|
                           #@@logger.info('Futurebazaar response')
                           #@@logger.info(response.code)    # http status code
@@ -221,7 +221,7 @@ class Generalsearch_improved
                            #Brings lot of crap - mute for now
 			   #
 		           #        url= get_nbcindia_url(term, type)
-		           #        req_nbcindia= Typhoeus::Request.new(url,:timeout=> 20000)      
+		           #        req_nbcindia= Typhoeus::Request.new(url,:timeout=> 8000)      
 		           #        req_nbcindia.on_complete do |response|
 		           #           if response.success?
 		           #               doc= response.body
@@ -234,7 +234,7 @@ class Generalsearch_improved
                            
 
                            url= get_pustak_url(term, type)
-                           req_pustak= Typhoeus::Request.new(url,:timeout=> 20000)      
+                           req_pustak= Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_pustak.on_complete do |response|
               #            #@@logger.info('Pustak response')
               #            #@@logger.info(response.code)    # http status code
@@ -250,7 +250,7 @@ class Generalsearch_improved
                            end
 
                            url= get_bookadda_url(term, type)
-                           req_bookadda= Typhoeus::Request.new(url,:timeout=> 20000)      
+                           req_bookadda= Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_bookadda.on_complete do |response|
                #           #@@logger.info('Bookadda response')
                #           #@@logger.info(response.code)    # http status code
@@ -265,7 +265,7 @@ class Generalsearch_improved
                               end    
                            end
                            url= get_crossword_url(term, type)
-                           req_crossword = Typhoeus::Request.new(url,:timeout=> 20000)      
+                           req_crossword = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_crossword.on_complete do |response|
                 #          #@@logger.info('Crossword response')
                 #          #@@logger.info(response.code)    # http status code
@@ -280,7 +280,7 @@ class Generalsearch_improved
                               end    
                            end
                            #url= get_coinjoos_url(term, type)
-                           #req_coinjoos = Typhoeus::Request.new(url,:timeout=> 20000)      
+                           #req_coinjoos = Typhoeus::Request.new(url,:timeout=> 8000)      
                            #req_coinjoos.on_complete do |response|
                 #          #@@logger.info('Crossword response')
                 #          #@@logger.info(response.code)    # http status code
@@ -306,7 +306,7 @@ class Generalsearch_improved
                      else
                            # no books but everything else
                            url= get_letsbuy_url(term, type)
-                           req_letsbuy = Typhoeus::Request.new(url,:timeout=> 20000)      
+                           req_letsbuy = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_letsbuy.on_complete do |response|
                           #@@logger.info('Letsbuy response')
                           #@@logger.info(response.code)    # http status code
@@ -323,7 +323,7 @@ class Generalsearch_improved
                            hydra.queue req_letsbuy
 
                            url= get_adexmart_url(term, type)
-                           req_adexmart = Typhoeus::Request.new(url,:timeout=> 20000)      
+                           req_adexmart = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_adexmart.on_complete do |response|
                           #@@logger.info('Adexmart response')
                           #@@logger.info(response.code)    # http status code
@@ -1360,9 +1360,9 @@ class Generalsearch_improved
 
         #Finds the relevance of the search result
         def find_weight(source_string, search_string)
-                @@logger.info("...................................")
-                @@logger.info(source_string)
-                @@logger.info("...................................")
+                #@@logger.info("...................................")
+                #@@logger.info(source_string)
+                #@@logger.info("...................................")
 
                 #@@logger.info(search_string)
                 weight=0
