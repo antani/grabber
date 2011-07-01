@@ -5,7 +5,9 @@ require 'amatch'
 require 'nokogiri'
 require 'vss'
 
+
 include Amatch
+
 
 class Generalsearch_improved
 
@@ -55,8 +57,8 @@ class Generalsearch_improved
                 price_array = prices_array.flatten
      #           #@@logger.info(price_array)
      #           #@@logger.info("-------------------------------------------")
-                #prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
-		prices_array = price_array.sort_by { |p| p[:weight] }
+                prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
+        		#prices_array = price_array.sort_by { |p| p[:weight] }
                 ###@@logger.info(prices_array)
                 top_weight = prices_array[0][:weight]
                 ###@@logger.info("Top price---------------------------")
@@ -67,17 +69,17 @@ class Generalsearch_improved
 
                 prices_array.each do |tt|
                   current_top_weight = tt[:weight] unless tt[:weight] == -999 
-                  if (current_top_weight > top_weight) then
-			top_weight = current_top_weight
-			top_prices = top_prices.sort_by { |p| p[:price].to_i }
-		           top_prices.each do |tp|
-				rest_prices.push(tp)
+                  if (current_top_weight < top_weight) then
+        			top_weight = current_top_weight
+		        	top_prices = top_prices.sort_by { |p| p[:price].to_i }
+		                top_prices.each do |tp|
+				            rest_prices.push(tp)
                         end  
-			top_prices=[] 
+            			top_prices=[] 
                   end  
 
                   if(tt[:weight] == top_weight) then		           
-		           top_prices.push(tt) unless tt[:weight] == -999 
+		               top_prices.push(tt) unless tt[:weight] == -999 
                   end
                 end
                 #top_prices = top_prices.sort_by { |p| p[:price].to_i }
@@ -100,11 +102,11 @@ class Generalsearch_improved
                      #Books and everything else
                      url= get_flipkart_url(term, type)
                      
-                     req_flip= Typhoeus::Request.new(url,:timeout=> 10000)      
+                     req_flip= Typhoeus::Request.new(url,:timeout=> 20000)      
                      req_flip.on_complete do |response|
-                          #@@logger.info('Flipkart response')
-                          #@@logger.info(response.code)    # http status code
-                          #@@logger.info(response.time)    # time in seconds the request took 
+                          @@logger.info('Flipkart response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
@@ -114,11 +116,11 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_infibeam_url(term, type)
-                     req_infibeam= Typhoeus::Request.new(url,:timeout=> 10000)      
+                     req_infibeam= Typhoeus::Request.new(url,:timeout=> 20000)      
                      req_infibeam.on_complete do |response|
-        #@@logger.info('Infibeam response')
-        #@@logger.info(response.code)    # http status code
-        #@@logger.info(response.time)    # time in seconds the request took 
+                      @@logger.info('Infibeam response')
+                      @@logger.info(response.code)    # http status code
+                      @@logger.info(response.time)    # time in seconds the request took 
 
                           if response.success?
                             doc= response.body
@@ -129,7 +131,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_tradeus_url(term, type)
-                     req_tradeus= Typhoeus::Request.new(url,:timeout=> 10000)      
+                     req_tradeus= Typhoeus::Request.new(url,:timeout=> 20000)      
                      req_tradeus.on_complete do |response|
          #@@logger.info('tradeus response')
          #@@logger.info(response.code)    # http status code
@@ -144,7 +146,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_homeshop_url(term, type)
-                     req_homeshop= Typhoeus::Request.new(url,:timeout=> 10000)      
+                     req_homeshop= Typhoeus::Request.new(url,:timeout=> 20000)      
                      req_homeshop.on_complete do |response|
                           #@@logger.info('Homeshop response')
                           #@@logger.info(response.code)    # http status code
@@ -159,7 +161,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_futurebazaar_url(term, type)
-                     req_futurebazaar= Typhoeus::Request.new(url,:timeout=> 10000)      
+                     req_futurebazaar= Typhoeus::Request.new(url,:timeout=> 20000)      
                      req_futurebazaar.on_complete do |response|
                           #@@logger.info('Futurebazaar response')
                           #@@logger.info(response.code)    # http status code
@@ -179,7 +181,7 @@ class Generalsearch_improved
                      hydra.queue req_tradeus
                      hydra.queue req_homeshop
                      hydra.queue req_futurebazaar
-                     if mtype !='movies' then
+                     if (mtype !='movies' and mtype !='books') then
                            url= get_ebay_url(term, type)
                            req_ebay= Typhoeus::Request.new(url,:timeout=> 12000)      
                         
@@ -219,7 +221,7 @@ class Generalsearch_improved
                            #Brings lot of crap - mute for now
 			   #
 		           #        url= get_nbcindia_url(term, type)
-		           #        req_nbcindia= Typhoeus::Request.new(url,:timeout=> 10000)      
+		           #        req_nbcindia= Typhoeus::Request.new(url,:timeout=> 20000)      
 		           #        req_nbcindia.on_complete do |response|
 		           #           if response.success?
 		           #               doc= response.body
@@ -232,7 +234,7 @@ class Generalsearch_improved
                            
 
                            url= get_pustak_url(term, type)
-                           req_pustak= Typhoeus::Request.new(url,:timeout=> 10000)      
+                           req_pustak= Typhoeus::Request.new(url,:timeout=> 20000)      
                            req_pustak.on_complete do |response|
               #            #@@logger.info('Pustak response')
               #            #@@logger.info(response.code)    # http status code
@@ -248,7 +250,7 @@ class Generalsearch_improved
                            end
 
                            url= get_bookadda_url(term, type)
-                           req_bookadda= Typhoeus::Request.new(url,:timeout=> 10000)      
+                           req_bookadda= Typhoeus::Request.new(url,:timeout=> 20000)      
                            req_bookadda.on_complete do |response|
                #           #@@logger.info('Bookadda response')
                #           #@@logger.info(response.code)    # http status code
@@ -263,7 +265,7 @@ class Generalsearch_improved
                               end    
                            end
                            url= get_crossword_url(term, type)
-                           req_crossword = Typhoeus::Request.new(url,:timeout=> 10000)      
+                           req_crossword = Typhoeus::Request.new(url,:timeout=> 20000)      
                            req_crossword.on_complete do |response|
                 #          #@@logger.info('Crossword response')
                 #          #@@logger.info(response.code)    # http status code
@@ -286,7 +288,7 @@ class Generalsearch_improved
                      else
                            # no books but everything else
                            url= get_letsbuy_url(term, type)
-                           req_letsbuy = Typhoeus::Request.new(url,:timeout=> 10000)      
+                           req_letsbuy = Typhoeus::Request.new(url,:timeout=> 20000)      
                            req_letsbuy.on_complete do |response|
                           #@@logger.info('Letsbuy response')
                           #@@logger.info(response.code)    # http status code
@@ -303,7 +305,7 @@ class Generalsearch_improved
                            hydra.queue req_letsbuy
 
                            url= get_adexmart_url(term, type)
-                           req_adexmart = Typhoeus::Request.new(url,:timeout=> 10000)      
+                           req_adexmart = Typhoeus::Request.new(url,:timeout=> 20000)      
                            req_adexmart.on_complete do |response|
                           #@@logger.info('Adexmart response')
                           #@@logger.info(response.code)    # http status code
@@ -346,18 +348,18 @@ class Generalsearch_improved
                          prices.push(parse_adexmart(req_adexmart.handled_response,term, type)) unless req_adexmart.handled_response =="failed"
 
                      end
-                     if mtype !='movies' then
+                     if (mtype !='movies' and mtype != 'books') then
                          prices.push(parse_ebay(req_ebay.handled_response,term, type)) unless req_ebay.handled_response =="failed"
                      end
                      
-                     #@@logger.info ("Time for executing requests...")
-                     #@@logger.info (Time.now - start_time)
+                     @@logger.info ("Time for executing requests...")
+                     @@logger.info (Time.now - start_time)
                      prices
           end           
 #----------------------------------------------------Handlers to parse the response from site-------------------------------
         def parse_flipkart(page, query, type)
                  begin
-                      #@@logger.info("Parsing Flipkart")
+                      @@logger.info("Parsing Flipkart")
 
                       price_text = page.search("div#search_results div.fk-srch-item div.dlvry-det .price").map { |e| "#{e.content}" }
                       
@@ -384,9 +386,10 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query}" )
                           else
+                                weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			        weight = weight_name + weight_author
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 0) then
@@ -395,8 +398,8 @@ class Generalsearch_improved
                           end
                         end
                     rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        #@@logger.info ("#{ex.class} : #{ex.message}")
+                        #@@logger.info (ex.backtrace)
                     end
                     prices
           end
@@ -470,9 +473,10 @@ class Generalsearch_improved
                                   elsif (name_text[i] !=nil && author_text[i] == nil) then
                                         weight,cost = find_weight(name_text[i], "#{query}" )
                                   else
-		                        weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-		                        author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-					weight = weight_name + weight_author
+        		                        weight_author=0
+                                        weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+		                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+				                    	weight = weight_name + weight_author
                                   end      
                               else 
                                   if(name_text[i] != nil) then
@@ -531,9 +535,10 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
+                                weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			        weight = weight_name + weight_author
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+            			        weight = weight_name + weight_author
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 0) then
@@ -570,7 +575,7 @@ class Generalsearch_improved
             prices = []
 
             (0...price_text.length).each do |i|
-		author_text[i] = author_text[i].gsub('Author:', '')
+        		author_text[i] = author_text[i].gsub('Author:', '')
                 ##@@logger.info (price_text[i])
                 ##@@logger.info (author_text[i])
                 ##@@logger.info (name_text[i])
@@ -579,9 +584,10 @@ class Generalsearch_improved
                 elsif (name_text[i] !=nil && author_text[i] == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
+                        weight_author=0
                         weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                        author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-		        weight = weight_name + weight_author
+                        #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+        		        weight = weight_name + weight_author
 
                 end      
                 final_price = price_text[i].to_s.tr('A-Za-z.,','')
@@ -674,9 +680,10 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
+                                weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			        weight = weight_name + weight_author
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
 
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
@@ -727,9 +734,10 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
+                                weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			        weight = weight_name + weight_author
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
 
                           end      
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
@@ -778,9 +786,10 @@ class Generalsearch_improved
                       elsif (name_text[i] !=nil && author_text[i] == nil) then
                             weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                       else
+                                weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			        weight = weight_name + weight_author
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
 
                       end      
                       final_price = price_text[i].to_s.tr('A-Za-z.,','')
@@ -827,9 +836,10 @@ class Generalsearch_improved
 		        elsif (name_text[i] !=nil && author_text[i] == nil) then
 		              weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
 		        else
+                                weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			        weight = weight_name + weight_author
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
 
 		        end      
 		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
@@ -876,9 +886,10 @@ class Generalsearch_improved
                       elsif (name_text[i] !=nil && author_text[i] == nil) then
                             weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                       else
+                                weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			        weight = weight_name + weight_author
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
 
                       end      
                       final_price = price_text[i].to_s.tr('A-Za-z.,','')
@@ -927,9 +938,10 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
+                                weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			        weight = weight_name + weight_author
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
 
                           end      
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
@@ -979,9 +991,10 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
+                                weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			        weight = weight_name + weight_author
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
 
                           end      
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
@@ -1031,9 +1044,10 @@ class Generalsearch_improved
 		              elsif (name_text[i] !=nil && author_text[i] == nil) then
 		                    weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
 		              else
-		                        weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-		                        author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-					weight = weight_name + weight_author
+		                        weight_author=0
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+		                        #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+					            weight = weight_name + weight_author
 
 		              end      
 		              final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
@@ -1082,9 +1096,10 @@ class Generalsearch_improved
 		        elsif (name_text[i] !=nil && author_text[i] == nil) then
 		              weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
 		        else
+                                weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                author_name,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			        weight = weight_name + weight_author
+                                #weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
 
 		        end      
 		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
@@ -1257,8 +1272,10 @@ class Generalsearch_improved
 
         #Finds the relevance of the search result
         def find_weight(source_string, search_string)
-                #@@logger.info("Trying to find weight...................................")
-                #@@logger.info(source_string)
+                @@logger.info("...................................")
+                @@logger.info(source_string)
+                @@logger.info("...................................")
+
                 #@@logger.info(search_string)
                 weight=0
                 search_string = de_canonicalize_isbn(search_string)
@@ -1280,10 +1297,11 @@ class Generalsearch_improved
                text.to_s.gsub('+', ' ')
               end
         end
-   	    def proper_case(str)
+
+	    def proper_case(str)
 		    #st = str.to_s
 		    #return st.split(/\s+/).each{ |word| word.capitalize! }.join(' ')  
-		    return str
+		    return str.titleize unless str.nil?
 	    end
 
   end #-------------------self -end

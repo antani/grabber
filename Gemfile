@@ -20,7 +20,6 @@ gem 'amatch'
 gem 'typhoeus'
 #gem 'soundex_find', :git => 'git://github.com/waltjones/soundex_find.git'
 gem 'vss'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
