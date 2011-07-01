@@ -430,7 +430,7 @@ class Generalsearch_improved
                                  img_text << img.attributes['src'].content
                               end
                         elsif what == 'mobiles' then
-                              price_text = page.search("div#resultsPane ul.srch_result li div.price span.price").map { |e| "#{e.content.tr('A-Za-z.,','')}" }
+                              price_text = page.search("div#resultsPane ul.srch_result li div.price span.normal").map { |e| "#{e.content.tr('A-Za-z.,','')}" }
                               name_text = page.search("div#resultsPane ul.srch_result li a span.title").map{ |e| "#{e.content} " }
                               author_text = page.search("ul.search_result li a[@href^='/Books/search']").map {|e| "#{e.content}" }
                               url_text = []
