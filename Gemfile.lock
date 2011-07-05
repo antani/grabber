@@ -46,14 +46,7 @@ GEM
     columnize (0.3.3)
     configatron (2.8.2)
       yamler (>= 0.1.0)
-    daemons (1.1.4)
     dalli (1.0.5)
-    delayed_job (2.1.4)
-      activesupport (~> 3.0)
-      daemons
-    delayed_job_mongoid (1.0.2)
-      delayed_job (~> 2.1.1)
-      mongoid (~> 2.0.0.rc)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     gemedit (1.0.0)
@@ -155,11 +148,9 @@ DEPENDENCIES
   bson_ext
   configatron
   dalli
-  delayed_job
-  delayed_job_mongoid
   gemedit
   hirb
-  jammit (= 0.6)
+  jammit
   jquery-rails
   mechanize
   mongo_mapper

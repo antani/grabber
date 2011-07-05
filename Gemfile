@@ -7,21 +7,17 @@ gem 'rake', '~> 0.8.7'
 gem 'mongoid'
 gem 'bson_ext'
 gem 'mongo_mapper'
-gem 'delayed_job'
-gem 'delayed_job_mongoid'
-#gem "active_support"
+#gem 'delayed_job'
+#gem 'delayed_job_mongoid'
 gem 'dalli'
-#gem 'hpricot'
 gem 'configatron', :require => 'configatron' # https://github.com/markbates/configatron/
-gem 'jammit', '0.6'
+#gem 'jammit', '0.6'
+gem 'jammit'
 gem 'mechanize', :require => 'mechanize'
 gem 'amazon-ecs', :require => 'amazon/ecs'
 gem 'amatch'
 gem 'typhoeus'
-#gem 'soundex_find', :git => 'git://github.com/waltjones/soundex_find.git'
 gem 'vss'
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
 # Use unicorn as the web server
