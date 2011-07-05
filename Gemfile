@@ -44,9 +44,9 @@ group :development, :test do
   gem 'hirb'
   gem 'awesome_print'
   gem 'gemedit'
- if RUBY_VERSION =~ /1.9/
-    gem 'ruby-debug19'
- else
-    gem 'ruby-debug'
- end
+ #if RUBY_VERSION =~ /1.9/
+    #gem 'ruby-debug19'
+ #else
+ #   gem 'ruby-debug'
+ #end
 end

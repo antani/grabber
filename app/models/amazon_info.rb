@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-raise "AWS_ACCESS_KEY not specified" if ENV['AWS_ACCESS_KEY'].nil?
-raise "AWS_SECRET_KEY not specified" if ENV['AWS_SECRET_KEY'].nil?
+#raise "AWS_ACCESS_KEY not specified" if ENV['AWS_ACCESS_KEY'].nil?
+#raise "AWS_SECRET_KEY not specified" if ENV['AWS_SECRET_KEY'].nil?
 
 Amazon::Ecs.options = {
   :aWS_access_key_id => ENV['AWS_ACCESS_KEY'],
