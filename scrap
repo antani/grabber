@@ -1118,3 +1118,18 @@ function changeSlide( newSlide ) {
 
 
 @top_s = Topsearch.all(sort: [[ :cnt, :desc ]] , limit: 30 )
+
+
+
+
+# set these environment variables on your prod server
+#production:
+  #uri: <%= ENV['MONGOHQ_URL'] %>
+  #host: <%= ENV['MONGOID_HOST'] %>
+  #port: <%= ENV['MONGOID_PORT'] %>
+  #username: <%= ENV['MONGOID_USERNAME'] %>
+  #password: <%= ENV['MONGOID_PASSWORD'] %>
+  #database: <%= ENV['MONGOID_DATABASE'] %>
+  #<<: *defaults
+ # 	host: localhost
+ # 	database: grbr_production
