@@ -18,7 +18,8 @@ gem 'amazon-ecs', :require => 'amazon/ecs'
 gem 'amatch'
 gem 'typhoeus'
 gem 'vss'
-
+gem "SystemTimer", :require => "system_timer", :platforms => :ruby_18
+gem "rack-timeout"
 
 # Use unicorn as the web server
 # gem 'unicorn'
