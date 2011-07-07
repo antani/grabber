@@ -1677,8 +1677,8 @@ class Generalsearch_improved
           #@@logger.info(source_string.class)
 
           begin
-                    #m = LongestSubsequence.new(source_string)
-                    #weight = m.match(search_string)
+                    m = LongestSubsequence.new(source_string)
+                    weight = m.match(search_string)
                     #@@logger.info("Weight 1 : #{weight}")
                     # Get unique strings from the search string
                     normalized_search_string="" 
