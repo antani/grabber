@@ -24,17 +24,7 @@ class Generalsearch_improved
     #@@logger.info("Performing job for #{self.search_term}")
     prices = self.class.prices(self.search_term,self.search_type)
     Rails.cache.write(self.cache_key, prices)
-   
-
-
-#    @topsearches  = @db.collection('topsearches')
-#    @record = {  :query => self.cache_key,
-# 	         :type => self.search_type,
-#                 :count => 1#
-#	         }
-#    @topsearches.save(@record)
-
-     prices
+    prices
   end
 
   def cache_key
@@ -42,15 +32,12 @@ class Generalsearch_improved
   end
 
   def number_of_stores
-    return 13
+    return 20
   end
 
   class << self
           def prices(term,type)
 
-    #           #@@logger.info ("Singletons..............") 
-    #           #@@logger.info (Generalsearch_improved.singleton_methods)   
-                #prices_array = self.searches.map { |name,search| [search.call(query,type)] }#.sort_by { |p| p[1][:price] }
                 top_prices=[]
                 rest_prices=[]
                 final_prices=[]
@@ -59,8 +46,8 @@ class Generalsearch_improved
                           #@@logger.info("Time to process prices : ")
                           start_time = Time.now
                           price_array = prices_array.flatten
-                          @@logger.info(price_array)
-                          @@logger.info("-------------------------------------------")
+                          #@@logger.info(price_array)
+                          #@@logger.info("-------------------------------------------")
                           prices_array = price_array.sort_by { |p| p[:weight] }.reverse!
                           #prices_array = price_array.sort_by { |p| p[:weight] }
                           ###@@logger.info(prices_array)
@@ -109,9 +96,9 @@ class Generalsearch_improved
                      
                      req_flip= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_flip.on_complete do |response|
-                          @@logger.info('Flipkart response')
-                          @@logger.info(response.code)    # http status code
-                          @@logger.info(response.time)    # time in seconds the request took 
+                          #@@logger.info('Flipkart response')
+                          #@@logger.info(response.code)    # http status code
+                          #@@logger.info(response.time)    # time in seconds the request took 
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
@@ -123,9 +110,9 @@ class Generalsearch_improved
                      url= get_infibeam_url(term, type)
                      req_infibeam= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_infibeam.on_complete do |response|
-                      @@logger.info('Infibeam response')
-                      @@logger.info(response.code)    # http status code
-                      @@logger.info(response.time)    # time in seconds the request took 
+                      #@@logger.info('Infibeam response')
+                      #@@logger.info(response.code)    # http status code
+                      #@@logger.info(response.time)    # time in seconds the request took 
 
                           if response.success?
                             doc= response.body
@@ -184,9 +171,9 @@ class Generalsearch_improved
                      req_ebay= Typhoeus::Request.new(url,:timeout=> 12000)      
                         
                      req_ebay.on_complete do |response|
-                     @@logger.info('Ebay response')
-                     @@logger.info(response.code)    # http status code
-                     @@logger.info(response.time)    # time in seconds the request took 
+                     #@@logger.info('Ebay response')
+                     #@@logger.info(response.code)    # http status code
+                     #@@logger.info(response.time)    # time in seconds the request took 
 
                                if response.success?
                                       doc= response.body
@@ -378,6 +365,29 @@ class Generalsearch_improved
                            hydra.queue req_crossword                            
                            
                      end
+                     #Only Mobiles
+		     if mtype == 'mobiles' then
+
+			   url= get_sangeeta_url(term, type)
+                           req_sangeeta = Typhoeus::Request.new(url,:timeout=> 8000)      
+                           req_sangeeta.on_complete do |response|
+                         # @@logger.info('Sangeeta response')
+                         # @@logger.info(response.code)    # http status code
+                         # @@logger.info(response.time)    # time in seconds the request took 
+
+                              if response.success?
+                                  doc= response.body
+                                  page = Nokogiri::HTML::parse(doc)
+                                  page
+	                        else
+         		          page="failed"
+                              end    
+                           end
+                           hydra.queue req_sangeeta      
+		     end
+
+
+
                 #    hydra.queue req_indiaplaza
 
                      start_time= Time.now
@@ -397,7 +407,9 @@ class Generalsearch_improved
                                prices.push(parse_indiatimes(req_indiatimes.handled_response,term, type)) unless req_indiatimes.handled_response =="failed"
                                prices.push(parse_moserbaer(req_moserbaer.handled_response,term, type)) unless req_moserbaer.handled_response =="failed"
                      end
-
+		     if mtype == 'mobiles' then
+                               prices.push(parse_sangeeta(req_sangeeta.handled_response,term, type)) unless req_sangeeta.handled_response =="failed"
+                     end
                      if mtype == 'books' then
                          prices.push(parse_rediff(req_rediff.handled_response,term, type)) unless req_rediff.handled_response =="failed"
                          #prices.push(parse_nbcindia(req_nbcindia.handled_response,term, type)) unless req_nbcindia.handled_response =="failed"
@@ -774,25 +786,25 @@ class Generalsearch_improved
 
           def parse_ebay(page, query,type)
             begin
-            @@logger.info("Parsing ebay")
+            	      #@@logger.info("Parsing ebay")
 
                       price_text = page.search("div#ResultSet table.li tr td.prc").map { |e| "#{e.content}" }
-                      @@logger.info (price_text)
+                      #@@logger.info (price_text)
                       name_text = page.search("div#ResultSet table.li td:nth-child(2) div.ttl a").map{ |e| "#{e.content} " }
-                      @@logger.info (name_text)
+                      #@@logger.info (name_text)
                       author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
-                      @@logger.info (author_text )
+                      #@@logger.info (author_text )
                       url_text = []
                           page.search("div#ResultSet table.li td:nth-child(2) div.ttl a").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
-                      @@logger.info (url_text )
+                      #@@logger.info (url_text )
                       img_text = []
                           page.search("img.img").each do |img|
                       img_text << img.attributes['src'].content
                       end
                  
-                      @@logger.info (img_text )
+                      #@@logger.info (img_text )
                       discount_text = page.search("div.tier1box2 ul li:nth-child(3) span").map { |e| "#{e.content}" }
                       ##@@logger.info (discount_text )
                       shipping_text = ""
@@ -1345,6 +1357,57 @@ class Generalsearch_improved
               prices
           end
 
+	def parse_sangeeta(page,query,type)
+              begin
+                      price_text = page.search("span.mtb-price label.mtb-ofr").map { |e| "#{e.content}" }
+                      ##@@logger.info (price_text)
+                      name_text = page.search("div.mtb-details h4.mtb-title").map{ |e| "#{e.content} " }
+                      ##@@logger.info (name_text)
+                      author_text = ""
+                      ##@@logger.info (author_text )
+                      url_text = []
+                      page.search("div.bucket_left div.mtb-imgdiv a").each do |link|
+                      url_text << link.attributes['href'].content
+                      end 	
+                      ##@@logger.info (url_text )
+                      img_text = []
+                      page.search("div.mtb-imgdiv a img.mtb-img").each do |img|
+                      img_text << img.attributes['src'].content
+                      end
+                     
+                      ##@@logger.info (img_text )
+                      discount_text = ""
+                      shipping_text = ""
+                      prices=[]
+
+                      (0...price_text.length).each do |i|
+
+                          ##@@logger.info (price_text[i])
+                          ##@@logger.info (author_text[i])
+                          ##@@logger.info (name_text[i])
+                          if (name_text[i] == nil && author_text[i] != nil) then
+                                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                          elsif (name_text[i] !=nil && author_text[i] == nil) then
+                                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                          else
+                                          weight_author=0
+                                          weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                          weight = weight_name + weight_author
+
+                          end      
+                          final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+                                                           
+                          if (weight > 0) then
+                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.sangeethamobiles.com"+url_text[i], :source=>'Sangeetha Mobile', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            prices.push(price_info)
+                          end
+                       end
+              rescue => ex
+                        ##@@logger.info ("#{ex.class} : #{ex.message}")
+                        ##@@logger.info (ex.backtrace)
+              end
+              prices
+          end
 
 
 
@@ -1552,6 +1615,10 @@ class Generalsearch_improved
               url="http://shopping.indiatimes.com/#{query[:search_term]}/search/ctl/20375476/"
               url
            end
+ 	   def get_sangeeta_url(query,type)
+              url="http://www.sangeethamobiles.com/SearchResults.aspx?Search=#{query[:search_term]}&SearchCategory="
+              url
+           end
 
 #-------------------------------------------------------------------------------------------------------------------------------
           #Using - http://madeofcode.com/posts/69-vss-a-vector-space-search-engine-in-ruby 
@@ -1574,8 +1641,8 @@ class Generalsearch_improved
 
         #Finds the relevance of the search result
         def find_weight(source_string, search_string)
-                @@logger.info("...................................")
-                @@logger.info(source_string)
+                #@@logger.info("...................................")
+                #@@logger.info(source_string)
             
                 #@@logger.info(search_string)
               weight,wt=0,0
@@ -1594,7 +1661,7 @@ class Generalsearch_improved
                     end
                     wt = get_custom_weight(source_string.downcase, search_string.downcase)
                     weight = weight + wt
-                    @@logger.info(weight)
+                    #@@logger.info(weight)
               rescue => ex
                     @@logger.info ("#{ex.class} : #{ex.message}")
                     @@logger.info (ex.backtrace)
@@ -1605,9 +1672,9 @@ class Generalsearch_improved
         def get_custom_weight(source_string, search_string)
           # find the maximum substring weightage first.
           weight,wt = 0,0
-          @@logger.info("get custom weight")
-          @@logger.info(source_string.class)
-          @@logger.info(source_string.class)
+          #@@logger.info("get custom weight")
+          #@@logger.info(source_string.class)
+          #@@logger.info(source_string.class)
 
           begin
                     m = LongestSubsequence.new(source_string)
