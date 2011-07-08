@@ -11,8 +11,9 @@ test:
   database: grbr_test
 
 production:
-  <<: *defaults
-  host: localhost
-  database: grbr_production
+  uri: <%= ENV['MONGOHQ_URL'] %>
+  #<<: *defaults
+  #host: localhost
+  #database: grbr_production
 
 

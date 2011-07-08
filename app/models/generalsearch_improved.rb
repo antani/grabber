@@ -1708,10 +1708,10 @@ class Generalsearch_improved
 
         #Finds the relevance of the search result
         def find_weight(source_string, search_string)
-              @@logger.info("...................................")
-              @@logger.info(source_string)
+             # @@logger.info("...................................")
+             # @@logger.info(source_string)
             
-              @@logger.info(search_string)
+             # @@logger.info(search_string)
               weight,wt=0,0
               begin
               
