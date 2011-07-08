@@ -452,6 +452,10 @@ class Generalsearch_improved
                           #@@logger.info(name_text[i])
                           #@@logger.info(price_text[i])
                           #@@logger.info(author_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                         
+                          
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -551,6 +555,10 @@ class Generalsearch_improved
                                   #@@logger.info(price_text[i])
                                   #@@logger.info(name_text[i])
                                   #@@logger.info(author_text[i]) 
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                         
+                                  
                               if what == 'books' then
                                  if (name_text[i] == nil && author_text[i] != nil) then
                                         weight,cost = find_weight(author_text[i], "#{query}" )
@@ -613,6 +621,9 @@ class Generalsearch_improved
                        #  #@@logger.info(name_text[i])
                        #  #@@logger.info(author_text[i])
                        #  #@@logger.info(url_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                        
 
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
@@ -663,15 +674,19 @@ class Generalsearch_improved
                 ##@@logger.info (price_text[i])
                 ##@@logger.info (author_text[i])
                 ##@@logger.info (name_text[i])
+              #Strip invalid UTF-8 Characters
+              name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+              author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                        
+
                 if (name_text[i] == nil && author_text[i] != nil) then
                       weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                 elsif (name_text[i] !=nil && author_text[i] == nil) then
                       weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                 else
-                        weight_author=0
-                        weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                        weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-        		        weight = weight_name + weight_author
+                      weight_author=0
+                      weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                      weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+        		          weight = weight_name + weight_author
 
                 end      
                 final_price = price_text[i].to_s.tr('A-Za-z.,','')
@@ -711,6 +726,10 @@ class Generalsearch_improved
                           #@@logger.info (price_text[i])
                           #@@logger.info (author_text[i])
                           #@@logger.info (name_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                         
+                          
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -759,6 +778,10 @@ class Generalsearch_improved
                           ##@@logger.info (price_text[i])
                           ##@@logger.info (author_text[i])
                           ##@@logger.info (name_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                        
+                          
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -815,6 +838,10 @@ class Generalsearch_improved
              #             #@@logger.info (price_text[i])
              #             #@@logger.info (author_text[i])
              #             #@@logger.info (name_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+             
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -867,6 +894,10 @@ class Generalsearch_improved
                       ##@@logger.info (price_text[i])
                       ##@@logger.info (author_text[i])
                       ##@@logger.info (name_text[i])
+                      #Strip invalid UTF-8 Characters
+                      name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                      author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+                      
                       if (name_text[i] == nil && author_text[i] != nil) then
                             weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                       elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -917,6 +948,10 @@ class Generalsearch_improved
 		        ##@@logger.info (price_text[i])
 		        ##@@logger.info (author_text[i])
 		        ##@@logger.info (name_text[i])
+                #Strip invalid UTF-8 Characters
+                name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+		        
 		        if (name_text[i] == nil && author_text[i] != nil) then
 		              weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
 		        elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -967,6 +1002,10 @@ class Generalsearch_improved
                       ##@@logger.info (price_text[i])
                       ##@@logger.info (author_text[i])
                       ##@@logger.info (name_text[i])
+                      #Strip invalid UTF-8 Characters
+                      name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                      author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+                      
                       if (name_text[i] == nil && author_text[i] != nil) then
                             weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                       elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1019,6 +1058,10 @@ class Generalsearch_improved
                           ##@@logger.info (price_text[i])
                           ##@@logger.info (author_text[i])
                           ##@@logger.info (name_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+                          
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1072,6 +1115,10 @@ class Generalsearch_improved
                           ##@@logger.info (price_text[i])
                           ##@@logger.info (author_text[i])
                           ##@@logger.info (name_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+                          
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1125,6 +1172,10 @@ class Generalsearch_improved
 		              ##@@logger.info (price_text[i])
 		              ##@@logger.info (author_text[i])
 		              ##@@logger.info (name_text[i])
+                      #Strip invalid UTF-8 Characters
+                      name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                      author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+		              
 		              if (name_text[i] == nil && author_text[i] != nil) then
 		                    weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
 		              elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1177,6 +1228,10 @@ class Generalsearch_improved
                           ##@@logger.info (price_text[i])
                           ##@@logger.info (author_text[i])
                           ##@@logger.info (name_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+                          
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1230,6 +1285,10 @@ class Generalsearch_improved
                           ##@@logger.info (price_text[i])
                           ##@@logger.info (author_text[i])
                           ##@@logger.info (name_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+                          
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1281,6 +1340,10 @@ class Generalsearch_improved
                           ##@@logger.info (price_text[i])
                           ##@@logger.info (author_text[i])
                           ##@@logger.info (name_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+                          
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1333,6 +1396,10 @@ class Generalsearch_improved
                           ##@@logger.info (price_text[i])
                           ##@@logger.info (author_text[i])
                           ##@@logger.info (name_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+                          
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1641,13 +1708,19 @@ class Generalsearch_improved
 
         #Finds the relevance of the search result
         def find_weight(source_string, search_string)
-                #@@logger.info("...................................")
-                #@@logger.info(source_string)
+              @@logger.info("...................................")
+              @@logger.info(source_string)
             
-                #@@logger.info(search_string)
+              @@logger.info(search_string)
               weight,wt=0,0
               begin
+              
+
+                    search_string = strip_invalid_utf8_chars(search_string + ' ')[0..-2]
+                    source_string = strip_invalid_utf8_chars(source_string + ' ')[0..-2]
+                    
                     search_string = de_canonicalize_isbn(search_string)
+                    
                     #m = LongestSubsequence.new(source_string.downcase)
                     #weight = m.match(search_string.downcase)
                     source_string = source_string.gsub("\n","").gsub("\t","").downcase
@@ -1721,6 +1794,18 @@ class Generalsearch_improved
 		    #return str.titleize unless str.nil?
 
 	    end
+	    def strip_invalid_utf8_chars(str)
+          unless str.valid_encoding?
+            buf = []
+            str.each_char do |ch|
+              
+              buf << ch if ch.valid_encoding?
+            end
+            return buf.join
+          else
+            return str
+          end
+       end
 
   end #-------------------self -end
 

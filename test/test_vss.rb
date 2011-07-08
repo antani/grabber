@@ -183,9 +183,22 @@ results.each do |e|
 #	puts e + "(#{e.rank})"
     
 end
-
+def strip_invalid_utf8_chars(str)
+  unless str.valid_encoding?
+    buf = []
+    str.each_char do |ch|
+      puts ch
+      buf << ch if ch.valid_encoding?
+    end
+    return buf.join
+  else
+    return str
+  end
+end
 #puts get_custom_weight('Chupke Chupke movie','Chupke Chupke chupke chupke') 
 
-#My own weight version
-#
+#invalid_string="Dork Decade: The Dork Tower Ten Year Anniversary … "
+#ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
+valid_string = strip_invalid_utf8_chars("Dork Decade: The Dork Tower Ten Year Anniversary … ")
+puts valid_string.gsub("\n","").gsub("\t","").downcase
 
