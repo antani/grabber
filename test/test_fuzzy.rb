@@ -40,8 +40,11 @@ weight = m.match("harry potter")
 puts weight
 
 
-t="Price: Rs.  99".gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+t="Price: Rs.  99.00".gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'').tr('.00','').strip
 puts ">>#{t}<<"
 
+t="1006.00".gsub(/$00/,'')
+puts t
 
-
+t = "173/-".tr('/-','').strip
+puts t

@@ -52,8 +52,44 @@ $('img.prod_img').each(function(){
     });
 });
 
+//If something is searched, preseve that.
+/*if(readCookie("search_what") != null)
+{
+    search_wat = readCookie("search_what");
+    $('#search_type').val(search_wat);    
+    
+    if(search_wat == "books"){
+        $('#searchbooks').addClass('active');
+        $('#searchmovies').removeClass('active');
+        $('#searchmobiles').removeClass('active');
+        $('#searchcamera').removeClass('active');
+    } else if(search_wat == "movies"){
+        $('#searchmovies').addClass('active');
+        $('#searchbooks').removeClass('active');
+        $('#searchmobiles').removeClass('active');
+        $('#searchcamera').removeClass('active');
+        
+    }else  if(search_wat == "mobiles"){
+        $('#searchmobiles').addClass('active');
+        $('#searchbooks').removeClass('active');
+        $('#searchmovies').removeClass('active');
+        $('#searchcamera').removeClass('active');        
+        
+    }else  if(search_wat == "cameras"){
+        $('#searchcamera').addClass('active');
+        $('#searchbooks').removeClass('active');
+        $('#searchmobiles').removeClass('active');
+        $('#searchmovies').removeClass('active');
+
+    }
+    
+}*/
+
+
+
 $('#searchbooks').click(function() {
             $('#search_type').val('books');
+            createCookie("search_what","books",1);
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
             $('#searchmobiles').removeClass('active');
@@ -61,6 +97,7 @@ $('#searchbooks').click(function() {
           });
 $('#searchmovies').click(function() {
             $('#search_type').val('movies');
+            createCookie("search_what","movies",1);
             $(this).addClass('active');
             $('#searchbooks').removeClass('active');
             $('#searchmobiles').removeClass('active');
@@ -68,6 +105,7 @@ $('#searchmovies').click(function() {
           });
 $('#searchmobiles').click(function() {
             $('#search_type').val('mobiles');
+            createCookie("search_what","mobiles",1);            
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
             $('#searchbooks').removeClass('active');
@@ -75,6 +113,7 @@ $('#searchmobiles').click(function() {
           });
 $('#searchcamera').click(function() {
             $('#search_type').val('cameras');
+            createCookie("search_what","cameras",1);            
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
             $('#searchbooks').removeClass('active');

@@ -4,17 +4,17 @@
     <div class="searchwrapper-inner-border_small">
           <%= form_tag(view_path, :method => "get", :id=>"searchfrm" , :remote=>true) do %>
               <%= text_field_tag(:q,nil,:class=> "inputquery_small") %>
+              <span class="very_small"> Sort by :
+<%= link_to "lowest prices", :sort => "price_lowest", :q => params[:q], :search_type => params[:search_type] %>
+<%= link_to "relevance", :sort => "default" , :q => params[:q], :search_type => params[:search_type] %>
+
+              </span>
               <%= hidden_field_tag 'search_type', 'books' %>
+              <%= hidden_field_tag 'sort', 'default' %>              
 	      <!--<a id="search_link" href="#" class="btn btnsmall search_small">Search</a> -->
               <span class="buttonwrapper">
                 <%= submit_tag("Search", :class=>"searchsubmit", :id=>"searchsubmit_btn") %>
-              </span> <!-- 
-                    <div id="search_btn">
-                      <a href="#" id="searchall" class="primary button pill button">Everything</a> 
-                      <a href="#" id="searchbooks" class="primary pill button">Books</a>
-                      <a href="#" id="searchmovies" class="pill button">Movies</a>
-                      <a href="#" id="searchmobiles" class="pill button">Mobiles</a> 
-                    </div>  -->
+              </span>
                     <dl id="sample" class="dropdown">
 
                             
@@ -68,8 +68,8 @@
                                                 <span style="font-family:rupee">R</span> <%= data[:price] %></span>
                                             <td  class="td_name">
                                                   <b><%= data[:name] %></b></br>
-                                                  <span class="discount"> <%= data[:discount] %> </span>
-                                                  <span class="shipping"></span>
+                                                  <span class="discount"><%= data[:discount] %></span></br><span class="shipping"><%= data[:shipping] %></span>
+                                                  
 
                                             </td>
                                             <td  class="td_author">

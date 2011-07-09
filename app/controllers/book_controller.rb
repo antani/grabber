@@ -1,4 +1,7 @@
 class BookController < ApplicationController
+
+  before_filter { @extra_url_for_options = { :format => 'html' } }
+
   respond_to :html
   respond_to :json, :only => :view
 
@@ -7,7 +10,9 @@ class BookController < ApplicationController
     @search_string = decanonicalize_isbn(params[:q])
     @isbn = canonicalize_isbn(params[:q])
     @type = params[:search_type]
+    @sort = params[:sort]
     #@isbn = (params[:q])
+
 
     logger.info(@isbn)
     logger.info(@type)
@@ -24,60 +29,61 @@ class BookController < ApplicationController
 
     if @searchby == 'isbn'  
       
-      @prices = Bookprice.new(:isbn => @isbn)
-      @bookinfo = Rails.cache.fetch("amazon_info:#{@isbn}", :expires_in => 1.day) { AmazonInfo::book_info(@isbn) }
-      if @bookinfo.nil?
-        @bookinfo = Rails.cache.fetch("flipkart_info:#{@isbn}", :expires_in => 1.day) { FlipkartInfo::book_info(@isbn) }
-      end
-
-      unless @bookinfo.nil?
-        @bookseer = BookseerInfo::link(@bookinfo)
-
-        @stores = Rails.cache.fetch(@prices.cache_key)
-        if @stores.nil?
-          # Check if book is already queued.
-          if Delayed::Backend::Mongoid::Job.where(:handler => /#{@isbn}/).empty?
-            logger.info("Book #{@isbn} has been queued")
-            @prices.delay.perform
-          else
-            logger.info("Book #{@isbn} is already queued")
+          @prices = Bookprice.new(:isbn => @isbn)
+          @bookinfo = Rails.cache.fetch("amazon_info:#{@isbn}", :expires_in => 1.day) { AmazonInfo::book_info(@isbn) }
+          if @bookinfo.nil?
+            @bookinfo = Rails.cache.fetch("flipkart_info:#{@isbn}", :expires_in => 1.day) { FlipkartInfo::book_info(@isbn) }
           end
-        end
-      end
 
-      @not_available = Bookprice::NOT_AVAILABLE
+          unless @bookinfo.nil?
+            @bookseer = BookseerInfo::link(@bookinfo)
+
+            @stores = Rails.cache.fetch(@prices.cache_key)
+            if @stores.nil?
+              # Check if book is already queued.
+              if Delayed::Backend::Mongoid::Job.where(:handler => /#{@isbn}/).empty?
+                logger.info("Book #{@isbn} has been queued")
+                @prices.delay.perform
+              else
+                logger.info("Book #{@isbn} is already queued")
+              end
+            end
+          end
+
+          @not_available = Bookprice::NOT_AVAILABLE
      else
-       #@prices = Generalsearch_parallel.new({:search_term => @isbn}, {:search_type => @type})
-       @prices = Generalsearch_improved.new({:search_term => @isbn}, {:search_type => @type})
-       tt = @type
-       ss = decanonicalize_isbn(@isbn)
-
-       @stores = Rails.cache.fetch(@prices.cache_key)
-	 #Save top_search or increase existing count of a search
+            #@prices = Generalsearch_parallel.new({:search_term => @isbn}, {:search_type => @type})
+            @prices = Generalsearch_improved.new({:search_term => @isbn}, {:search_type => @type})
+            tt = @type
+            ss = decanonicalize_isbn(@isbn)
+            @stores = Rails.cache.fetch(@prices.cache_key)
+       	    #Save top_search or increase existing count of a search
             p = Topsearch.first(:conditions => {query: ss, type: @type}) 
-	    logger.info(p)
-	    if p==nil then
-		logger.info("No rows found")
-                 
-		topsearch = Topsearch.create ({:query=> ss, :type=> tt, :cnt=> 1})
-		topsearch.save
+	        if p==nil then
+		        topsearch = Topsearch.create ({:query=> ss, :type=> tt, :cnt=> 1})
+		        topsearch.save
             else
-		logger.info("Row found")
                 p.inc(:cnt,1)
-		p.save
-	    end
+  	            p.save
+	        end
 
-
-        if @stores.nil?
-          # Check if book is already queued.
-          #if Delayed::Backend::Mongoid::Job.where(:handler => /#{@isbn}/).empty?
-            logger.info("Book #{@isbn} has been queued")
-            #    @prices.delay.perform
-		@prices.perform
-          #else
-           # logger.info("Book #{@isbn} is already queued")
-          #end
-        end
+            if @stores.nil?
+              # Check if book is already queued.
+              #if Delayed::Backend::Mongoid::Job.where(:handler => /#{@isbn}/).empty?
+                logger.info("Book #{@isbn} has been queued")
+                #    @prices.delay.perform
+		        @prices.perform
+              #else
+               # logger.info("Book #{@isbn} is already queued")
+              #end
+            end
+            if @stores then 
+                if @sort == "price_lowest" then
+                    @stores = @stores.sort_by { |p| p[:price].to_i }
+                elsif @sort == "default" then
+                    @stores = Rails.cache.fetch(@prices.cache_key)
+                end
+            end
     end   
 
     #@stores = @stores.reject { |store, data| store == :uread } ## XXX HACK

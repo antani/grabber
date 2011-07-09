@@ -60,81 +60,80 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
 
 
 <div class="top_searches">
-<div class="fl grid_2 column">
-<p class="top_p">Top Books</p>
-<%
-@top_s = Topsearch.all_in(type: ['books']).desc(:cnt).limit(10)
-@top_s.each do |s| %>	
+    <div class="fl grid_2 column">
+    <p class="top_p">Top Books</p>
+    <%
+    @top_s = Topsearch.all_in(type: ['books']).desc(:cnt).limit(10)
+    @top_s.each do |s| %>	
+	    <a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
+    <%end %>
+    </div>
 
-	<a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
+    <div class="fl grid_2 column">
+    <p class="top_p">Top Mobiles</p>
+    <%
+    @top_s = Topsearch.all_in(type: ['mobiles']).desc(:cnt).limit(10)
+    @top_s.each do |s| %>	
 
-<%end %>
-</div>
+	    <a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
 
-<div class="fl grid_2 column">
-<p class="top_p">Top Mobiles</p>
-<%
-@top_s = Topsearch.all_in(type: ['mobiles']).desc(:cnt).limit(10)
-@top_s.each do |s| %>	
+    <%end %>
+    </div>
 
-	<a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
+    <div class="fl grid_2 column">
+    <p class="top_p">Top Cameras</p>
+    <%
+    @top_s = Topsearch.all_in(type: ['cameras']).desc(:cnt).limit(10)
+    @top_s.each do |s| %>	
 
-<%end %>
-</div>
+	    <a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
 
-<div class="fl grid_2 column">
-<p class="top_p">Top Cameras</p>
-<%
-@top_s = Topsearch.all_in(type: ['cameras']).desc(:cnt).limit(10)
-@top_s.each do |s| %>	
+    <%end %>
+    </div>
+    
+    <div class="fl grid_2 column">
+    <p class="top_p">Top Movies</p>
+    <%
+    @top_s = Topsearch.all_in(type: ['movies']).desc(:cnt).limit(10)
+    @top_s.each do |s| %>	
 
-	<a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
+	    <a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
 
-<%end %>
-</div>
-<div class="fl grid_2 column">
-<p class="top_p">Top Movies</p>
-<%
-@top_s = Topsearch.all_in(type: ['movies']).desc(:cnt).limit(10)
-@top_s.each do |s| %>	
-
-	<a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
-
-<%end %>
-</div>
-
-
-
-<div id="slideshow" class="fl grid_3 column">
-<p class="top_p">Your Views</p>
-    <div id="slideshow-reel">
-        <div class="slide">
-        <p>I just purchased a Canon EOS 550D camera. I looked for good online deals and kept searching on various shops. Had I known <b class="highlightb">Cheapr</b> existed, I would have saved many hours. Incredible work guys. - <i>Kunal M. Bangalore</i></p>
-        </div>
-        
-        <div class="slide">
-        <p>I usually buy books every month. I used to open 3-4 online stores like flipkart and infibeam to check prices and order books. With <b class="highlightb">Cheapr</b> I can search best prices from 15 stores ! Great idea and a brilliant site. - <i>Meghna A. Bangalore</i></p>
-        </div>
-        
-        <div class="slide">
-        <p>Come on..nobody thought of this earlier? <b class="highlightb">Cheapr</b> always gets the best prices and great bargains.- <i>Dhruv M. Mumbai</i></p>
-        </div>
-
-        <div class="slide">
-        <p>Who goes to so many sites to hunt for the cheapest bargain? Well, I don't anymore. <b class="highlightb">Cheapr</b> really changed the way I purchase things online. - <i>Niraj K. London</i></p>
-        </div>
-
-        <div class="slide">
-        <p>Being a student, I need to buy cheap books almost every month. One of my friend told me about <b class="highlightb">cheapr</b> and I was amazed. I am still amazed :) - <i>Chintan P. Ahmedabad</i></p>
-       </div>
+    <%end %>
     </div>
 
 
+
+    <div id="slideshow" class="fl grid_3 column">
+    <p class="top_p">Your Views</p>
+        <div id="slideshow-reel">
+            <div class="slide">
+            <p>I just purchased a Canon EOS 550D camera. I looked for good online deals and kept searching on various shops. Had I known <b class="highlightb">Cheapr</b> existed, I would have saved many hours. Incredible work guys. - <i>Kunal M. Bangalore</i></p>
+            </div>
+            
+            <div class="slide">
+            <p>I usually buy books every month. I used to open 3-4 online stores like flipkart and infibeam to check prices and order books. With <b class="highlightb">Cheapr</b> I can search best prices from 15 stores ! Great idea and a brilliant site. - <i>Meghna A. Bangalore</i></p>
+            </div>
+            
+            <div class="slide">
+            <p>Come on..nobody thought of this earlier? <b class="highlightb">Cheapr</b> always gets the best prices and great bargains.- <i>Dhruv M. Mumbai</i></p>
+            </div>
+
+            <div class="slide">
+            <p>Who goes to so many sites to hunt for the cheapest bargain? Well, I don't anymore. <b class="highlightb">Cheapr</b> really changed the way I purchase things online. - <i>Niraj K. London</i></p>
+            </div>
+
+            <div class="slide">
+            <p>Being a student, I need to buy cheap books almost every month. One of my friend told me about <b class="highlightb">cheapr</b> and I was amazed. I am still amazed :) - <i>Chintan P. Ahmedabad</i></p>
+           </div>
+        </div>
+
+
+    </div>
 </div>
+<div class="clear"></div>
 
 </div>
-
-
 
 
 	
