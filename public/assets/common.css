@@ -693,8 +693,24 @@ a img { border: none; }
     border-bottom: 3px dotted #C9C4BA;
 
 }
+.top_p_p
+{
+    color: #888888;
+    font-family: 'Amaranth',"Droid Sans",Arial,sans-serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: normal;
+/*    border-bottom: 3px dotted #C9C4BA;*/
 
-
+}
+.very_small
+{
+    color: #838383;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 75%;
+    padding: 2px;
+}
 
 a img {
   border: 0;
@@ -743,6 +759,7 @@ a img {
     margin-top: 50px;
     overflow: hidden;
     clear: both;
+    padding: 20px 10px 10px;
 
 }
 #wait-text
@@ -778,7 +795,7 @@ a img {
     border-radius: 3px 3px 3px 3px;
     clear: left;
     float: left;
-    height: 100px;
+    height: 200px;
     padding: 10px;
     padding-top: 20px;
     position: relative;
@@ -876,6 +893,12 @@ table.price_list td
   font-size: 10px;
   color: red;
 }
+.shipping
+{
+  font-size: 10px;
+  color: green;
+}
+
 .td_name
 {
   width: 500px;
@@ -1033,7 +1056,7 @@ table.price_list td
 }
 .inputquery_small
 {
-  background-color: #FFFFFF;
+    background-color: #FFFFFF;
     border: 1px solid #A4A4A4;
     border-radius: 5px 5px 5px 5px;
     box-shadow: 0 5px 20px #DDDDDD inset;
@@ -1044,6 +1067,7 @@ table.price_list td
     outline: medium none;
     padding: 0 0 0 10px;
     margin: 20px;
+    margin-bottom: 2px;
     width: 400px;
 }
 
