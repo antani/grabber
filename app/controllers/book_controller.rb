@@ -1,7 +1,5 @@
 class BookController < ApplicationController
 
-  before_filter { @extra_url_for_options = { :format => 'html' } }
-
   respond_to :html
   respond_to :json, :only => :view
 

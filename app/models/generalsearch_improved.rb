@@ -21,7 +21,7 @@ class Generalsearch_improved
 
   end
   def perform
-    #@@logger.info("Performing job for #{self.search_term}")
+    ##@@logger.info("Performing job for #{self.search_term}")
     prices = self.class.prices(self.search_term,self.search_type)
     Rails.cache.write(self.cache_key, prices)
     prices
@@ -43,17 +43,17 @@ class Generalsearch_improved
                 final_prices=[]
                 begin
                           prices_array = queue_requests(term,type)
-                          #@@logger.info("Time to process prices : ")
+                          ##@@logger.info("Time to process prices : ")
                           start_time = Time.now
                           price_array = prices_array.flatten
-                          #@@logger.info(price_array)
-                          #@@logger.info("-------------------------------------------")
+                          ##@@logger.info(price_array)
+                          ##@@logger.info("-------------------------------------------")
                           prices_array = price_array.sort_by { |p| p[:weight].to_i }.reverse!
                           #prices_array = price_array.sort_by { |p| p[:weight] }
-                          ###@@logger.info(prices_array)
+                          ####@@logger.info(prices_array)
                           top_weight = prices_array[0][:weight]
-                          ###@@logger.info("Top price---------------------------")
-                          ###@@logger.info(top_weight)
+                          ####@@logger.info("Top price---------------------------")
+                          ####@@logger.info(top_weight)
                           prices_array.each do |tt|
                             current_top_weight = tt[:weight] unless tt[:weight] == -999 
                             if (current_top_weight < top_weight) then
@@ -71,23 +71,23 @@ class Generalsearch_improved
                           end
                           #top_prices = top_prices.sort_by { |p| p[:price].to_i }
                           #rest_prices = rest_prices.sort_by { |p| p[:price].to_i }
-                          #@@logger.info(top_prices)
-                          #@@logger.info(rest_prices)
+                          ##@@logger.info(top_prices)
+                          ##@@logger.info(rest_prices)
                           final_prices = rest_prices + top_prices  
                           #final_prices = final_prices.sort_by { |p| [-p[:weight], p[:price].to_i] }
-                          #@@logger.info(Time.now - start_time)
-                          #@@logger.info(final_prices)
+                          ##@@logger.info(Time.now - start_time)
+                          ##@@logger.info(final_prices)
                 rescue => ex
-                       @@logger.info ("#{ex.class} : #{ex.message}")
-                       @@logger.info (ex.backtrace)
+                       #@@logger.info ("#{ex.class} : #{ex.message}")
+                       #@@logger.info (ex.backtrace)
                 end
 
                 final_prices
           end
           #Uses Hydra to queue the HTTP requests and processes them at one go.
           def queue_requests(term,type)
-      #               #@@logger.info(term)
-      #               #@@logger.info(type)
+      #               ##@@logger.info(term)
+      #               ##@@logger.info(type)
                      mtype = type[:search_type]
                      hydra = Typhoeus::Hydra.new
 
@@ -133,8 +133,8 @@ class Generalsearch_improved
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
                             page
+                          else  
                             page="failed"
-                          else
                           end  
                      end
                      url= get_homeshop_url(term, type)
@@ -314,9 +314,9 @@ class Generalsearch_improved
                            url= get_pustak_url(term, type)
                            req_pustak= Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_pustak.on_complete do |response|
-              #            #@@logger.info('Pustak response')
-              #            #@@logger.info(response.code)    # http status code
-              #            #@@logger.info(response.time)    # time in seconds the request took 
+              #            ##@@logger.info('Pustak response')
+              #            ##@@logger.info(response.code)    # http status code
+              #            ##@@logger.info(response.time)    # time in seconds the request took 
 
                                 if response.success?
                                     doc= response.body
@@ -330,9 +330,9 @@ class Generalsearch_improved
                            url= get_bookadda_url(term, type)
                            req_bookadda= Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_bookadda.on_complete do |response|
-               #           #@@logger.info('Bookadda response')
-               #           #@@logger.info(response.code)    # http status code
-               #           #@@logger.info(response.time)    # time in seconds the request took 
+               #           ##@@logger.info('Bookadda response')
+               #           ##@@logger.info(response.code)    # http status code
+               #           ##@@logger.info(response.time)    # time in seconds the request took 
 
                                 if response.success?
                                       doc= response.body
@@ -345,9 +345,9 @@ class Generalsearch_improved
                            url= get_crossword_url(term, type)
                            req_crossword = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_crossword.on_complete do |response|
-                #          #@@logger.info('Crossword response')
-                #          #@@logger.info(response.code)    # http status code
-                #          #@@logger.info(response.time)    # time in seconds the request took 
+                #          ##@@logger.info('Crossword response')
+                #          ##@@logger.info(response.code)    # http status code
+                #          ##@@logger.info(response.time)    # time in seconds the request took 
 
                               if response.success?
                                   doc= response.body
@@ -371,9 +371,9 @@ class Generalsearch_improved
 			               url= get_sangeeta_url(term, type)
                            req_sangeeta = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_sangeeta.on_complete do |response|
-                                 # @@logger.info('Sangeeta response')
-                                 # @@logger.info(response.code)    # http status code
-                                 # @@logger.info(response.time)    # time in seconds the request took 
+                                 #@@logger.info('Sangeeta response')
+                                 #@@logger.info(response.code)    # http status code
+                                 #@@logger.info(response.time)    # time in seconds the request took 
 
                                    if response.success?
                                           doc= response.body
@@ -390,9 +390,9 @@ class Generalsearch_improved
                            url= get_landmark_url(term, type)
                            req_landmark = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_landmark.on_complete do |response|
-                              #@@logger.info('Letsbuy response')
-                              #@@logger.info(response.code)    # http status code
-                               #@@logger.info(response.time)    # time in seconds the request took 
+                              ##@@logger.info('Letsbuy response')
+                              ##@@logger.info(response.code)    # http status code
+                               ##@@logger.info(response.time)    # time in seconds the request took 
 
                                     if response.success?
                                         doc= response.body
@@ -443,14 +443,14 @@ class Generalsearch_improved
                      if (mtype =='movies' or mtype =='books') then
                          prices.push(parse_landmark(req_landmark.handled_response,term, type)) unless req_landmark.handled_response =="failed"
                      end
-                     @@logger.info ("Time for executing requests...")
-                     @@logger.info (Time.now - start_time)
+                     #@@logger.info ("Time for executing requests...")
+                     #@@logger.info (Time.now - start_time)
                      prices
           end           
 #----------------------------------------------------Handlers to parse the response from site-------------------------------
         def parse_flipkart(page, query, type)
                  begin
-                      #@@logger.info("Parsing Flipkart")
+                      ##@@logger.info("Parsing Flipkart")
 
                       price_text = page.search("div#search_results div.fk-srch-item div.dlvry-det .price").map { |e| "#{e.content}" }
                       
@@ -469,9 +469,9 @@ class Generalsearch_improved
                       shipping_text = page.css("b.free-hm-dlvry").map { |e| "#{e.content}" } 
                       prices=[]
                       (0...price_text.length).each do |i|
-                          #@@logger.info(name_text[i])
-                          #@@logger.info(price_text[i])
-                          #@@logger.info(author_text[i])
+                          ##@@logger.info(name_text[i])
+                          ##@@logger.info(price_text[i])
+                          ##@@logger.info(author_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                         
@@ -493,8 +493,8 @@ class Generalsearch_improved
                           end
                         end
                     rescue => ex
-                        #@@logger.info ("#{ex.class} : #{ex.message}")
-                        #@@logger.info (ex.backtrace)
+                        ##@@logger.info ("#{ex.class} : #{ex.message}")
+                        ##@@logger.info (ex.backtrace)
                     end
                     prices
           end
@@ -503,8 +503,8 @@ class Generalsearch_improved
                      begin   
                         what = type[:search_type]
 
-                        #@@logger.info("Parsing infibeam")
-                        ##@@logger.info(what)
+                        ##@@logger.info("Parsing infibeam")
+                        ###@@logger.info(what)
                         #price_text=[]
                         #author_text = []
                         #name_text= []
@@ -553,30 +553,30 @@ class Generalsearch_improved
 
                         else
                               price_text = page.search("ul.srch_result li div.price span.normal").map { |e| "#{e.content.tr('A-Za-z.,','')}" }
-                            #  #@@logger.info(price_text)
+                            #  ##@@logger.info(price_text)
                               name_text = page.search("ul.srch_result li span.title").map{ |e| "#{e.content} " }
-                             # #@@logger.info(name_text)
+                             # ##@@logger.info(name_text)
                               author_text = page.search("ul.search_result li a[@href^='/Books/search']").map {|e| "#{e.content}" }
-                            #  #@@logger.info(author_text)
+                            #  ##@@logger.info(author_text)
 
                               url_text = []
                               page.search("ul.srch_result li a:first-child").each do |link|
                                  url_text << link.attributes['href'].content
                               end 	
-                           #   #@@logger.info(url_text)
+                           #   ##@@logger.info(url_text)
                               
                               img_text = []
                               page.search("ul.srch_result li a:first-child img:first-child").each do |img|
                                  img_text << img.attributes['src'].content
                               end
-                          #    #@@logger.info(img_text)
+                          #    ##@@logger.info(img_text)
 
                         end
                         prices=[]
                         (0...price_text.length).each do |i|
-                                  #@@logger.info(price_text[i])
-                                  #@@logger.info(name_text[i])
-                                  #@@logger.info(author_text[i]) 
+                                  ##@@logger.info(price_text[i])
+                                  ##@@logger.info(name_text[i])
+                                  ##@@logger.info(author_text[i]) 
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                         
@@ -606,43 +606,43 @@ class Generalsearch_improved
                               end
                          end
                     rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
                     end
                     prices
           end
 
           def parse_rediff(page, query,type)
-            #@@logger.info('Searching Rediff')
+            ##@@logger.info('Searching Rediff')
             begin
                       price_text = page.search("font#book-pric").map { |e| "#{e.content}" }
-                      ##@@logger.info(price_text)
+                      ###@@logger.info(price_text)
                       name_text = page.search("font#book-titl").map{ |e| "#{e.content} " }
-                      ##@@logger.info(name_text)
+                      ###@@logger.info(name_text)
                       author_text = page.search("font#book-auth").map {|e| "#{e.content}" }
-                      ##@@logger.info(author_text)
+                      ###@@logger.info(author_text)
 
                       url_text = []
                           page.search("html body div#container div#bookscontainer div#center_cont div#prod_detail div#prod_detail2 b a").each do |link|
                           url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info(url_text)
+                      ###@@logger.info(url_text)
                       img_text = []
                       page.search("html body div#container div#bookscontainer div#center_cont div#prod_detail div#prod_detail1 a img").each do |img|
                           img_text << img.attributes['src'].content
                       end
-                      ##@@logger.info(img_text)
+                      ###@@logger.info(img_text)
                       discount_text = ""
                       shipping_text = ""
-                      ##@@logger.info(discount_text)
-                      ##@@logger.info(shipping_text)
+                      ###@@logger.info(discount_text)
+                      ###@@logger.info(shipping_text)
                       prices=[]
 
                       (0...price_text.length).each do |i|
-                       #  #@@logger.info(price_text[i])
-                       #  #@@logger.info(name_text[i])
-                       #  #@@logger.info(author_text[i])
-                       #  #@@logger.info(url_text[i])
+                       #  ##@@logger.info(price_text[i])
+                       #  ##@@logger.info(name_text[i])
+                       #  ##@@logger.info(author_text[i])
+                       #  ##@@logger.info(url_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                        
@@ -664,18 +664,18 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
 
               prices
           end
 
           def parse_indiaplaza(page, query, type)
-            #@@logger.info('Parsing indiaplaza')
+            ##@@logger.info('Parsing indiaplaza')
 
             price_text = page.search("div.tier1box2 ul li:first-child span").map { |e| "#{e.content}" }
-            ##@@logger.info(price_text)
+            ###@@logger.info(price_text)
             name_text = page.search("ul.bookdetails li a").map{ |e| "#{e.content} " }
             author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
             url_text = []
@@ -693,9 +693,9 @@ class Generalsearch_improved
 
             (0...price_text.length).each do |i|
         		author_text[i] = author_text[i].gsub('Author:', '')
-                ##@@logger.info (price_text[i])
-                ##@@logger.info (author_text[i])
-                ##@@logger.info (name_text[i])
+                ###@@logger.info (price_text[i])
+                ###@@logger.info (author_text[i])
+                ###@@logger.info (name_text[i])
               #Strip invalid UTF-8 Characters
               name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
               author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                        
@@ -722,32 +722,32 @@ class Generalsearch_improved
 
 
           def parse_nbcindia(page,query,type)
-                      #@@logger.info('Parsing nbcindia')
+                      ##@@logger.info('Parsing nbcindia')
                 begin      
                       price_text = page.search("div.fieldset ul li:nth-child(2) font").map { |e| "#{e.content}" }
-                      #@@logger.info (price_text)
+                      ##@@logger.info (price_text)
                       name_text = page.search("div.fieldset ul li:first-child b").map{ |e| "#{e.content} " }
-                      #@@logger.info (name_text)
+                      ##@@logger.info (name_text)
                       author_text = page.search("div.fieldset ul li a u").map {|e| "#{e.content}" }
-                      #@@logger.info (author_text )
+                      ##@@logger.info (author_text )
                       url_text = []
                          page.search("div.fieldset ul li:first-child a:first-child").each do |link|
                          url_text << link.attributes['href'].content
                       end 	
-                      #@@logger.info (url_text )
+                      ##@@logger.info (url_text )
                       img_text = []
                           page.search("div.imageset img").each do |img|
                           img_text << img.attributes['src'].content
                       end
-                      #@@logger.info (img_text )
+                      ##@@logger.info (img_text )
                       discount_text = ""
                       shipping_text = ""
                       prices=[]
 
                       (0...price_text.length).each do |i|
-                          #@@logger.info (price_text[i])
-                          #@@logger.info (author_text[i])
-                          #@@logger.info (name_text[i])
+                          ##@@logger.info (price_text[i])
+                          ##@@logger.info (author_text[i])
+                          ##@@logger.info (name_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                         
@@ -766,40 +766,40 @@ class Generalsearch_improved
                           end
                         end
                rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
                end
                prices 
           end
 
           def parse_pustak(page, query, type)
-            #@@logger.info("Parsing pustak")
+            ##@@logger.info("Parsing pustak")
             begin
                       price_text = page.search("div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.content}" }
-                      ##@@logger.info (price_text)
+                      ###@@logger.info (price_text)
                       name_text = page.search("div.search_landing_right_col a.txt_bold").map{ |e| "#{e.content} " }
-                      ##@@logger.info (name_text)
+                      ###@@logger.info (name_text)
                       author_text = page.search("div.search_landing_right_col span#author").map {|e| "#{e.content}" }
-                      ##@@logger.info (author_text )
+                      ###@@logger.info (author_text )
                       url_text = []
                           page.search("div.search_landing_right_col a.txt_bold").each do |link|
                           url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info (url_text )
+                      ###@@logger.info (url_text )
                       img_text = []
                           page.search("div.search_landing_left_col a img").each do |img|
                           img_text << img.attributes['src'].content
                       end
-                      ##@@logger.info (img_text )
+                      ###@@logger.info (img_text )
  
                       discount_text = page.search("div.search_result_holder div.prod_search_coll_holder div.search_landing_right_col span[@style*='666666']").map { |e| "#{e.content}" }
                       shipping_text = ""
                       prices=[]
 
                       (0...price_text.length).each do |i|
-                          ##@@logger.info (price_text[i])
-                          ##@@logger.info (author_text[i])
-                          ##@@logger.info (name_text[i])
+                          ###@@logger.info (price_text[i])
+                          ###@@logger.info (author_text[i])
+                          ###@@logger.info (name_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                        
@@ -822,8 +822,8 @@ class Generalsearch_improved
                           end
                         end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
 
               prices
@@ -831,35 +831,35 @@ class Generalsearch_improved
 
           def parse_ebay(page, query,type)
             begin
-            	      #@@logger.info("Parsing ebay")
+            	      ##@@logger.info("Parsing ebay")
 
                       price_text = page.search("div#ResultSet table.li tr td.prc").map { |e| "#{e.content}" }
-                      #@@logger.info (price_text)
+                      ##@@logger.info (price_text)
                       name_text = page.search("div#ResultSet table.li td:nth-child(2) div.ttl a").map{ |e| "#{e.content} " }
-                      #@@logger.info (name_text)
+                      ##@@logger.info (name_text)
                       author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
-                      #@@logger.info (author_text )
+                      ##@@logger.info (author_text )
                       url_text = []
                           page.search("div#ResultSet table.li td:nth-child(2) div.ttl a").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
-                      #@@logger.info (url_text )
+                      ##@@logger.info (url_text )
                       img_text = []
                           page.search("img.img").each do |img|
                       img_text << img.attributes['src'].content
                       end
                  
-                      #@@logger.info (img_text )
+                      ##@@logger.info (img_text )
                       discount_text = page.search("div.tier1box2 ul li:nth-child(3) span").map { |e| "#{e.content}" }
-                      ##@@logger.info (discount_text )
+                      ###@@logger.info (discount_text )
                       shipping_text = ""
                       prices=[]
 
                       (0...price_text.length).each do |i|
 
-             #             #@@logger.info (price_text[i])
-             #             #@@logger.info (author_text[i])
-             #             #@@logger.info (name_text[i])
+             #             ##@@logger.info (price_text[i])
+             #             ##@@logger.info (author_text[i])
+             #             ##@@logger.info (name_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -883,8 +883,8 @@ class Generalsearch_improved
                           end
                         end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
               prices
           end
@@ -892,21 +892,21 @@ class Generalsearch_improved
           def parse_bookadda(page,query,type)
                begin
                   price_text = page.search("div.deliveryinfo span.ourpriceredtext").map { |e| "#{e.content}" }
-                  ##@@logger.info (price_text)
+                  ###@@logger.info (price_text)
                   name_text = page.search("div.searchpagebooktitle h2").map{ |e| "#{e.content} " }
-                  ##@@logger.info (name_text)
+                  ###@@logger.info (name_text)
                   author_text = page.search("span.searchbookauthor a").map {|e| "#{e.content}" }
-                  ##@@logger.info (author_text )
+                  ###@@logger.info (author_text )
                   url_text = []
                   page.search("div.searchpagebooktitle a").each do |link|
                     url_text << link.attributes['href'].content
                   end 	
-                        ##@@logger.info (url_text )
+                        ###@@logger.info (url_text )
                   img_text = []
                   page.search("div.img img").each do |img|
                     img_text << img.attributes['src'].content
                   end
-                  ##@@logger.info (img_text )
+                  ###@@logger.info (img_text )
 
  
                   discount_text = ""
@@ -914,9 +914,9 @@ class Generalsearch_improved
                   prices=[]
 
                   (0...price_text.length).each do |i|
-                      ##@@logger.info (price_text[i])
-                      ##@@logger.info (author_text[i])
-                      ##@@logger.info (name_text[i])
+                      ###@@logger.info (price_text[i])
+                      ###@@logger.info (author_text[i])
+                      ###@@logger.info (name_text[i])
                       #Strip invalid UTF-8 Characters
                       name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                       author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -939,38 +939,38 @@ class Generalsearch_improved
                       end
                   end
  		  rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
                   end
                   prices
           end
           def parse_tradeus(page,query,type)
             begin
 		    price_text = page.search("div.prsng label").map { |e| "#{e.content}" }
-		    ##@@logger.info (price_text)
+		    ###@@logger.info (price_text)
 		    name_text = page.search("div.search_prod_col tr td:nth-child(2) a:first-child").map{ |e| "#{e.content} " }
-		    ##@@logger.info (name_text)
+		    ###@@logger.info (name_text)
 		    author_text = page.search("span.searchbookauthor a").map {|e| "#{e.content}" }
-		    ##@@logger.info (author_text )
+		    ###@@logger.info (author_text )
 		    url_text = []
 		          page.search("div.search_prod_col tr td:nth-child(2) a:first-child").each do |link|
 		          url_text << link.attributes['href'].content
 		    end 	
-		    ##@@logger.info (url_text )
+		    ###@@logger.info (url_text )
 		    img_text = []
 		    page.search("img#pimage").each do |img|
 		      img_text << img.attributes['src'].content
 		    end
-		    ##@@logger.info (img_text )
+		    ###@@logger.info (img_text )
 
 		    discount_text = ""
 		    shipping_text = ""
 		    prices=[]
 
 		    (0...price_text.length).each do |i|
-		        ##@@logger.info (price_text[i])
-		        ##@@logger.info (author_text[i])
-		        ##@@logger.info (name_text[i])
+		        ###@@logger.info (price_text[i])
+		        ###@@logger.info (author_text[i])
+		        ###@@logger.info (name_text[i])
                 #Strip invalid UTF-8 Characters
                 name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                 author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -993,29 +993,29 @@ class Generalsearch_improved
 		        end
 		      end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
               prices
           end
           def parse_crossword(page,query,type)
               begin 
                   price_text = page.search("ul#search-result-items li span.variant-final-price").map { |e| "#{e.content}" }
-                  ##@@logger.info (price_text)
+                  ###@@logger.info (price_text)
                   name_text = page.search("ul#search-result-items li span.variant-title").map{ |e| "#{e.content} " }
-                  ##@@logger.info (name_text)
+                  ###@@logger.info (name_text)
                   author_text = page.search("ul#search-result-items li span.ctbr-name").map {|e| "#{e.content}" }
-                  ##@@logger.info (author_text )
+                  ###@@logger.info (author_text )
                   url_text = []
                   page.search("ul#search-result-items li span.variant-title a").each do |link|
                       url_text << link.attributes['href'].content
                   end 	
-                    ##@@logger.info (url_text )
+                    ###@@logger.info (url_text )
                   img_text = []
                   page.search("div.variant-image img").each do |img|
                       img_text << img.attributes['src'].content
                   end
-                    ##@@logger.info (img_text )
+                    ###@@logger.info (img_text )
                   prices=[]
                   shipping_text = page.search("span.ships-in").map {|e| "#{e.content}" }
                    
@@ -1024,9 +1024,9 @@ class Generalsearch_improved
 
 
                   (0...price_text.length).each do |i|
-                      ##@@logger.info (price_text[i])
-                      ##@@logger.info (author_text[i])
-                      ##@@logger.info (name_text[i])
+                      ###@@logger.info (price_text[i])
+                      ###@@logger.info (author_text[i])
+                      ###@@logger.info (name_text[i])
                       #Strip invalid UTF-8 Characters
                       name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                       author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -1049,40 +1049,40 @@ class Generalsearch_improved
                       end
                   end
                   rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
                   end
                   prices
           end
           def parse_homeshop(page,query,type)
                    begin
                       price_text = page.search("product_new_price").map { |e| "#{e.content}" }
-                      ##@@logger.info (price_text)
+                      ###@@logger.info (price_text)
                       name_text = page.search("p.product_title a").map{ |e| "#{e.content} " }
-                      ##@@logger.info (name_text)
+                      ###@@logger.info (name_text)
                       author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
-                      ##@@logger.info (author_text )
+                      ###@@logger.info (author_text )
                       url_text = []
                           page.search("p.product_title a").each do |link|
                           url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info (url_text )
+                      ###@@logger.info (url_text )
                       img_text = []
                       page.search("p.product_image img").each do |img|
                           img_text << img.attributes['src'].content
                       end
                  
-                      ##@@logger.info (img_text )
+                      ###@@logger.info (img_text )
                       discount_text = page.search("div.tier1box2 ul li:nth-child(3) span").map { |e| "#{e.content}" }
-                      ##@@logger.info (discount_text )
+                      ###@@logger.info (discount_text )
                       shipping_text = ""
                       prices=[]
 
                       (0...price_text.length).each do |i|
 
-                          ##@@logger.info (price_text[i])
-                          ##@@logger.info (author_text[i])
-                          ##@@logger.info (name_text[i])
+                          ###@@logger.info (price_text[i])
+                          ###@@logger.info (author_text[i])
+                          ###@@logger.info (name_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -1106,8 +1106,8 @@ class Generalsearch_improved
                           end
                       end
                     rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
                     end
                       prices
           end
@@ -1115,31 +1115,31 @@ class Generalsearch_improved
           def parse_letsbuy(page,query,type)
                   begin
                       price_text = page.search("span.text12_stb").map { |e| "#{e.content}" }
-                      ##@@logger.info (price_text)
+                      ###@@logger.info (price_text)
                       name_text = page.search("div.detailbox h2 a").map{ |e| "#{e.content} " }
-                      ##@@logger.info (name_text)
+                      ###@@logger.info (name_text)
                       author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
-                      ##@@logger.info (author_text )
+                      ###@@logger.info (author_text )
                       url_text = []
                       page.search("div.detailbox h2 a").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info (url_text )
+                      ###@@logger.info (url_text )
                       img_text = []
                       page.search("div.search_products img").each do |img|
                       img_text << img.attributes['src'].content
                       end
                      
-                      ##@@logger.info (img_text )
+                      ###@@logger.info (img_text )
                       discount_text = ""
                       shipping_text = ""
                       prices=[]
 
                       (0...price_text.length).each do |i|
 
-                          ##@@logger.info (price_text[i])
-                          ##@@logger.info (author_text[i])
-                          ##@@logger.info (name_text[i])
+                          ###@@logger.info (price_text[i])
+                          ###@@logger.info (author_text[i])
+                          ###@@logger.info (name_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -1163,8 +1163,8 @@ class Generalsearch_improved
                           end
                       end
                     rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
                     end
                     prices
           end
@@ -1172,31 +1172,31 @@ class Generalsearch_improved
           def parse_futurebazaar(page,query,type)
 		begin
 		          price_text = page.search("div.marb5 span.WebRupee + *").map { |e| "#{e.content}" }
-		          ##@@logger.info (price_text)
+		          ###@@logger.info (price_text)
 		          name_text = page.search("div.greed_prod h3 a").map{ |e| "#{e.content} " }
-		          ##@@logger.info (name_text)
+		          ###@@logger.info (name_text)
 		          author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
-		          ##@@logger.info (author_text )
+		          ###@@logger.info (author_text )
 		          url_text = []
 		          page.search("div.greed_prod h3 a").each do |link|
 		          url_text << link.attributes['href'].content
 		          end 	
-		          ##@@logger.info (url_text )
+		          ###@@logger.info (url_text )
 		          img_text = []
 		          page.search("div.ca img").each do |img|
 		          img_text << img.attributes['src'].content
 		          end
 		         
-		          ##@@logger.info (img_text )
+		          ###@@logger.info (img_text )
 		          discount_text = page.search("div.value span.WebRupee + *").map { |e| "#{e.content}" }
 		          shipping_text = ""
 		          prices=[]
 
 		          (0...price_text.length).each do |i|
 
-		              ##@@logger.info (price_text[i])
-		              ##@@logger.info (author_text[i])
-		              ##@@logger.info (name_text[i])
+		              ###@@logger.info (price_text[i])
+		              ###@@logger.info (author_text[i])
+		              ###@@logger.info (name_text[i])
                       #Strip invalid UTF-8 Characters
                       name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                       author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -1220,39 +1220,39 @@ class Generalsearch_improved
 		              end
 		           end
                    rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
                     end
                    prices 
           end
           def parse_adexmart(page,query,type)
               begin
                       price_text = page.search("ul#product_list div.right_block span.price").map { |e| "#{e.content}" }
-                      ##@@logger.info (price_text)
+                      ###@@logger.info (price_text)
                       name_text = page.search("ul#product_list div.center_block h3 a").map{ |e| "#{e.content} " }
-                      ##@@logger.info (name_text)
+                      ###@@logger.info (name_text)
                       author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
-                      ##@@logger.info (author_text )
+                      ###@@logger.info (author_text )
                       url_text = []
                       page.search("ul#product_list div.center_block h3 a").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info (url_text )
+                      ###@@logger.info (url_text )
                       img_text = []
                       page.search("ul#product_list div.center_block img").each do |img|
                       img_text << img.attributes['src'].content
                       end
                      
-                      ##@@logger.info (img_text )
+                      ###@@logger.info (img_text )
                       discount_text = ""
                       shipping_text = ""
                       prices=[]
 
                       (0...price_text.length).each do |i|
 
-                          ##@@logger.info (price_text[i])
-                          ##@@logger.info (author_text[i])
-                          ##@@logger.info (name_text[i])
+                          ###@@logger.info (price_text[i])
+                          ###@@logger.info (author_text[i])
+                          ###@@logger.info (name_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -1276,8 +1276,8 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
               prices
           end
@@ -1285,31 +1285,31 @@ class Generalsearch_improved
           def parse_moviemart(page,query,type)
               begin
                       price_text = page.search("table tbody tr td span#dtMiddle_ctl01_lblMrpInRs").map { |e| "#{e.content}" }
-                      ##@@logger.info (price_text)
+                      ###@@logger.info (price_text)
                       name_text = page.search("table tbody tr td.Height strong a#lnkSell").map{ |e| "#{e.content} " }
-                      ##@@logger.info (name_text)
+                      ###@@logger.info (name_text)
                       author_text = ""
-                      ##@@logger.info (author_text )
+                      ###@@logger.info (author_text )
                       url_text = []
                       page.search("table tbody tr td.Height strong a#lnkSell").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info (url_text )
+                      ###@@logger.info (url_text )
                       img_text = []
                       page.search("table tbody tr td a img#ImgMovie").each do |img|
                       img_text << img.attributes['src'].content
                       end
                      
-                      ##@@logger.info (img_text )
+                      ###@@logger.info (img_text )
                       discount_text = ""
                       shipping_text = ""
                       prices=[]
 
                       (0...price_text.length).each do |i|
 
-                          ##@@logger.info (price_text[i])
-                          ##@@logger.info (author_text[i])
-                          ##@@logger.info (name_text[i])
+                          ###@@logger.info (price_text[i])
+                          ###@@logger.info (author_text[i])
+                          ###@@logger.info (name_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -1332,39 +1332,39 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
               prices
           end
           def parse_moserbaer(page,query,type)
               begin
                       price_text = page.search("div.rightsearchframeaddtocartarealeft div.innerrowforall:nth-child(3) span.change").map { |e| "#{e.content}" }
-                      ##@@logger.info (price_text)
+                      ###@@logger.info (price_text)
                       name_text = page.search("div.innerrowforall_search div.rightsearchframe div.innerrowforall span.change_h1").map{ |e| "#{e.content} " }
-                      ##@@logger.info (name_text)
+                      ###@@logger.info (name_text)
                       author_text = ""
-                      ##@@logger.info (author_text )
+                      ###@@logger.info (author_text )
                       url_text = []
                       page.search("div.innerrowforall_search div.leftsearchimageframe a.thumbnail").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info (url_text )
+                      ###@@logger.info (url_text )
                       img_text = []
                       page.search("div.innerrowforall_search div.leftsearchimageframe a.thumbnail img").each do |img|
                       img_text << img.attributes['src'].content
                       end
                      
-                      ##@@logger.info (img_text )
+                      ###@@logger.info (img_text )
                       discount_text = ""
                       shipping_text = ""
                       prices=[]
 
                       (0...price_text.length).each do |i|
 
-                          ##@@logger.info (price_text[i])
-                          ##@@logger.info (author_text[i])
-                          ##@@logger.info (name_text[i])
+                          ###@@logger.info (price_text[i])
+                          ###@@logger.info (author_text[i])
+                          ###@@logger.info (name_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -1387,8 +1387,8 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
               prices
           end
@@ -1396,31 +1396,31 @@ class Generalsearch_improved
           def parse_indiatimes(page,query,type)
               begin
                       price_text = page.search("table.gridViewNametd tbody tr td.link table tbody tr td span.Blackstrikered:nth-child(4)").map { |e| "#{e.content}" }
-                      ##@@logger.info (price_text)
+                      ###@@logger.info (price_text)
                       name_text = page.search("table.gridViewNametd div#parent span.bold").map{ |e| "#{e.content} " }
-                      ##@@logger.info (name_text)
+                      ###@@logger.info (name_text)
                       author_text = ""
-                      ##@@logger.info (author_text )
+                      ###@@logger.info (author_text )
                       url_text = []
                       page.search("table.gridViewNametd div#parent a.searchLinks1").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info (url_text )
+                      ###@@logger.info (url_text )
                       img_text = []
                       page.search("table.gridView tr td.searchimgtd img").each do |img|
                       img_text << img.attributes['src'].content
                       end
                      
-                      ##@@logger.info (img_text )
+                      ###@@logger.info (img_text )
                       discount_text = ""
                       shipping_text = ""
                       prices=[]
 
                       (0...price_text.length).each do |i|
 
-                          ##@@logger.info (price_text[i])
-                          ##@@logger.info (author_text[i])
-                          ##@@logger.info (name_text[i])
+                          ###@@logger.info (price_text[i])
+                          ###@@logger.info (author_text[i])
+                          ###@@logger.info (name_text[i])
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -1443,8 +1443,8 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
               prices
           end
@@ -1452,31 +1452,31 @@ class Generalsearch_improved
 	def parse_sangeeta(page,query,type)
               begin
                       price_text = page.search("span.mtb-price label.mtb-ofr").map { |e| "#{e.content}" }
-                      ##@@logger.info (price_text)
+                      ###@@logger.info (price_text)
                       name_text = page.search("div.mtb-details h4.mtb-title").map{ |e| "#{e.content} " }
-                      ##@@logger.info (name_text)
+                      ###@@logger.info (name_text)
                       author_text = ""
-                      ##@@logger.info (author_text )
+                      ###@@logger.info (author_text )
                       url_text = []
                       page.search("div.bucket_left div.mtb-imgdiv a").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info (url_text )
+                      ###@@logger.info (url_text )
                       img_text = []
                       page.search("div.mtb-imgdiv a img.mtb-img").each do |img|
                       img_text << img.attributes['src'].content
                       end
                      
-                      ##@@logger.info (img_text )
+                      ###@@logger.info (img_text )
                       discount_text = ""
                       shipping_text = ""
                       prices=[]
 
                       (0...price_text.length).each do |i|
 
-                          ##@@logger.info (price_text[i])
-                          ##@@logger.info (author_text[i])
-                          ##@@logger.info (name_text[i])
+                          ###@@logger.info (price_text[i])
+                          ###@@logger.info (author_text[i])
+                          ###@@logger.info (name_text[i])
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1495,30 +1495,30 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
               prices
           end
 	def parse_landmark(page,query,type)
               begin
                       price_text = page.search("span#ctl00_ContentPlaceHolder1_rptBook_ctl00_lblsplprice").map { |e| "#{e.content}" }
-                      ##@@logger.info (price_text)
+                      ###@@logger.info (price_text)
                       name_text = page.search("a#ctl00_ContentPlaceHolder1_rptBook_ctl00_lnkttl").map{ |e| "#{e.content} " }
-                      ##@@logger.info (name_text)
+                      ###@@logger.info (name_text)
                       author_text = ""
-                      ##@@logger.info (author_text )
+                      ###@@logger.info (author_text )
                       url_text = []
                       page.search("a#ctl00_ContentPlaceHolder1_rptBook_ctl00_lnkttl").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info (url_text )
+                      ###@@logger.info (url_text )
                       img_text = []
                       page.search("input#ctl00_ContentPlaceHolder1_rptBook_ctl00_imgBook").each do |img|
                       img_text << img.attributes['src'].content
                       end
                      
-                      ##@@logger.info (img_text )
+                      ###@@logger.info (img_text )
                        
                       discount_text = page.search("span#ctl00_ContentPlaceHolder1_rptBook_ctl00_lblsaveprice").map{ |e| "#{e.content} " }
                       shipping_text = ""
@@ -1526,9 +1526,9 @@ class Generalsearch_improved
 
                       (0...price_text.length).each do |i|
 
-                          ##@@logger.info (price_text[i])
-                          ##@@logger.info (author_text[i])
-                          ##@@logger.info (name_text[i])
+                          ###@@logger.info (price_text[i])
+                          ###@@logger.info (author_text[i])
+                          ###@@logger.info (name_text[i])
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1548,32 +1548,32 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
               prices
           end
      	def dont_endparse_rightbooks(page,query,type)
               begin
                       price_text = page.search("span.footer_author1").map { |e| "#{e.content}" }
-                      ##@@logger.info (price_text)
+                      ###@@logger.info (price_text)
                       name_text = page.search("span.about2_name").map{ |e| "#{e.content} " }
-                      ##@@logger.info (name_text)
+                      ###@@logger.info (name_text)
                       
                        
                       author_text = page.search("span.category_text").map{ |e| "#{e.content} " }
-                      ##@@logger.info (author_text )
+                      ###@@logger.info (author_text )
                       url_text = []
                       page.search("span.about2_name a").each do |link|
                       url_text << link.attributes['href'].content
                       end 	
-                      ##@@logger.info (url_text )
+                      ###@@logger.info (url_text )
                       img_text = []
                       page.search("span.about2_name a img").each do |img|
                       img_text << img.attributes['src'].content
                       end
                      
-                      ##@@logger.info (img_text )
+                      ###@@logger.info (img_text )
                        
                       discount_text = page.search("span#ctl00_ContentPlaceHolder1_rptBook_ctl00_lblsaveprice").map{ |e| "#{e.content} " }
                       shipping_text = ""
@@ -1581,9 +1581,9 @@ class Generalsearch_improved
 
                       (0...price_text.length).each do |i|
 
-                          ##@@logger.info (price_text[i])
-                          ##@@logger.info (author_text[i])
-                          ##@@logger.info (name_text[i])
+                          ###@@logger.info (price_text[i])
+                          ###@@logger.info (author_text[i])
+                          ###@@logger.info (name_text[i])
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1603,8 +1603,8 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
               end
               prices
           end
@@ -1612,33 +1612,33 @@ class Generalsearch_improved
 
 
      def dont_parse_coinjoos(page,query,type)
-              @@logger.info('Parsing coinjoos')
+              #@@logger.info('Parsing coinjoos')
               begin 
                   price_text = page.search("ul#search-result-items li span.variant-final-price").map { |e| "#{e.content}" }
-                  @@logger.info (price_text)
+                  #@@logger.info (price_text)
                   name_text = page.search("div.content div.contBg div.contSep div.midContent div.listItem div.searchRes div.resItem h2").map{ |e| "#{e.content} " }
-                  @@logger.info (name_text)
+                  #@@logger.info (name_text)
                   author_text = page.search("ul#search-result-items li span.ctbr-name").map {|e| "#{e.content}" }
-                  @@logger.info (author_text )
+                  #@@logger.info (author_text )
                   url_text = []
                   page.search("ul#search-result-items li span.variant-title a").each do |link|
                       url_text << link.attributes['href'].content
                   end 	
-                  @@logger.info (url_text )
+                  #@@logger.info (url_text )
                   img_text = []
                   page.search("div.variant-image img").each do |img|
                       img_text << img.attributes['src'].content
                   end
-                  @@logger.info (img_text )
+                  #@@logger.info (img_text )
                   prices=[]
                   discount_text = ""
                   shipping_text = ""
 
 
                   (0...price_text.length).each do |i|
-                      ##@@logger.info (price_text[i])
-                      ##@@logger.info (author_text[i])
-                      ##@@logger.info (name_text[i])
+                      ###@@logger.info (price_text[i])
+                      ###@@logger.info (author_text[i])
+                      ###@@logger.info (name_text[i])
                       if (name_text[i] == nil && author_text[i] != nil) then
                             weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                       elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1657,8 +1657,8 @@ class Generalsearch_improved
                       end
                   end
                   rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
                   end
                   prices
           end
@@ -1667,8 +1667,8 @@ class Generalsearch_improved
 #----------------------------------------------------Helpers to find correct URL to parse------------------------------------
           def get_flipkart_url(query, type)
                   what = type[:search_type]
-                  #@@logger.info("Flipkart URL")
-                  #@@logger.info(what)
+                  ##@@logger.info("Flipkart URL")
+                  ##@@logger.info(what)
                   if what == 'movies' then
                       url="http://www.flipkart.com/search-movie?dd=0&query=#{query[:search_term]}&Search=Search"
                   elsif what == 'mobiles' then
@@ -1681,13 +1681,13 @@ class Generalsearch_improved
                   else
                       url = "http://www.flipkart.com/search.php?query=#{query[:search_term]}&from=all"
                   end
-                  #@@logger.info(url)
+                  ##@@logger.info(url)
                   url
           end
           def get_infibeam_url(query,type)
                   what = type[:search_type]
-                  #@@logger.info("Infibeam URL")
-                  #@@logger.info(what)
+                  ##@@logger.info("Infibeam URL")
+                  ##@@logger.info(what)
  
                   if what == 'movies' then
                       url = "http://www.infibeam.com/Media/search?q=#{query[:search_term]}"
@@ -1700,7 +1700,7 @@ class Generalsearch_improved
                   else
                       url = "http://www.infibeam.com/search?q=#{query[:search_term]}"
                   end
-                  #@@logger.info(url)
+                  ##@@logger.info(url)
                   url
 
            end
@@ -1745,7 +1745,7 @@ class Generalsearch_improved
                     url="http://shop.ebay.in/?_from=R40&_trksid=m570&_nkw=#{query[:search_term]}&_sacat=See-All-Categories"
                 end  
                 
-                @@logger.info("ebay URL : #{url} ")
+                #@@logger.info("ebay URL : #{url} ")
                 url
            end
 
@@ -1829,28 +1829,28 @@ class Generalsearch_improved
 #-------------------------------------------------------------------------------------------------------------------------------
           #Using - http://madeofcode.com/posts/69-vss-a-vector-space-search-engine-in-ruby 
           #def find_weight(source_string, search_string)
-          #      #@@logger.info("Trying to find weight...................................")
+          #      ##@@logger.info("Trying to find weight...................................")
           #      search_string_de = de_canonicalize_isbn(search_string)
           #      @source_text = source_string
           #      source_array = [@source_text]
 
           #      engine = VSS::Engine.new(source_array)
           #      results= engine.search(search_string_de)
-          #      #@@logger.info(results)
+          #      ##@@logger.info(results)
           #      weight=0
           #      results.each do |e|
           #                weight = e.rank 
-          #                #@@logger.info (weight.class)
+          #                ##@@logger.info (weight.class)
           #      end
           #      return weight,0
           #  end
 
         #Finds the relevance of the search result
         def find_weight(source_string, search_string)
-             # @@logger.info("...................................")
-             # @@logger.info(source_string)
+             # #@@logger.info("...................................")
+             # #@@logger.info(source_string)
             
-             # @@logger.info(search_string)
+             # #@@logger.info(search_string)
               weight,wt=0,0
               begin
               
@@ -1866,17 +1866,17 @@ class Generalsearch_improved
                     source_text = [source_string]
                     engine = VSS::Engine.new(source_text)
                     results= engine.search(search_string.downcase)
-                    ##@@logger.info(results)
+                    ###@@logger.info(results)
                     results.each do |e|
                               weight = e.rank 
-                    #          #@@logger.info (weight)
+                    #          ##@@logger.info (weight)
                     end
                     wt = get_custom_weight(source_string.downcase, search_string.downcase)
                     weight = weight + wt
-                    #@@logger.info(weight)
+                    ##@@logger.info(weight)
               rescue => ex
-                    @@logger.info ("#{ex.class} : #{ex.message}")
-                    @@logger.info (ex.backtrace)
+                    #@@logger.info ("#{ex.class} : #{ex.message}")
+                    #@@logger.info (ex.backtrace)
               end
 
               return weight+wt,0
@@ -1884,14 +1884,14 @@ class Generalsearch_improved
         def get_custom_weight(source_string, search_string)
           # find the maximum substring weightage first.
           weight,wt = 0,0
-          #@@logger.info("get custom weight")
-          #@@logger.info(source_string.class)
-          #@@logger.info(source_string.class)
+          ##@@logger.info("get custom weight")
+          ##@@logger.info(source_string.class)
+          ##@@logger.info(source_string.class)
 
           begin
                     m = LongestSubsequence.new(source_string)
                     weight = m.match(search_string)
-                    #@@logger.info("Weight 1 : #{weight}")
+                    ##@@logger.info("Weight 1 : #{weight}")
                     # Get unique strings from the search string
                     normalized_search_string="" 
                     search_string.split.each do |ss|
@@ -1907,14 +1907,14 @@ class Generalsearch_improved
                     normalized_search_string.split.each do |s|
                       search_count +=1 if source_string.include?(s)
                     end
-                    #@@logger.info("get_custom_weight : #{search_count}")
-                    #@@logger.info(normalized_search_string)
+                    ##@@logger.info("get_custom_weight : #{search_count}")
+                    ##@@logger.info(normalized_search_string)
                     wt = search_count.fdiv(source_count)
                     weight = weight + (search_count.fdiv(source_count))
-                    #@@logger.info("#{source_string} - #{wt}")
+                    ##@@logger.info("#{source_string} - #{wt}")
           rescue => ex
-                @@logger.info ("#{ex.class} : #{ex.message}")
-                @@logger.info (ex.backtrace)
+                #@@logger.info ("#{ex.class} : #{ex.message}")
+                #@@logger.info (ex.backtrace)
           end
 
           weight
