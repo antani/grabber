@@ -133,8 +133,8 @@ class Generalsearch_improved
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
                             page
-                          else
                             page="failed"
+                          else
                           end  
                      end
                      url= get_homeshop_url(term, type)
@@ -1553,6 +1553,61 @@ class Generalsearch_improved
               end
               prices
           end
+     	def dont_endparse_rightbooks(page,query,type)
+              begin
+                      price_text = page.search("span.footer_author1").map { |e| "#{e.content}" }
+                      ##@@logger.info (price_text)
+                      name_text = page.search("span.about2_name").map{ |e| "#{e.content} " }
+                      ##@@logger.info (name_text)
+                      
+                       
+                      author_text = page.search("span.category_text").map{ |e| "#{e.content} " }
+                      ##@@logger.info (author_text )
+                      url_text = []
+                      page.search("span.about2_name a").each do |link|
+                      url_text << link.attributes['href'].content
+                      end 	
+                      ##@@logger.info (url_text )
+                      img_text = []
+                      page.search("span.about2_name a img").each do |img|
+                      img_text << img.attributes['src'].content
+                      end
+                     
+                      ##@@logger.info (img_text )
+                       
+                      discount_text = page.search("span#ctl00_ContentPlaceHolder1_rptBook_ctl00_lblsaveprice").map{ |e| "#{e.content} " }
+                      shipping_text = ""
+                      prices=[]
+
+                      (0...price_text.length).each do |i|
+
+                          ##@@logger.info (price_text[i])
+                          ##@@logger.info (author_text[i])
+                          ##@@logger.info (name_text[i])
+                          if (name_text[i] == nil && author_text[i] != nil) then
+                                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                          elsif (name_text[i] !=nil && author_text[i] == nil) then
+                                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                          else
+                                          weight_author=0
+                                          weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                          weight = weight_name + weight_author
+
+                          end      
+                          final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+                          final_price=final_price.tr('/-','')
+                                                           
+                          if (weight > 0) then
+                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.rightbooks.in/"+url_text[i], :source=>'Rightbooks', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            prices.push(price_info)
+                          end
+                       end
+              rescue => ex
+                        ##@@logger.info ("#{ex.class} : #{ex.message}")
+                        ##@@logger.info (ex.backtrace)
+              end
+              prices
+          end
 
 
 
@@ -1767,6 +1822,9 @@ class Generalsearch_improved
      	   def get_landmark_url(query,type)
           	  url="http://www.landmarkonthenet.com/product/SearchPaging.aspx?code=#{query[:search_term]}&type=0&num=0"
               url
+           end
+           def get_rightbooks_url(query,type)
+           url="http://www.rightbooks.in/Product_search.asp?cid=1&fc=1&fsr=#{query[:search_term]}&pt=2&sc=INR"
            end
 #-------------------------------------------------------------------------------------------------------------------------------
           #Using - http://madeofcode.com/posts/69-vss-a-vector-space-search-engine-in-ruby 
