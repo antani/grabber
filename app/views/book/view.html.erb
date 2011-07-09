@@ -50,7 +50,9 @@
 
          <% unless @stores.nil? %>
             <div class="stores">
-            <p class="desch3">Lowest Prices for <i><%= @type %></i> matching <i><%= @search_string %></i></p>
+            <p class="desch3">Lowest Prices for <i><%= @type %></i> matching <i><%= @search_string %></i>
+            <%= tweet_button(:text => "Awesome deals at #cheapr.me -", :count => "none") %>
+            </p>
             <table class="price_list">
 
              <% @stores.each_with_index do |data,x|  %>

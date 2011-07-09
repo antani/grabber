@@ -110,6 +110,7 @@ GEM
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
+    tweet-button (0.1.0)
     typhoeus (0.2.4)
       mime-types
       mime-types
@@ -145,6 +146,7 @@ DEPENDENCIES
   rack-timeout
   rails
   rake (~> 0.8.7)
+  tweet-button
   typhoeus
   vss
   wirble

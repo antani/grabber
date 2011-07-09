@@ -20,7 +20,7 @@ gem 'typhoeus'
 gem 'vss'
 gem "SystemTimer", :require => "system_timer", :platforms => :ruby_18
 gem "rack-timeout"
-
+gem "tweet-button"
 
 # Use unicorn as the web server
 # gem 'unicorn'

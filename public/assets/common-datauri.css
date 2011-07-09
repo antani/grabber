@@ -682,6 +682,9 @@ a img { border: none; }
     font-family: 'Droid Sans','Puritan',sans-serif; 
     color: #C24E42;
     font-weight: bold;
+    padding: 5px;
+    margin: 3px;
+    vertical-align:text-top;
 }
 .top_p
 {
