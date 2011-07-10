@@ -357,6 +357,23 @@ class Generalsearch_improved
                  		          page="failed"
                               end    
                            end
+                           url= get_coinjoos_url(term, type)
+                           req_coinjoos = Typhoeus::Request.new(url,:timeout=> 8000)      
+                           req_coinjoos.on_complete do |response|
+                #          ##@@logger.info('Crossword response')
+                #          ##@@logger.info(response.code)    # http status code
+                #          ##@@logger.info(response.time)    # time in seconds the request took 
+
+                              if response.success?
+                                  doc= response.body
+                                  page = Nokogiri::HTML::parse(doc)
+                                  page
+	                          else
+                 		          page="failed"
+                              end    
+                           end
+  
+                           hydra.queue req_coinjoos                            
   
                            hydra.queue req_rediff                            
                            #hydra.queue req_nbcindia                            
@@ -434,7 +451,7 @@ class Generalsearch_improved
                          prices.push(parse_pustak(req_pustak.handled_response,term, type)) unless req_pustak.handled_response =="failed"
                          prices.push(parse_bookadda(req_bookadda.handled_response,term, type)) unless req_bookadda.handled_response =="failed"
                          prices.push(parse_crossword(req_crossword.handled_response,term, type)) unless req_crossword.handled_response =="failed"
-                         #prices.push(parse_coinjoos(req_coinjoos.handled_response,term, type)) unless req_coinjoos.handled_response =="failed"
+                         prices.push(parse_coinjoos(req_coinjoos.handled_response,term, type)) unless req_coinjoos.handled_response =="failed"
                      end
                      if (mtype !='movies' and mtype != 'books') then
                          prices.push(parse_letsbuy(req_letsbuy.handled_response,term, type)) unless req_letsbuy.handled_response =="failed"
@@ -1611,17 +1628,17 @@ class Generalsearch_improved
 
 
 
-     def dont_parse_coinjoos(page,query,type)
+     def parse_coinjoos(page,query,type)
               #@@logger.info('Parsing coinjoos')
               begin 
-                  price_text = page.search("ul#search-result-items li span.variant-final-price").map { |e| "#{e.content}" }
+                  price_text = page.search("div.listItem div.searchRes div.resItem form p span.info i strong").map { |e| "#{e.content}" }
                   #@@logger.info (price_text)
-                  name_text = page.search("div.content div.contBg div.contSep div.midContent div.listItem div.searchRes div.resItem h2").map{ |e| "#{e.content} " }
+                  name_text = page.search("div.searchRes div.resItem h2 a.bookIcon").map{ |e| "#{e.content} " }
                   #@@logger.info (name_text)
-                  author_text = page.search("ul#search-result-items li span.ctbr-name").map {|e| "#{e.content}" }
+                  author_text = page.search("div.listItem div.searchRes div.resItem h3 a b").map {|e| "#{e.content}" }
                   #@@logger.info (author_text )
                   url_text = []
-                  page.search("ul#search-result-items li span.variant-title a").each do |link|
+                  page.search("div.searchRes div.resItem h2 a.bookIcon").each do |link|
                       url_text << link.attributes['href'].content
                   end 	
                   #@@logger.info (url_text )
@@ -1631,11 +1648,12 @@ class Generalsearch_improved
                   end
                   #@@logger.info (img_text )
                   prices=[]
-                  discount_text = ""
-                  shipping_text = ""
+                  
+                  discount_text = page.search("div.listItem div.searchRes div.resItem form p span.info i b").map {|e| "#{e.content}" }
+                  shipping_text = page.search("div.listItem div.searchRes div.resItem form p span.info span span:first-child").map {|e| "#{e.content}" }
 
-
-                  (0...price_text.length).each do |i|
+                  i=0 
+                  #(0...price_text.length).each do |i|
                       ###@@logger.info (price_text[i])
                       ###@@logger.info (author_text[i])
                       ###@@logger.info (name_text[i])
@@ -1652,10 +1670,10 @@ class Generalsearch_improved
                       end      
                                             final_price = price_text[i].to_s.tr('A-Za-z.,','')
                       if (weight > 0) then
-                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://crossword.in/"+url_text[i], :source=>'Coinjoos', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.coinjoos.com"+url_text[i], :source=>'Coinjoos', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                         prices.push(price_info)
                       end
-                  end
+                  #end
                   rescue => ex
                         ###@@logger.info ("#{ex.class} : #{ex.message}")
                         ###@@logger.info (ex.backtrace)

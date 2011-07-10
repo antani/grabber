@@ -4,6 +4,8 @@
 
 $(document).ready(function() {
 
+
+
 //Add validations
 var validator = $('#searchfrm').validate(
 {
@@ -186,6 +188,10 @@ $('#india-stores').qtip({
    style: 'green'
 });
 
+function dots(v){
+ return v.slice(0,17)+".."
+}
+
 $('.comingsoon').qtip({content: 'Coming very very soon', show:'mouseover',hide:'mouseout',style:'green'});
 
 /*--Feedback slidshow----------------*/
@@ -244,6 +250,12 @@ if(readCookie("country") == null)
 	      $('#editorial_review').html(final_parts);
     }
 */
+  	
+//Add epllipsis
+//ob = $('.div_top_books,.div_top_cameras,.div_top_mobiles,.div_top_movies').ThreeDots(); 
+//ob.update({max_rows:1,whole_word:false,allow_dangle: true}); 
+
+  	
   	
 }); //end js  
 

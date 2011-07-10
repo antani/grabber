@@ -4,33 +4,37 @@
 <% end %>
 
 <% content_for :header do  %>
-  <h2>About</h2>
+  <h2 class="large-about">Story of Cheapr or Why Online Shopping is no longer a pain.</h2>
 <% end %>
 
-<h3>Handcrafted by</h3>
-<p>
-  <a href="http://www.swaroopch.com">Swaroop C H</a>
-</p>
+<div class="center-container">
+    <article style="display: block;">
+        <div style="text-align:center; margin:auto 30px;">
+			It was just me that day and the whole world against me. I planned to buy some books and started looking for deals. I realized very soon that it is almost impossible to know which online shopping site has the best deal for a book, mobile or a camera. That day passed leaving me frustrated. Next day I had a chance discussion with a friend who wanted to buy a DSLR camera. Our tale of frustration tallied and I hatched the plan for - Cheapr.
+			</br></br>
+			Sure, there were other search engines and price comparison tools around but they all showed old and rusty deals. Some did not even work. After stumbling upon <a href="https://twitter.com/#!/swaroopch">Swaroop's</a> incredible <a href="http://isbn.net.in/"> isbn.net.in </a> I thought of taking the idea further.
+			
+        </div>
+        <div style="text-align:center; margin:auto 30px;">
+            <h2 class="large-about about-smaller" style="font-size: 26px;">What cheapr is made of or Strictly Geeky Stuff</h2>
+            Cheapr is hosted on Ubuntu and uses Nginx with Passenger. 
+            Coded mostly in Ruby on Rails, cheapr uses jQuery and is coded mainly in HTML and CSS using Vi. 
+            Cheapr uses mongodb, mongoid and memcached for housekeeping and caching. 
+            Blazing fast HTTP library 'typhoeus' works well with varnish to get prices from more than 20 online stores in India. 
+            There is a lot of heavy lifting happening behind the scenes. Fortunately, you do not need to worry about all this.
+        </div>
+        <div style="text-align:center; margin:auto 30px;">
+            <h2 class="large-about about-smaller" style="font-size: 26px;">Thanks</h2>
+            Keep using Cheapr. Keep loving it. But above all, keep spreading the word. If cheapr is useful to you, talk about it on </br></br>
+            <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=106222632808051&amp;xfbml=1"></script><fb:like href="http://cheapr.me" send="true" width="450" show_faces="false" font=""></fb:like>
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cheapr.me/" data-text="Did you check #Cheapr ? If not, check now..." data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+            <g:plusone href="http://cheapr.me"></g:plusone>
 
-<h3>Disclaimer</h3>
-<ul>
-  <li>
-    This is a side project. I created it because I needed a tool like this. This has nothing to do whatsoever with my employer. You are welcome to use it for your own book purchases. Reading books is good for you.
-  </li>
-  <li>
-    No warranties, guarantees or assurances, regarding the veraciousness of the information displayed, are provided whatsoever.
-  </li>
-  <li>
-    This site currently does NOT take into account many factors such as whether a book is out-of-stock, whether the price includes shipping cost, etc. However, <a href="http://www.swaroopch.com/blog/isbnnetin-open-source/">you can contribute such features yourself since isbn.net.in is open source</a>.
-  </li>
-</ul>
+            </br></br>If you want a new feature or want to report a bug (the horror !) - click on the feedback button in the bottom corner and talk to me. I will make things happen fast. I promise.
+        </div>
+        
+        
+        
 
-<h3>Inspiration</h3>
-<ul>
-  <li>
-  The idea of <a href="http://userscripts.org">GreaseMonkey</a>
-  </li>
-  <li>
-  <a href="http://isbn.nu/0805091742">http://isbn.nu</a>
-  </li>
-</ul>
+    </article>
+</div>

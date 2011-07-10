@@ -52,21 +52,23 @@
 </div>
 
 <div class="textwrapper">
-Searching best prices from so many online shopping sites is very tricky - Cheapr brings you cheapest deals from <span id="india-stores">many</span> online stores in India and makes it very easy for you to chose the best deals.</br>
+Searching best prices from so many online shopping sites is very tricky - Cheapr brings you cheapest deals from <span id="india-stores">many</span> online stores in India and makes it very easy for you to chose the best deals. <a href="/about">Read more...</a></br>
 <div class="clear"></div>
-<!-- a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cheapr.me/" data-text="Did you check #Cheapr ? If not, check now..." data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> -->
 <!--<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=243916848967812&amp;xfbml=1"></script><fb:like href="http://cheapr.me/" send="false" layout="button_count" width="80" show_faces="false" font=""></fb:like> -->
 </div>
 
 
 <div class="top_searches">
-    <div class="fl grid_2 column">
+    <div class="fl grid_2 column" >
     <p class="top_p">Top Books</p>
     <%
     @top_s = Topsearch.all_in(type: ['books']).desc(:cnt).limit(10)
     @top_s.each do |s| %>	
-	    <a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
+        <div class="div_top_books">  
+	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a></br>
+        </div> 
     <%end %>
+    
     </div>
 
     <div class="fl grid_2 column">
@@ -74,9 +76,9 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
     <%
     @top_s = Topsearch.all_in(type: ['mobiles']).desc(:cnt).limit(10)
     @top_s.each do |s| %>	
-
-	    <a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
-
+        <div class="div_top_mobiles">  
+	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %> </a></br>
+        </div>
     <%end %>
     </div>
 
@@ -85,24 +87,23 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
     <%
     @top_s = Topsearch.all_in(type: ['cameras']).desc(:cnt).limit(10)
     @top_s.each do |s| %>	
-
-	    <a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
-
+        <div class="div_top_cameras">
+	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query] )%></a></br>
+        </div> 
     <%end %>
     </div>
     
     <div class="fl grid_2 column">
     <p class="top_p">Top Movies</p>
+
     <%
     @top_s = Topsearch.all_in(type: ['movies']).desc(:cnt).limit(10)
     @top_s.each do |s| %>	
-
-	    <a class="link-highlight" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= s[:query] %></a></br>
-
+        <div class="div_top_movies">
+        <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%=dots( s[:query]) %></a></br>
+        </div>
     <%end %>
     </div>
-
-
 
     <div id="slideshow" class="fl grid_3 column">
     <p class="top_p">Your Views</p>
@@ -128,8 +129,8 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
            </div>
         </div>
 
-
     </div>
+            
 </div>
 <div class="clear"></div>
 

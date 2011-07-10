@@ -679,7 +679,7 @@ a img { border: none; }
     text-shadow: 0 1px 0 #FFFFFF;
 }
 .desch3 {
-    font-family: 'Droid Sans','Puritan',sans-serif; 
+    font-family: 'Lato','Droid Sans','Puritan',sans-serif; 
     color: #C24E42;
     font-weight: bold;
     padding: 5px;
@@ -767,17 +767,17 @@ a img {
 }
 #wait-text
 {
-    font-family: 'Droid Sans','Puritan',sans-serif; 
+    font-family: 'Lato','Droid Sans','Puritan',sans-serif; 
     color: #C24E42;
-    font-size: 14px;
+    font-size: 12px;
 }
 .textwrapper{
-    font-family: 'Droid Sans','Puritan',sans-serif; 
+    font-family: 'Lato','Droid Sans','Puritan',sans-serif; 
     color: #C24E42;
     font-size: 110%;
     font-weight: bold;
     text-shadow: 0 2px 1px rgba(255, 255, 255, 0.9);
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 3px 3px 3px 3px;
     clear: left;
     float: left;
@@ -789,12 +789,12 @@ a img {
     width: 800px;
 }
 .top_searches{
-    font-family:'Droid Sans','Puritan',sans-serif; 
+    font-family:'Lato','Droid Sans','Puritan',sans-serif; 
     color: #C24E42;
     font-size: 110%;
     font-weight: bold;
     text-shadow: 0 2px 1px rgba(255, 255, 255, 0.9);
-    font-size: 12px;
+    font-size: 13px;
     border-radius: 3px 3px 3px 3px;
     clear: left;
     float: left;
@@ -886,6 +886,7 @@ table.price_list td
   padding: 15px;
   /*border-top: 1px solid #EEEEEE;*/
   /*border-bottom: 1px solid #FFFFFF;*/
+      font-family:'Lato','Droid Sans','Puritan',sans-serif; 
   border-bottom: 1px dotted #CCCCCC;
   vertical-align: top;
   background-color: white;
@@ -1503,6 +1504,44 @@ Notifications
 	background-color: transparent !important	;
 }
 
+.center-container {
+    margin: 0 auto;
+    text-align: left;
+    width: 1000px;
+    font-family: 'Lato','Helvetica',Georgia,serif;
+    font-size: 14px;
+}
+.large-about {
+    clear: both;
+    color: #333333;
+    font-family: 'Lato','Helvetica',Georgia,serif;
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.1em;
+    margin: auto 50px;
+    text-align: center;
+    margin-top: 50px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.about-smaller
+{
+   font-size: 26px;
+}
+#div_top_books
+{
+    display:block;
+}
+#div_top_books ul,#div_top_cameras ul,#div_top_mobiles ul,#div_top_movies ul
+{
+margin-left: 0;
+}
+.div_top_books,.div_top_cameras,.div_top_mobiles,.div_top_movies
+{
+
+    list-style-type: none;
+    overflow: hidden;
+}
 
 
 /*
