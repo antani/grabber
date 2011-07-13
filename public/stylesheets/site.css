@@ -893,4 +893,8 @@ margin-left: 0;
     list-style-type: none;
     overflow: hidden;
 }
+.purchase a, .purchase a:hover
+{
+text-decoration: none;
+}
 
