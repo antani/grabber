@@ -71,6 +71,7 @@ class BookController < ApplicationController
                 logger.info("Book #{@isbn} has been queued")
                 #    @prices.delay.perform
 		        @prices.perform
+
               #else
                # logger.info("Book #{@isbn} is already queued")
               #end
@@ -82,6 +83,16 @@ class BookController < ApplicationController
                     @stores = Rails.cache.fetch(@prices.cache_key)
                 end
             end
+           # logger.info ('Storing cookies')
+           # current_cookie = cookies[:saved_search]
+           # current_cookie = current_cookie + "~~" + "#{request.request_uri}|#{ss}|#{tt}" unless current_cookie == nil
+           # cookies[:saved_search] = {
+           #     :value => current_cookie,
+           #     :expires => Time.now + 1.day
+           # }
+            
+            
+            
     end   
 
     #@stores = @stores.reject { |store, data| store == :uread } ## XXX HACK

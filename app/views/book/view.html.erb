@@ -67,20 +67,22 @@
                                           <td>
                                             <a rel="nofollow" target="_blank" href="<%= data[:url] %>"><%= data[:source] %></a>
                                           </td>  
-                                          <td>
-                                                <img src='<%= data[:img] %>' width="64" height="100" class='prod_img'>
-                                          </td>
+                                          
                                            <td class="td_price">
                                                 <span style="font-family:rupee">R</span> <%= data[:price] %></span>
                                            </td>     
                                             <td  class="td_name">
                                             <b><%= data[:name] %></b></br>
-                                            <span class="discount"><%= data[:discount] %></span></br><span class="shipping"><%= data[:shipping] %></span>
+                                            <span class="discount"><%= data[:discount] %></span></br>
+                                            <span class="shipping"><%= data[:shipping] %></span></br>
+
                                             </td>
                                             <td  class="td_author">
                                                 <%= data[:author] %>
                                             </td>
-                                         
+                                         <td>
+                                                <img src='<%= data[:img] %>' width="64" height="100" class='prod_img'>
+                                          </td>
                                           <td>
                                             <ul class="tag_dummy">
                                              <!-- <li><a href="#">LOWEST</a></li>-->
