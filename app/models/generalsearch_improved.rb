@@ -988,7 +988,7 @@ class Generalsearch_improved
                   author_text = page.search("span.searchbookauthor a").map {|e| "#{e.content}" }
                   ###@@logger.info (author_text )
                   url_text = []
-                  page.search("div.searchpagebooktitle a").each do |link|
+                  page.search("div.searchpagebooktitle a[@href*=product]").each do |link|
                     url_text << link.attributes['href'].content
                   end 	
                         ###@@logger.info (url_text )
@@ -1004,6 +1004,10 @@ class Generalsearch_improved
                   prices=[]
 
                   (0...price_text.length).each do |i|
+                  
+                      if i>0 then
+                        break
+                      end  
                       ###@@logger.info (price_text[i])
                       ###@@logger.info (author_text[i])
                       ###@@logger.info (name_text[i])
