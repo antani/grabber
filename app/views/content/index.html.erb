@@ -104,8 +104,24 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
         </div>
     <%end %>
     </div>
+<div class="fl grid_2 column" >
+    <p class="top_p">Recent</p>
+    <%
+    @top_s = Recentsearch.all_in().desc(:ts).limit(5)
+    @top_s.each do |s| %> 
+        <div class="div_top_books">  
+      <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a>&nbsp;
+        </div> 
+    <%end %>
+    
+    </div>
+    
+            
+</div>
+<div class="clear"></div>
 
-    <div id="slideshow" class="fl grid_3 column">
+
+<div id="slideshow" class="container_12">
     <p class="top_p">Your Views</p>
         <div id="slideshow-reel">
             <div class="slide">
@@ -130,12 +146,10 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
         </div>
 
     </div>
-            
-</div>
-<div class="clear"></div>
-
 </div>
 
 
 	
+
+
 

@@ -103,26 +103,23 @@ def find_w(source_string, search_string)
     cost = cost + 1
     source_string.downcase.split.each do |tt|
     #soundex always matches with numbers - need to ignore numbers. 
-            if(soundex(tt) == soundex(t) and (/\d/.match(tt) == nil)) then
-                    p t + " - " + tt + " Matches"
-                    
-		    if freqs[t] == 0 then	
-			    weight = weight + word_match_w
-	                    filtered_source_string << tt 
+        if(soundex(tt) == soundex(t) and (/\d/.match(tt) == nil)) then
+                   p t + " - " + tt + " Matches"
+ 		    if freqs[t] == 0 then	
+   			    weight = weight + word_match_w
+	         filtered_source_string << tt 
 		    end	
 		    freqs[t] += 1
-            end
+    end
     #valid usecase for numbers like Nokia 5800
-            if (/\d/.match(tt) != nil and t==tt) then
-                    p t + " - " + tt + " Matches"
-                    
-                    
-		    if freqs[t] == 0 then	
+     if (/\d/.match(tt) != nil and t==tt) then
+       p t + " - " + tt + " Matches"
+       if freqs[t] == 0 then	
 			    weight = weight + word_match_w
-	                    filtered_source_string << tt 
+	        filtered_source_string << tt 
 		    end	
 		    freqs[t] += 1
-            end
+     end
     end 
   end
   puts 'after adding characters- '+ weight.to_s
@@ -162,8 +159,8 @@ end
 #tt = "Manorama Year Book 2006"
 #s = "Manorama Year Book 2011"
 #tt="New Samsung Galaxy S2 I9100, 3G, 8MP 1yr Warranty"
-tt= "Linux: Linus Torvalds, Alan Cox, Tux, Agenda Vr3, Fedora, Liste Des Distributions Linux, Processus de Developpement de Linux"
-s = "Linus Torvalds"
+tt= "C++ Programming Language"
+s = "Ruby Programming Language"
 
 w,c =0,0
 #p soundtt.include?(sounds)
@@ -183,10 +180,10 @@ w,c =  find_w(tt,s)
 p w
 p c
 #30,500.00 
-rs = "30,500.00"
+#rs = "30,500.00"
 
 #rs="Our Price: Rs.14699.0"
-rs_tr= rs.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+#rs_tr= rs.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
 #.gsub(/[,]/,'')
-p rs_tr
+#p rs_tr
 

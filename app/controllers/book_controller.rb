@@ -57,20 +57,27 @@ class BookController < ApplicationController
             @stores = Rails.cache.fetch(@prices.cache_key)
        	    #Save top_search or increase existing count of a search
             p = Topsearch.first(:conditions => {query: ss, type: @type}) 
-	        if p==nil then
-		        topsearch = Topsearch.create ({:query=> ss, :type=> tt, :cnt=> 1})
-		        topsearch.save
+            q = Recentsearch.first(:conditions => {query: ss, type: @type}) 
+            if(q==nil) then
+              recentsearch = Recentsearch.create({:query => ss, :type=>tt, :ts=>Time.now})
+              recentsearch.save
+            end
+
+  	        if p==nil then
+  		        topsearch = Topsearch.create ({:query=> ss, :type=> tt, :cnt=> 1})
+  		        topsearch.save
+              
             else
-                p.inc(:cnt,1)
-  	            p.save
-	        end
+                  p.inc(:cnt,1)
+    	            p.save
+  	        end
 
             if @stores.nil?
               # Check if book is already queued.
               #if Delayed::Backend::Mongoid::Job.where(:handler => /#{@isbn}/).empty?
                 logger.info("Book #{@isbn} has been queued")
                 #    @prices.delay.perform
-		        @prices.perform
+		            @prices.perform
 
               #else
                # logger.info("Book #{@isbn} is already queued")

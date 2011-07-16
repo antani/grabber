@@ -137,10 +137,10 @@ require 'stemmer'
 
  
 
-puts find_weight("Harry Potter and the Chamber of Secrets j k rowling","Harry Potter Chamber Of Secrets Rowling")
-puts find_weight("Harry Potter and the Chamber of Secrets Frederic P Miller","Harry Potter Chamber Of Secrets")
-puts find_weight("Just for Fun: The Story of an Accidental Revolutionary Linus Torvalds", "just for fun linus")
-puts find_weight("Just for Fun: The Story of an Accidental Revolutionary", "just for fun linus")
+#puts find_weight("Harry Potter and the Chamber of Secrets j k rowling","Harry Potter Chamber Of Secrets Rowling")
+#puts find_weight("Harry Potter and the Chamber of Secrets Frederic P Miller","Harry Potter Chamber Of Secrets")
+#puts find_weight("Just for Fun: The Story of an Accidental Revolutionary Linus Torvalds", "just for fun linus")
+#puts find_weight("Just for Fun: The Story of an Accidental Revolutionary", "just for fun linus")
 
 #t="Price: Rs.  99.00".gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'').tr('.00','').strip
 ##puts ">>#{t}<<"
@@ -150,3 +150,19 @@ puts find_weight("Just for Fun: The Story of an Accidental Revolutionary", "just
 
 #t = "173/-".tr('/-','').strip
 ##puts t
+
+
+
+def soundex(string)
+  copy = string.upcase.tr '^A-Z', ''
+  return nil if copy.empty?
+  first_letter = copy[0, 1]
+  copy.tr_s! 'AEHIOUWYBFPVCGJKQSXZDTLMNR', '00000000111122222222334556'
+  copy.sub!(/^(.)\1*/, '').gsub!(/0/, '')
+  "#{first_letter}#{copy.ljust(3,"0")}"
+end
+
+
+"girl dragon tattoo".split.each do |t|
+  puts soundex(t)
+end 

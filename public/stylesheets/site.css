@@ -44,7 +44,7 @@
     font-size: 24px;
     margin-bottom: 5px;
     font-weight: normal;
-    border-bottom: 3px dotted #C9C4BA;
+    border-bottom: 2px dotted #C9C4BA;
 
 }
 .top_p_p
@@ -639,15 +639,15 @@ Notifications
 {
     color: #888888;
 }
-/*--Feedback slideshow--
+/*--Feedback slideshow--*/
 #slideshow {
     width: 900px;
     height: 120px;
     overflow: hidden;
     position: relative;
-
+    
 }
-
+/*
 #slideshow-reel {
     width: 5400px;
     height: 120px;

@@ -166,9 +166,9 @@ class Generalsearch_improved
                      url= get_tradeus_url(term, type)
                      req_tradeus= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_tradeus.on_complete do |response|
-                       #@@logger.info('tradeus response')
-                       #@@logger.info(response.code)    # http status code
-                       #@@logger.info(response.time)    # time in seconds the request took 
+                       @@logger.info('tradeus response')
+                       @@logger.info(response.code)    # http status code
+                       @@logger.info(response.time)    # time in seconds the request took 
                        #
                           if response.success?
                             doc= response.body
@@ -319,6 +319,24 @@ class Generalsearch_improved
                           hydra.queue req_moserbaer                            
                           hydra.queue req_indiatimes                            
 
+                     end
+                     if mtype == 'cameras' then
+                           url= get_fotocenter_url(term, type)
+                           req_fotocenter= Typhoeus::Request.new(url,:timeout=> 8000)      
+                           req_fotocenter.on_complete do |response|
+                          #@@logger.info('Rediff response')
+                          #@@logger.info(response.code)    # http status code
+                          #@@logger.info(response.time)    # time in seconds the request took 
+
+                               if response.success?
+                                  doc= response.body
+                                  page = Nokogiri::HTML::parse(doc)
+                                  page
+   	                           else
+                                  page="failed"
+                               end    
+                           end
+                           hydra.queue req_fotocenter
                      end
                      #Only books
                      if mtype == 'books' then
@@ -486,6 +504,10 @@ class Generalsearch_improved
                      if mtype == 'mobiles' then
                                prices.push(parse_sangeeta(req_sangeeta.handled_response,term, type)) unless req_sangeeta.handled_response =="failed"
                      end
+                     if mtype == 'cameras' then
+                               prices.push(parse_fotocenter(req_fotocenter.handled_response,term, type)) unless req_fotocenter.handled_response =="failed"
+                     end
+                     
                      if mtype == 'books' then
                          prices.push(parse_rediff(req_rediff.handled_response,term, type)) unless req_rediff.handled_response =="failed"
                          #prices.push(parse_nbcindia(req_nbcindia.handled_response,term, type)) unless req_nbcindia.handled_response =="failed"
@@ -1041,58 +1063,64 @@ class Generalsearch_improved
           def parse_tradeus(page,query,type)
             @@logger.info ("parsing tradeus")
             begin
-		    price_text = page.search("div.prsng label").map { |e| "#{e.content}" }
-		    ###@@logger.info (price_text)
-		    name_text = page.search("div.search_prod_col tr td:nth-child(2) a:first-child").map{ |e| "#{e.content} " }
-		    ###@@logger.info (name_text)
-		    author_text = page.search("span.searchbookauthor a").map {|e| "#{e.content}" }
-		    ###@@logger.info (author_text )
-		    url_text = []
-		          page.search("div.search_prod_col tr td:nth-child(2) a:first-child").each do |link|
-		          url_text << link.attributes['href'].content
-		    end 	
-		    ###@@logger.info (url_text )
-		    img_text = []
-		    page.search("img#pimage").each do |img|
-		      img_text << img.attributes['src'].content
-		    end
-		    ###@@logger.info (img_text )
+          		    price_text = page.search("div.productDetails div.productRatingPrice div.productPrice span strong").map { |e| "#{e.content}" }
+          		    ###@@logger.info (price_text)
+          		    name_text = page.search("div.productDetails div.productHeading a").map{ |e| "#{e.content} " }
+          		    ###@@logger.info (name_text)
+          		    author_text = page.search("span.searchbookauthor a").map {|e| "#{e.content}" }
+          		    ###@@logger.info (author_text )
+          		    url_text = []
+          		          page.search("div.productDetails div.productHeading a").each do |link|
+          		          url_text << link.attributes['href'].content
+          		    end 	
+          		    ###@@logger.info (url_text )
+          		    img_text = []
+          		    page.search("div.searchResultContainer div.productImage a img.imagecache").each do |img|
+          		      img_text << img.attributes['src'].content
+          		    end
+          		    ###@@logger.info (img_text )
+ 
+          		    discount_text = page.search("div.productDetails div.productRatingPrice div.productSave span strong").map {|e| "#{e.content}" }
+          		    shipping_text = ""
+          		    prices=[]
 
-		    discount_text = ""
-		    shipping_text = ""
-		    prices=[]
+  		    (0...price_text.length).each do |i|
 
-		    (0...price_text.length).each do |i|
-		        ###@@logger.info (price_text[i])
-		        ###@@logger.info (author_text[i])
-		        ###@@logger.info (name_text[i])
-                #Strip invalid UTF-8 Characters
-                name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
-                author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
-		        
-		        if (name_text[i] == nil && author_text[i] != nil) then
-		              weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-		        elsif (name_text[i] !=nil && author_text[i] == nil) then
-		              weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-		        else
-                                weight_author=0
-                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			                    weight = weight_name + weight_author
 
-		        end      
-		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
-		        if (weight > 1) then
-		          price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.tradus.in"+url_text[i], :source=>'Tradeus', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
-		          prices.push(price_info)
-		        end
-		      end
-              rescue => ex
-                        ###@@logger.info ("#{ex.class} : #{ex.message}")
-                        ###@@logger.info (ex.backtrace)
-              end
-              prices
+              if (i >0)
+                break
+              end  
+  		        ###@@logger.info (price_text[i])
+  		        ###@@logger.info (author_text[i])
+  		        ###@@logger.info (name_text[i])
+                  #Strip invalid UTF-8 Characters
+                  name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                  author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+  		        
+  		        if (name_text[i] == nil && author_text[i] != nil) then
+  		              weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+  		        elsif (name_text[i] !=nil && author_text[i] == nil) then
+  		              weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+  		        else
+                    weight_author=0
+                    weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                    weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                    weight = weight_name + weight_author
+
+  		        end      
+  		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+  		        if (weight > 1) then
+  		          price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.tradus.in"+url_text[i], :source=>'Tradeus', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+  		          prices.push(price_info)
+  		        end
+  		      end
+                rescue => ex
+                          ###@@logger.info ("#{ex.class} : #{ex.message}")
+                          ###@@logger.info (ex.backtrace)
+                end
+                prices
           end
+
           def parse_crossword(page,query,type)
             @@logger.info ("parsing crossword")          
               begin 
@@ -1777,6 +1805,62 @@ class Generalsearch_improved
                   prices
           end
 
+    def parse_fotocenter(page,query,type)
+              @@logger.info('Parsing fotocenter')
+              begin 
+            
+                  price_text = page.search("span.productSpecialPrice").map { |e| "#{e.content}" }
+                   
+                  #@@logger.info (price_text)
+                  name_text = page.search("div.searchRes div.resItem h2 a.bookIcon").map{ |e| "#{e.content} " }
+                  #@@logger.info (name_text)
+                  author_text = page.search("div.listItem div.searchRes div.resItem h3 a b").map {|e| "#{e.content}" }
+                  #@@logger.info (author_text )
+                  url_text = []
+                  page.search("div.searchRes div.resItem h2 a.bookIcon").each do |link|
+                      url_text << link.attributes['href'].content
+                  end 	
+                  #@@logger.info (url_text )
+                  img_text = []
+                  page.search("div.variant-image img").each do |img|
+                      img_text << img.attributes['src'].content
+                  end
+                  #@@logger.info (img_text )
+                  prices=[]
+                  
+                  discount_text = page.search("div.listItem div.searchRes div.resItem form p span.info i b").map {|e| "#{e.content}" }
+                  shipping_text = page.search("div.listItem div.searchRes div.resItem form p span.info span span:first-child").map {|e| "#{e.content}" }
+
+                  i=0 
+                  #(0...price_text.length).each do |i|
+                      ###@@logger.info (price_text[i])
+                      ###@@logger.info (author_text[i])
+                      ###@@logger.info (name_text[i])
+                      if (name_text[i] == nil && author_text[i] != nil) then
+                            weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                      elsif (name_text[i] !=nil && author_text[i] == nil) then
+                            weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                      else
+                                weight_author=0
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+			                    weight = weight_name + weight_author
+
+                      end      
+                                            final_price = price_text[i].to_s.tr('A-Za-z.,','')
+                      if (weight > 1) then
+                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.coinjoos.com"+url_text[i], :source=>'Coinjoos', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        prices.push(price_info)
+                      end
+                  #end
+                  rescue => ex
+                        ###@@logger.info ("#{ex.class} : #{ex.message}")
+                        ###@@logger.info (ex.backtrace)
+                  end
+                  prices
+          end
+
+
 #---------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------Helpers to find correct URL to parse------------------------------------
           def get_flipkart_url(query, type)
@@ -1871,17 +1955,18 @@ class Generalsearch_improved
                 mtype = type[:search_type]
 
                 if mtype =='mobiles' then  
-                     url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?filters=tid%3A552"
-                elsif mtype=='movies' then
-                     url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?filters=tid%3A695"
+                     url = "http://www.tradus.in/search/tradus_search/?query=#{query[:search_term]}&filters=cat:552"
+                #elsif mtype=='movies' then
+                #     url = "http://www.tradus.in/search/tradus_search/?query=#{query[:search_term]}?filters=tid%3A695"
                 elsif mtype=='cameras' then
-                     url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?filters=tid%3A381"
+                     url = "http://www.tradus.in/search/tradus_search/?query=#{query[:search_term]}&filters=cat:381"
                 elsif mtype=='books' then
-                     url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}?filters=tid%3A357"
+                     url = "http://www.tradus.in/search/tradus_search/?query=#{query[:search_term]}&filters=cat:357&sort=fs_uc_sell_price:asc"
                 else
-                     url = "http://www.tradus.in/search/tradus_search/#{query[:search_term]}"
+                     url = "http://www.tradus.in/search/tradus_search/?query=#{query[:search_term]}"
 
                 end  
+                @@logger.info("tradeus url - #{url}")
                 url
            end
            def get_crossword_url(query,type)
@@ -1902,6 +1987,7 @@ class Generalsearch_improved
 
            def get_letsbuy_url(query,type)
               url= "http://www.letsbuy.com/advanced_search_result.php?keywords=#{query[:search_term]}"
+
               url
            end
 
@@ -1939,6 +2025,9 @@ class Generalsearch_improved
            end
            def get_rightbooks_url(query,type)
            url="http://www.rightbooks.in/Product_search.asp?cid=1&fc=1&fsr=#{query[:search_term]}&pt=2&sc=INR"
+           end
+           def get_fotocenter_url(query,type)
+            url="http://fotocentreindia.com/search.php?keywords=#{query[:search_term]}"
            end
 #-------------------------------------------------------------------------------------------------------------------------------
           #Using - http://madeofcode.com/posts/69-vss-a-vector-space-search-engine-in-ruby 
@@ -1991,8 +2080,8 @@ class Generalsearch_improved
                     m = Jaro.new(source_string)
                     weight = weight + m.match(search_string)   
             
-                    #wt = get_custom_weight(source_string.downcase, search_string.downcase)
-                    #weight = weight + wt
+                    wt = get_custom_weight(source_string.downcase, search_string.downcase)
+                    weight = weight + wt
                     # #@@logger.info(source_string)
                     # #@@logger.info(search_string)
                     @@logger.info("#{source_string} - #{search_string} : #{weight}")
@@ -2003,53 +2092,7 @@ class Generalsearch_improved
 
               return weight+wt,0
         end
-        def get_custom_weight(source_string, search_string)
-          # find the maximum substring weightage first.
-          weight,wt = 0,0
-          ##@@logger.info("get custom weight")
-          ##@@logger.info(source_string.class)
-          ##@@logger.info(source_string.class)
 
-          begin
-                    #m = LongestSubsequence.new(source_string)
-                    #weight = m.match(search_string)
-                    m = Jaro.new(source_string)
-                    weight = weight + m.match(search_string)   
-                    ##@@logger.info("Weight 1 : #{weight}")
-                    # Get unique strings from the search string
-                    
-#                    normalized_search_string="" 
-#                    search_string.split.each do |ss|
-#                      normalized_search_string="#{normalized_search_string} #{ss}" unless normalized_search_string.include?(ss)
-#                    end
-                    
-                    # calculate number of words in the source_string
-                    
-#                    source_count=0 
-#                    source_string.split.each do |sss|
-#                      source_count += 1
-#                    end
-                    
-                    #How many (unique) words of search string are present in source string ?
-                    
-                    
-#                    search_count=0
-#                    normalized_search_string.split.each do |s|
-#                      search_count +=1 if source_string.include?(s)
-#                    end
-                    ##@@logger.info("get_custom_weight : #{search_count}")
-                    ##@@logger.info(normalized_search_string)
-#                    wt = search_count.fdiv(source_count)
-#                    weight = weight + (search_count.fdiv(source_count))
-                    ##@@logger.info("#{source_string} - #{wt}")
-          rescue => ex
-                #@@logger.info ("#{ex.class} : #{ex.message}")
-                #@@logger.info (ex.backtrace)
-          end
-
-          weight
-
-        end
 
         def de_canonicalize_isbn(text)
               unless text.nil?
@@ -2063,6 +2106,73 @@ class Generalsearch_improved
 		    #return str.titleize unless str.nil?
 
 	    end
+
+def get_custom_weight(source_string, search_string)
+
+  
+  # Assign 10 as weight for perfect word matches
+  word_match_w = 10
+  weight,cost =0,0
+  freqs = Hash.new(0)
+  filtered_source_string = ""
+  # Check if all the words in search string are present in the target
+  #Start with small search string   
+  search_string.downcase.split.each do |t|
+    cost = cost + 1
+    source_string.downcase.split.each do |tt|
+    #soundex always matches with numbers - need to ignore numbers. 
+        if(soundex(tt) == soundex(t) and (/\d/.match(tt) == nil)) then
+           @@logger.info("#{t} - #{tt} Matches")
+        if freqs[t] == 0 then 
+           weight = weight + word_match_w
+           filtered_source_string << tt 
+        end 
+        freqs[t] += 1
+    end
+    #valid usecase for numbers like Nokia 5800
+     if (/\d/.match(tt) != nil and t==tt) then
+       @@logger.info("#{t} - #{tt} Matches")
+       if freqs[t] == 0 then  
+          weight = weight + word_match_w
+          filtered_source_string << tt 
+        end 
+        freqs[t] += 1
+     end
+    end 
+  end
+  
+  
+   #reduce weight if there are duplicates
+  #  freqs.each do |k,v|
+  #         p k , v
+  #         weight = weight - (v*word_match_w)
+  #  end
+  #p 'after removing duplicates' , weight
+        soundex_source = soundex(source_string.downcase)
+        soundex_target = soundex(search_string.downcase)
+        if soundex_source[0] == soundex_target[0] then
+                for xx in 1..soundex_source.length do
+                  if soundex_source[xx] == soundex_target[xx] then
+                      weight = weight + 1
+                  end
+                end
+        end 
+  puts 'after soundex match- '+ weight.to_s 
+  #Match filtered source string on soundex
+  if soundex(search_string.gsub(" ","")) == soundex(filtered_source_string) then
+    weight += 5
+  end
+  puts 'after soundex match for filter- '+ weight.to_s 
+  return weight, cost
+
+end
+
+
+
+
+
+
+
 	    def strip_invalid_utf8_chars(str)
           unless str.valid_encoding?
             buf = []
@@ -2083,10 +2193,9 @@ class Generalsearch_improved
                       ].inject({}) { |h,v| h[v] = true; h }
   
     def tokenize(string)
-      stripped = string.to_s.gsub(/[^a-z0-9\-\s\']/i, "") # removes punctuation
-      words = stripped.split(/\s+/).reject { |word| word.match(/^\s*$/) }.map(&:downcase)  #.map(&:stem)
-      words.reject { |word| STOP_WORDS.key?(word) }.uniq
-      return words
+      stripped = string.to_s.gsub(/[^a-z0-9\-\s\']/i, "") # remove punctuation
+      tokens = stripped.split(/\s+/).reject(&:blank?).map(&:downcase).map(&:stem)
+      tokens.reject { |t| STOP_WORDS.include?(t) }.uniq
     end
 
   end #-------------------self -end
