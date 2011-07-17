@@ -693,7 +693,7 @@ a img { border: none; }
     font-size: 24px;
     margin-bottom: 5px;
     font-weight: normal;
-    border-bottom: 3px dotted #C9C4BA;
+    border-bottom: 2px dotted #C9C4BA;
 
 }
 .top_p_p
@@ -1247,7 +1247,7 @@ Notifications
     font-weight: 700;
     padding-bottom:10px;
     text-transform: uppercase;
-    width: 450px;
+    width: 370px;
 }
 .oFlowH {
     overflow: hidden;
@@ -1288,15 +1288,15 @@ Notifications
 {
     color: #888888;
 }
-/*--Feedback slideshow--
+/*--Feedback slideshow--*/
 #slideshow {
     width: 900px;
     height: 120px;
     overflow: hidden;
     position: relative;
-
+    
 }
-
+/*
 #slideshow-reel {
     width: 5400px;
     height: 120px;
@@ -1541,6 +1541,10 @@ margin-left: 0;
 
     list-style-type: none;
     overflow: hidden;
+}
+.purchase a, .purchase a:hover
+{
+text-decoration: none;
 }
 
 

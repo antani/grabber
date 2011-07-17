@@ -40,7 +40,7 @@ $('img.prod_img').each(function(){
                         var ratio = maxWidth / width;   // get ratio for scaling image
                         $(this).css("width", maxWidth); // Set new width
                         $(this).css("height", height * ratio);  // Scale height based on ratio
-                       height = height * ratio;        // Reset height to match scaled image
+                        height = height * ratio;        // Reset height to match scaled image
                 }
         } else {
                 // Check if current height is larger than max
@@ -96,6 +96,7 @@ $('#searchbooks').click(function() {
             $('#searchmovies').removeClass('active');
             $('#searchmobiles').removeClass('active');
             $('#searchcamera').removeClass('active');
+            $('#searchcomputers').removeClass('active');
           });
 $('#searchmovies').click(function() {
             $('#search_type').val('movies');
@@ -104,6 +105,7 @@ $('#searchmovies').click(function() {
             $('#searchbooks').removeClass('active');
             $('#searchmobiles').removeClass('active');
             $('#searchcamera').removeClass('active');
+            $('#searchcomputers').removeClass('active');
           });
 $('#searchmobiles').click(function() {
             $('#search_type').val('mobiles');
@@ -112,6 +114,7 @@ $('#searchmobiles').click(function() {
             $('#searchmovies').removeClass('active');
             $('#searchbooks').removeClass('active');
             $('#searchcamera').removeClass('active');
+            $('#searchcomputers').removeClass('active');
           });
 $('#searchcamera').click(function() {
             $('#search_type').val('cameras');
@@ -120,7 +123,25 @@ $('#searchcamera').click(function() {
             $('#searchmovies').removeClass('active');
             $('#searchbooks').removeClass('active');
             $('#searchmobiles').removeClass('active');
+            $('#searchcomputers').removeClass('active');
           });
+$('#searchcomputers').click(function() {
+            $('#search_type').val('computers');
+            createCookie("search_what","computers",1);            
+            $(this).addClass('active');
+            $('#searchmovies').removeClass('active');
+            $('#searchbooks').removeClass('active');
+            $('#searchmobiles').removeClass('active');
+            $('#searchcameras').removeClass('active');
+          });
+
+ function pulsate()
+ {
+ $(".pulsate").
+      animate({opacity: 0.2}, 1000, 'linear').
+      animate({opacity: 1}, 1000, 'linear', pulsate);
+ }
+ pulsate();
 
 
 $("#search_link").click( function()
