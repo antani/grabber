@@ -1143,3 +1143,8 @@ function changeSlide( newSlide ) {
 
 <script>var _gaq=[['_setAccount','UA-22984194-3'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
 
+
+
+
+<span class="left">|</span>
+                              <a id="searchelectronics" class="left comingsoon searchTypeLink" href="#">Electronics</a>

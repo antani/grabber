@@ -630,7 +630,7 @@ class Generalsearch_improved
                               end
                               discount_text = page.search("div#search_result ul.search_result li div.price span[@style*='E47911']").map {|e| "#{e.content}" }
                               
-                        elsif what == 'mobiles' then
+                        elsif what == 'mobiles' or what=='computers' then
                               price_text = page.search("div#resultsPane ul.srch_result li div.price span.normal").map { |e| "#{e.content.tr('A-Za-z.,','')}" }
                               name_text = page.search("div#resultsPane ul.srch_result li a span.title").map{ |e| "#{e.content} " }
                               author_text = page.search("ul.search_result li a[@href^='/Books/search']").map {|e| "#{e.content}" }
@@ -1268,6 +1268,9 @@ class Generalsearch_improved
 
                       (0...price_text.length).each do |i|
 
+                          if i > 5
+                            break
+                          end   
                           ###@@logger.info (price_text[i])
                           ###@@logger.info (author_text[i])
                           ###@@logger.info (name_text[i])
@@ -1283,7 +1286,7 @@ class Generalsearch_improved
                                 weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                                 weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			                    weight = weight_name + weight_author
+			                          weight = weight_name + weight_author
 
                           end      
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
@@ -1302,23 +1305,45 @@ class Generalsearch_improved
 
           def parse_futurebazaar(page,query,type)
             @@logger.info ("parsing futurebazaar")          
-  		  begin
-		          price_text = page.search("div.marb5 span.WebRupee + *").map { |e| "#{e.content}" }
-		          ###@@logger.info (price_text)
-		          name_text = page.search("div.greed_prod h3 a").map{ |e| "#{e.content} " }
-		          ###@@logger.info (name_text)
-		          author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
-		          ###@@logger.info (author_text )
-		          url_text = []
-		          page.search("div.greed_prod h3 a").each do |link|
-		          url_text << link.attributes['href'].content
-		          end 	
-		          ###@@logger.info (url_text )
-		          img_text = []
-		          page.search("div.ca img").each do |img|
-		          img_text << img.attributes['src'].content
+            what = type[:search_type]
+  		    begin
+              if what == 'computers'
+                    price_text = page.search("div#content div#content_area div.greed_view ul.greed li div.greed_prod div.price div.fb").map { |e| "#{e.content}" }
+                    ###@@logger.info (price_text)
+                    name_text = page.search("div#content_area div.greed_view ul.greed li div.greed_prod h3 a").map{ |e| "#{e.content} " }
+                    ###@@logger.info (name_text)
+                    author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
+                    ###@@logger.info (author_text )
+                    url_text = []
+                    page.search("div#content_area div.greed_view ul.greed li div.greed_prod h3 a").each do |link|
+                        url_text << link.attributes['href'].content
+                    end   
+                    ###@@logger.info (url_text )
+                    img_text = []
+                    page.search("div#content_area div.greed_view ul.greed li div.greed_prod div.ca a img").each do |img|
+                        img_text << img.attributes['src'].content
+                    end
+
+                    ###@@logger.info (img_text )
+                    discount_text = page.search("div#content_area div.greed_view ul.greed li div.greed_prod div.you_save span.save_value").map { |e| "#{e.content}" }
+                    shipping_text = ""
+              else  
+                    price_text = page.search("div.marb5 span.WebRupee + *").map { |e| "#{e.content}" }
+                    ###@@logger.info (price_text)
+                    name_text = page.search("div.greed_prod h3 a").map{ |e| "#{e.content} " }
+                    ###@@logger.info (name_text)
+                    author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
+                    ###@@logger.info (author_text )
+                    url_text = []
+                    page.search("div.greed_prod h3 a").each do |link|
+                        url_text << link.attributes['href'].content
+                    end 	
+                    ###@@logger.info (url_text )
+                    img_text = []
+                    page.search("div.ca img").each do |img|
+                        img_text << img.attributes['src'].content
+                    end
 		          end
-		         
 		          ###@@logger.info (img_text )
 		          discount_text = page.search("div.value span.WebRupee + *").map { |e| "#{e.content}" }
 		          shipping_text = ""
@@ -1875,7 +1900,8 @@ class Generalsearch_improved
                       url="http://www.flipkart.com/search-book?dd=0&query=#{query[:search_term]}&Search=Search"
                   elsif what == 'cameras' then
                       url="http://www.flipkart.com/search-cameras?query=#{query[:search_term]}&from=all&searchGroup=cameras"
-                      #url="http://www.flipkart.com/search-book?dd=0&query=#{query[:search_term]}&Search=Search"
+                  elsif what == 'computers' then
+                      url="http://www.flipkart.com/search-computers?query=#{query[:search_term]}&from=all&searchGroup=computers"                          
                   else
                       url = "http://www.flipkart.com/search.php?query=#{query[:search_term]}&from=all"
                   end
@@ -1895,6 +1921,8 @@ class Generalsearch_improved
                       url = "http://www.infibeam.com/Books/search?q=#{query[:search_term]}"
                   elsif what == 'cameras' then
                       url = "http://www.infibeam.com/Cameras/search?q=#{query[:search_term]}"
+                  elsif what == 'computers' then
+                      url = "http://www.infibeam.com/Computers_Accessories/search?q=#{query[:search_term]}"    
                   else
                       url = "http://www.infibeam.com/search?q=#{query[:search_term]}"
                   end
@@ -1962,6 +1990,8 @@ class Generalsearch_improved
                      url = "http://www.tradus.in/search/tradus_search/?query=#{query[:search_term]}&filters=cat:381"
                 elsif mtype=='books' then
                      url = "http://www.tradus.in/search/tradus_search/?query=#{query[:search_term]}&filters=cat:357&sort=fs_uc_sell_price:asc"
+                elsif mtype=='computers' then
+                     url = "http://www.tradus.in/search/tradus_search/?query=#{query[:search_term]}&filters=cat:551"                     
                 else
                      url = "http://www.tradus.in/search/tradus_search/?query=#{query[:search_term]}"
 
@@ -1986,8 +2016,7 @@ class Generalsearch_improved
            end
 
            def get_letsbuy_url(query,type)
-              url= "http://www.letsbuy.com/advanced_search_result.php?keywords=#{query[:search_term]}"
-
+              url= "http://www.letsbuy.com/advanced_search_result.php?keywords=#{query[:search_term]}&categories_id=&inc_subcat=&sortby="
               url
            end
 
