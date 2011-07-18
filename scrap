@@ -1148,3 +1148,29 @@ function changeSlide( newSlide ) {
 
 <span class="left">|</span>
                               <a id="searchelectronics" class="left comingsoon searchTypeLink" href="#">Electronics</a>
+
+
+
+
+/usr/local/awstats/tools/awstats_buildstaticpages.pl -update -config=cheapr.me -lang=en -dir=/var/www/awstats -awstatsprog=/usr/local/awstats/wwwroot/cgi-bin/awstats.pl  
+
+
+server {
+    listen 80;
+    server_name  webstats.cheapr.me;
+
+    location / {
+        root   /var/www/awstats/;
+        index  awstats.cheapr.me.html
+    }
+
+    location  /awstats-icon/ {
+        alias  /usr/share/awstats/icon/;
+    }
+
+    auth_basic            "Restricted";
+    auth_basic_user_file  /opt/nginx/config/.htpasswd;
+
+    access_log /var/log/nginx/access.webstats.example.com.log;
+    error_log /var/log/nginx/error.webstats.example.com.log;
+}
