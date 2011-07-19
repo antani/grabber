@@ -144,6 +144,14 @@ $('#searchcomputers').click(function() {
  pulsate();
 
 
+ /*$('.help_img').hover(function () {
+    $(this).find('strong').stop().fadeTo('normal', 1);
+  }, function () {
+    $(this).find('strong').stop().fadeTo('normal', 0);
+  });
+  */
+
+
 $("#search_link").click( function()
 	{
 		$('#searchsubmit_btn').click();

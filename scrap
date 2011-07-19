@@ -1152,7 +1152,7 @@ function changeSlide( newSlide ) {
 
 
 
-/usr/local/awstats/tools/awstats_buildstaticpages.pl -update -config=cheapr.me -lang=en -dir=/var/www/awstats -awstatsprog=/usr/local/awstats/wwwroot/cgi-bin/awstats.pl  
+/usr/local/awstats/tools/awstats_buildstaticpages.pl -update -config=cheapr.me -lang=en -dir=/home/root/grabber/current/public/statistics/ -awstatsprog=/usr/local/awstats/wwwroot/cgi-bin/awstats.pl  
 
 
 server {
