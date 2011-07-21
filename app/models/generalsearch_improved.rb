@@ -1114,7 +1114,7 @@ class Generalsearch_improved
   		        end      
   		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
   		        if (weight > 1) then
-  		          price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.tradus.in"+url_text[i], :source=>'Tradeus', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+  		          price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Tradeus', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
   		          prices.push(price_info)
   		        end
   		      end
