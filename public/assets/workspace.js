@@ -55,9 +55,10 @@ $('img.prod_img').each(function(){
 });
 
 //If something is searched, preseve that.
-/*if(readCookie("search_what") != null)
+search_wat = $(document).getUrlParam("last_search_type"); 
+if(search_wat != null)
 {
-    search_wat = readCookie("search_what");
+    
     $('#search_type').val(search_wat);    
     
     if(search_wat == "books"){
@@ -65,32 +66,43 @@ $('img.prod_img').each(function(){
         $('#searchmovies').removeClass('active');
         $('#searchmobiles').removeClass('active');
         $('#searchcamera').removeClass('active');
+        $('#searchcomputers').removeClass('active');
     } else if(search_wat == "movies"){
         $('#searchmovies').addClass('active');
         $('#searchbooks').removeClass('active');
         $('#searchmobiles').removeClass('active');
         $('#searchcamera').removeClass('active');
+        $('#searchcomputers').removeClass('active');
         
     }else  if(search_wat == "mobiles"){
         $('#searchmobiles').addClass('active');
         $('#searchbooks').removeClass('active');
         $('#searchmovies').removeClass('active');
-        $('#searchcamera').removeClass('active');        
+        $('#searchcamera').removeClass('active');   
+        $('#searchcomputers').removeClass('active');     
         
     }else  if(search_wat == "cameras"){
         $('#searchcamera').addClass('active');
         $('#searchbooks').removeClass('active');
         $('#searchmobiles').removeClass('active');
         $('#searchmovies').removeClass('active');
+        $('#searchcomputers').removeClass('active');
+
+    }else  if(search_wat == "computers"){
+        $('#searchcomputers').addClass('active');
+        $('#searchbooks').removeClass('active');
+        $('#searchmobiles').removeClass('active');
+        $('#searchmovies').removeClass('active');
+        $('#searchcamera').removeClass('active');
 
     }
     
-}*/
+}
 
 
 
 $('#searchbooks').click(function() {
-            $('#search_type').val('books');
+            $('#search_type,#last_search_type').val('books');
             createCookie("search_what","books",1);
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
@@ -99,7 +111,7 @@ $('#searchbooks').click(function() {
             $('#searchcomputers').removeClass('active');
           });
 $('#searchmovies').click(function() {
-            $('#search_type').val('movies');
+            $('#search_type,#last_search_type').val('movies');
             createCookie("search_what","movies",1);
             $(this).addClass('active');
             $('#searchbooks').removeClass('active');
@@ -108,7 +120,7 @@ $('#searchmovies').click(function() {
             $('#searchcomputers').removeClass('active');
           });
 $('#searchmobiles').click(function() {
-            $('#search_type').val('mobiles');
+            $('#search_type,#last_search_type').val('mobiles');
             createCookie("search_what","mobiles",1);            
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
@@ -117,7 +129,7 @@ $('#searchmobiles').click(function() {
             $('#searchcomputers').removeClass('active');
           });
 $('#searchcamera').click(function() {
-            $('#search_type').val('cameras');
+            $('#search_type,#last_search_type').val('cameras');
             createCookie("search_what","cameras",1);            
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
@@ -126,13 +138,13 @@ $('#searchcamera').click(function() {
             $('#searchcomputers').removeClass('active');
           });
 $('#searchcomputers').click(function() {
-            $('#search_type').val('computers');
+            $('#search_type,#last_search_type').val('computers');
             createCookie("search_what","computers",1);            
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
             $('#searchbooks').removeClass('active');
             $('#searchmobiles').removeClass('active');
-            $('#searchcameras').removeClass('active');
+            $('#searchcamera').removeClass('active');
           });
 
  function pulsate()
@@ -289,6 +301,78 @@ if(readCookie("country") == null)
 }); //end js  
 
 (function(d){d.fn.aeImageResize=function(a){var i=0,j=d.browser.msie&&6==~~d.browser.version;if(!a.height&&!a.width)return this;if(a.height&&a.width)i=a.width/a.height;return this.one("load",function(){this.removeAttribute("height");this.removeAttribute("width");this.style.height=this.style.width="";var e=this.height,f=this.width,g=f/e,b=a.height,c=a.width,h=i;h||(h=b?g+1:g-1);if(b&&e>b||c&&f>c){if(g>h)b=~~(e/f*c);else c=~~(f/e*b);this.height=b;this.width=c}}).each(function(){if(this.complete||j)d(this).trigger("load")})}})(jQuery);
+/* Copyright (c) 2006-2007 Mathias Bank (http://www.mathias-bank.de)
+ * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) 
+ * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ * 
+ * Version 2.1
+ * 
+ * Thanks to 
+ * Hinnerk Ruemenapf - http://hinnerk.ruemenapf.de/ for bug reporting and fixing.
+ * Tom Leonard for some improvements
+ * 
+ */
+jQuery.fn.extend({
+/**
+* Returns get parameters.
+*
+* If the desired param does not exist, null will be returned
+*
+* To get the document params:
+* @example value = $(document).getUrlParam("paramName");
+* 
+* To get the params of a html-attribut (uses src attribute)
+* @example value = $('#imgLink').getUrlParam("paramName");
+*/ 
+ getUrlParam: function(strParamName){
+	  strParamName = escape(unescape(strParamName));
+	  
+	  var returnVal = new Array();
+	  var qString = null;
+	  
+	  if ($(this).attr("nodeName")=="#document") {
+	  	//document-handler
+		
+		if (window.location.search.search(strParamName) > -1 ){
+			
+			qString = window.location.search.substr(1,window.location.search.length).split("&");
+		}
+			
+	  } else if ($(this).attr("src")!="undefined") {
+	  	
+	  	var strHref = $(this).attr("src")
+	  	if ( strHref.indexOf("?") > -1 ){
+	    	var strQueryString = strHref.substr(strHref.indexOf("?")+1);
+	  		qString = strQueryString.split("&");
+	  	}
+	  } else if ($(this).attr("href")!="undefined") {
+	  	
+	  	var strHref = $(this).attr("href")
+	  	if ( strHref.indexOf("?") > -1 ){
+	    	var strQueryString = strHref.substr(strHref.indexOf("?")+1);
+	  		qString = strQueryString.split("&");
+	  	}
+	  } else {
+	  	return null;
+	  }
+	  	
+	  
+	  if (qString==null) return null;
+	  
+	  
+	  for (var i=0;i<qString.length; i++){
+			if (escape(unescape(qString[i].split("=")[0])) == strParamName){
+				returnVal.push(qString[i].split("=")[1]);
+			}
+			
+	  }
+	  
+	  
+	  if (returnVal.length==0) return null;
+	  else if (returnVal.length==1) return returnVal[0];
+	  else return returnVal;
+	}
+});
 /* =========================================================
 
 // jquery.innerfade.js

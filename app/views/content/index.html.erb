@@ -16,6 +16,7 @@
           <%= form_tag(view_path, :method => "get", :id=>"searchfrm" , :remote=>true) do %>
               <%= text_field_tag(:q,nil,:class=> "inputquery") %>
               <%= hidden_field_tag 'search_type', 'books' %>
+              <%= hidden_field_tag 'last_search_type', 'books' %>
         
       <a id="search_link" href="#" class="btn search">Search</a>
               <span class="buttonwrapper">
@@ -64,7 +65,7 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
     @top_s = Topsearch.all_in(type: ['books']).desc(:cnt).limit(10)
     @top_s.each do |s| %>	
         <div class="div_top_books">  
-	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a></br>
+	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a></br>
         </div> 
     <%end %>
     
@@ -76,7 +77,7 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
     @top_s = Topsearch.all_in(type: ['mobiles']).desc(:cnt).limit(10)
     @top_s.each do |s| %>	
         <div class="div_top_mobiles">  
-	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %> </a></br>
+	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %> </a></br>
         </div>
     <%end %>
     </div>
@@ -87,7 +88,7 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
     @top_s = Topsearch.all_in(type: ['cameras']).desc(:cnt).limit(10)
     @top_s.each do |s| %>	
         <div class="div_top_cameras">
-	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query] )%></a></br>
+	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query] )%></a></br>
         </div> 
     <%end %>
     </div>
@@ -99,7 +100,7 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
     @top_s = Topsearch.all_in(type: ['movies']).desc(:cnt).limit(10)
     @top_s.each do |s| %>	
         <div class="div_top_movies">
-        <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%=dots( s[:query]) %></a></br>
+        <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%=dots( s[:query]) %></a></br>
         </div>
     <%end %>
     </div>
@@ -109,7 +110,7 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
     @top_s = Recentsearch.all_in().desc(:ts).limit(10)
     @top_s.each do |s| %> 
         <div class="div_top_books">  
-      <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a>&nbsp;
+      <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a>&nbsp;
         </div> 
     <%end %>
     

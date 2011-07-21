@@ -10,6 +10,7 @@
 
               </span>
               <%= hidden_field_tag 'search_type', 'books' %>
+              <%= hidden_field_tag 'last_search_type', 'books' %>              
               <%= hidden_field_tag 'sort', 'default' %>              
 	      <!--<a id="search_link" href="#" class="btn btnsmall search_small">Search</a> -->
               <span class="buttonwrapper">
@@ -63,7 +64,7 @@
                                       %>
                                   <tr>
                                          <td>
-                                            <a rel="nofollow" target="_blank" href="<%= data[:url] %>"><%= data[:source] %></a>
+                                            <a rel="nofollow" target="_blank" href="<%= data[:url] %>&last_search_type=<%=params[:search_type]%>"><%= data[:source] %></a>
                                           </td>  
                                           <td class="purchase">
                                             <a rel="nofollow" target="_blank" href="<%= data[:url] %>"><img src='/images/cart.png'></a>

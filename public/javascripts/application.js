@@ -55,9 +55,10 @@ $('img.prod_img').each(function(){
 });
 
 //If something is searched, preseve that.
-/*if(readCookie("search_what") != null)
+search_wat = $(document).getUrlParam("last_search_type"); 
+if(search_wat != null)
 {
-    search_wat = readCookie("search_what");
+    
     $('#search_type').val(search_wat);    
     
     if(search_wat == "books"){
@@ -65,32 +66,43 @@ $('img.prod_img').each(function(){
         $('#searchmovies').removeClass('active');
         $('#searchmobiles').removeClass('active');
         $('#searchcamera').removeClass('active');
+        $('#searchcomputers').removeClass('active');
     } else if(search_wat == "movies"){
         $('#searchmovies').addClass('active');
         $('#searchbooks').removeClass('active');
         $('#searchmobiles').removeClass('active');
         $('#searchcamera').removeClass('active');
+        $('#searchcomputers').removeClass('active');
         
     }else  if(search_wat == "mobiles"){
         $('#searchmobiles').addClass('active');
         $('#searchbooks').removeClass('active');
         $('#searchmovies').removeClass('active');
-        $('#searchcamera').removeClass('active');        
+        $('#searchcamera').removeClass('active');   
+        $('#searchcomputers').removeClass('active');     
         
     }else  if(search_wat == "cameras"){
         $('#searchcamera').addClass('active');
         $('#searchbooks').removeClass('active');
         $('#searchmobiles').removeClass('active');
         $('#searchmovies').removeClass('active');
+        $('#searchcomputers').removeClass('active');
+
+    }else  if(search_wat == "computers"){
+        $('#searchcomputers').addClass('active');
+        $('#searchbooks').removeClass('active');
+        $('#searchmobiles').removeClass('active');
+        $('#searchmovies').removeClass('active');
+        $('#searchcamera').removeClass('active');
 
     }
     
-}*/
+}
 
 
 
 $('#searchbooks').click(function() {
-            $('#search_type').val('books');
+            $('#search_type,#last_search_type').val('books');
             createCookie("search_what","books",1);
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
@@ -99,7 +111,7 @@ $('#searchbooks').click(function() {
             $('#searchcomputers').removeClass('active');
           });
 $('#searchmovies').click(function() {
-            $('#search_type').val('movies');
+            $('#search_type,#last_search_type').val('movies');
             createCookie("search_what","movies",1);
             $(this).addClass('active');
             $('#searchbooks').removeClass('active');
@@ -108,7 +120,7 @@ $('#searchmovies').click(function() {
             $('#searchcomputers').removeClass('active');
           });
 $('#searchmobiles').click(function() {
-            $('#search_type').val('mobiles');
+            $('#search_type,#last_search_type').val('mobiles');
             createCookie("search_what","mobiles",1);            
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
@@ -117,7 +129,7 @@ $('#searchmobiles').click(function() {
             $('#searchcomputers').removeClass('active');
           });
 $('#searchcamera').click(function() {
-            $('#search_type').val('cameras');
+            $('#search_type,#last_search_type').val('cameras');
             createCookie("search_what","cameras",1);            
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
@@ -126,13 +138,13 @@ $('#searchcamera').click(function() {
             $('#searchcomputers').removeClass('active');
           });
 $('#searchcomputers').click(function() {
-            $('#search_type').val('computers');
+            $('#search_type,#last_search_type').val('computers');
             createCookie("search_what","computers",1);            
             $(this).addClass('active');
             $('#searchmovies').removeClass('active');
             $('#searchbooks').removeClass('active');
             $('#searchmobiles').removeClass('active');
-            $('#searchcameras').removeClass('active');
+            $('#searchcamera').removeClass('active');
           });
 
  function pulsate()

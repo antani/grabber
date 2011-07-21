@@ -28,9 +28,9 @@ class BookController < ApplicationController
     if @searchby == 'isbn'  
       
           @prices = Bookprice.new(:isbn => @isbn)
-          @bookinfo = Rails.cache.fetch("amazon_info:#{@isbn}", :expires_in => 1.day) { AmazonInfo::book_info(@isbn) }
+          @bookinfo = Rails.cache.fetch("amazon_info:#{@isbn}", :expires_in => 3.hours) { AmazonInfo::book_info(@isbn) }
           if @bookinfo.nil?
-            @bookinfo = Rails.cache.fetch("flipkart_info:#{@isbn}", :expires_in => 1.day) { FlipkartInfo::book_info(@isbn) }
+            @bookinfo = Rails.cache.fetch("flipkart_info:#{@isbn}", :expires_in => 3.hours) { FlipkartInfo::book_info(@isbn) }
           end
 
           unless @bookinfo.nil?
@@ -54,7 +54,7 @@ class BookController < ApplicationController
             @prices = Generalsearch_improved.new({:search_term => @isbn}, {:search_type => @type})
             tt = @type
             ss = decanonicalize_isbn(@isbn)
-            @stores = Rails.cache.fetch(@prices.cache_key)
+            @stores = Rails.cache.fetch(@prices.cache_key, :expires_in => 3.hours)
        	    #Save top_search or increase existing count of a search
             p = Topsearch.first(:conditions => {query: ss, type: @type}) 
             q = Recentsearch.first(:conditions => {query: ss, type: @type}) 
@@ -87,7 +87,7 @@ class BookController < ApplicationController
                 if @sort == "price_lowest" then
                     @stores = @stores.sort_by { |p| p[:price].to_i }
                 elsif @sort == "default" then
-                    @stores = Rails.cache.fetch(@prices.cache_key)
+                    @stores = Rails.cache.fetch(@prices.cache_key,  :expires_in => 3.hours)
                 end
             end
            # logger.info ('Storing cookies')
