@@ -268,6 +268,23 @@ class Generalsearch_improved
                            end
                            hydra.queue req_adexmart
 
+                           url= get_greendust_url(term, type)
+                           req_greendust = Typhoeus::Request.new(url,:timeout=> 10000)      
+                           req_greendust.on_complete do |response|
+                           @@logger.info('Letsbuy response')
+                           @@logger.info(response.code)    # http status code
+                           @@logger.info(response.time)    # time in seconds the request took 
+
+                                    if response.success?
+                                        doc= response.body
+                                        page = Nokogiri::HTML::parse(doc)
+                                        page
+                                    else
+                                        page="failed"
+                                    end    
+                           end
+                           hydra.queue req_greendust
+
                      end
                      #only movies
                      if mtype == 'movies' then
@@ -519,6 +536,7 @@ class Generalsearch_improved
                      if (mtype !='movies' and mtype != 'books') then
                          prices.push(parse_letsbuy(req_letsbuy.handled_response,term, type)) unless req_letsbuy.handled_response =="failed"
                          prices.push(parse_adexmart(req_adexmart.handled_response,term, type)) unless req_adexmart.handled_response =="failed"
+                         prices.push(parse_greendust(req_greendust.handled_response,term, type)) unless req_greendust.handled_response =="failed"
                      end
                      if (mtype =='movies' or mtype =='books') then
                          prices.push(parse_landmark(req_landmark.handled_response,term, type)) unless req_landmark.handled_response =="failed"
@@ -1888,7 +1906,58 @@ class Generalsearch_improved
                   end
                   prices
           end
+      def parse_greendust(page,query,type)
+              @@logger.info('Parsing greendust')
+              begin 
+                  price_text = page.search("span.home_gdprice").map { |e| "#{e.content}" }
+                  ##@@logger.info (price_text)
+                  name_text = page.search("td.home_pname").map{ |e| "#{e.content} " }
+                  ##@@logger.info (name_text)
+                  author_text = ""
+                  ##@@logger.info (author_text )
+                  url_text = []
+                  page.search("td.home_pname a").each do |link|
+                      url_text << link.attributes['href'].content
+                  end   
+                  ##@@logger.info (url_text )
+                  img_text = []
+                  page.search("div.variant-image img").each do |img|
+                      img_text << img.attributes['src'].content
+                  end
+                  ##@@logger.info (img_text )
+                  prices=[]
+                  
+                  discount_text = page.search("span.home_save").map {|e| "#{e.content}" }
+                  shipping_text = ""
 
+                  i=0 
+                  (0...price_text.length).each do |i|
+                      ####@@logger.info (price_text[i])
+                      ####@@logger.info (author_text[i])
+                      ####@@logger.info (name_text[i])
+                      if (name_text[i] == nil && author_text[i] != nil) then
+                            weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                      elsif (name_text[i] !=nil && author_text[i] == nil) then
+                            weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                      else
+                                weight_author=0
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                                weight = weight_name + weight_author
+
+                      end      
+                                final_price = price_text[i].to_s.tr('A-Za-z.:,','')
+                      if (weight > 1) then
+                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Greendust', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        prices.push(price_info)
+                      end
+                  end
+                  rescue => ex
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
+                  end
+                  prices
+          end
 
 #---------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------Helpers to find correct URL to parse------------------------------------
@@ -2048,11 +2117,11 @@ class Generalsearch_improved
               url="http://shopping.indiatimes.com/#{query[:search_term]}/search/ctl/20375476/"
               url
            end
-     	   def get_sangeeta_url(query,type)
+     	     def get_sangeeta_url(query,type)
               url="http://www.sangeethamobiles.com/SearchResults.aspx?Search=#{query[:search_term]}&SearchCategory="
               url
            end
-     	   def get_landmark_url(query,type)
+     	     def get_landmark_url(query,type)
           	  url="http://www.landmarkonthenet.com/product/SearchPaging.aspx?code=#{query[:search_term]}&type=0&num=0"
               url
            end
@@ -2062,6 +2131,10 @@ class Generalsearch_improved
            def get_fotocenter_url(query,type)
             url="http://fotocentreindia.com/search.php?keywords=#{query[:search_term]}"
            end
+           def get_greendust_url(query,type)
+            url="http://www.greendust.com/advanced_search_result.php?keywords=#{query[:search_term]}&search.x=0&search.y=0"
+            url
+           end 
 #-------------------------------------------------------------------------------------------------------------------------------
           #Using - http://madeofcode.com/posts/69-vss-a-vector-space-search-engine-in-ruby 
           #def find_weight(source_string, search_string)

@@ -1135,6 +1135,33 @@ function changeSlide( newSlide ) {
  # 	database: grbr_production
  
  
+
+
+ ===============================================================================
+
+Some setup you must do manually if you haven't yet:
+
+  1. Setup default url options for your specific environment. Here is an
+     example of development environment:
+
+       config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+     This is a required Rails configuration. In production it must be the
+     actual host of your application
+
+  2. Ensure you have defined root_url to *something* in your config/routes.rb.
+     For example:
+
+       root :to => "home#index"
+
+  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+     For example:
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+===============================================================================
+
  
  
  
@@ -1152,7 +1179,7 @@ function changeSlide( newSlide ) {
 
 
 
-/usr/local/awstats/tools/awstats_buildstaticpages.pl -update -config=cheapr.me -lang=en -dir=/var/www/awstats/ -awstatsprog=/usr/local/awstats/wwwroot/cgi-bin/awstats.pl  
+/usr/local/awstats/tools/awstats_buildstaticpages.pl -update -config=cheapr.me -lang=en -dir=/var/www/ -awstatsprog=/usr/local/awstats/wwwroot/cgi-bin/awstats.pl  
 
 
 server {

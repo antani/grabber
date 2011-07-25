@@ -23,7 +23,7 @@
 }
 
 .footer {
-    background: url("/images/pattern.png") repeat scroll 0 0 #FFFEFC;
+    background: url("/images/footer_pattern.png") repeat scroll 0 0 #FFFEFC;
     border-top: 1px solid #DDDDDD;
     box-shadow: 0 0 10px #E4E2D8 inset;
     padding-top: 20px;
@@ -942,4 +942,11 @@ text-decoration: none;
 
 .picture strong span.r {
   color: rgb(255, 56, 159);
+}
+#footer_container{
+    color: #555555;
+    font-family: "Droid Sans",Arial,sans-serif;
+    font-size: 12px;
+    line-height: 1.7em;
+    text-shadow: 0 1px 0 #FFFFFF;
 }
