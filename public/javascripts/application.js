@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
 
-
+$('#slideshow').orbit();
 
 //Add validations
 var validator = $('#searchfrm').validate(
