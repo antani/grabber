@@ -52,6 +52,7 @@
 </head>
 
 <body>
+<div id="stripe"></div>
 <header id="header">
 	<div id="header-top-center" class="center-container">
 	<div class="grid_5 column">
@@ -62,7 +63,8 @@
 	<div class="clear"></div>
 	</div>
 </header>
-
+<div id="stripe"></div>
+<div id="container_wrap">
   <div id="container" class="container_12">
     <header class="grid_12">
       <%= yield(:header) %>
@@ -73,12 +75,15 @@
     </div>
     <div class="clear"></div>    
   </div> <!--! end of #container  -->
+</div>
+<!--  
 <div class="footer">
   <div class="footer_container">
     <div class="disclaimer">
   <p>While we try to get you the best possible deals, we are not directly associated with any of the online stores. We don't control how these stores maintain their catalogs. It is possible that some of the results you see are used items or even PDF or e-books. Please be careful when you choose a deal and take proper care in finalizing the purchase.</p>
     </div>
   </div>
+-->  
         <div class="clear"></div>
 </div>
 

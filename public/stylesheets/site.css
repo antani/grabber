@@ -1,11 +1,29 @@
+#stripe {
+    background: url("/images/stripe2-bkg.png?1297781630") repeat-x scroll -200% 0 #089CC8;
+    height: 4px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
 #header {
+    /*Old
     background: url("/images/header-back.png") repeat-x scroll 0 0 #B1434D;
+    */
+    background: -moz-linear-gradient(center bottom , #0DB9E0 20%, #0A96AB 75%) repeat scroll 0 0 #4DB8E0;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+    /*Old
     box-shadow: 0 2px 3px #3D3D3D;
+    */
     height: 77px;
     margin-top: 0;
 }
 
 #header {
+}
+#container_wrap {
+    background: url("/images/big-fade.png?1295683141") repeat-x scroll -70% 0 transparent;
+    padding: 5px 0 30px;
 }
 .center-container {
     margin: 0 auto;
@@ -32,7 +50,10 @@
 }
 .desch3 {
     font-family: 'Lato','Droid Sans','Puritan',sans-serif; 
-    color: #C24E42;
+    /*old
+    color : #C24E42;
+    */
+    color:#39B2E5;
     font-weight: bold;
     padding: 5px;
     margin: 3px;
@@ -125,10 +146,15 @@ a img {
 }
 .textwrapper{
     font-family: 'Lato','Droid Sans','Puritan',sans-serif; 
-    color: #C24E42;
+    /* old 
+    color: #C24E42;*/
+    color: #333333;
     font-size: 110%;
     font-weight: bold;
+    /*old
     text-shadow: 0 2px 1px rgba(255, 255, 255, 0.9);
+    */
+    text-shadow: 0 2px 0 #FFFFFF;
     font-size: 14px;
     border-radius: 3px 3px 3px 3px;
     clear: left;
@@ -141,11 +167,11 @@ a img {
     width: 800px;
 }
 .top_searches{
-    font-family:'Lato','Droid Sans','Puritan',sans-serif; 
-    color: #C24E42;
+    font-family:'Droid Sans','Puritan',sans-serif; 
+    color: #333333;
     font-size: 110%;
     font-weight: bold;
-    text-shadow: 0 2px 1px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 0 #FFFFFF;
     font-size: 13px;
     border-radius: 3px 3px 3px 3px;
     clear: left;
@@ -159,7 +185,7 @@ a img {
 }
 .top_searches a, a:active, a:visited
 {
-	color: #C24E42;
+	color: #3982E5;
 	text-decoration: none;
 	font-weight: bold;
 
@@ -593,26 +619,27 @@ Notifications
     bottom-padding: 10px;
 }
 .search_wrap .tab {
-    color: #C24E42;
+    color: #39B2E5;
     text-decoration: none;
     font-size: 11px;
     font-weight: 700;
     padding-bottom:10px;
     text-transform: uppercase;
     width: 370px;
+
 }
 .oFlowH {
     overflow: hidden;
 }
 .search_wrap .tab a.active {
   background: url('/images/top.png')no-repeat scroll center 15px transparent;
-  color: #C24E42;
+  color: #333333;
   text-decoration: none;
   cursor: default;
   text-decoration: none;
 }
 .search_wrap .tab a {
-    color: #C24E42;
+    color: #333333;
     text-decoration: none;
     padding: 0 6px 6px;
 }
