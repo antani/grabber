@@ -610,7 +610,7 @@ class Generalsearch_improved
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                         end
@@ -728,7 +728,7 @@ class Generalsearch_improved
                               end
                                 
                               if (weight > 1) then
-                              price_info = {:price => price_text[i],:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>"http://infibeam.com"+url_text[i], :source=>'Infibeam', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
+                              price_info = {:price => digitize_price(price_text[i]),:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>"http://infibeam.com"+url_text[i], :source=>'Infibeam', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
                               prices.push(price_info)
                               end
                          end
@@ -792,7 +792,7 @@ class Generalsearch_improved
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Rediff', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Rediff', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                             prices.push(price_info)
                           end
                        end
@@ -846,7 +846,7 @@ class Generalsearch_improved
                 end      
                       final_price = price_text[i].to_s.tr('A-Za-z.,','')
                 if (weight > 1) then
-                  price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.indiaplaza.com"+url_text[i], :source=>'IndiaPlaza', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                  price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.indiaplaza.com"+url_text[i], :source=>'IndiaPlaza', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                   prices.push(price_info)
                 end
               end
@@ -894,7 +894,7 @@ class Generalsearch_improved
                           end      
                                                 final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.nbcindia.com/"+url_text[i], :source=>'NBCIndia', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.nbcindia.com/"+url_text[i], :source=>'NBCIndia', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                             prices.push(price_info)
                           end
                         end
@@ -950,7 +950,7 @@ class Generalsearch_improved
                           end      
                                                 final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                         end
@@ -1011,7 +1011,7 @@ class Generalsearch_improved
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'eBay', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'eBay', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                         end
@@ -1072,7 +1072,7 @@ class Generalsearch_improved
                       end      
                       final_price = price_text[i].to_s.tr('A-Za-z.,','')
                       if (weight > 1 and final_price.to_i > 0) then
-                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Bookadda', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Bookadda', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                         prices.push(price_info)
                       end
                   end
@@ -1132,7 +1132,7 @@ class Generalsearch_improved
   		        end      
   		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
   		        if (weight > 1) then
-  		          price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Tradeus', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+  		          price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Tradeus', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
   		          prices.push(price_info)
   		        end
   		      end
@@ -1195,7 +1195,7 @@ class Generalsearch_improved
                       end      
                                             final_price = price_text[i].to_s.tr('A-Za-z.,','')
                       if (weight > 1) then
-                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://crossword.in/"+url_text[i], :source=>'Crossword', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://crossword.in/"+url_text[i], :source=>'Crossword', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                         prices.push(price_info)
                       end
                   end
@@ -1253,7 +1253,7 @@ class Generalsearch_improved
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Homeshop18', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Homeshop18', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                       end
@@ -1265,7 +1265,7 @@ class Generalsearch_improved
           end
 
           def parse_letsbuy(page,query,type)
-            #@@logger.info ("parsing letsbuy")          
+            @@logger.info ("parsing letsbuy")          
                   begin
                       price_text = page.search("span.text12_stb").map { |e| "#{e.content}" }
                       ####@@logger.info (price_text)
@@ -1314,13 +1314,13 @@ class Generalsearch_improved
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Letsbuy', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Letsbuy', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                       end
                     rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                     end
                     prices
           end
@@ -1394,7 +1394,7 @@ class Generalsearch_improved
 		              final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
 		                                               
 		              if (weight > 1) then
-		                price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.futurebazaar.com/"+url_text[i], :source=>'Futurebazaar', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+		                price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.futurebazaar.com/"+url_text[i], :source=>'Futurebazaar', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
 		                prices.push(price_info)
 		              end
 		           end
@@ -1451,7 +1451,7 @@ class Generalsearch_improved
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => "http://adexmart.com"+img_text[i],:url=>url_text[i], :source=>'Adexmart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => "http://adexmart.com"+img_text[i],:url=>url_text[i], :source=>'Adexmart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                        end
@@ -1508,7 +1508,7 @@ class Generalsearch_improved
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.moviemart.in/sales/"+url_text[i], :source=>'Moviemart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.moviemart.in/sales/"+url_text[i], :source=>'Moviemart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                        end
@@ -1564,7 +1564,7 @@ class Generalsearch_improved
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.moserbaerhomevideo.com/"+url_text[i], :source=>'Moserbaer', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.moserbaerhomevideo.com/"+url_text[i], :source=>'Moserbaer', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                        end
@@ -1621,7 +1621,7 @@ class Generalsearch_improved
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://shopping.indiatimes.com/"+url_text[i], :source=>'Indiatimes', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://shopping.indiatimes.com/"+url_text[i], :source=>'Indiatimes', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                        end
@@ -1677,7 +1677,7 @@ class Generalsearch_improved
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.sangeethamobiles.com"+url_text[i], :source=>'Sangeetha Mobile', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.sangeethamobiles.com"+url_text[i], :source=>'Sangeetha Mobile', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                        end
@@ -1731,7 +1731,7 @@ class Generalsearch_improved
                           final_price=final_price.tr('/-','')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.landmarkonthenet.com"+url_text[i], :source=>'Landmark', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.landmarkonthenet.com"+url_text[i], :source=>'Landmark', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                        end
@@ -1786,7 +1786,7 @@ class Generalsearch_improved
                           final_price=final_price.tr('/-','')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.rightbooks.in/"+url_text[i], :source=>'Rightbooks', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.rightbooks.in/"+url_text[i], :source=>'Rightbooks', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                        end
@@ -1841,7 +1841,7 @@ class Generalsearch_improved
                       end      
                                             final_price = price_text[i].to_s.tr('A-Za-z.,','')
                       if (weight > 1) then
-                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.coinjoos.com"+url_text[i], :source=>'Coinjoos', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.coinjoos.com"+url_text[i], :source=>'Coinjoos', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                         prices.push(price_info)
                       end
                   #end
@@ -1896,7 +1896,7 @@ class Generalsearch_improved
                       end      
                                             final_price = price_text[i].to_s.tr('A-Za-z.,','')
                       if (weight > 1) then
-                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.coinjoos.com"+url_text[i], :source=>'Coinjoos', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.coinjoos.com"+url_text[i], :source=>'Coinjoos', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                         prices.push(price_info)
                       end
                   #end
@@ -1948,7 +1948,7 @@ class Generalsearch_improved
                       end      
                                 final_price = price_text[i].to_s.tr('A-Za-z.:,','')
                       if (weight > 1) then
-                        price_info = {:price => final_price,:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Greendust', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Greendust', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                         prices.push(price_info)
                       end
                   end
@@ -2276,7 +2276,24 @@ def get_custom_weight(source_string, search_string)
 
 end
 
+def digitize_price(price)
 
+  begin
+
+    if price =~/\.00$/
+      @@logger.info "Not changing #{price}"
+      price
+    else
+      @@logger.info "changing #{price}"
+      price.to_s<<".00"
+      price
+    end  
+  rescue => ex
+     @@logger.info ("#{ex.class} : #{ex.message}")
+     @@logger.info (ex.backtrace)
+  end
+   
+end
 
 
 def soundex(string)

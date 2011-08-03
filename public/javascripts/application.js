@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
 
-$('#slideshow').orbit();
+//$("#foo").carouFredSel({height: 250,width: 940 });
 
 //Add validations
 var validator = $('#searchfrm').validate(
@@ -15,13 +15,14 @@ var validator = $('#searchfrm').validate(
 );
 
 $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
-$('body').noisy({
+
+/*$('body').noisy({
       'intensity' : 1,
       'size' : 200,
       'opacity' : 0.08,
       'fallback' : '',
       'monochrome' : false
-}).css('background-color', '#FBFBF7');
+}).css('background-color', '#FBFBF7');*/
 
 //$(".prod_img").aeImageResize({ height: 135, width: 87 });
 $('img.prod_img').each(function(){
