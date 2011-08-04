@@ -50,15 +50,21 @@
 
 }
 .desch3 {
-    font-family: 'Cabin','Lato','Droid Sans','Puritan',sans-serif; 
+    font-family: 'Droid Sans','Puritan',sans-serif; 
+    font-size: 12px;
     /*old
     color : #C24E42;
     */
-    color:#39B2E5;
-    font-weight: bold;
+   
+    
     padding: 5px;
     margin: 3px;
     vertical-align:text-top;
+}
+.desch3 a, .desch3 i
+{
+   color:#39B2E5;
+   font-weight: bold;
 }
 .top_p
 {
