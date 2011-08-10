@@ -149,29 +149,85 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
 
     </div>
 -->
-<!--div id="foo">
-  <div>
-    <h3>Infinity</h3>
-    <p>A concept that in many fields refers to a quantity without bound or end.</p>
-  </div>
-  <div>
-    <h3>Circular journey</h3>
-    <p>An excursion in which the final destination is the same as the starting point.</p>
-  </div>
-  <div>
-    <h3>jQuery</h3>
-    <p>jQuery  is a cross-browser JavaScript library designed to simplify the client-side scripting.</p>
-  </div>
-  <div>
-    <h3>Carousel</h3>
-    <p>A carousel is an amusement ride consisting of a rotating circular platform with seats.</p>
-  </div>
-</div -->
+<div class="transparent_top p1"></div>
+	<div class="transparent p1">
+	<div class="image_carousel">
+	    <div id="foo3">
+		<div class="slide">
+			<span>
+				<h3>Best Selling Books</h3>
+					
+						<% @top_book_info.each_with_index do |data,x|  %>
+							<span class="best_books">
+				                                <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=books&commit=Search"><img src="<%= data[:img] %>"/></a>
+
+							</span>
+						<% end %>
 
 
+				
 
+			<span>
+			
+		</div>
+		<div class="slide">
+			<span>
+				<h3>Best Selling Mobiles</h3>
+					
+						<% @top_mobile_info.each_with_index do |data,x|  %>
+							<span class="best_books">
+				                                <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=mobiles&commit=Search"><img src="<%= data[:img] %>"/></a>
+
+							</span>
+						<% end %>
+
+
+				
+
+			<span>
+		</div>
+		<div class="slide">
+			<span>
+				<h3>Best Selling Cameras</h3>
+					
+						<% @top_camera_info.each_with_index do |data,x|  %>
+							<span class="best_books">
+				                                <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=cameras&commit=Search"><img src="<%= data[:img] %>"/></a>
+
+							</span>
+						<% end %>
+
+
+				
+
+			<span>			
+		</div>
+		<div class="slide">
+			<span>
+				<h3>Best Selling Movies</h3>
+					
+						<% @top_movie_info.each_with_index do |data,x|  %>
+							<span class="best_books">
+				                                <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=movies&commit=Search"><img src="<%= data[:img] %>"/></a>
+
+							</span>
+						<% end %>
+
+
+				
+
+			<span>
+		</div>
+            </div>
+	<div class="clearfix"></div>
+	<a class="prev" id="foo3_prev" href="#"><span>prev</span></a>
+	<a class="next" id="foo3_next" href="#"><span>next</span></a>
+	
+
+         </div>
 
 </div>
+<div class="transparent_bottom"></div>
 
 
 

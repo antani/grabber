@@ -921,12 +921,13 @@ a img { border: none; }
 }
 .top_p
 {
-    color: #888888;
-    font-family: 'Vollkorn','Amaranth',"Droid Sans",Arial,sans-serif;
+
     font-size: 24px;
     margin-bottom: 5px;
     font-weight: normal;
     border-bottom: 2px dotted #C9C4BA;
+    color: #888888;
+    font-family: 'Vollkorn','Amaranth',"Droid Sans",Arial,sans-serif;
 
 }
 .top_p_p
@@ -1889,6 +1890,122 @@ text-decoration: none;
   color: #888888;
   font-family: 'Vollkorn','Amaranth',"Droid Sans",Arial,sans-serif;
   font-size: 30px;
+}
+.image_carousel {
+	padding: 15px 0 15px 20px;
+
+}
+.image_carousel div.slide {
+	width: 870px;
+	height: 200px;
+	position: relative;
+}
+.image_carousel div.slide div {
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 870px;
+	display: none;
+	position: absolute;
+	bottom: 0;
+}
+.image_carousel div.slide h4 {
+	font-size: 35px;
+	padding: 30px 0 0 100px;
+}
+.image_carousel div.slide p {
+	font-size: 16px;
+	padding: 0 0 30px 100px;
+}
+.image_carousel div.slide h4, .image_carousel div.slide p {
+	color: white;
+	margin: 0;
+}
+.transparent {
+    background: url(../images/transparent_bg.png?1312964660) repeat-y scroll 0 0 transparent;
+}
+.transparent  .transparent .list_carousel,  .transparent .wheel_of_fortune, .fold_horizontal {
+    background: url(../images/fold_horizontal.png?1312961636) repeat-x scroll left bottom transparent;
+}
+.transparent, .transparent_top, .transparent_bottom, .transparent_schoolboard {
+    margin: 0 -20px;
+    padding: 0 20px;
+}
+.transparent_top, .transparent_bottom {
+    background: url(../images/transparent_top_bottom.png?1312964786) no-repeat scroll 0 0 transparent;
+}
+.transparent_top {
+    height: 30px;
+}
+.transparent_bottom {
+    background-position: 0 -90px;
+    height: 10px;
+}
+.transparent_top.p1 {
+    background-position: 0 -30px;
+}
+.transparent_top.p2 {
+    background-position: 0 -60px;
+}
+.best_books
+{
+    display: table-cell;
+    height: 100px;
+    vertical-align: bottom;
+    width: 100px;
+}
+a.prev, a.next {
+	background: url(../images/miscellaneous_sprite.png?1312960701) no-repeat transparent;
+	width: 45px;
+	height: 50px;
+	display: block;
+	position: absolute;
+	top: 85px;
+}
+a.prev {			left: -30px;
+					background-position: 0 0; }
+a.prev:hover {		background-position: 0 -50px; }
+a.next {			right: -22px;
+					background-position: -50px 0; }
+a.next:hover {		background-position: -50px -50px; }
+
+a.prev span, a.next span {
+	display: none;
+}
+.pagination {
+	text-align: center;
+	margin-bottom: 5px;
+}
+.pagination a {
+	background: url(../images/miscellaneous_sprite.png?1312960701) 0 -100px no-repeat transparent;
+	width: 15px;
+	height: 15px;
+	margin: 2px;;
+	display: inline-block;
+}
+.pagination a.selected {
+	background-position: -25px -100px;
+	cursor: default;
+}
+.pagination a span {
+	display: none;
+}
+.image_carousel {
+	padding: 15px 0 15px 15px;
+	position: relative;
+}
+.image_carousel img {
+	border: 1px solid #ccc;
+	background-color: white;
+	padding: 3px;
+	margin: 7px;
+	display: block;
+	float: left;
+}
+div.slide h3 {
+	padding-bottom: 2px;
+        border-bottom: 2px dotted #C9C4BA;
+        color: #888888 !important;
+        font-family: 'Vollkorn','Amaranth',"Droid Sans",Arial,sans-serif;
+
 }
 
 

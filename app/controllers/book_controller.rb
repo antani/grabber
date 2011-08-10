@@ -67,8 +67,8 @@ class BookController < ApplicationController
   		        topsearch = Topsearch.create ({:query=> ss, :type=> tt, :cnt=> 1})
   		        topsearch.save
               
-            else
-                  p.inc(:cnt,1)
+                else
+                    p.inc(:cnt,1)
     	            p.save
   	        end
 

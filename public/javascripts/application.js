@@ -5,6 +5,34 @@
 $(document).ready(function() {
 
 //$("#foo").carouFredSel({height: 250,width: 940 });
+/*
+$("#foo3").carouFredSel({
+	items 		: 1,
+	direction	: "left",
+	auto : {
+		pauseOnHover: true
+	}
+}).find(".slide").hover(
+	function() { $(this).find("div").slideDown(); },
+	function() { $(this).find("div").slideUp();   }
+);
+*/
+
+$("#foo3").carouFredSel({
+	curcular: false,
+	infinite: false,
+	auto : false,
+	prev : {	
+		button	: "#foo3_prev",
+		key		: "left"
+	},
+	next : { 
+		button	: "#foo3_next",
+		key		: "right"
+	},
+	pagination	: "#foo3_pag"
+});
+
 
 //Add validations
 var validator = $('#searchfrm').validate(
