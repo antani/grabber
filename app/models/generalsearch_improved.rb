@@ -183,9 +183,9 @@ class Generalsearch_improved
                      url= get_homeshop_url(term, type)
                      req_homeshop= Typhoeus::Request.new(url,:timeout=> 5000)      
                      req_homeshop.on_complete do |response|
-                          #@@logger.info('Homeshop response')
-                          #@@logger.info(response.code)    # http status code
-                          #@@logger.info(response.time)    # time in seconds the request took 
+                          @@logger.info('Homeshop response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
 
                           if response.success?
                             doc= response.body
@@ -1226,19 +1226,20 @@ class Generalsearch_improved
                   prices
           end
           def parse_homeshop(page,query,type)
-            ##@@logger.info ("parsing homeshop")          
+            
+            #@@logger.info ("parsing homeshop")          
                    begin
-                      price_text = page.search("product_new_price").map { |e| "#{e.content}" }
-                      ###@@logger.info (price_text)
+                      price_text = page.search("div.product_div span.product_new_price").map { |e| "#{e.content}" }
+                      #@@logger.info (price_text)
                       name_text = page.search("p.product_title a").map{ |e| "#{e.content} " }
-                      ###@@logger.info (name_text)
+                      #@@logger.info (name_text)
                       author_text = page.search("ul.bookdetails li:nth-child(2) span").map {|e| "#{e.content}" }
-                      ###@@logger.info (author_text )
+                      #@@logger.info (author_text )
                       url_text = []
                           page.search("p.product_title a").each do |link|
                           url_text << link.attributes['href'].content
                       end 	
-                      ###@@logger.info (url_text )
+                      #@@logger.info (url_text )
                       img_text = []
                       page.search("p.product_image img").each do |img|
                           img_text << img.attributes['src'].content
