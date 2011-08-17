@@ -1025,7 +1025,6 @@ a img {
     font-family:'Droid Sans','Puritan',sans-serif; 
     color: #333333;
     font-size: 110%;
-    font-weight: bold;
     text-shadow: 0 2px 0 #FFFFFF;
     font-size: 13px;
     border-radius: 3px 3px 3px 3px;
@@ -1042,7 +1041,6 @@ a img {
 {
 	color: #3982E5;
 	text-decoration: none;
-	font-weight: bold;
 
 }
 
