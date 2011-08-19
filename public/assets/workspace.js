@@ -35,13 +35,13 @@ $("#foo3").carouFredSel({
 
 
 //Add validations
-var validator = $('#searchfrm').validate(
+/*var validator = $('#searchfrm').validate(
 {
   rules:{q: 'required' } ,
   messages:{q: 'Hold on cowboy, give us something to search.'}
 }
 );
-
+*/
 $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
 
 /*$('body').noisy({
