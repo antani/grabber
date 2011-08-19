@@ -1252,6 +1252,9 @@ class Generalsearch_improved
                       prices=[]
 
                       (0...price_text.length).each do |i|
+                          if i > 3
+                            break
+                          end 
 
                           ###@@logger.info (price_text[i])
                           ###@@logger.info (author_text[i])
