@@ -7,7 +7,7 @@ class TopBooks
 			prices=[]
                         #@@logger.info("Parse Flipkart")
                        # #@@logger.info(page)
-                        name_text = page.search("div.lastUnit div.fk-litems-section:nth-child(3) div.fk-medium-atom a.title").map{ |e| "#{e.content} " }                      
+                        name_text = page.search("div.lastUnit div.fk-litems-section:nth-child(2) div.fk-medium-atom a.title").map{ |e| "#{e.content} " }                      
                         author_text = page.search("div.lastUnit div.fk-litems-section:nth-child(3) div.fk-medium-atom div.author").map{ |e| "#{e.content} " }
                         img_text = []
 
