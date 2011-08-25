@@ -153,71 +153,67 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
 	<div class="transparent p1">
 	<div class="image_carousel">
 	    <div id="foo3">
+		<% if @top_book_info %>
 		<div class="slide">
 			<span>
 				<h3>Best Selling Books</h3>
-					
+				
 						<% @top_book_info.each_with_index do |data,x|  %>
 							<span class="best_books">
 				                                <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=books&commit=Search"><img src="<%= data[:img] %>"/></a>
 
 							</span>
 						<% end %>
-
-
 				
-
 			<span>
 			
 		</div>
+		<% end %>
+		<% if @top_mobile_info %>
 		<div class="slide">
 			<span>
 				<h3>Best Selling Mobiles</h3>
-					
+
 						<% @top_mobile_info.each_with_index do |data,x|  %>
 							<span class="best_books">
 				                                <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=mobiles&commit=Search"><img src="<%= data[:img] %>"/></a>
 
 							</span>
 						<% end %>
-
-
 				
-
 			<span>
 		</div>
+		<% end %>
+			
+		<% if @top_camera_info %>
 		<div class="slide">
 			<span>
 				<h3>Best Selling Cameras</h3>
-					
+
 						<% @top_camera_info.each_with_index do |data,x|  %>
 							<span class="best_books">
 				                                <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=cameras&commit=Search"><img src="<%= data[:img] %>"/></a>
 
 							</span>
 						<% end %>
-
-
-				
-
 			<span>			
 		</div>
+		<% end %>
+
+		<% if @top_movie_info %>
 		<div class="slide">
 			<span>
 				<h3>Best Selling Movies</h3>
-					
+
 						<% @top_movie_info.each_with_index do |data,x|  %>
 							<span class="best_books">
 				                                <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=movies&commit=Search"><img src="<%= data[:img] %>"/></a>
 
 							</span>
 						<% end %>
-
-
-				
-
 			<span>
 		</div>
+		<% end %>
             </div>
 	<div class="clearfix"></div>
 	<a class="prev" id="foo3_prev" href="#"><span>prev</span></a>

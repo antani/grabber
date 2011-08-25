@@ -1,7 +1,7 @@
 class TopBooks
 
     class << self
-	    #@@logger = Logger.new(STDOUT)
+	    @@logger = Logger.new(STDOUT)
 	    def parse_flipkart(page)      			
                      begin  
 			prices=[]
@@ -39,12 +39,12 @@ class TopBooks
  		        #@@logger.info("Get Top Books from Flipkart")
                    	url = "http://www.flipkart.com/books"
 			#url = "http://www.flipkart.com/"
-			req_top= Typhoeus::Request.new(url,:timeout=> 3000)      
+			req_top= Typhoeus::Request.new(url,:timeout=> 5000)      
                         req_top.on_complete do |response|
-		             #@@logger.info('Top Book response')
-		             #@@logger.info(response.code)    # http status code
-		             #@@logger.info(response.time)    # time in seconds the request took
-			     ##@@logger.info(response.body)    # time in seconds the request took  
+		             @@logger.info('Top Book response')
+		             @@logger.info(response.code)    # http status code
+		             @@logger.info(response.time)    # time in seconds the request took
+			     @@logger.info(response.body)    # time in seconds the request took  
 
                                if response.success?
                                       doc= response.body
