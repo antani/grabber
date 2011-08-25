@@ -7,28 +7,13 @@ class TopMobiles
 			prices=[]
                         #@@logger.info("Parse Flipkart")
                         ##@@logger.info(page)
-                        name_text = page.search("div.lastUnit div.fk-litems-section:nth-child(3) div.fk-medium-atom a.title").map{ |e| "#{e.content} " }                      
-                        author_text = page.search("div.lastUnit div.fk-litems-section:nth-child(3) div.fk-medium-atom div.author").map{ |e| "#{e.content} " }
-                        img_text = []
-
-                        page.search("div.lastUnit div.fk-litems-section:nth-child(3) div.fk-medium-atom img").each do |img|
-                            img_text << img.attributes['src'].content
-                        end
-
-                        (0...name_text.length).each do |i|
-                          #@@logger.info(name_text[i])                          
-                          #@@logger.info(author_text[i])
-
-                          #Strip invalid UTF-8 Characters
-                          price_info = {:price =>"",:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"", :source=>"", :weight=>"", :discount=>"",:shipping=>""} 
-                          prices.push(price_info)
-                        end
-
-                        name_text = page.search("div.lastUnit div.fk-litems-section:nth-child(6) a.fk-anchor-link").map{ |e| "#{e.content} " }                      
+                        #name_text = page.search("div.lastUnit div.fk-litems-section:nth-child(3) div.fk-medium-atom a.title").map{ |e| "#{e.content} " }
+			name_text = page.search("div.fk-product-thumb div.line a.title").map{ |e| "#{e.content} " }                                            
+ 
                         author_text = ""
                         img_text = []
 
-                        page.search("div.lastUnit div.fk-litems-section:nth-child(6) img").each do |img|
+                        page.search("div.fk-product-thumb div.fk-imagesection div.fk-image a img").each do |img|
                             img_text << img.attributes['src'].content
                         end
 
@@ -40,6 +25,23 @@ class TopMobiles
                           price_info = {:price =>"",:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"", :source=>"", :weight=>"", :discount=>"",:shipping=>""} 
                           prices.push(price_info)
                         end
+
+                        #name_text = page.search("div.lastUnit div.fk-litems-section:nth-child(6) a.fk-anchor-link").map{ |e| "#{e.content} " }                      
+                        #author_text = ""
+                        #img_text = []
+
+                        #page.search("div.lastUnit div.fk-litems-section:nth-child(6) img").each do |img|
+                        #    img_text << img.attributes['src'].content
+                        #end
+
+                        #(0...name_text.length).each do |i|
+                          #@@logger.info(name_text[i])                          
+                          #@@logger.info(author_text[i])
+
+                          #Strip invalid UTF-8 Characters
+                        #  price_info = {:price =>"",:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"", :source=>"", :weight=>"", :discount=>"",:shipping=>""} 
+                        #  prices.push(price_info)
+                        #end
 
 
 

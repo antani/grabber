@@ -37,7 +37,8 @@ class TopBooks
 	    end
             def book_info
  		        #@@logger.info("Get Top Books from Flipkart")
-                   	url = "http://www.flipkart.com/books"
+                   	#url = "http://www.flipkart.com/books"
+			url = "http://www.flipkart.com/"
 			req_top= Typhoeus::Request.new(url,:timeout=> 3000)      
                         req_top.on_complete do |response|
 		             #@@logger.info('Top Book response')
