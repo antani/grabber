@@ -18,10 +18,12 @@ class Generalsearch_improved
   def initialize(given_search_term,search_type)
     self.search_term= given_search_term
     self.search_type= search_type
+	    
 
   end
   def perform
-    ##@@logger.info("Performing job for #{self.search_term}")
+    @@logger.info("Performing job for #{self.search_term} and #{self.search_type} at #{Time.now}")
+
     prices = self.class.prices(self.search_term,self.search_type)
     Rails.cache.write(self.cache_key, prices)
     prices

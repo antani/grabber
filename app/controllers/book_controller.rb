@@ -71,6 +71,9 @@ class BookController < ApplicationController
                     p.inc(:cnt,1)
     	            p.save
   	        end
+	    #Store all queries in a data mining table.
+	    #allsearch = Allsearch.create({:query => ss, :type=>tt, :ts=>Time.now})
+            #allsearch.save	
 
             if @stores.nil?
               # Check if book is already queued.
