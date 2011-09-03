@@ -9,14 +9,18 @@
 #header {
     /*Old
     background: url("/images/header-back.png") repeat-x scroll 0 0 #B1434D;
-    */
+    
     background-image: -webkit-gradient( linear, left bottom, left 5, color-stop(0.2, #0DB9E0), color-stop(0.75, #0A96AB) );
     background-image: -moz-linear-gradient( center bottom, #0DB9E0 20%, #0A96AB 75% );
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+    */
+    background-image: -webkit-gradient( linear, left bottom, left 5, color-stop(0.2, #005575), color-stop(0.75, #0A96AB) );
+    background-image: -moz-linear-gradient( center bottom, #005575 20%, #0A96AB 75% );
+    
     /*Old
     box-shadow: 0 2px 3px #3D3D3D;
     */
-    height: 77px;
+    height: 84px;
     margin-top: 0;
 }
 
