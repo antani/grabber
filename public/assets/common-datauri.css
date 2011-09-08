@@ -2009,7 +2009,12 @@ div.slide h3 {
         font-family: 'Vollkorn','Amaranth',"Droid Sans",Arial,sans-serif;
 
 }
-
+div.divider-bar {
+    background: url(../images/bg-btn-signup.png?1315456457) repeat-x scroll 0 -15px #FFAA22;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    height: 4px;
+    z-index: 4;
+}
 
 /*
   HTML5 ✰ Boilerplate
