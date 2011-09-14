@@ -89,10 +89,10 @@
                                       %>
                                   <tr>
                                          <td>
-                                            <a rel="nofollow" target="_blank" href="<%= data[:url] %>&last_search_type=<%=params[:search_type]%>"><%= data[:source] %></a>
+                                           <a onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>&last_search_type=<%=params[:search_type]%>"><%= data[:source] %></a>
                                           </td>  
                                           <td class="purchase">
-                                            <a rel="nofollow" target="_blank" href="<%= data[:url] %>"><img src='/images/cart.png'></a>
+                                            <a onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>"><img src='/images/cart.png'></a>
                                           </td>  
                                           
                                            <td class="td_price">
