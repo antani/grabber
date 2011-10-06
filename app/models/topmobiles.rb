@@ -8,12 +8,11 @@ class TopMobiles
                         #@@logger.info("Parse Flipkart")
                         ##@@logger.info(page)
                         #name_text = page.search("div.lastUnit div.fk-litems-section:nth-child(3) div.fk-medium-atom a.title").map{ |e| "#{e.content} " }
-			name_text = page.search("div.fk-product-thumb div.line a.title").map{ |e| "#{e.content} " }                                            
- 
+                        name_text = page.search("div.fk-product-thumb a.title").map{ |e| "#{e.content} " }                                            
                         author_text = ""
                         img_text = []
 
-                        page.search("div.fk-product-thumb div.fk-imagesection div.fk-image a img").each do |img|
+                        page.search("div.fk-product-thumb a.prd-img").each do |img|
                             img_text << img.attributes['src'].content
                         end
 
@@ -59,8 +58,8 @@ class TopMobiles
             def mobile_info
  		        #@@logger.info("Get Top mobiles from Flipkart")
                    	url = "http://www.flipkart.com/mobiles"
-			req_top= Typhoeus::Request.new(url,:timeout=> 3000)      
-                        req_top.on_complete do |response|
+                    req_top= Typhoeus::Request.new(url,:timeout=> 3000)      
+                    req_top.on_complete do |response|
 		             #@@logger.info('Top mobiles response')
 		             #@@logger.info(response.code)    # http status code
 		             #@@logger.info(response.time)    # time in seconds the request took
