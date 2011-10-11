@@ -4,7 +4,7 @@ class TopBooks
 	    @@logger = Logger.new(STDOUT)
 	    def parse_flipkart(page)      			
                      begin  
-			prices=[]
+                       prices=[]
                         #@@logger.info("Parse Flipkart")
                        # #@@logger.info(page)
                         name_text = page.search("div.lastUnit div.fk-litems-section:nth-child(2) div.fk-medium-atom a.title").map{ |e| "#{e.content} " }                      
@@ -36,15 +36,13 @@ class TopBooks
 		    st = str.to_s
 	    end
             def book_info
- 		        #@@logger.info("Get Top Books from Flipkart")
-                   	url = "http://www.flipkart.com/books"
-			#url = "http://www.flipkart.com/"
-			req_top= Typhoeus::Request.new(url,:timeout=> 5000)      
-                        req_top.on_complete do |response|
+              #@@logger.info("Get Top Books from Flipkart")
+              url = "http://www.flipkart.com/books"
+              req_top= Typhoeus::Request.new(url,:timeout=> 5000)      
+              req_top.on_complete do |response|
 		             @@logger.info('Top Book response')
 		             @@logger.info(response.code)    # http status code
 		             @@logger.info(response.time)    # time in seconds the request took
-			     @@logger.info(response.body)    # time in seconds the request took  
 
                                if response.success?
                                       doc= response.body
@@ -55,8 +53,8 @@ class TopBooks
 	                       end  
                         end
                  hydra = Typhoeus::Hydra.new
-		 hydra.queue req_top
-		 hydra.run
+                 hydra.queue req_top
+                 hydra.run
 
                  parse_flipkart(req_top.handled_response) unless req_top.handled_response =="failed"
           end

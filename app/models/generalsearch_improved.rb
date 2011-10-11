@@ -44,10 +44,10 @@ class Generalsearch_improved
                 rest_prices=[]
                 final_prices=[]
                 begin
-                          ##@@logger.info("Starting to queue...")
+                          @@logger.info("Starting to queue...")
                           prices_array = queue_requests(term,type)
 
-                          ##@@logger.info("Time to process prices : ")
+                          @@logger.info("Time to process prices : ")
                           start_time = Time.now
                           price_array = prices_array.flatten
                           ###@@logger.info(price_array)
@@ -141,9 +141,9 @@ class Generalsearch_improved
                      
                      req_flip= Typhoeus::Request.new(url,:timeout=> 5000)      
                      req_flip.on_complete do |response|
-                          ##@@logger.info('Flipkart response')
-                          ##@@logger.info(response.code)    # http status code
-                          ##@@logger.info(response.time)    # time in seconds the request took 
+                          @@logger.info('Flipkart response')
+                          @@logger.info(response.code)    # http status code
+                          @@logger.info(response.time)    # time in seconds the request took 
                           if response.success?
                             doc= response.body
                             page = Nokogiri::HTML::parse(doc)
@@ -627,11 +627,10 @@ class Generalsearch_improved
                               img_text << img.attributes['src'].content
                           end
                          
-                          discount_text = page.css("span.discount").map { |e| "#{e.content}" }
-                          shipping_text = page.css("b.free-hm-dlvry").map { |e| "#{e.content}" } 
+                          discount_text = page.css("div#search_results.search_results div.line div.unit div.line div.line div.line div.discount").map { |e| "#{e.content}" }
+                          shipping_text = page.css("div#search_results.search_results div.line div.unit div.line div.ship-det").map { |e| "#{e.content}" } 
                        end
                      
-                           
                       prices=[]
                       (0...price_text.length).each do |i|
                           ###@@logger.info(name_text[i])
@@ -659,8 +658,8 @@ class Generalsearch_improved
                           end
                         end
                     rescue => ex
-                        ###@@logger.info ("#{ex.class} : #{ex.message}")
-                        ###@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                     end
                     prices
           end
