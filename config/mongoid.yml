@@ -1,19 +1,13 @@
 defaults: &defaults
 
 development:
-  <<: *defaults
   host: localhost
   database: grbr_development
 
 test:
-  <<: *defaults
   host: localhost
   database: grbr_test
 
 production:
-  #uri: <%= ENV['MONGOHQ_URL'] %>
-  <<: *defaults
   host: localhost
   database: grbr_production
-
-
