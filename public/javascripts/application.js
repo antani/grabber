@@ -188,7 +188,7 @@ $('#searchcomputers').click(function() {
       animate({opacity: 0.2}, 1000, 'linear').
       animate({opacity: 1}, 1000, 'linear', pulsate);
  }
- pulsate();
+/* pulsate(); */
 
 
  /*$('.help_img').hover(function () {
