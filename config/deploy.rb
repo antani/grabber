@@ -10,7 +10,7 @@ set :rvm_type, :user
 #  'PATH' => "/root/.rbenv/shims:/root/.rbenv/bin:$PATH"
 
 #}
-
+set :rvm_bin_path, "/usr/local/bin"
 
 # Bundler
 

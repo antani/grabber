@@ -18,9 +18,8 @@ class Generalsearch_improved
   def initialize(given_search_term,search_type)
     self.search_term= given_search_term
     self.search_type= search_type
-	    
-
   end
+
   def perform
     #@@logger.info("Performing job for #{self.search_term} and #{self.search_type} at #{Time.now}")
 
@@ -55,12 +54,9 @@ class Generalsearch_improved
                           prices_array = price_array.sort_by { |p| p[:weight].to_i }.reverse!
                           #prices_array = price_array.sort_by { |p| p[:weight] }
                           #####@@logger.info(prices_array)
-                         
-                         
                           top_weight = prices_array[0][:weight]
                           ###@@logger.info("Top weight---------------------------")
                           ###@@logger.info(top_weight)
-                          
                           #Prices Array is sorted by weight
                           #We create 4 weighted arrays and store each of them by price
                           prices_top_1=[]
@@ -71,7 +67,6 @@ class Generalsearch_improved
                           top_weight_60 = top_weight * 0.7                          
                           top_weight_30 = top_weight * 0.5                          
 
-                                                                              
                           prices_array.each do |tt|
                                 if(tt[:weight] <= top_weight and tt[:weight] > top_weight_80) then
                                     prices_top_1.push(tt)    
@@ -87,11 +82,7 @@ class Generalsearch_improved
                           prices_top_2 = prices_top_2.sort_by { |p| p[:price].to_i }
                           prices_top_3 = prices_top_3.sort_by { |p| p[:price].to_i }
                           prices_top_4 = prices_top_4.sort_by { |p| p[:price].to_i }                                                                                      
-                          
                           final_prices= prices_top_1+prices_top_2+prices_top_3+prices_top_4
-                          
-                          
-                          
 #                          prices_array.each do |tt|
 
 #                            current_top_weight = tt[:weight] unless tt[:weight] == -999 
@@ -108,17 +99,11 @@ class Generalsearch_improved
 #                                 top_prices.push(tt) unless tt[:weight] == -999 
 #                            end
 #                          end
-                          
-                          
-                          
                           #top_prices = top_prices.sort_by { |p| p[:price].to_i }
                           #rest_prices = rest_prices.sort_by { |p| p[:price].to_i }
                           ###@@logger.info(top_prices)
                           ###@@logger.info(rest_prices)
-                          
 #                          final_prices = rest_prices + top_prices  
-                          
-                          
                           #final_prices = final_prices.sort_by { |p| [-p[:weight], p[:price].to_i] }
                           ###@@logger.info(Time.now - start_time)
                           ###@@logger.info(final_prices)
@@ -138,7 +123,6 @@ class Generalsearch_improved
 
                      #Books and everything else
                      url= get_flipkart_url(term, type)
-                     
                      req_flip= Typhoeus::Request.new(url,:timeout=> 5000)      
                      req_flip.on_complete do |response|
                           @@logger.info('Flipkart response')
@@ -214,7 +198,6 @@ class Generalsearch_improved
                      end
                      url= get_ebay_url(term, type)
                      req_ebay= Typhoeus::Request.new(url,:timeout=> 5000)      
-                        
                      req_ebay.on_complete do |response|
                      ##@@logger.info('Ebay response')
                      ##@@logger.info(response.code)    # http status code
@@ -228,7 +211,6 @@ class Generalsearch_improved
                                       page="failed"
                                end  
                      end
-                     
                      #Queue all requests
                      hydra.queue req_flip
                      hydra.queue req_infibeam
@@ -406,8 +388,6 @@ class Generalsearch_improved
 		           #                page="failed"
 		           #           end    
 		           #        end
-                           
-
                            url= get_pustak_url(term, type)
                            req_pustak= Typhoeus::Request.new(url,:timeout=> 5000)      
                            req_pustak.on_complete do |response|
@@ -477,7 +457,6 @@ class Generalsearch_improved
                            hydra.queue req_pustak                            
                            hydra.queue req_bookadda                            
                            hydra.queue req_crossword                            
-                           
                      end
                      #Only Mobiles
             		     if mtype == 'mobiles' then
@@ -564,7 +543,6 @@ class Generalsearch_improved
                      if mtype == 'cameras' then
                                prices.push(parse_fotocenter(req_fotocenter.handled_response,term, type)) unless req_fotocenter.handled_response =="failed"
                      end
-                     
                      if mtype == 'books' then
                          prices.push(parse_rediff(req_rediff.handled_response,term, type)) unless req_rediff.handled_response =="failed"
                          #prices.push(parse_nbcindia(req_nbcindia.handled_response,term, type)) unless req_nbcindia.handled_response =="failed"
@@ -594,7 +572,6 @@ class Generalsearch_improved
                  begin
                       ###@@logger.info("Parsing Flipkart")
                       what = type[:search_type]
-                      
                       if what == 'mobiles' then
                         price_text = page.search("div#search_results.search_results div.line div.unit div.line div b.price").map { |e| "#{e.content}" }
                         name_text = page.search("div#search_results.search_results div.line div.unit h2 a").map{ |e| "#{e.content} " }                      
@@ -611,11 +588,8 @@ class Generalsearch_improved
                         discount_text = page.search("div#search_results.search_results div.line div.unit div.line div.unit b").map { |e| "#{e.content}" }
                         shipping_text = page.css("div#search_results.search_results div.line div.unit div.search_page_offers div.offers_text").map { |e| "#{e.content}" }                     
                         ###@@logger.info("Length of flipkart - #{price_text.length}") 
-                        
-                        
                       else
                           price_text = page.search("div#search_results div.fk-srch-item div.dlvry-det .price").map { |e| "#{e.content}" }
-                          
                           name_text = page.search("div#search_results div.fk-srch-item h2 a:first-child").map{ |e| "#{e.content} " }
                           author_text = page.search("span.head-tail a:first-child b").map {|e| "#{e.content}" }
                           url_text = []
@@ -626,11 +600,9 @@ class Generalsearch_improved
                           page.search("div.rposition img").each do |img|
                               img_text << img.attributes['src'].content
                           end
-                         
                           discount_text = page.css("div#search_results.search_results div.line div.unit div.line div.line div.line div.discount").map { |e| "#{e.content}" }
                           shipping_text = page.css("div#search_results.search_results div.line div.unit div.line div.ship-det").map { |e| "#{e.content}" } 
                        end
-                     
                       prices=[]
                       (0...price_text.length).each do |i|
                           ###@@logger.info(name_text[i])
@@ -639,7 +611,6 @@ class Generalsearch_improved
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                         
-                          
                           if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -690,7 +661,6 @@ class Generalsearch_improved
                                  img_text << img.attributes['src'].content
                               end
                               discount_text = page.search("div#search_result ul.search_result li div.price span[@style*='E47911']").map {|e| "#{e.content}" }
-                              
                         elsif what == 'mobiles' or what=='computers' then
                               price_text = page.search("div#resultsPane ul.srch_result li div.price span.normal").map { |e| "#{e.content.tr('A-Za-z.,','')}" }
                               name_text = page.search("div#resultsPane ul.srch_result li a span.title").map{ |e| "#{e.content} " }
@@ -729,7 +699,6 @@ class Generalsearch_improved
                                  url_text << link.attributes['href'].content
                               end 	
                            #   ###@@logger.info(url_text)
-                              
                               img_text = []
                               page.search("ul.srch_result li a:first-child img:first-child").each do |img|
                                  img_text << img.attributes['src'].content
@@ -745,7 +714,6 @@ class Generalsearch_improved
                                     #Strip invalid UTF-8 Characters
                                     name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                                     author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                         
-                                  
                               if what == 'books' then
                                  if (name_text[i] == nil && author_text[i] != nil) then
                                         weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
@@ -765,11 +733,9 @@ class Generalsearch_improved
                                     weight,cost = 0,0
                                   end  
                               end  
-                              
                               if ( i >0 )  then
                                 break
                               end
-                                
                               if (weight > 1) then
                               price_info = {:price => digitize_price(price_text[i]),:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>"http://infibeam.com"+url_text[i], :source=>'Infibeam', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
                               prices.push(price_info)
@@ -831,7 +797,6 @@ class Generalsearch_improved
                                 weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
                                 weight = weight_name + weight_author
 #                                weight,cost = find_weight(name_text[i] + " " +author_text[i], "#{query[:search_term]}" )           			        
-            			        
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 1) then
@@ -862,7 +827,6 @@ class Generalsearch_improved
             page.search("div.tier1box1 img").each do |img|
               img_text << img.attributes['src'].content
             end
-             
             discount_text = page.search("div.tier1box2 ul li:nth-child(3) span").map { |e| "#{e.content}" }
             shipping_text = ""
             prices = []
