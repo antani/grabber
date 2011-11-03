@@ -1180,3 +1180,13 @@ div.divider-bar {
     height: 4px;
     z-index: 4;
 }
+footer {
+    clear: both;
+    margin: auto !important;
+    overflow: hidden;
+    width: 960px;
+    z-index: 100;
+}
+footer {
+    color: #666666;
+}
