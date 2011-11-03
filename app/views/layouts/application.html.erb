@@ -7,7 +7,6 @@
 <head>
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Amaranth:400,400italic&v2' rel='stylesheet' type='text/css'>
-  
   <meta charset="utf-8">
 
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
@@ -53,7 +52,6 @@
     setTimeout('document.location = "' + link.href + '"', 100);
   }
 </script>  
-       
 <!-- start Mixpanel --><script type="text/javascript">var mpq=[];mpq.push(["init","35f40abe68b3b1fa5c6f89a7639fbd83"]);(function(){var b,a,e,d,c;b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a);e=function(f){return function(){mpq.push([f].concat(Array.prototype.slice.call(arguments,0)))}};d=["init","track","track_links","track_forms","register","register_once","identify","name_tag","set_config"];for(c=0;c<d.length;c++){mpq[d[c]]=e(d[c])}})();
 </script><!-- end Mixpanel -->
 </head>
@@ -110,30 +108,20 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="javascripts/js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
   %>
-  
-  
   <!-- scripts concatenated and minified via ant build script-->
   <script src="javascripts/js/plugins.js"></script>
   <script src="javascripts/js/script.js"></script>
   <!-- end concatenated and minified scripts-->
-  
-  
   <!--[if lt IE 7 ]>
     <script src="js/libs/dd_belatedpng.js"></script>
     <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
   <![endif]-->
-
-
-  
-
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-
   <%= include_stylesheets :common, :media => 'all' %>
   <%= include_javascripts :workspace %>
   <script src="http://code.google.com/apis/gears/gears_init.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" src="http://www.google.com/jsapi"></script>
   <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>  
-    
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
