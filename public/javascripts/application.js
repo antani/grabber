@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
 
-/*
+
 $("#foo3").carouFredSel({
 	curcular: false,
 	infinite: false,
@@ -20,7 +20,7 @@ $("#foo3").carouFredSel({
 	pagination	: "#foo3_pag"
 });
 
-*/
+
 
 $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
 
