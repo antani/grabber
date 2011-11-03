@@ -1087,7 +1087,7 @@ text-decoration: none;
 	margin: 0;
 }
 .transparent {
-    background: url("../images/transparent_bg.png") repeat-y scroll 0 0 transparent;
+    /*background: url("../images/transparent_bg.png") repeat-y scroll 0 0 transparent;*/
 }
 .transparent  .transparent .list_carousel,  .transparent .wheel_of_fortune, .fold_horizontal {
     background: url("../images/fold_horizontal.png") repeat-x scroll left bottom transparent;
@@ -1097,7 +1097,7 @@ text-decoration: none;
     padding: 0 20px;
 }
 .transparent_top, .transparent_bottom {
-    background: url("../images/transparent_top_bottom.png") no-repeat scroll 0 0 transparent;
+   /* background: url("../images/transparent_top_bottom.png") no-repeat scroll 0 0 transparent;*/
 }
 .transparent_top {
     height: 30px;
@@ -1158,6 +1158,7 @@ a.prev span, a.next span {
 .image_carousel {
 	padding: 15px 0 15px 15px;
 	position: relative;
+  width: 90%;
 }
 .image_carousel img {
 	border: 1px solid #ccc;
