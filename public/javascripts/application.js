@@ -4,19 +4,6 @@
 
 $(document).ready(function() {
 
-//$("#foo").carouFredSel({height: 250,width: 940 });
-/*
-$("#foo3").carouFredSel({
-	items 		: 1,
-	direction	: "left",
-	auto : {
-		pauseOnHover: true
-	}
-}).find(".slide").hover(
-	function() { $(this).find("div").slideDown(); },
-	function() { $(this).find("div").slideUp();   }
-);
-*/
 
 $("#foo3").carouFredSel({
 	curcular: false,
@@ -34,23 +21,16 @@ $("#foo3").carouFredSel({
 });
 
 
-//Add validations
-/*var validator = $('#searchfrm').validate(
-{
-  rules:{q: 'required' } ,
-  messages:{q: 'Hold on cowboy, give us something to search.'}
-}
-);
-*/
+
 $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
 
-/*$('body').noisy({
+$('body').noisy({
       'intensity' : 1,
       'size' : 200,
       'opacity' : 0.08,
       'fallback' : '',
       'monochrome' : false
-}).css('background-color', '#FBFBF7');*/
+}).css('background-color', '#FBFBF7');
 
 //$(".prod_img").aeImageResize({ height: 135, width: 87 });
 $('img.prod_img').each(function(){
@@ -191,14 +171,6 @@ $('#searchcomputers').click(function() {
 /* pulsate(); */
 
 
- /*$('.help_img').hover(function () {
-    $(this).find('strong').stop().fadeTo('normal', 1);
-  }, function () {
-    $(this).find('strong').stop().fadeTo('normal', 0);
-  });
-  */
-
-
 $("#search_link").click( function()
 	{
 		$('#searchsubmit_btn').click();
@@ -271,66 +243,9 @@ function dots(v){
 $('.comingsoon').qtip({content: 'Coming very very soon', show:'mouseover',hide:'mouseout',style:'green'});
 
 /*--Feedback slidshow----------------*/
-$('#slideshow-reel').innerfade({animationtype: 'slide', speed: 750, timeout: 8000, type: 'random', containerheight: '1em' }); 
+//$('#slideshow-reel').innerfade({animationtype: 'slide', speed: 750, timeout: 8000, type: 'random', containerheight: '1em' }); 
         //$('#portfolio').innerfade({ speed: 'slow', timeout: 4000, type: 'sequence', containerheight: '220px' }); 
         //$('.fade').innerfade({ speed: 'slow', timeout: 1000, type: 'sequence', containerheight: '1.5em' }); 
 
 
-//Check if Geo location detection is supported
-/*
-if(readCookie("country") == null)
-{
-	if (geo_position_js.init()) {
-	
-                                geo_position_js.getCurrentPosition(
-				function geo_success(p)
-				{
-					 yqlgeo.get([p.coords.latitude,p.coords.longitude],function(o){
-
-					       {  	  	
-						  country = o.place.country.content;
-						  createCookie("country",country,1);
-                                                  sendMessage("Your location is set to : " + readCookie("country"));
-				       }
-					 });
-					
-		  
-
-
-				},
-
-				function geo_error(p)
-				{
-					createCookie("country","USA",1);
-	                                sendMessage("Your location is set to : " + readCookie("country"));
-				
-
-				});
-	}
-}
-*/	
-
- 		
-
-
-
-/*    var review_quote = "<div class='item_review_title_left'><img src='http://static.fkcdn.com/www/391/images/review_image.png' alt='*'></div>";
-    $(review_quote).insertBefore('.gr_review_container.a');
-    var editorial_review_books = $('#editorial_review').html();
-    var start = editorial_review_books.search("About the Author");
-    if(start>0) 
-    {
-	      var first_part = editorial_review_books.substring(0,start);
-	      var second_part = editorial_review_books.substring(start + ('About the Author').length, editorial_review_books.length-1);
-	      var final_parts = first_part + "<p class='about_author'>About the Author: <p>" + second_part;
-	      $('#editorial_review').html(final_parts);
-    }
-*/
-  	
-//Add epllipsis
-//ob = $('.div_top_books,.div_top_cameras,.div_top_mobiles,.div_top_movies').ThreeDots(); 
-//ob.update({max_rows:1,whole_word:false,allow_dangle: true}); 
-
-  	
-  	
 }); //end js  

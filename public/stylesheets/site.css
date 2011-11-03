@@ -179,23 +179,13 @@ a img {
 	line-height:0;
 }
 
-.top_searches:after{
-	position:absolute;
-	top:1px;
-	left:1px;
-	bottom:1px;
-	right:1px;
-	border:1px solid rgba(255,255,255,0.5);
-	outline:1px solid rgba(120,120,120,0.2);
-	content:" ";
-}
+
 .top_searches{
     font-family:'Droid Sans','Puritan',sans-serif; 
     color: #333333;
     font-size: 110%;
     text-shadow: 0 2px 0 #FFFFFF;
     font-size: 13px;
-    border-radius: 3px 3px 3px 3px;
     clear: left;
     float: left;
     height: 200px;
@@ -205,6 +195,10 @@ a img {
     text-align: left;
 /*    width: 900px; */
     width: 90%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; 
+  border: 1px solid #c9c4ba;
 }
 .top_searches a, a:active, a:visited
 {
@@ -1186,7 +1180,6 @@ footer {
     margin: auto !important;
     overflow: hidden;
     width: 960px;
-    z-index: 100;
 }
 footer {
     color: #666666;
