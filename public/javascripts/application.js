@@ -127,7 +127,13 @@ if(search_wat != null)
     }
     
 }
+$('#search_button').click(function() {
+                              mpq.track('Search Clicked');
+                         });
 
+$('.purchase a').click(function() {
+                              mpq.track('Shopped');
+                       });
 
 
 $('#searchbooks').click(function() {
