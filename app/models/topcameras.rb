@@ -1,4 +1,4 @@
-class TopCameras
+class Topcameras
 
     class << self
 	    #@@logger = Logger.new(STDOUT)
@@ -84,6 +84,3 @@ class TopCameras
 
     end
 end
-
-
-

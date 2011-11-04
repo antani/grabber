@@ -1,4 +1,4 @@
-class TopMobiles
+class Topmobiles
 
     class << self
 	    @@logger = Logger.new(STDOUT)

@@ -1,4 +1,4 @@
-class TopMovies
+class Topmovies
 
     class << self
 	    #@@logger = Logger.new(STDOUT)

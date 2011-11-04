@@ -16,8 +16,7 @@ $("#foo3").carouFredSel({
 	next : { 
 		button	: "#foo3_next",
 		key		: "right"
-	},
-	pagination	: "#foo3_pag"
+	}
 });
 
 //$('#foo').slides(); //start the carousel

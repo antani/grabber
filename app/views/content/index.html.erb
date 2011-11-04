@@ -118,89 +118,63 @@ Searching best prices from so many online shopping sites is very tricky - Cheapr
 </div>
 <div class="clear"></div>
 
-<!--
-<div id="slideshow" class="container_12">
-    <p class="top_p">Your Views</p>
-        <div id="slideshow-reel">
-            <div class="slide">
-            <p>I just purchased a Canon EOS 550D camera. I looked for good online deals and kept searching on various shops. Had I known <b class="highlightb">Cheapr</b> existed, I would have saved many hours. Incredible work guys. - <i>Kunal M. Bangalore</i></p>
-            </div>
-            
-            <div class="slide">
-            <p>I usually buy books every month. I used to open 3-4 online stores like flipkart and infibeam to check prices and order books. With <b class="highlightb">Cheapr</b> I can search best prices from 15 stores ! Great idea and a brilliant site. - <i>Meghna A. Bangalore</i></p>
-            </div>
-            
-            <div class="slide">
-            <p>Come on..nobody thought of this earlier? <b class="highlightb">Cheapr</b> always gets the best prices and great bargains.- <i>Dhruv M. Mumbai</i></p>
-            </div>
+<div class="image_carousel">
+          <div id="foo3">
+             <% if @top_book_info %>
+               <div class="slide">
+                  <span>
+                  <h3>Best Selling Books</h3>
+                    <% @top_book_info.each_with_index do |data,x|  %>
+                    <span class="best_books">
+                        <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=books&commit=Search"><img src="<%= data[:img] %>"/></a>
+                    </span>
+                    <% end %>
+                <span>
+              </div>
+             <% end %>
 
-            <div class="slide">
-            <p>Who goes to so many sites to hunt for the cheapest bargain? Well, I don't anymore. <b class="highlightb">Cheapr</b> really changed the way I purchase things online. - <i>Niraj K. London</i></p>
-            </div>
+             <% if @top_mobile_info %>
+               <div class="slide">
+                 <span>
+                   <h3>Best Selling Mobiles</h3>
+                   <% @top_mobile_info.each_with_index do |data,x|  %>
+                     <span class="best_books">
+                       <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=mobiles&commit=Search"><img src="<%= data[:img] %>"/></a>
+                     </span>
+                   <% end %>
+                   <span>
+                   </div>
+              <% end %>
 
-            <div class="slide">
-            <p>Being a student, I need to buy cheap books almost every month. One of my friend told me about <b class="highlightb">cheapr</b> and I was amazed. I am still amazed :) - <i>Chintan P. Ahmedabad</i></p>
-           </div>
-        </div>
+              <% if @top_camera_info %>
+                <div class="slide">
+                  <span>
+                    <h3>Best Selling Cameras</h3>
+                    <% @top_camera_info.each_with_index do |data,x|  %>
+                      <span class="best_books">
+                        <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=cameras&commit=Search"><img src="<%= data[:img] %>"/></a>
+                      </span>
+                    <% end %>
+                    <span>
+                    </div>
+              <% end %>
 
-    </div>
--->
-<div id="foo3">
-  <div id="foo_container">
-  <% if @top_book_info %>
-     <div class="slide">
-        <span>
-        <h3>Best Selling Books</h3>
-          <% @top_book_info.each_with_index do |data,x|  %>
-          <span class="best_books">
-              <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=books&commit=Search"><img src="<%= data[:img] %>"/></a>
-          </span>
-          <% end %>
-      <span>
-    </div>
-   <% end %>
+              <% if @top_movie_info %>
+                <div class="slide">
+                  <span>
+                    <h3>Best Selling Movies</h3>
+                    <% @top_movie_info.each_with_index do |data,x|  %>
+                      <span class="best_books">
+                        <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=movies&commit=Search"><img src="<%= data[:img] %>"/></a>
+                      </span>
+                    <% end %>
+                    <span>
+                    </div>
+               <% end %>
+            </div>        
 
-   <% if @top_mobile_info %>
-     <div class="slide">
-       <span>
-         <h3>Best Selling Mobiles</h3>
-         <% @top_mobile_info.each_with_index do |data,x|  %>
-           <span class="best_books">
-             <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=mobiles&commit=Search"><img src="<%= data[:img] %>"/></a>
-           </span>
-         <% end %>
-         <span>
-         </div>
-    <% end %>
-
-    <% if @top_camera_info %>
-      <div class="slide">
-        <span>
-          <h3>Best Selling Cameras</h3>
-          <% @top_camera_info.each_with_index do |data,x|  %>
-            <span class="best_books">
-              <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=cameras&commit=Search"><img src="<%= data[:img] %>"/></a>
-            </span>
-          <% end %>
-          <span>
-          </div>
-    <% end %>
-
-    <% if @top_movie_info %>
-      <div class="slide">
-        <span>
-          <h3>Best Selling Movies</h3>
-          <% @top_movie_info.each_with_index do |data,x|  %>
-            <span class="best_books">
-              <a title="<%= data[:name] %>" href="/view?utf8=%E2%9C%93&q=<%= data[:name] %>&last_search_type=&search_type=movies&commit=Search"><img src="<%= data[:img] %>"/></a>
-            </span>
-          <% end %>
-          <span>
-          </div>
-     <% end %>
-  </div>        
+              
+                  <a class="prev" id="foo3_prev" href="#"><span>prev</span></a>
+                  <a class="next" id="foo3_next" href="#"><span>next</span></a>
+      </div>
 </div>
-<div class="clearfix"></div>
-<a class="prev" id="foo3_prev" href="#"><span>prev</span></a>
-<a class="next" id="foo3_next" href="#"><span>next</span></a>
-
