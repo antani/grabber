@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 
 $("#foo3").carouFredSel({
-	curcular: false,
+	circular: false,
 	infinite: false,
 	auto : false,
 	prev : {	
@@ -20,7 +20,7 @@ $("#foo3").carouFredSel({
 	pagination	: "#foo3_pag"
 });
 
-
+//$('#foo').slides(); //start the carousel
 
 $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
 
@@ -108,7 +108,7 @@ if(search_wat != null)
     
 }
 $('#search_button').click(function() {
-                              mpq.track('Search Clicked');
+                              mpq.track('Search');
                          });
 
 $('.purchase a').click(function() {
