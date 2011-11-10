@@ -1800,13 +1800,8 @@ a img { border: none; }
 
 }
 .desch3 {
-    font-family: 'Droid Sans','Puritan',sans-serif; 
+    font-family: 'Open sans','Droid Sans','Puritan',sans-serif; 
     font-size: 12px;
-    /*old
-    color : #C24E42;
-    */
-   
-    
     padding: 5px;
     margin: 3px;
     vertical-align:text-top;
@@ -1814,24 +1809,26 @@ a img { border: none; }
 .desch3 a, .desch3 i
 {
    color:#39B2E5;
-   font-weight: bold;
+   font-weight: 600;
+   font-size: 12px;
 }
 .top_p
 {
 
-    font-size: 24px;
+    font-size: 16px;
     margin-bottom: 5px;
-    font-weight: normal;
+    font-weight: 600;
     border-bottom: 2px dotted #C9C4BA;
     color: #888888;
-    font-family: 'Vollkorn','Amaranth',"Droid Sans",Arial,sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
 
 }
 .top_p_p
 {
     color: #888888;
-    font-family: 'Vollkorn','Amaranth',"Droid Sans",Arial,sans-serif;
-    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
     margin-bottom: 5px;
     font-weight: normal;
 /*    border-bottom: 3px dotted #C9C4BA;*/
@@ -1897,12 +1894,13 @@ a img {
     font-size: 12px;
 }
 .textwrapper{
-    font-family: 'Lato','Droid Sans','Puritan',sans-serif; 
+    font-family: 'Open Sans', sans-serif;
     /* old 
     color: #C24E42;*/
     color: #333333;
-    font-size: 110%;
-    font-weight: bold;
+    
+    font-weight: 600;
+    font-style: italic;
     /*old
     text-shadow: 0 2px 1px rgba(255, 255, 255, 0.9);
     */
@@ -2026,11 +2024,11 @@ table.price_list td
   padding: 15px;
   /*border-top: 1px solid #EEEEEE;*/
   /*border-bottom: 1px solid #FFFFFF;*/
-      font-family:'Lato','Droid Sans','Puritan',sans-serif; 
+  font-family: 'Open sans','Lato','Droid Sans','Puritan',sans-serif; 
   border-bottom: 1px dotted #CCCCCC;
   vertical-align: top;
   background-color: white;
-
+  font-weight: 400;
 }
 .discount
 {

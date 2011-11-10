@@ -8,6 +8,7 @@ $(document).ready(function() {
 $("#foo3").carouFredSel({
 	circular: false,
 	infinite: false,
+    items : "variable",
 	auto : false,
 	prev : {	
 		button	: "#foo3_prev",
