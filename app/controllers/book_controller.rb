@@ -50,7 +50,7 @@ class BookController < ApplicationController
 
           @not_available = Bookprice::NOT_AVAILABLE
      else
-            #@prices = Generalsearch_parallel.new({:search_term => @isbn}, {:search_type => @type})
+            
             @prices = Generalsearch_improved.new({:search_term => @isbn}, {:search_type => @type})
             tt = @type
             ss = decanonicalize_isbn(@isbn)
@@ -58,33 +58,32 @@ class BookController < ApplicationController
        	    #Save top_search or increase existing count of a search
             p = Topsearch.first(:conditions => {query: ss, type: @type}) 
             q = Recentsearch.first(:conditions => {query: ss, type: @type}) 
-            if(q==nil) then
+
+            if(!@stores.nil? && !@stores.empty? && q==nil) then
+              logger.info ("Storing in recent search")
+              logger.info(@stores.nil?)
+              logger.info(@stores.empty?)
+              logger.info(@stores)
               recentsearch = Recentsearch.create({:query => ss, :type=>tt, :ts=>Time.now})
               recentsearch.save
             end
 
   	        if p==nil then
-  		        topsearch = Topsearch.create ({:query=> ss, :type=> tt, :cnt=> 1})
-  		        topsearch.save
+                 if !@stores.nil? && !@stores.empty? then 
+    		           topsearch = Topsearch.create ({:query=> ss, :type=> tt, :cnt=> 1})
+    		           topsearch.save
+                 end
               
-                else
-                    p.inc(:cnt,1)
+            else
+                  p.inc(:cnt,1)
     	            p.save
   	        end
-	    #Store all queries in a data mining table.
-	    #allsearch = Allsearch.create({:query => ss, :type=>tt, :ts=>Time.now})
-            #allsearch.save	
-
             if @stores.nil?
               # Check if book is already queued.
               #if Delayed::Backend::Mongoid::Job.where(:handler => /#{@isbn}/).empty?
                 logger.info("Book #{@isbn} has been queued")
                 #    @prices.delay.perform
-		            @prices.perform
-
-              #else
-               # logger.info("Book #{@isbn} is already queued")
-              #end
+		            @prices.perform            
             end
             if @stores then 
                 if @sort == "price_lowest" then
@@ -93,13 +92,7 @@ class BookController < ApplicationController
                     @stores = Rails.cache.fetch(@prices.cache_key,  :expires_in => 3.hours)
                 end
             end
-           # logger.info ('Storing cookies')
-           # current_cookie = cookies[:saved_search]
-           # current_cookie = current_cookie + "~~" + "#{request.request_uri}|#{ss}|#{tt}" unless current_cookie == nil
-           # cookies[:saved_search] = {
-           #     :value => current_cookie,
-           #     :expires => Time.now + 1.day
-           # }
+           
             
             
             
