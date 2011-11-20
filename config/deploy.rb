@@ -67,5 +67,5 @@ after 'deploy:update_code', 'bundler:bundle_new_release'
 
 after "deploy", "refresh_sitemaps"
 task :refresh_sitemaps do
-  run "cd #{latest_release} && RAILS_ENV=#{rails_env} rake sitemap:refresh"
+  run "cd #{latest_release} && RAILS_ENV=#{rails_env} bundle exec rake sitemap:refresh"
 end
