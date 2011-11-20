@@ -115,6 +115,7 @@ GEM
     rdoc (3.11)
       json (~> 1.4)
     ruby-hmac (0.4.0)
+    sitemap_generator (2.1.6)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -161,6 +162,7 @@ DEPENDENCIES
   rack-timeout
   rails
   rake (~> 0.8.7)
+  sitemap_generator
   tweet-button
   typhoeus
   vss
