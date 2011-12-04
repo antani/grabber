@@ -52,13 +52,10 @@
             <p class="desch3">
             <%  if @stores.length > 0 %>
               Lowest Prices for <i><%= @type %></i> matching <i><%= @search_string %></i>. 
-              </br>
-              
+              </br>              
             <%else%>
               We could not find any <i><%= @type %></i> matching <i><%= @search_string %></i>.</br>
-             
- 
-            <% end %>  
+             <% end %>  
             <% if @type=="books" %>
             Try searching for : <a href="/view?utf8=✓&q=<%= @search_string %>&last_search_type=<%=params[:search_type]%>&search_type=mobiles&commit=Search">Mobiles</a>,<a href="/view?utf8=✓&q=<%= @search_string %>&last_search_type=<%=params[:search_type]%>&search_type=movies&commit=Search">Movies</a>,<a href="/view?utf8=✓&q=<%= @search_string %>&last_search_type=<%=params[:search_type]%>&search_type=cameras&commit=Search">Cameras</a> or <a href="/view?utf8=✓&q=<%= @search_string %>&last_search_type=<%=params[:search_type]%>&search_type=computers&commit=Search">Computers</a>
             <% elsif @type == "mobiles" %>

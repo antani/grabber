@@ -5,21 +5,28 @@
 $(document).ready(function() {
 
 
-$("#foo3").carouFredSel({
-	circular: false,
-	infinite: false,
-    items : "variable",
-	auto : false,
-	prev : {	
-		button	: "#foo3_prev",
-		key		: "left"
-	},
-	next : { 
-		button	: "#foo3_next",
-		key		: "right"
-	}
+// $("#foo3").carouFredSel({
+// 	circular: false,
+// 	infinite: false,
+    
+// 	auto : false,
+// 	prev : {	
+// 		button	: "#foo3_prev",
+// 		key		: "left"
+// 	},
+// 	next : { 
+// 		button	: "#foo3_next",
+// 		key		: "right"
+// 	}
+// });
+$(document).ready(function()
+{
+    $("#foo3").awShowcase(
+    {
+        content_width:  810,
+        content_height: 230
+    });
 });
-
 //$('#foo').slides(); //start the carousel
 
 $('.tag_dummy:first').removeClass('tag_dummy').addClass("tags");
