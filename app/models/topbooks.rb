@@ -6,8 +6,8 @@ class Topbooks
         begin  
           prices=[]
           #@@logger.info("Parse Flipkart")
-          # #@@logger.info(page)
-          name_text = page.search("div.lastUnit div.fk-litems-section:nth-child(2) div.fk-medium-atom a.title").map{ |e| "#{e.content} " }                      
+          #@@logger.info(page)
+          name_text = page.search("div.lastUnit div.fk-litems-section:nth-child(3) div.fk-medium-atom a.title").map{ |e| "#{e.content} " }                      
           author_text = page.search("div.lastUnit div.fk-litems-section:nth-child(3) div.fk-medium-atom div.author").map{ |e| "#{e.content} " }
           img_text = []
 
@@ -16,8 +16,8 @@ class Topbooks
           end
 
           (0...name_text.length).each do |i|
-            #@@logger.info(name_text[i])                          
-            #@@logger.info(author_text[i])
+           # @@logger.info(name_text[i])                          
+           # @@logger.info(author_text[i])
 
             #Strip invalid UTF-8 Characters
             price_info = {:price =>"",:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"", :source=>"", :weight=>"", :discount=>"",:shipping=>""} 
@@ -40,9 +40,9 @@ class Topbooks
               url = "http://www.flipkart.com/books"
               req_top= Typhoeus::Request.new(url,:timeout=> 5000)      
               req_top.on_complete do |response|
-                @@logger.info('Top Book response')
-                @@logger.info(response.code)    # http status code
-                @@logger.info(response.time)    # time in seconds the request took
+              #  @@logger.info('Top Book response')
+              #  @@logger.info(response.code)    # http status code
+              #  @@logger.info(response.time)    # time in seconds the request took
 
                 if response.success?
                   doc= response.body
