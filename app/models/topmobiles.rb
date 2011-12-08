@@ -53,7 +53,7 @@ class Topmobiles
             end
 
 	    def proper_case(str)
-		    st = str.to_s
+		    st = str.to_s.strip
 	    end
             def mobile_info
  		        #@@logger.info("Get Top mobiles from Flipkart")

@@ -32,8 +32,11 @@ class Topbooks
         prices
             end
 
+ 
+
    def proper_case(str)
-    st = str.to_s
+    #st = str.to_s.gsub(/\x0A\x0D/,'').rstrip
+    st = str.to_s.strip
    end
             def book_info
               #@@logger.info("Get Top Books from Flipkart")

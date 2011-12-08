@@ -52,7 +52,7 @@ class Topmovies
             end
 
 	    def proper_case(str)
-		    st = str.to_s
+		    st = str.to_s.strip
 	    end
             def movie_info
  		        #@@logger.info("Get Top Movies from Flipkart")
