@@ -624,7 +624,7 @@ class Generalsearch_improved
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 1) then
-                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://flipkart.com"+url_text[i], :source=>'Flipkart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://flipkart.com"+url_text[i]+"?affid=vedantanig", :source=>'Flipkart', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                         end
