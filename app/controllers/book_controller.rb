@@ -50,10 +50,16 @@ class BookController < ApplicationController
 
           @not_available = Bookprice::NOT_AVAILABLE
      else
-            
+
             @prices = Generalsearch_improved.new({:search_term => @isbn}, {:search_type => @type})
             tt = @type
             ss = decanonicalize_isbn(@isbn)
+            #############################################
+            #Easter egg
+            #############################################
+            if(ss.gsub(/\s+/, "").upcase=="CHEAPR" || ss.gsub(/\s+/, "").upcase=="CHEAPRCONTACTDETAILS")
+              redirect_to "/about"
+            end  
             @stores = Rails.cache.fetch(@prices.cache_key, :expires_in => 3.hours)
        	    #Save top_search or increase existing count of a search
             p = Topsearch.first(:conditions => {query: ss, type: @type}) 
