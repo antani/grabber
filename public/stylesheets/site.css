@@ -166,10 +166,13 @@ a img {
 	font-size:0;
 	line-height:0;
 }
-
+.searchTypeLink
+{
+  
+}
 
 .top_searches{
-    font-family:'Droid Sans','Puritan',sans-serif; 
+    font-family:'Open Sans','Puritan',sans-serif; 
     color: #333333;
     font-size: 110%;
     text-shadow: 0 2px 0 #FFFFFF;

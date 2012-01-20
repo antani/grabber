@@ -86,7 +86,11 @@
                                       %>
                                   <tr>
                                          <td>
+                                         <% if data[:source] == "BuyThePrice"%>
+                                           <a onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>"><%= data[:source] %></a>
+                                         <%else%>
                                            <a onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>&last_search_type=<%=params[:search_type]%>"><%= data[:source] %></a>
+                                         <%end%>  
                                           </td>  
                                           <td class="purchase">
                                             <a onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>"><img src='/images/cart.png'></a>

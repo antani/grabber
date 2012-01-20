@@ -516,6 +516,26 @@ class Generalsearch_improved
                            end
                            hydra.queue req_ibazaar
                      end    
+                     #Mobile, cameras and Computers
+                    if (mtype =='mobiles' or mtype =='cameras' or mtype =='computers') then
+                           # url= get_buytheprice_url(term, type)
+                           # @@logger.info("URL:#{url}")
+                           # req_buytheprice = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           # req_buytheprice.on_complete do |response|
+                           # @@logger.info('buytheprice response')
+                           # @@logger.info(response.code)    # http status code
+                           # @@logger.info(response.time)    # time in seconds the request took                            
+
+                           #          if response.success?
+                           #              doc= response.body
+                           #              page = Nokogiri::HTML::parse(doc)
+                           #              page
+                           #          else
+                           #              page="failed"
+                           #          end    
+                           # end
+                           # hydra.queue req_buytheprice
+                     end    
 
 
                 #    hydra.queue req_indiaplaza
@@ -563,6 +583,10 @@ class Generalsearch_improved
                      if (mtype =='mobiles' or mtype =='computers') then
                          prices.push(parse_ibazaar(req_ibazaar.handled_response,term, type)) unless req_ibazaar.handled_response =="failed"
                      end 
+                     #Mobile, cameras and Computers
+                    if (mtype =='mobiles' or mtype =='cameras' or mtype =='computers') then
+                      # prices.push(parse_buytheprice(req_buytheprice.handled_response,term, type)) unless req_buytheprice.handled_response =="failed"
+                    end  
                      ##@@logger.info ("Time for executing requests...")
                      ##@@logger.info (Time.now - start_time)
                      prices
@@ -2078,6 +2102,68 @@ class Generalsearch_improved
                   end
                   prices
           end
+
+      def parse_buytheprice(page,query,type)
+              @@logger.info('Parsing buytheprice')
+             # @@logger.info(page)
+              begin 
+                  price_text=[]
+                  page.search("div.product-sp").each do |item|
+                    #price_text << item.next.text.strip
+                    @@logger.info(item.text)
+                    price_text<<item.text
+                  end  
+              #    @@logger.info (price_text)
+                  name_text = page.search("div.product-block h2.product-name").map{ |e| "#{e.content} " }
+              #    @@logger.info (name_text)
+                  author_text = ""
+              #    @@logger.info (author_text )
+                  url_text = []
+                  page.search("div.product-block a").each do |link|
+                      url_text << link.attributes['href'].content
+                  end   
+                  @@logger.info ("URL #{url_text}" )
+                  img_text = []
+                  page.search("div.product-block a img").each do |img|
+                      img_text << img.attributes['src'].content
+                  end
+                  @@logger.info (img_text )
+                  prices=[]
+                  
+                  discount_text = page.search("div.product-block div.product-save").map { |e| "#{e.content}" }
+                  shipping_text = ""
+
+                  i=0 
+                  (0...price_text.length).each do |i|
+                      @@logger.info (price_text[i])
+                      @@logger.info (author_text[i])
+                      @@logger.info (name_text[i])
+                      if (name_text[i] == nil && author_text[i] != nil) then
+                            weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                      elsif (name_text[i] !=nil && author_text[i] == nil) then
+                            weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                      else
+                                weight_author=0
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                                weight = weight_name + weight_author
+
+                      end      
+                                final_price = price_text[i].to_s.tr('[A-Z][a-z].,','')
+                      if (weight > 1) then
+                        price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.buytheprice.com"+url_text[i], :source=>'BuyThePrice', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        prices.push(price_info)
+                      end
+                  end
+                  rescue => ex
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
+                  end
+                  prices
+          end
+
+
+
 #---------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------Helpers to find correct URL to parse------------------------------------
           def get_flipkart_url(query, type)
@@ -2266,6 +2352,11 @@ class Generalsearch_improved
             url="http://www.ibazaarindia.com/search_advance_results.php?_txtSearchText=#{query[:search_term]}&x=0&y=0"
             url            
            end 
+           def get_buytheprice_url(query,type)
+            url="http://www.buytheprice.com/search_products.php?product=#{query[:search_term]}"
+            url            
+           end 
+
 #-------------------------------------------------------------------------------------------------------------------------------
           #Using - http://madeofcode.com/posts/69-vss-a-vector-space-search-engine-in-ruby 
           #def find_weight(source_string, search_string)
