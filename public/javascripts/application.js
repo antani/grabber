@@ -5,6 +5,19 @@
 $(document).ready(function() {
 
 
+//Disable footers in the beginning
+$(".footer").hide();
+//alert($("#pagename").text());
+if ( $("#pagename").text() == "home"){
+    $("#homefooter").show();
+    $("#viewfooter").hide();
+}
+else{
+    $("#viewfooter").hide();
+    $("#homefooter").hide();
+}
+
+
 // $("#foo3").carouFredSel({
 // 	circular: false,
 // 	infinite: false,

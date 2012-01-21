@@ -1,3 +1,4 @@
+<div id="pagename" style="display: none">view</div>
 <div id ="img_header">
  <div class="searchwrapper_small curved curved-hz-1">
   <div class="searchwrapper-inner_small">
@@ -136,9 +137,9 @@
 		<script> 
 		var auto_refresh = setInterval(
 		function()
-		{
+		{     
        		$("#result_content").load(location.href+" #result_content>*","");
-		}, 2000);
+    }, 2000);
         //Clear interval after 10 seconds
         setTimeout (function() { clearInterval(auto_refresh); }, 10000 );
 		</script>
