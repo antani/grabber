@@ -1004,9 +1004,17 @@ text-decoration: none;
     text-shadow: 0 1px 0 #FFFFFF;
     margin: 0 auto;
     text-align: left;
-    width: 400px;
+    width: 700px;
     padding: 10px;
-    border-right: 2px dotted #C9C4BA;
+    /*border-right: 2px dotted #C9C4BA;*/
+}
+.contact{
+    padding-top:10px;  
+    font-size: 15.8px;
+}
+.contact a {
+    color: #606F48;
+    text-decoration: none;
 }
 
 /*#featured {

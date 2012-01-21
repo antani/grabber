@@ -5,20 +5,20 @@ class Topbooks
 	    def parse_flipkart(page)      			
         begin  
           prices=[]
-          @@logger.info("Parse Flipkart")
+          #@@logger.info("Parse Flipkart")
           
           name_text = page.search("div.fk-product-thumb a.title").map{ |e| "#{e.content} " }                      
           author_text = page.search("div.fk-product-thumb span.fk-item-category").map{ |e| "#{e.content} " }
           img_text = []
 
           page.search("div.fk-product-thumb img").each do |img|
-            @@logger.info(img)
+            #@@logger.info(img)
             img_text << img.attributes['src'].content
           end
 
           (0...name_text.length).each do |i|
-            @@logger.info(name_text[i])                          
-            @@logger.info(author_text[i])
+            #@@logger.info(name_text[i])                          
+            #@@logger.info(author_text[i])
 
             #Strip invalid UTF-8 Characters
             price_info = {:price =>"",:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"", :source=>"", :weight=>"", :discount=>"",:shipping=>""} 
@@ -26,12 +26,12 @@ class Topbooks
           end
 
         rescue => ex
-          @@logger.info ("#{ex.class} : #{ex.message}")
-          @@logger.info (ex.backtrace)
+          #@@logger.info ("#{ex.class} : #{ex.message}")
+          #@@logger.info (ex.backtrace)
         end
         #@@logger.info(prices)
         prices
-            end
+     end
 
  
 
