@@ -211,6 +211,23 @@ class Generalsearch_improved
                                       page="failed"
                                end  
                      end
+                     #junglee/amazon.india
+                     url= get_junglee_url(term, type)
+                     req_junglee= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_junglee.on_complete do |response|
+                     @@logger.info('Junglee response')
+                     @@logger.info(response.code)    # http status code
+                     @@logger.info(response.time)    # time in seconds the request took 
+
+                               if response.success?
+                                      doc= response.body
+                                      page = Nokogiri::HTML::parse(doc)
+                                      page
+                               else
+                                      page="failed"
+                               end  
+                     end
+
                      #Queue all requests
                      hydra.queue req_flip
                      hydra.queue req_infibeam
@@ -218,6 +235,7 @@ class Generalsearch_improved
                      hydra.queue req_homeshop
                      hydra.queue req_futurebazaar
                      hydra.queue req_ebay
+                     hydra.queue req_junglee
 
                      if (mtype !='movies' and mtype !='books') then
                            url= get_letsbuy_url(term, type)
@@ -551,6 +569,7 @@ class Generalsearch_improved
                      prices.push(parse_homeshop(req_homeshop.handled_response,term, type)) unless req_homeshop.handled_response =="failed"
                      prices.push(parse_futurebazaar(req_futurebazaar.handled_response,term, type)) unless req_futurebazaar.handled_response =="failed"
                      prices.push(parse_ebay(req_ebay.handled_response,term, type)) unless req_ebay.handled_response =="failed"
+                     prices.push(parse_junglee(req_junglee.handled_response,term, type)) unless req_junglee.handled_response =="failed"
 
                      if mtype == 'movies' then
                                prices.push(parse_moviemart(req_moviemart.handled_response,term, type)) unless req_moviemart.handled_response =="failed"
@@ -979,7 +998,7 @@ class Generalsearch_improved
 			                    weight = weight_name + weight_author
 
                           end      
-                                                final_price = price_text[i].to_s.tr('A-Za-z.,','')
+                          final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 1) then
                             price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://pustak.co.in"+url_text[i], :source=>'Pustak', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
@@ -1036,7 +1055,7 @@ class Generalsearch_improved
                                 weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                                 weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			                    weight = weight_name + weight_author
+			                          weight = weight_name + weight_author
 
                           end      
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
@@ -1052,6 +1071,68 @@ class Generalsearch_improved
               end
               prices
           end
+
+          def parse_junglee(page, query,type)
+            begin
+                      @@logger.info("Parsing junglee")
+
+                      price_text = page.search("div.data div.prodAds span.price").map { |e| "#{e.content}" }
+                      #@@logger.info (price_text)
+                      name_text = page.search("div.data div.title a.title").map{ |e| "#{e.content} " }
+                      #@@logger.info (name_text)
+                      author_text = page.search("div.data div.title span.ptBrand").map {|e| "#{e.content}" }
+                      #@@logger.info (author_text )
+                      url_text = []
+                          page.search("div.data div.title a.title").each do |link|
+                      url_text << link.attributes['href'].content
+                      end   
+                      #@@logger.info (url_text )
+                      img_text = []
+                          page.search("div.image a img.productImage").each do |img|
+                          img_text << img.attributes['src'].content
+                      end
+                 
+                      #@@logger.info (img_text )
+                      discount_text = ""
+                      ####@@logger.info (discount_text )
+                      shipping_text = page.search("div.data div.offerCount").map { |e| "#{e.content}" }
+                      prices=[]
+
+                      (0...price_text.length).each do |i|
+
+                          #@@logger.info (price_text[i])
+                          #@@logger.info (author_text[i])
+                          #@@logger.info (name_text[i])
+                          #Strip invalid UTF-8 Characters
+                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+             
+                          if (name_text[i] == nil && author_text[i] != nil) then
+                                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                          elsif (name_text[i] !=nil && author_text[i] == nil) then
+                                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                          else
+                                weight_author=0
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                                weight = weight_name + weight_author
+
+                          end      
+                          final_price = strip_invalid_utf8_chars(price_text[i]).to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+                                                           
+                          if (weight > 1) then
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Junglee', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            prices.push(price_info)
+                          end
+                        end
+              rescue => ex
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
+              end
+              prices
+          end
+
+
          
           def parse_bookadda(page,query,type)
               ###@@logger.info ("parsing bookadda")
@@ -2355,7 +2436,12 @@ class Generalsearch_improved
            def get_buytheprice_url(query,type)
             url="http://www.buytheprice.com/search_products.php?product=#{query[:search_term]}"
             url            
-           end 
+           end
+
+           def get_junglee_url(query,type)
+            url="http://www.junglee.com/mn/search/junglee/?k=#{query[:search_term]}"
+            url            
+           end
 
 #-------------------------------------------------------------------------------------------------------------------------------
           #Using - http://madeofcode.com/posts/69-vss-a-vector-space-search-engine-in-ruby 
