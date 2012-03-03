@@ -1081,7 +1081,7 @@ class Generalsearch_improved
                       #@@logger.info (price_text)
                       name_text = page.search("div.data div.title a.title").map{ |e| "#{e.content} " }
                       #@@logger.info (name_text)
-                      author_text = page.search("div.data div.title span.ptBrand").map {|e| "#{e.content}" }
+                      author_text = ""
                       #@@logger.info (author_text )
                       url_text = []
                           page.search("div.data div.title a.title").each do |link|
