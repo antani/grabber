@@ -23,7 +23,7 @@ gem "SystemTimer", :require => "system_timer", :platforms => :ruby_18
 gem "rack-timeout"
 gem "tweet-button"
 gem 'sitemap_generator'
-
+gem 'rvm-capistrano'
 
 # Use unicorn as the web server
 # gem 'unicorn'
