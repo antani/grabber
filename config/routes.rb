@@ -1,4 +1,8 @@
 Isbnnetin::Application.routes.draw do
+  match 'feedbacks' => 'feedbacks#create', :as => :feedback
+
+  match 'feedbacks/new' => 'feedbacks#new', :as => :new_feedback
+
   get "content/index"
 
   # The priority is based upon order of creation:

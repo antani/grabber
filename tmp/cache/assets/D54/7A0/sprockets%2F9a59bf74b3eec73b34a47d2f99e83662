@@ -1,0 +1,17 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1341567242.586774:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%ceb4d4340524d59e35f508f224595c9bI"logical_path;
+FI"feedback/closelabel.gif;
+TI"pathname;
+FI"4$root/app/assets/images/feedback/closelabel.gif;
+FI"content_type;
+FI"image/gif;
+FI"
+mtime;
+FI"2012-07-06T14:56:15+05:30;
+FI"length;
+FI"979;
+FI"digest;
+F"%6f89ff370dfcd71d1b5d89c38e61fbedI"_version;
+F"%0868aba5d4b750d3a9421721ea3d9b9c

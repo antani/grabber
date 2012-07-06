@@ -1,0 +1,6 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1341565407.670003:@value{	I"length:EFixI"digest;
+F"%8ecdbda2b785fb5617a12b3070bdebfeI"source;
+FI"x// call PROFILE.show() to show the profileViewer
+var PROFILE={init:function(a){YAHOO.tool.Profiler.registerObject("jQuery",jQuery,!0),a&&$(document).keyup(function(a){a.keyCode===120&&(PROFILE.show(),$(document).unbind("keyup",arguments.callee))})},show:function(){var a=document.createElement("link");a.setAttribute("rel","stylesheet"),a.setAttribute("type","text/css"),a.setAttribute("href","js/profiling/yahoo-profiling.css"),document.body.appendChild(a),YAHOO.util.Dom.addClass(document.body,"yui-skin-sam");var b=new YAHOO.widget.ProfilerViewer("",{visible:!0,showChart:!0,swfUrl:"js/profiling/charts.swf"})}};PROFILE.init(!0);;
+TI"_version;
+F"%66cc129c75d32ad64cbe5981f14409cc

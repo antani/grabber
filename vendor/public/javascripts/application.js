@@ -15,7 +15,7 @@ $(document).ready(function() {
     }).css('background-color', '#EDEBDE');
 
 
-    var review_quote = "<div class='item_review_title_left'><img src='http://static.fkcdn.com/www/391/images/review_image.png' alt='*'></div>";
+    var review_quote = "<div class='item_review_title_left'><img src='http://static.fkcdn.com/www/391/assets/review_image.png' alt='*'></div>";
     $(review_quote).insertBefore('.gr_review_container.a');
 
     var editorial_review_books = $('#editorial_review').html();

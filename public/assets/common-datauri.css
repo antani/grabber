@@ -7,7 +7,7 @@ display:inline-block;
 height:44px;
 line-height:24px;
 padding:0 10px 0 50px;
-background:url(../images/white.jpg?1318589201) repeat-x;
+background:url(../assets/white.jpg?1318589201) repeat-x;
 /*color:#999;*/
 color: #666666;
 font-family: 'Droid Sans',Helvetica,Arial,sans-serif;
@@ -35,7 +35,7 @@ padding: 0 5px 0 20px;
 }
 
 .btn.search_small span {
-background-image:url(../images/icons/search_small.png?1318589202);
+background-image:url(../assets/icons/search_small.png?1318589202);
 }
 
 .btn:hover {
@@ -55,191 +55,191 @@ background-position:center;
 }
 
 .btn.activity span {
-background-image:url(/images/icons/activity.png?1318589202);
+background-image:url(/assets/icons/activity.png?1318589202);
 }
 
 .btn.activitya span {
-background-image:url(/images/icons/activityadd.png?1318589202);
+background-image:url(/assets/icons/activityadd.png?1318589202);
 }
 
 .btn.activityd span {
-background-image:url(/images/icons/activitydelete.png?1318589202);
+background-image:url(/assets/icons/activitydelete.png?1318589202);
 }
 
 .btn.activityw span {
-background-image:url(/images/icons/activitywarn.png?1318589202);
+background-image:url(/assets/icons/activitywarn.png?1318589202);
 }
 
 .btn.add span {
-background-image:url(/images/icons/add.png?1318589202);
+background-image:url(/assets/icons/add.png?1318589202);
 }
 
 .btn.address span {
-background-image:url(/images/icons/activity.png?1318589202);
+background-image:url(/assets/icons/activity.png?1318589202);
 }
 
 .btn.addressd span {
-background-image:url(/images/icons/addressdelete.png?1318589202);
+background-image:url(/assets/icons/addressdelete.png?1318589202);
 }
 
 .btn.addressa span {
-background-image:url(/images/icons/adressadd.png?1318589202);
+background-image:url(/assets/icons/adressadd.png?1318589202);
 }
 
 .btn.addresss span {
-background-image:url(/images/icons/addresssearch.png?1318589202);
+background-image:url(/assets/icons/addresssearch.png?1318589202);
 }
 
 .btn.book span {
-background-image:url(/images/icons/book.png?1318589202);
+background-image:url(/assets/icons/book.png?1318589202);
 }
 
 .btn.booka span {
-background-image:url(/images/icons/bookadd.png?1318589202);
+background-image:url(/assets/icons/bookadd.png?1318589202);
 }
 
 .btn.bookd span {
-background-image:url(/images/icons/bookdelete.png?1318589202);
+background-image:url(/assets/icons/bookdelete.png?1318589202);
 }
 
 .btn.books span {
-background-image:url(/images/icons/booksearch.png?1318589202);
+background-image:url(/assets/icons/booksearch.png?1318589202);
 }
 
 .btn.activity span {
-background-image:url(/images/icons/activity.png?1318589202);
+background-image:url(/assets/icons/activity.png?1318589202);
 }
 
 .btn.bulb span {
-background-image:url(/images/icons/bulb.png?1318589202);
+background-image:url(/assets/icons/bulb.png?1318589202);
 }
 
 .btn.fav span {
-background-image:url(/images/icons/fav.png?1318589202);
+background-image:url(/assets/icons/fav.png?1318589202);
 }
 
 .btn.chart span {
-background-image:url(/images/icons/chart.png?1318589202);
+background-image:url(/assets/icons/chart.png?1318589202);
 }
 
 .btn.activity span {
-background-image:url(/images/icons/activity.png?1318589202);
+background-image:url(/assets/icons/activity.png?1318589202);
 }
 
 .btn.comment span {
-background-image:url(/images/icons/comment.png?1318589202);
+background-image:url(/assets/icons/comment.png?1318589202);
 }
 
 .btn.commenta span {
-background-image:url(/images/icons/commentadd.png?1318589202);
+background-image:url(/assets/icons/commentadd.png?1318589202);
 }
 
 .btn.commentua span {
-background-image:url(/images/icons/commentuseradd.png?1318589202);
+background-image:url(/assets/icons/commentuseradd.png?1318589202);
 }
 
 .btn.commentud span {
-background-image:url(/images/icons/commentuserdelete.png?1318589202);
+background-image:url(/assets/icons/commentuserdelete.png?1318589202);
 }
 
 .btn.commentus span {
-background-image:url(/images/icons/commentusersearch.png?1318589202);
+background-image:url(/assets/icons/commentusersearch.png?1318589202);
 }
 
 .btn.delete span {
-background-image:url(/images/icons/delete.png?1318589202);
+background-image:url(/assets/icons/delete.png?1318589202);
 }
 
 .btn.edit span {
-background-image:url(/images/icons/edit.png?1318589202);
+background-image:url(/assets/icons/edit.png?1318589202);
 }
 
 .btn.email span {
-background-image:url(/images/icons/email.png?1318589202);
+background-image:url(/assets/icons/email.png?1318589202);
 }
 
 .btn.emaila span {
-background-image:url(/images/icons/emailadd.png?1318589202);
+background-image:url(/assets/icons/emailadd.png?1318589202);
 }
 
 .btn.emaild span {
-background-image:url(/images/icons/emaildelete.png?1318589202);
+background-image:url(/assets/icons/emaildelete.png?1318589202);
 }
 
 .btn.folder span {
-background-image:url(/images/icons/folder.png?1318589202);
+background-image:url(/assets/icons/folder.png?1318589202);
 }
 
 .btn.foldera span {
-background-image:url(/images/icons/folderadd.png?1318589202);
+background-image:url(/assets/icons/folderadd.png?1318589202);
 }
 
 .btn.folderd span {
-background-image:url(/images/icons/folderdelete.png?1318589202);
+background-image:url(/assets/icons/folderdelete.png?1318589202);
 }
 
 .btn.info span {
-background-image:url(/images/icons/info.png?1318589202);
+background-image:url(/assets/icons/info.png?1318589202);
 }
 
 .btn.lock span {
-background-image:url(/images/icons/lock.png?1318589202);
+background-image:url(/assets/icons/lock.png?1318589202);
 }
 
 .btn.unlock span {
-background-image:url(/images/icons/lockopen.png?1318589202);
+background-image:url(/assets/icons/lockopen.png?1318589202);
 }
 
 .btn.page span {
-background-image:url(/images/icons/page.png?1318589202);
+background-image:url(/assets/icons/page.png?1318589202);
 }
 
 .btn.pagea span {
-background-image:url(/images/icons/pageadd.png?1318589202);
+background-image:url(/assets/icons/pageadd.png?1318589202);
 }
 
 .btn.paged span {
-background-image:url(/images/icons/pagedelete.png?1318589202);
+background-image:url(/assets/icons/pagedelete.png?1318589202);
 }
 
 .btn.rss span {
-background-image:url(/images/icons/rss.png?1318589202);
+background-image:url(/assets/icons/rss.png?1318589202);
 }
 
 .btn.search span {
-background-image:url(../images/icons/search.png?1318589202);
+background-image:url(../assets/icons/search.png?1318589202);
 }
 
 .btn.time span {
-background-image:url(/images/icons/time.png?1318589202);
+background-image:url(/assets/icons/time.png?1318589202);
 }
 
 .btn.user span {
-background-image:url(/images/icons/user.png?1318589202);
+background-image:url(/assets/icons/user.png?1318589202);
 }
 
 .btn.usera span {
-background-image:url(/images/icons/useradd.png?1318589202);
+background-image:url(/assets/icons/useradd.png?1318589202);
 }
 
 .btn.userd span {
-background-image:url(/images/icons/userdelete.png?1318589202);
+background-image:url(/assets/icons/userdelete.png?1318589202);
 }
 
 .btn.users span {
-background-image:url(/images/icons/usersearch.png?1318589202);
+background-image:url(/assets/icons/usersearch.png?1318589202);
 }
 
 
 .btn.useri span {
-background-image:url(/images/icons/userinfo.png?1318589202);
+background-image:url(/assets/icons/userinfo.png?1318589202);
 }
 
 .btn.warn span {
-background-image:url(/images/icons/warning.png?1318589202);
+background-image:url(/assets/icons/warning.png?1318589202);
 }
 
-a.button, button { display: inline-block; padding: 6px 5px 5px 5px; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; font-size: 12px; color: #3C3C3D; text-shadow: 1px 1px 0 #FFFFFF; background: #ECECEC url(../images/css3buttons_backgrounds.png?1318589201) 0 0 no-repeat; white-space: nowrap; overflow: visible; cursor: pointer; text-decoration: none; border: 1px solid #CACACA; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; outline: none; position: relative; zoom: 1; line-height: 1.11; *display: inline; *vertical-align: middle; }
+a.button, button { display: inline-block; padding: 6px 5px 5px 5px; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; font-size: 12px; color: #3C3C3D; text-shadow: 1px 1px 0 #FFFFFF; background: #ECECEC url(../assets/css3buttons_backgrounds.png?1318589201) 0 0 no-repeat; white-space: nowrap; overflow: visible; cursor: pointer; text-decoration: none; border: 1px solid #CACACA; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; outline: none; position: relative; zoom: 1; line-height: 1.11; *display: inline; *vertical-align: middle; }
 button { margin-left: 0; margin-right: 0; *padding: 5px 5px 3px 5px; }
 button::-moz-focus-inner { border: 0; padding:0px; }
 a.button.primary, button.primary { font-weight: bold }
@@ -265,7 +265,7 @@ a.button.middle:active, button.middle:active,
 a.button.right:active, button.right:active { top: 0px }
 a.button.big, button.big { font-size: 16px; padding-left: 17px; padding-right: 17px; }
 button.big { *padding: 4px 17px 2px 17px; }
-a.button span.icon, button span.icon { display: inline-block; width: 14px; height: 12px; margin: auto 7px auto auto; position: relative; top: 2px; *top: 0px; background-image: url(../images/css3buttons_icons.png?1318589202); background-repeat: no-repeat; }
+a.button span.icon, button span.icon { display: inline-block; width: 14px; height: 12px; margin: auto 7px auto auto; position: relative; top: 2px; *top: 0px; background-image: url(../assets/css3buttons_icons.png?1318589202); background-repeat: no-repeat; }
 a.big.button span.icon, button.big span.icon, { top: 0px }
 a.button span.icon.book, button span.icon.book { background-position: 0 0 }
 a.button:hover span.icon.book, button:hover span.icon.book { background-position: 0 -15px }
@@ -425,17 +425,17 @@ body { font-size: 80%; }
 .gritter-item-wrapper {
 	position:relative;
 	margin:0 0 10px 0;
-	background:url(../images/ie-spacer.gif?1318589202); /* ie7/8 fix */ 
+	background:url(../assets/ie-spacer.gif?1318589202); /* ie7/8 fix */ 
 }
 .gritter-top {
-	background:url(../images/gritter.png?1318589201) no-repeat left -30px;
+	background:url(../assets/gritter.png?1318589201) no-repeat left -30px;
 	height:10px;
 }
 .hover .gritter-top {
 	background-position:right -30px;
 }
 .gritter-bottom {
-	background:url(../images/gritter.png?1318589201) no-repeat left bottom;
+	background:url(../assets/gritter.png?1318589201) no-repeat left bottom;
 	height:8px;
 	margin:0;
 }
@@ -444,7 +444,7 @@ body { font-size: 80%; }
 }
 .gritter-item {
 	display:block;
-	background:url(../images/gritter.png?1318589201) no-repeat left -40px;
+	background:url(../assets/gritter.png?1318589201) no-repeat left -40px;
 	color:#eee;
 	padding:2px 11px 8px 11px;
 	font-size: 11px;
@@ -461,7 +461,7 @@ body { font-size: 80%; }
 	position:absolute;
 	top:5px;
 	left:3px;
-	background:url(../images/gritter.png?1318589201) no-repeat left top;
+	background:url(../assets/gritter.png?1318589201) no-repeat left top;
 	cursor:pointer;
 	width:30px;
 	height:30px;
@@ -523,7 +523,7 @@ body { font-size: 80%; }
 }
 
 .toast-item-close {
-    background:url(../images/close.gif?1318589201);
+    background:url(../assets/close.gif?1318589201);
     width:22px;
     height:22px;
     position: absolute;
@@ -540,19 +540,19 @@ body { font-size: 80%; }
 }
 
 .toast-item-image-notice {
-    background:url(../images/notice.png?1318589201);
+    background:url(../assets/notice.png?1318589201);
 }
 
 .toast-item-image-success {
-    background:url(../images/success.png?1318589201);
+    background:url(../assets/success.png?1318589201);
 }
 
 .toast-item-image-warning {
-    background:url(../images/warning.png?1318589202);
+    background:url(../assets/warning.png?1318589202);
 }
 
 .toast-item-image-error {
-    background:url(../images/error.png?1318589201);
+    background:url(../assets/error.png?1318589201);
 }
 
 
@@ -675,11 +675,11 @@ body { font-size: 80%; }
     <div id="main">
       <div id="header" class="true">
           <a class="logo" href="https://github.com/">
-            <img alt="github" class="default svg" height="45" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6.svg" />
-            <img alt="github" class="default png" height="45" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6.png" />
+            <img alt="github" class="default svg" height="45" src="https://a248.e.akamai.net/assets.github.com/assets/modules/header/logov6.svg" />
+            <img alt="github" class="default png" height="45" src="https://a248.e.akamai.net/assets.github.com/assets/modules/header/logov6.png" />
             <!--[if (gt IE 8)|!(IE)]><!-->
-            <img alt="github" class="hover svg" height="45" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6-hover.svg" />
-            <img alt="github" class="hover png" height="45" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6-hover.png" />
+            <img alt="github" class="hover svg" height="45" src="https://a248.e.akamai.net/assets.github.com/assets/modules/header/logov6-hover.svg" />
+            <img alt="github" class="hover png" height="45" src="https://a248.e.akamai.net/assets.github.com/assets/modules/header/logov6-hover.png" />
             <!--<![endif]-->
           </a>
 
@@ -969,7 +969,7 @@ Conflicts:
           <div class="file">
             <div class="meta">
               <div class="info">
-                <span class="icon"><img alt="Txt" height="16" src="https://a248.e.akamai.net/assets.github.com/images/icons/txt.png" width="16" /></span>
+                <span class="icon"><img alt="Txt" height="16" src="https://a248.e.akamai.net/assets.github.com/assets/icons/txt.png" width="16" /></span>
                 <span class="mode" title="File Mode">100644</span>
                   <span>122 lines (101 sloc)</span>
                 <span>2.168 kb</span>
@@ -1123,7 +1123,7 @@ Conflicts:
   </div>
 
 <div class="frame frame-loading" style="display:none;" data-tree-list-url="/okonet/modalbox/tree-list/76e17378def860d5643ea5876787c39e7b649efb" data-blob-url-prefix="/okonet/modalbox/blob/76e17378def860d5643ea5876787c39e7b649efb">
-  <img src="https://a248.e.akamai.net/assets.github.com/images/modules/ajax/big_spinner_336699.gif" height="32" width="32">
+  <img src="https://a248.e.akamai.net/assets.github.com/assets/modules/ajax/big_spinner_336699.gif" height="32" width="32">
 </div>
 
     </div>
@@ -1190,7 +1190,7 @@ Conflicts:
 
       <div class="sponsor">
         <a href="http://www.rackspace.com" class="logo">
-          <img alt="Dedicated Server" height="36" src="https://a248.e.akamai.net/assets.github.com/images/modules/footer/rackspace_logo.png?v2" width="38" />
+          <img alt="Dedicated Server" height="36" src="https://a248.e.akamai.net/assets.github.com/assets/modules/footer/rackspace_logo.png?v2" width="38" />
         </a>
         Powered by the <a href="http://www.rackspace.com ">Dedicated
         Servers</a> and<br/> <a href="http://www.rackspacecloud.com">Cloud
@@ -1464,7 +1464,7 @@ __This will also be bold__
       <h3>Miscellaneous</h3>
       <p>Images</p>
       <pre>
-![GitHub Logo](/images/logo.png)
+![GitHub Logo](/assets/logo.png)
 Format: ![Alt Text](url)
 </pre>
      <p>Links</p>
@@ -1806,7 +1806,7 @@ a img { border: none; }
 
 
 #stripe {
-    background: url(/images/stripe2-bkg.png?1318589201) repeat-x scroll -200% 0 #089CC8;
+    background: url(/assets/stripe2-bkg.png?1318589201) repeat-x scroll -200% 0 #089CC8;
     height: 4px;
     position: fixed;
     top: 0;
@@ -1815,7 +1815,7 @@ a img { border: none; }
 }
 #header {
     /*Old
-    background: url(/images/header-back.png?1318589201) repeat-x scroll 0 0 #B1434D;
+    background: url(/assets/header-back.png?1318589201) repeat-x scroll 0 0 #B1434D;
     
     background-image: -webkit-gradient( linear, left bottom, left 5, color-stop(0.2, #0DB9E0), color-stop(0.75, #0A96AB) );
     background-image: -moz-linear-gradient( center bottom, #0DB9E0 20%, #0A96AB 75% );
@@ -1834,7 +1834,7 @@ a img { border: none; }
 #header {
 }
 #container_wrap {
-    background: url(/images/big-fade.png?1318589202) repeat-x scroll -70% 0 transparent;
+    background: url(/assets/big-fade.png?1318589202) repeat-x scroll -70% 0 transparent;
     padding: 5px 0 30px;
 }
 .center-container {
@@ -1853,7 +1853,7 @@ a img { border: none; }
 }
 
 .footer {
-    background: url(/images/footer_pattern.png?1318589202) repeat scroll 0 0 #FFFEFC;
+    background: url(/assets/footer_pattern.png?1318589202) repeat scroll 0 0 #FFFEFC;
     border-top: 1px solid #DDDDDD;
     box-shadow: 0 0 10px #E4E2D8 inset;
     padding-top: 20px;
@@ -1918,7 +1918,7 @@ a img {
 
 } /* hack retained to preserve specificity */
 #featured_container {
-    background: url(/images/feature_graphic.png) no-repeat scroll 27px 50% transparent;
+    background: url(/assets/feature_graphic.png) no-repeat scroll 27px 50% transparent;
     height: 346px;
     margin: 0 auto;
     overflow: visible;
@@ -2446,7 +2446,7 @@ Notifications
     overflow: hidden;
 }
 .search_wrap .tab a.active {
-  /*background: url(/images/top.png?1318589201)no-repeat scroll center 15px #3982E5;*/
+  /*background: url(/assets/top.png?1318589201)no-repeat scroll center 15px #3982E5;*/
 
   background-image: -webkit-gradient( linear, left bottom, left 5, color-stop(0.2, #0DB9E0), color-stop(0.75, #0A96AB) );
   background-image: -moz-linear-gradient( center bottom, #0DB9E0 20%, #0A96AB 75% );
@@ -2825,7 +2825,7 @@ text-decoration: none;
 }
 
 /*#featured {
-    background: url(/images/feature_bg.png?1318589201) repeat scroll 0 0 #2BA9D3;
+    background: url(/assets/feature_bg.png?1318589201) repeat scroll 0 0 #2BA9D3;
     margin: 0 auto;
     overflow: visible;
     padding-left: 5px;
@@ -2887,17 +2887,17 @@ text-decoration: none;
 	margin: 0;
 }
 .transparent {
-    /*background: url(../images/transparent_bg.png?1318589201) repeat-y scroll 0 0 transparent;*/
+    /*background: url(../assets/transparent_bg.png?1318589201) repeat-y scroll 0 0 transparent;*/
 }
 .transparent  .transparent .list_carousel,  .transparent .wheel_of_fortune, .fold_horizontal {
-    background: url(../images/fold_horizontal.png?1318589201) repeat-x scroll left bottom transparent;
+    background: url(../assets/fold_horizontal.png?1318589201) repeat-x scroll left bottom transparent;
 }
 .transparent, .transparent_top, .transparent_bottom, .transparent_schoolboard {
     margin: 0 -20px;
     padding: 0 20px;
 }
 .transparent_top, .transparent_bottom {
-   /* background: url(../images/transparent_top_bottom.png?1318589201) no-repeat scroll 0 0 transparent;*/
+   /* background: url(../assets/transparent_top_bottom.png?1318589201) no-repeat scroll 0 0 transparent;*/
 }
 .transparent_top {
     height: 30px;
@@ -2920,7 +2920,7 @@ text-decoration: none;
     width: 100px;
 }
 a.prev, a.next {
-	background: url(../images/miscellaneous_sprite.png?1318589201) no-repeat transparent;
+	background: url(../assets/miscellaneous_sprite.png?1318589201) no-repeat transparent;
 	width: 45px;
 	height: 50px;
 	display: block;
@@ -2942,7 +2942,7 @@ a.prev span, a.next span {
 	margin-bottom: 5px;
 }
 .pagination a {
-	background: url(../images/miscellaneous_sprite.png?1318589201) 0 -100px no-repeat transparent;
+	background: url(../assets/miscellaneous_sprite.png?1318589201) 0 -100px no-repeat transparent;
 	width: 15px;
 	height: 15px;
 	margin: 2px;;
@@ -2976,7 +2976,7 @@ div.slide h3 {
 
 }
 div.divider-bar {
-    background: url(../images/bg-btn-signup.png?1318589201) repeat-x scroll 0 -15px #FFAA22;
+    background: url(../assets/bg-btn-signup.png?1318589201) repeat-x scroll 0 -15px #FFAA22;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     height: 4px;
     z-index: 4;
@@ -2995,7 +2995,7 @@ footer {
   width: 30px;
   margin-left: auto;
   margin-right: 10px;
-  background: url(../images/twitter_boxed_48.png?1216818562) no-repeat;
+  background: url(../assets/twitter_boxed_48.png?1216818562) no-repeat;
 }
 .top_p
 {
@@ -3111,7 +3111,7 @@ h2
 	.showcase-arrow-previous, .showcase-arrow-next
 	{
 		position: absolute;
-		background: url(../images/arrows.png?1292905080);
+		background: url(../assets/arrows.png?1292905080);
 		width: 33px;
 		height: 33px;
 		top: 80px;
@@ -3158,7 +3158,7 @@ h2
 		/* Styling the tooltips */
 		.showcase-plus-anchor
 		{
-			background-image: url(../images/plus.png);
+			background-image: url(../assets/plus.png);
 			background-repeat: no-repeat;
 		}
 		
@@ -3173,7 +3173,7 @@ h2
 			color: #000;
 			text-align: left;
 			padding: 5px 8px;
-			background-image: url(../images/white-opacity-80.png);
+			background-image: url(../assets/white-opacity-80.png);
 		}
 		
 		/* Styling the caption */
@@ -3185,7 +3185,7 @@ h2
 			position: absolute;
 			bottom: 10px; left: 10px; right: 10px;
 			display: none;
-			background-image: url(../images/white-opacity-80.png);
+			background-image: url(../assets/white-opacity-80.png);
 		}
 		
 	.showcase-onepage .showcase-content
@@ -3252,7 +3252,7 @@ h2
 			
 			.showcase-thumbnail-cover
 			{
-				background-image: url(../images/black-opacity-40.png);
+				background-image: url(../assets/black-opacity-40.png);
 				position: absolute;
 				top: 0; bottom: 0; left: 0; right: 0;
 			}
@@ -3316,7 +3316,7 @@ h2
 		.showcase-thumbnail-button-forward .showcase-thumbnail-horizontal,
 		.showcase-thumbnail-button-backward .showcase-thumbnail-horizontal
 		{
-			background-image: url(../images/arrows-small.png?1292905080);
+			background-image: url(../assets/arrows-small.png?1292905080);
 			background-repeat: no-repeat;
 			display: block;
 			width: 17px;

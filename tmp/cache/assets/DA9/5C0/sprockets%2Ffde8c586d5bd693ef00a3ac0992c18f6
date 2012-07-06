@@ -1,0 +1,6 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1341565407.334482:@value{	I"length:EFiWI"digest;
+F"%deb6bebc9925969f7e47ea377d6baf58I"source;
+FI"W// remap jQuery to $
+(function(a){})(this.jQuery),window.log=function(){log.history=log.history||[],log.history.push(arguments),this.console&&console.log(Array.prototype.slice.call(arguments))},function(a){var b=a.write;a.write=function(c){log("document.write(): ",arguments),/docwriteregexwhitelist/.test(c)&&b.apply(a,arguments)}}(document);;
+TI"_version;
+F"%3226c34c98fca9593eb3ac8078842783

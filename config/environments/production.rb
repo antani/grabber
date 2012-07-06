@@ -47,4 +47,27 @@ Isbnnetin::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   config.gem "mongo_mapper"
+  # Compress JavaScripts and CSS
+  config.assets.compress = true
+
+  # Don't fallback to assets pipeline if a precompiled asset is missed
+  config.assets.compile = false
+
+  # Generate digests for assets URLs
+  config.assets.digest = true
+  # Compress both stylesheets and JavaScripts
+  config.assets.js_compressor  = :uglifier
+  config.assets.css_compressor = :scss
+  
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'cheapr.me',
+    :user_name            => 'admin@cheapr.me',
+    :password             => 'm0rpheus',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
 end
