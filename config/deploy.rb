@@ -2,16 +2,18 @@
 
 #$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
-set :rvm_bin_path, "/usr/local/bin"
+set :rvm_bin_path, "/root/.rvm/bin"
+#set :rvm_bin_path, "/usr/local/bin"
+#set :rvm_bin_path, "$HOME/bin"
 set :rvm_ruby_string, 'default'
-set :rvm_type, :system
+set :rvm_type, :user
 
 #set :rvm_type, :system
 #set :default_environment, {
 #  'PATH' => "/root/.rbenv/shims:/root/.rbenv/bin:$PATH"
 
 #}
-set :rvm_bin_path, "/usr/local/bin"
+#set :rvm_bin_path, "/usr/local/bin"
 
 # Bundler
 
