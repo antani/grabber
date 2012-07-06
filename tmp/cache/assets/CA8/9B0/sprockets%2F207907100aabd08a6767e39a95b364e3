@@ -1,94 +1,0 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1341565400.8427706:@value{I"
-class:EFI"BundledAsset;
-FI"id;
-F"%881545d55969174998e9f12656439a0dI"logical_path;
-FI"reset.css;
-FI"pathname;
-FI"+$root/app/assets/stylesheets/reset.css;
-FI"content_type;
-FI"text/css;
-FI"
-mtime;
-FI"2012-07-06T14:07:16+05:30;
-FI"	body;
-FI"K/* --------------------------------------------------------------
-
-   reset.css
-   * Resets default browser CSS.
-
--------------------------------------------------------------- */
-
-
-html { 
-	margin:0; 
-	padding:0; 
-	border:0; 
-}
-
-body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, code,
-del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, dialog, figure, footer, header,
-hgroup, nav, section {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-weight: inherit;
-  font-style: inherit;
-  font-size: 100%;
-  font-family: inherit;
-  vertical-align: baseline;
-}
-
-/* This helps to make newer HTML5 elements behave like DIVs in older browers */ 
-article, aside, dialog, figure, footer, header,
-hgroup, nav, section {
-    display:block;
-}
-
-/* Line-height should always be unitless! */
-body {
-  line-height: 1.5;
-  background: white; 
-}
-
-/* Tables still need 'cellspacing="0"' in the markup. */
-table { 
-	border-collapse: separate; 
-	border-spacing: 0; 
-}
-/* float:none prevents the span-x classes from breaking table-cell display */
-caption, th, td { 
-	text-align: left; 
-	font-weight: normal; 
-	float:none !important; 
-}
-table, th, td { 
-	vertical-align: middle; 
-}
-
-/* Remove possible quote marks (") from <q>, <blockquote>. */
-blockquote:before, blockquote:after, q:before, q:after { content: ''; }
-blockquote, q { quotes: "" ""; }
-
-/* Remove annoying border on linked images. */
-a img { border: none; }
-
-/* Remember to define your own focus styles! */
-:focus { outline: 0; }
-;
-FI"asset_paths;
-F[I"+$root/app/assets/stylesheets/reset.css;
-FI"dependency_paths;
-F[{I"	path;
-FI"+$root/app/assets/stylesheets/reset.css;
-FI"
-mtime;
-FIu:	TimeÈ€>V•
-:@_zoneI"IST;
-T:nano_numiu:nano_deni:submicro" :offsetiXMI"hexdigest;
-F"%d4764fc2427c054d4c8866a60e16fb59I"_version;
-F"%0868aba5d4b750d3a9421721ea3d9b9c

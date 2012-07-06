@@ -1,86 +1,0 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1341565400.9957635:@value{I"
-class:EFI"BundledAsset;
-FI"id;
-F"%66cc129c75d32ad64cbe5981f14409ccI"logical_path;
-FI"js/profiling/config.js;
-FI"pathname;
-FI"8$root/app/assets/javascripts/js/profiling/config.js;
-FI"content_type;
-FI"application/javascript;
-FI"
-mtime;
-FI"2012-07-06T14:07:16+05:30;
-FI"	body;
-FI"ð
-
-// call PROFILE.show() to show the profileViewer
-
-var PROFILE = {
-
-  init : function(bool) {
-  
-  	// define what objects, constructors and functions you want to profile
-  	// documentation here: http://developer.yahoo.com/yui/profiler/
-  	
-  	YAHOO.tool.Profiler.registerObject("jQuery", jQuery, true);
-  	
-  	// the following would profile all methods within constructor's prototype
-    // YAHOO.tool.Profiler.registerConstructor("Person");
-  	
-    // the following would profile the global function sayHi
-    // YAHOO.tool.Profiler.registerFunction("sayHi", window); 
-    
-    // if true is passed into init(), F9 will bring up the profiler
-    if (bool){
-      $(document).keyup(function(e){
-        if (e.keyCode === 120){ 
-          PROFILE.show(); 
-          $(document).unbind('keyup',arguments.callee); 
-        }
-      })
-    }
-  },
-  
-  //When the showProfile button is clicked, use YUI Loader to get all required
-  //dependencies and then show the profile:
-  show : function() {
-  
-          
-          
-          var s = document.createElement('link');
-          s.setAttribute('rel','stylesheet');      
-          s.setAttribute('type','text/css');
-          s.setAttribute('href','js/profiling/yahoo-profiling.css');
-          document.body.appendChild(s);
-          
-	        YAHOO.util.Dom.addClass(document.body, 'yui-skin-sam');
-
-      		//instantiate ProfilerViewer with desired options:
-      		var pv = new YAHOO.widget.ProfilerViewer("", {
-      			visible: true, //expand the viewer mmediately after instantiation
-      			showChart: true,
-      		  //	base:"../../build/",
-      		  swfUrl: "js/profiling/charts.swf"
-      		});
-  	
-  }
-
-};
-
-// check some global debug variable to see if we should be profiling..
-if (true) { PROFILE.init(true) }
-
-;
-;
-FI"asset_paths;
-F[I"8$root/app/assets/javascripts/js/profiling/config.js;
-FI"dependency_paths;
-F[{I"	path;
-FI"8$root/app/assets/javascripts/js/profiling/config.js;
-FI"
-mtime;
-FIu:	TimeÈ€žF•
-:@_zoneI"IST;
-T:nano_numiv:nano_deni:submicro"0:offsetiXMI"hexdigest;
-F"%d4c24da28df7246e9f2d777f2ec8bee0I"_version;
-F"%0868aba5d4b750d3a9421721ea3d9b9c

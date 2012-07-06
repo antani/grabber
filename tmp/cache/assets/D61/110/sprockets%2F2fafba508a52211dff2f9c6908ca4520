@@ -1,27 +1,0 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1341571758.317039:@value{I"
-class:EFI"BundledAsset;
-FI"id;
-F"%42266f8cec059f658ed16c07a3954513I"logical_path;
-FI"feedback.css;
-FI"pathname;
-FI"3$root/app/assets/stylesheets/feedback.css.scss;
-FI"content_type;
-FI"text/css;
-FI"
-mtime;
-FI"2012-07-06T16:19:17+05:30;
-FI"	body;
-FI"Òdiv#feedback{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100001;font-family:'Open sans','Droid Sans','Puritan',sans-serif}a#feedback_link{position:fixed;z-index:99999;width:26px;height:96px;overflow:hidden;background-color:#005575;background-repeat:none;-moz-border-radius-bottomright:10px;border-bottom-right-radius:10px;-moz-border-radius-bottomleft:10px;border-bottom-left-radius:10px;_position:absolute}a#feedback_link:hover{background-color:#999}a#feedback_link.left{left:0;top:25%;width:26px;height:96px;background-image:url(/assets/feedback/feedback_tab.png);_background-image:url(/assets/feedback/feedback_tab.png)}a#feedback_link.right{right:0;top:25%;width:26px;height:96px;background-image:url(/assets/feedback/feedback_tab.png);_background-image:url(/assets/feedback/feedback_tab.png)}a#feedback_link.top{right:10%;top:0;width:96px;height:26px;padding:2px;background-image:url(/assets/feedback/feedback_tab_h.png);_background-image:url(/assets/feedback/feedback_tab_h.png)}a#feedback_link.bottom{right:10%;bottom:0;width:96px;height:26px;background-image:url(/assets/feedback/feedback_tab_h.png);_background-image:url(/assets/feedback/feedback_tab_h.png)}a#feedback_close_link{right:5pt;top:3pt;position:absolute;height:22px;width:66px;background-image:url(/assets/feedback/closelabel.gif);_background-image:url(/assets/feedback/closelabel.gif)}div#feedback_modal_window{width:300px;margin:0 auto;position:relative;background-color:#FFFFFF}div#feedback_modal_content,div#feedback_loading{padding:12px}#feedback_overlay{position:fixed;top:0px;left:0px;height:100%;width:100%;background-color:#000;opacity:0.5;-moz-opacity:0.5;filter:alpha(opacity=50)}.feedback_hide{z-index:-100}.feedback_overlayBG{background-color:#000;z-index:100000}* html #feedback_overlay{position:absolute;height:expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px')}form#feedback_form .error{color:red;font-weight:bold}
-;
-FI"asset_paths;
-F[I"3$root/app/assets/stylesheets/feedback.css.scss;
-FI"dependency_paths;
-F[{I"	path;
-FI"3$root/app/assets/stylesheets/feedback.css.scss;
-FI"
-mtime;
-FIu:	TimeÊ€úµÅ
-:@_zoneI"IST;
-T:nano_numiu:nano_deni:submicro"70:offsetiXMI"hexdigest;
-F"%d130961615ef6b5215c4866ff8dbc9ffI"_version;
-F"%0868aba5d4b750d3a9421721ea3d9b9c

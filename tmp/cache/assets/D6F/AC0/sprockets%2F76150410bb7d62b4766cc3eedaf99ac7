@@ -1,17 +1,0 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1341565409.934108:@value{I"
-class:EFI"StaticAsset;
-FI"id;
-F"%74d514761cb066cb302f4daf39216f3aI"logical_path;
-FI"stripe2-bkg.png;
-TI"pathname;
-FI",$root/app/assets/images/stripe2-bkg.png;
-FI"content_type;
-FI"image/png;
-FI"
-mtime;
-FI"2012-07-06T14:07:16+05:30;
-FI"length;
-FI"176;
-FI"digest;
-F"%98fbe30435e6fdc207c53a0b5c004404I"_version;
-F"%0868aba5d4b750d3a9421721ea3d9b9c

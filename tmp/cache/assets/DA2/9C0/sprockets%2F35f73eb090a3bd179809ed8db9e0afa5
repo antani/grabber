@@ -1,17 +1,0 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1341571171.8724267:@value{I"
-class:EFI"StaticAsset;
-FI"id;
-F"%c413aab0d953c96ecae8e5b9903b2633I"logical_path;
-FI" feedback/feedback_tab_h.png;
-TI"pathname;
-FI"8$root/app/assets/images/feedback/feedback_tab_h.png;
-FI"content_type;
-FI"image/png;
-FI"
-mtime;
-FI"2012-07-06T16:09:22+05:30;
-FI"length;
-FI"	1140;
-FI"digest;
-F"%32026a866f91cd52716ae02b871fa815I"_version;
-F"%0868aba5d4b750d3a9421721ea3d9b9c

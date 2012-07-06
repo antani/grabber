@@ -1,114 +1,0 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1341565400.8379033:@value{I"
-class:EFI"BundledAsset;
-FI"id;
-F"%d94ab6c81d08f4b80d549275877f1493I"logical_path;
-FI"jquery.gritter.css;
-FI"pathname;
-FI"4$root/app/assets/stylesheets/jquery.gritter.css;
-FI"content_type;
-FI"text/css;
-FI"
-mtime;
-FI"2012-07-06T14:30:46+05:30;
-FI"	body;
-FI"I/* the norm */
-#gritter-notice-wrapper {
-	position:fixed;
-	top:20px;
-	right:20px;
-	width:301px;
-	z-index:9999;
-}
-#gritter-notice-wrapper.top-left {
-    left: 20px;
-    right: auto;
-}
-#gritter-notice-wrapper.bottom-right {
-    top: auto;
-    left: auto;
-    bottom: 20px;
-    right: 20px;
-}
-#gritter-notice-wrapper.bottom-left {
-    top: auto;
-    right: auto;
-    bottom: 20px;
-    left: 20px;
-}
-.gritter-item-wrapper {
-	position:relative;
-	margin:0 0 10px 0;
-	background:url('../assets/ie-spacer.gif'); /* ie7/8 fix */ 
-}
-.gritter-top {
-	background:url(../assets/gritter.png) no-repeat left -30px;
-	height:10px;
-}
-.hover .gritter-top {
-	background-position:right -30px;
-}
-.gritter-bottom {
-	background:url(../assets/gritter.png) no-repeat left bottom;
-	height:8px;
-	margin:0;
-}
-.hover .gritter-bottom {
-	background-position: bottom right;
-}
-.gritter-item {
-	display:block;
-	background:url(../assets/gritter.png) no-repeat left -40px;
-	color:#eee;
-	padding:2px 11px 8px 11px;
-	font-size: 11px;
-	font-family:verdana;
-}
-.hover .gritter-item {
-	background-position:right -40px;
-}
-.gritter-item p {
-	padding:0;
-	margin:0;
-}
-.gritter-close {
-	position:absolute;
-	top:5px;
-	left:3px;
-	background:url(../assets/gritter.png) no-repeat left top;
-	cursor:pointer;
-	width:30px;
-	height:30px;
-}
-.gritter-title {
-	font-size:14px;
-	font-weight:bold;
-	padding:0 0 7px 0;
-	display:block;
-	text-shadow:1px 1px #000; /* Not supported by IE :( */
-}
-.gritter-image {
-	width:48px;
-	height:48px;
-	float:left;
-}
-.gritter-with-image,
-.gritter-without-image {
-	padding:0 0 5px 0;
-}
-.gritter-with-image {
-	width:220px;
-	float:right;
-}
-;
-FI"asset_paths;
-F[I"4$root/app/assets/stylesheets/jquery.gritter.css;
-FI"dependency_paths;
-F[{I"	path;
-FI"4$root/app/assets/stylesheets/jquery.gritter.css;
-FI"
-mtime;
-FIu:	TimeÉ€_Pã
-:@_zoneI"IST;
-T:nano_numiq:nano_deni:submicro"bP:offsetiXMI"hexdigest;
-F"%ef82e13976ba2e22bde80f7764f32547I"_version;
-F"%0868aba5d4b750d3a9421721ea3d9b9c
