@@ -54,7 +54,7 @@ Isbnnetin::Application.configure do
   config.assets.compile = false
 
   # Generate digests for assets URLs
-  config.assets.digest = true
+  #config.assets.digest = true
   # Compress both stylesheets and JavaScripts
   config.assets.js_compressor  = :uglifier
   config.assets.css_compressor = :scss
