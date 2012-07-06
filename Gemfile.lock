@@ -216,7 +216,7 @@ DEPENDENCIES
   rails
   rake (~> 0.8.7)
   rvm-capistrano
-  sass-rails (~> 3.1.0)
+  sass-rails (~> 3.1.4)
   sitemap_generator
   therubyracer
   tweet-button
