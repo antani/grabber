@@ -233,18 +233,18 @@ function readCookie(name) {
 function eraseCookie(name) {
 	createCookie(name,"",-1);
 }
-$('#india-stores').qtip({
+/*$('#india-stores').qtip({
    content: 'We search Flipkart, Infibeam, eBay, Rediff, IndiaPlaza, LetsBuy, Pustak, Crossword, A1Books, NBCIndia, BookAdda, TradeUs, Jumadi, HomeShop, FutureBazaar and we are adding new stores',  
    show: 'mouseover',
    hide: 'mouseout',
    style: 'green'
 });
-
+*/
 function dots(v){
  return v.slice(0,17)+".."
 }
 
-$('.comingsoon').qtip({content: 'Coming very very soon', show:'mouseover',hide:'mouseout',style:'green'});
+//$('.comingsoon').qtip({content: 'Coming very very soon', show:'mouseover',hide:'mouseout',style:'green'});
 
 /*--Feedback slidshow----------------*/
 //$('#slideshow-reel').innerfade({animationtype: 'slide', speed: 750, timeout: 8000, type: 'random', containerheight: '1em' }); 

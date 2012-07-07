@@ -37,8 +37,8 @@
   <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
   <!--//41 --> 
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects 
-  <script src="javascripts/js/libs/modernizr-1.6.min.js"></script>-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+  <script src="javascripts/js/libs/modernizr-1.6.min.js"></script> -->
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <%= csrf_meta_tag %>
 <script type="text/javascript">
   function recordOutboundLink(link, category, action) {
@@ -46,7 +46,7 @@
     setTimeout('document.location = "' + link.href + '"', 100);
   }
 </script>  
-<%= feedback_tab(:position => 'top') %>
+
 </head>
 
 <body>
@@ -105,9 +105,8 @@
   <![endif]-->  
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
-  <script src="http://code.google.com/apis/gears/gears_init.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-  <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>  
+  
+  
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

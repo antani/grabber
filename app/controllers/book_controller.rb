@@ -9,9 +9,6 @@ class BookController < ApplicationController
     @isbn = canonicalize_isbn(params[:q])
     @type = params[:search_type]
     @sort = params[:sort]
-    #@isbn = (params[:q])
-
-
     logger.info(@isbn)
     logger.info(@type)
 
@@ -19,8 +16,6 @@ class BookController < ApplicationController
 
     if @isbn.nil? || !is_isbn(@isbn)
       @searchby = 'text'
-      #render :text => 'Not Found', :status => 404
-      #return
     else
       @searchby = 'isbn'
     end
@@ -62,12 +57,10 @@ class BookController < ApplicationController
             end  
             @stores = Rails.cache.fetch(@prices.cache_key, :expires_in => 3.hours)
        	    #Save top_search or increase existing count of a search
-            p = Topsearch.first(:conditions => {query: ss, type: @type}) 
-            
+            p = Topsearch.first(:conditions => {query: ss, type: @type})             
             q = Recentsearch.first(:conditions => {query: ss}) 
 
-            if(!@stores.nil? && !@stores.empty? && q==nil) then
-            
+            if(!@stores.nil? && !@stores.empty? && q==nil) then            
               recentsearch = Recentsearch.create({:query => ss, :type=>tt, :ts=>Time.now})
               recentsearch.save
             end
@@ -96,10 +89,6 @@ class BookController < ApplicationController
                     @stores = Rails.cache.fetch(@prices.cache_key,  :expires_in => 3.hours)
                 end
             end
-           
-            
-            
-            
     end   
 
     #@stores = @stores.reject { |store, data| store == :uread } ## XXX HACK

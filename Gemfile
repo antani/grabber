@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails'
-gem 'jquery-rails'
+#gem 'jquery-rails'
 gem 'rake', '~> 0.8.7'
 # http://mongoid.org/docs/installation/
 gem 'mongoid'
@@ -43,7 +43,7 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.5"
+  gem 'sass-rails', "3.1.5"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
