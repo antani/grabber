@@ -5,8 +5,7 @@
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'>
-  
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'> 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600italic' rel='stylesheet' type='text/css'>
   <meta charset="utf-8">
 
@@ -16,7 +15,6 @@
   <meta name="google-site-verification" content="qS7bEZYjJ49mrSdT1J5W07zYaQrc2wRInjoJp5Vhi7U" />
   <META name="y_key" content="ee230638b6960e90" />
   <!-- encoding must be specified within the first 512 bytes www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#charset -->
-
   <!-- meta element for compatibility mode needs to be before all elements except title & meta msdn.microsoft.com/en-us/library/cc288325(VS.85).aspx --> 
   <!-- Chrome Frame is only invoked if meta element for compatibility mode is within the first 1K bytes code.google.com/p/chromium/issues/detail?id=23003 -->    
 
@@ -35,12 +33,6 @@
     <meta property="fb:admins" content="500716547" />
   <!--  Mobile viewport optimized: j.mp/bplateviewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <%#
-  <!-- CSS : implied media="all" -->
-  <link rel="stylesheet" href="css/style.css?v=2">
-  %>
-
   <!-- Uncomment if you are specifically targeting less enabled mobile browsers
   <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
   <!--//41 --> 
@@ -54,16 +46,10 @@
     setTimeout('document.location = "' + link.href + '"', 100);
   }
 </script>  
-<!-- start Mixpanel <script type="text/javascript">var mpq=[];mpq.push(["init","35f40abe68b3b1fa5c6f89a7639fbd83"]);(function(){var b,a,e,d,c;b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a);e=function(f){return function(){mpq.push([f].concat(Array.prototype.slice.call(arguments,0)))}};d=["init","track","track_links","track_forms","register","register_once","identify","name_tag","set_config"];for(c=0;c<d.length;c++){mpq[d[c]]=e(d[c])}})();
-</script> end Mixpanel  -->
-
 <%= feedback_tab(:position => 'top') %>
 </head>
 
 <body>
-  <script type="text/javascript">var _kiq = _kiq || [];</script>
-  <script type="text/javascript" src="//s3.amazonaws.com/ki.js/25342/4_U.js" async="true"></script>
-
 <div id="stripe"></div>
 <header id="header">
 	<div id="header-top-center" class="center-container">
@@ -87,11 +73,6 @@
     </div>
     <div class="clear"></div>    
   </div> <!--! end of #container  -->
- 
- 
-  <!--  <a href="http://mixpanel.com/f/partner"><img src="http://mixpanel.com/site_media/assets/partner/badge_light.png" alt="Real Time Web Analytics" /></a> -->
- 
- 
 </div>
 
 <div class="footer" id="homefooter">
@@ -118,27 +99,12 @@
 
   <!-- Javascript at the bottom for fast page loading -->
 
-  <%# NOTE jQuery library will be added by jQuery-Rails gem
-  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="javascripts/js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
-  %>
-  <!-- scripts concatenated and minified via ant build script
-  <script src="javascripts/js/plugins.js"></script>
-  <script src="javascripts/js/script.js"></script>
-  <!-- end concatenated and minified scripts-->
   <!--[if lt IE 7 ]>
     <script src="js/libs/dd_belatedpng.js"></script>
     <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
-  <![endif]-->
-  
-  <!--<%= include_stylesheets :common, :media => 'all' %>
-  <%= include_javascripts :workspace %> -->
-  
+  <![endif]-->  
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
-  
-
   <script src="http://code.google.com/apis/gears/gears_init.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" src="http://www.google.com/jsapi"></script>
   <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>  
@@ -157,9 +123,5 @@
   })();
 
 </script>
-
-
-
-
 </body>
 </html>
