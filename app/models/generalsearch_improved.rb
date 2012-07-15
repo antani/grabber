@@ -1144,9 +1144,9 @@ class Generalsearch_improved
                           #@@logger.info (price_text[i])
                           #@@logger.info (author_text[i])
                           #@@logger.info (name_text[i])
-                          if (name_text[i].text == nil && author_text[i].text != nil) then
+                          if (name_text[i] == nil && author_text[i] != nil) then
                                 weight,cost = find_weight(author_text[i].text.strip, "#{query[:search_term]}" )
-                          elsif (name_text[i].text !=nil && author_text[i].text == nil) then
+                          elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
                           else
                                 weight_author=0
@@ -1158,8 +1158,7 @@ class Generalsearch_improved
                           #final_price = strip_invalid_utf8_chars(price_text[i]).to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                           #Nokogiri does not remove &nbsp; - http://www.vitarara.org/cms/hpricot_to_nokogiri_day_1
                           final_price = price_text[i].text.gsub(/[A-Za-z:,\s]/,"").gsub(/^[.]/,"").tr("₨","").gsub!(/^[\302\240|\s]*|[\302\240|\s]*$/, '')
-
-                          
+                         
                           #@@logger.info(final_price)
                           if (weight > 1) then
                             price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i].text.strip), :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'Junglee', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i].text.strip} 
@@ -2128,49 +2127,35 @@ class Generalsearch_improved
       def parse_ibazaar(page,query,type)
               #@@logger.info('Parsing ibazaar')
               begin 
-                  price_text=[]
-                  page.search("span.prdsym").each do |item|
-                    price_text << item.next.text.strip
-                  end  
-                  #@@logger.info (price_text)
-                  name_text = page.search("a.verdana_11").map{ |e| "#{e.content} " }
-                  #@@logger.info (name_text)
+                  price_text=doc.css("div#products div#content div.rtSelingBox div.newarvBox p span.prdsym")
+                  name_text =doc.css("div#products div#content div.rtSelingBox div.newarvBox p.verdana_11 a.verdana_11")
                   author_text = ""
-                  #@@logger.info (author_text )
-                  url_text = []
-                  page.search("a.verdana_11").each do |link|
-                      url_text << link.attributes['href'].content
-                  end   
-                  #@@logger.info (url_text )
-                  img_text = []
-                  page.search("div.imgBox img").each do |img|
-                      img_text << img.attributes['src'].content
-                  end
-                  #@@logger.info (img_text )
+                  url_text = doc.css("div#products div#content div.rtSelingBox div.newarvBox p.verdana_11 a.verdana_11")
+                  img_text = doc.css("div#products div#content div.rtSelingBox div.newarvBox div.imgBox a img")
                   prices=[]
                   
-                  discount_text = page.search("div#products div#content div.rtSelingBox div.newarvBox div.pptag").map { |e| "#{e.content}" }
+                  discount_text = ""
                   shipping_text = ""
 
                   i=0 
-                  (0...price_text.length).each do |i|
+                  (0...3).each do |i|
                       #@@logger.info (price_text[i])
                       #@@logger.info (author_text[i])
                       #@@logger.info (name_text[i])
-                      if (name_text[i] == nil && author_text[i] != nil) then
-                            weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-                      elsif (name_text[i] !=nil && author_text[i] == nil) then
-                            weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                      if (name_text[i] == nil ) then
+                            weight,cost = find_weight("", "#{query[:search_term]}" )
+                      elsif (name_text[i] !=nil ) then
+                            weight,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
                       else
                                 weight_author=0
-                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
+                                weight_author,cost = find_weight("", "#{query[:search_term]}" )
                                 weight = weight_name + weight_author
 
                       end      
-                                final_price = price_text[i].to_s.tr(',','')
+                                final_price = price_text[i].next_sibling().text.strip.gsub(/[A-Za-z:,\s]/,'')
                       if (weight > 1) then
-                        price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'iBazaar', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        price_info = {:price => digitize_price(final_price),:author=> "", :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'iBazaar', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
                         prices.push(price_info)
                       end
                   end
