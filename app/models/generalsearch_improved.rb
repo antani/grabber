@@ -1161,7 +1161,7 @@ class Generalsearch_improved
                          
                           #@@logger.info(final_price)
                           if (weight > 1) then
-                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i].text.strip), :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'Junglee', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i].text.strip} 
+                            price_info = {:price => digitize_price(final_price),:author=> author_text[i] ? proper_case(author_text[i].text.strip) : "" , :name=>name_text[i] ? proper_case(name_text[i].text.strip) : "", :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'Junglee', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i].text.strip}
                             #@@logger.info(price_info)
                             prices.push(price_info)
                           end
