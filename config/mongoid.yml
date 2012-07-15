@@ -1,3 +1,12 @@
+production:
+  sessions:
+    default:
+      database: grbr_production
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
+        raise_not_found_error: false
 development:
   # Configure available database sessions. (required)
   sessions:
@@ -43,7 +52,7 @@ development:
 
     # Raise an error when performing a #find and the document is not found.
     # (default: true)
-    # raise_not_found_error: true
+    raise_not_found_error: false
 
     # Raise an error when defining a scope with the same name as an
     # existing method. (default: false)
@@ -66,13 +75,5 @@ test:
         - localhost:27017
       options:
         consistency: :strong
-production:
-  sessions:
-    default:
-      database: grbr_production
-      hosts:
-        - localhost:27017
-      options:
-        consistency: :strong
-
+        raise_not_found_error: false
 
