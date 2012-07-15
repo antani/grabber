@@ -7,7 +7,7 @@ gem 'rake', '~> 0.8.7'
 gem 'mongoid'
 gem 'bson','1.6.2'
 gem 'bson_ext','1.6.2'
-#gem 'mongo_mapper'
+gem 'mongo_mapper'
 gem 'dalli'
 gem 'configatron', :require => 'configatron' # https://github.com/markbates/configatron/
 gem 'jammit'
