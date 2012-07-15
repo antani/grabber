@@ -53,7 +53,7 @@ module Isbnnetin
 
     # Logging
     config.logger = Logger.new(STDOUT)
-    config.log_level = :warn
+    config.log_level = :info
 
     # Caching
     config.cache_store = :dalli_store, { :namespace => 'isbnnetin' }
