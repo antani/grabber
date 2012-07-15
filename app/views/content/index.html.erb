@@ -61,7 +61,7 @@ Cheapr brings you cheapest deals from <span id="india-stores" title="We search F
     <div class="fl grid_2 column" >
     <p class="top_p">Top Books</p>
     <%
-    @top_s = Topsearch.all_in(type: ['books']).desc(:cnt).limit(10)
+    @top_s = Topsearch.where(type: 'books').desc(:cnt).limit(10)
     @top_s.each do |s| %>	
         <div class="div_top_books">  
 	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a></br>
@@ -73,7 +73,7 @@ Cheapr brings you cheapest deals from <span id="india-stores" title="We search F
     <div class="fl grid_2 column">
     <p class="top_p">Top Mobiles</p>
     <%
-    @top_s = Topsearch.all_in(type: ['mobiles']).desc(:cnt).limit(10)
+    @top_s = Topsearch.where(type: 'mobiles').desc(:cnt).limit(10)
     @top_s.each do |s| %>	
         <div class="div_top_mobiles">  
 	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %> </a></br>
@@ -84,7 +84,7 @@ Cheapr brings you cheapest deals from <span id="india-stores" title="We search F
     <div class="fl grid_2 column">
     <p class="top_p">Top Cameras</p>
     <%
-    @top_s = Topsearch.all_in(type: ['cameras']).desc(:cnt).limit(10)
+    @top_s = Topsearch.where(type: 'cameras').desc(:cnt).limit(10)
     @top_s.each do |s| %>	
         <div class="div_top_cameras">
 	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query] )%></a></br>
@@ -96,7 +96,7 @@ Cheapr brings you cheapest deals from <span id="india-stores" title="We search F
     <p class="top_p">Top Movies</p>
 
     <%
-    @top_s = Topsearch.all_in(type: ['movies']).desc(:cnt).limit(10)
+    @top_s = Topsearch.where(type: 'movies').desc(:cnt).limit(10)
     @top_s.each do |s| %>	
         <div class="div_top_movies">
         <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%=dots( s[:query]) %></a></br>
