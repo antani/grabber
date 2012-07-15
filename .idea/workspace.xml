@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="edf2b336-b11a-4df0-a7ef-04c7f2255d93" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/generalsearch_improved.rb" afterPath="$PROJECT_DIR$/app/models/generalsearch_improved.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/book/view.html.erb" afterPath="$PROJECT_DIR$/app/views/book/view.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_nokogiri.rb" afterPath="$PROJECT_DIR$/test/test_nokogiri.rb" />
     </list>
     <ignored path="grabber.iws" />
@@ -28,20 +25,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="generalsearch_improved.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="generalsearch_improved.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/generalsearch_improved.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1891" column="0" selection-start="110155" selection-end="110155" vertical-scroll-proportion="-5.785714">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/book/view.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="41" selection-start="6744" selection-end="6744" vertical-scroll-proportion="0.36503068">
-              <folding />
+            <state line="2222" column="24" selection-start="128172" selection-end="128172" vertical-scroll-proportion="2.3848581">
+              <folding>
+                <element signature="e#265#390#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,7 +39,7 @@
       <file leaf-file-name="test_nokogiri.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test_nokogiri.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="3" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0">
+            <state line="21" column="79" selection-start="749" selection-end="828" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -68,9 +58,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/app/views/book/view.html.erb" />
         <option value="$PROJECT_DIR$/test/test_nokogiri.rb" />
         <option value="$PROJECT_DIR$/app/models/generalsearch_improved.rb" />
-        <option value="$PROJECT_DIR$/app/views/book/view.html.erb" />
       </list>
     </option>
   </component>
@@ -82,8 +72,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1901" />
-    <option name="y" value="109" />
+    <option name="x" value="1954" />
+    <option name="y" value="227" />
     <option name="width" value="1700" />
     <option name="height" value="1068" />
   </component>
@@ -203,10 +193,10 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="recentsLimit" value="5" />
-    <property name="options.searchVisible" value="true" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Rails.Development: grabber">
     <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
@@ -465,8 +455,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1901" y="109" width="1700" height="1068" extended-state="6" />
-    <editor active="true" />
+    <frame x="1954" y="227" width="1700" height="1068" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -474,10 +464,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.6" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22486487" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.61513513" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -485,6 +474,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -544,28 +534,32 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/models/generalsearch_improved.rb</url>
-          <line>1891</line>
+          <line>1860</line>
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/test_nokogiri.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/book/view.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="3" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/generalsearch_improved.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1891" column="0" selection-start="110155" selection-end="110155" vertical-scroll-proportion="-5.785714">
+        <state line="89" column="79" selection-start="6777" selection-end="6782" vertical-scroll-proportion="0.95913464">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/book/view.html.erb">
+    <entry file="file://$PROJECT_DIR$/test/test_nokogiri.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="41" selection-start="6744" selection-end="6744" vertical-scroll-proportion="0.36503068">
+        <state line="21" column="79" selection-start="749" selection-end="828" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/generalsearch_improved.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2222" column="24" selection-start="128172" selection-end="128172" vertical-scroll-proportion="2.3848581">
+          <folding>
+            <element signature="e#265#390#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

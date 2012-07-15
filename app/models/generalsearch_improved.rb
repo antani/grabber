@@ -8,10 +8,11 @@ require 'vss'
 
 
 include Amatch
+#
 
 
 class Generalsearch_improved
-
+  
   @@logger = Logger.new(STDOUT)
   @@hydra = Typhoeus::Hydra.new
   attr_accessor :search_term,:search_type
@@ -117,8 +118,6 @@ class Generalsearch_improved
           end
           #Uses Hydra to queue the HTTP requests and processes them at one go.
           def queue_requests(term,type)
-                    ##@@logger.info(term)
-                    ##@@logger.info(type)
                      mtype = type[:search_type]
                      hydra = Typhoeus::Hydra.new
 
@@ -260,6 +259,21 @@ class Generalsearch_improved
                        end
                      end
 
+                     url= get_indiatimes_url(term, type)
+                     req_indiatimes= Typhoeus::Request.new(url,:timeout=> 5000)
+                     req_indiatimes.on_complete do |response|
+                       @@logger.info('indiatimes response')
+                       @@logger.info(response.code)    # http status code
+                                                       ##@@logger.info(response.time)    # time in seconds the request took
+                       if response.success?
+                         doc= response.body
+                         page = Nokogiri::HTML::parse(doc)
+                         page
+                       else
+                         page="failed"
+                       end
+                     end
+
 
 
                      #Queue all requests
@@ -272,6 +286,7 @@ class Generalsearch_improved
                      hydra.queue req_junglee
                      hydra.queue req_landmark
                      hydra.queue req_indiaplaza
+                     hydra.queue req_indiatimes
 
 
                      if (mtype !='movies' and mtype !='books') then
@@ -374,25 +389,10 @@ class Generalsearch_improved
                                   page="failed"
                               end    
                           end
-                          url= get_indiatimes_url(term, type)
-                          req_indiatimes= Typhoeus::Request.new(url,:timeout=> 5000)      
-                          req_indiatimes.on_complete do |response|
-                          @@logger.info('indiatimes response')
-                          @@logger.info(response.code)    # http status code
-                          ##@@logger.info(response.time)    # time in seconds the request took 
-                              if response.success?
-                                  doc= response.body
-                                  page = Nokogiri::HTML::parse(doc)
-                                  page
-	                          else
-                                  page="failed"
-                              end    
-                          end
- 
 
                           hydra.queue req_moviemart                            
                           hydra.queue req_moserbaer                            
-                          hydra.queue req_indiatimes                            
+
 
                      end
                      if mtype == 'cameras' then
@@ -519,8 +519,7 @@ class Generalsearch_improved
                              end
                            end
   
-                           hydra.queue req_coinjoos                            
-  
+                           hydra.queue req_coinjoos
                            hydra.queue req_rediff                            
                            #hydra.queue req_nbcindia                            
                            hydra.queue req_pustak                            
@@ -548,7 +547,7 @@ class Generalsearch_improved
                             end
                             hydra.queue req_sangeeta      
 		             end
-                     #Movies and Books
+
 
                      #Mobile and Computers
                     if (mtype =='mobiles' or mtype =='computers') then
@@ -571,23 +570,23 @@ class Generalsearch_improved
                      end    
                      #Mobile, cameras and Computers
                     if (mtype =='mobiles' or mtype =='cameras' or mtype =='computers') then
-                           # url= get_buytheprice_url(term, type)
-                           # @@logger.info("URL:#{url}")
-                           # req_buytheprice = Typhoeus::Request.new(url,:timeout=> 5000)      
-                           # req_buytheprice.on_complete do |response|
-                           # @@logger.info('buytheprice response')
-                           # @@logger.info(response.code)    # http status code
-                           # @@logger.info(response.time)    # time in seconds the request took                            
+                         url= get_buytheprice_url(term, type)
+                         @@logger.info("URL:#{url}")
+                         req_buytheprice = Typhoeus::Request.new(url,:timeout=> 5000)
+                         req_buytheprice.on_complete do |response|
+                         @@logger.info('buytheprice response')
+                         @@logger.info(response.code)    # http status code
+                         @@logger.info(response.time)    # time in seconds the request took
 
-                           #          if response.success?
-                           #              doc= response.body
-                           #              page = Nokogiri::HTML::parse(doc)
-                           #              page
-                           #          else
-                           #              page="failed"
-                           #          end    
-                           # end
-                           # hydra.queue req_buytheprice
+                                   if response.success?
+                                       doc= response.body
+                                       page = Nokogiri::HTML::parse(doc)
+                                       page
+                                   else
+                                       page="failed"
+                                   end
+                         end
+                         hydra.queue req_buytheprice
                      end    
 
 
@@ -607,11 +606,11 @@ class Generalsearch_improved
                      prices.push(parse_junglee(req_junglee.handled_response,term, type)) unless req_junglee.handled_response =="failed"
                      prices.push(parse_landmark(req_landmark.handled_response,term, type)) unless req_landmark.handled_response =="failed"
                      prices.push(parse_indiaplaza(req_indiaplaza.handled_response,term, type)) unless req_indiaplaza.handled_response =="failed"
+                     prices.push(parse_indiatimes(req_indiatimes.handled_response,term, type)) unless req_indiatimes.handled_response =="failed"
 
 
                      if mtype == 'movies' then
                                prices.push(parse_moviemart(req_moviemart.handled_response,term, type)) unless req_moviemart.handled_response =="failed"
-                               prices.push(parse_indiatimes(req_indiatimes.handled_response,term, type)) unless req_indiatimes.handled_response =="failed"
                                prices.push(parse_moserbaer(req_moserbaer.handled_response,term, type)) unless req_moserbaer.handled_response =="failed"
                      end
                      if mtype == 'mobiles' then
@@ -641,7 +640,7 @@ class Generalsearch_improved
                      end 
                      #Mobile, cameras and Computers
                     if (mtype =='mobiles' or mtype =='cameras' or mtype =='computers') then
-                      # prices.push(parse_buytheprice(req_buytheprice.handled_response,term, type)) unless req_buytheprice.handled_response =="failed"
+                        prices.push(parse_buytheprice(req_buytheprice.handled_response,term, type)) unless req_buytheprice.handled_response =="failed"
                     end  
                      ##@@logger.info ("Time for executing requests...")
                      ##@@logger.info (Time.now - start_time)
@@ -718,7 +717,6 @@ class Generalsearch_improved
           def parse_infibeam(page, query, type)
                      begin   
                         what = type[:search_type]
-
                         ###@@logger.info("Parsing infibeam")
                         ####@@logger.info(what)
                         #price_text=[]
@@ -787,7 +785,7 @@ class Generalsearch_improved
 
                         end
                         prices=[]
-                        (0...price_text.length).each do |i|
+                        (0...3).each do |i|
                                   ###@@logger.info(price_text[i])
                                   ###@@logger.info(name_text[i])
                                   ###@@logger.info(author_text[i]) 
@@ -813,17 +811,15 @@ class Generalsearch_improved
                                     weight,cost = 0,0
                                   end  
                               end  
-                              if ( i >0 )  then
-                                break
-                              end
+
                               if (weight > 1) then
                               price_info = {:price => digitize_price(price_text[i]),:author=>author_text[i], :name=>name_text[i], :img=>img_text[i],:url=>"http://infibeam.com"+url_text[i], :source=>'Infibeam', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text} 
                               prices.push(price_info)
                               end
                          end
                     rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                     end
                     prices
           end
@@ -854,11 +850,7 @@ class Generalsearch_improved
                       ####@@logger.info(shipping_text)
                       prices=[]
 
-                      (0...price_text.length).each do |i|
-
-                        if i > 3
-                          break
-                        end  
+                      (0...3).each do |i|
                        #  ###@@logger.info(price_text[i])
                        #  ###@@logger.info(name_text[i])
                        #  ###@@logger.info(author_text[i])
@@ -885,8 +877,8 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
               end
 
               prices
@@ -943,10 +935,8 @@ class Generalsearch_improved
               shipping_text = ""
               prices = []
 
-              (0...price_text.length).each do |i|
-                if i > 3
-                  break
-                end
+              (0...3).each do |i|
+
                 if (name_text[i] == nil && author_text[i] != nil) then
                   weight,cost = find_weight(author_text[i].text.strip, "#{query[:search_term]}" )
                 elsif (name_text[i] !=nil && author_text[i] == nil) then
@@ -1008,7 +998,7 @@ class Generalsearch_improved
                           else
                                 weight,cost = find_weight(name_text[i]+" "+author_text[i], "#{query[:search_term]}" )
                           end      
-                                                final_price = price_text[i].to_s.tr('A-Za-z.,','')
+                          final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 1) then
                             price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.nbcindia.com/"+url_text[i], :source=>'NBCIndia', :weight=>weight, :discount=>discount_text, :shipping => shipping_text} 
                             prices.push(price_info)
@@ -1061,8 +1051,7 @@ class Generalsearch_improved
                                 weight_author=0
                                 weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                                 weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			                    weight = weight_name + weight_author
-
+			                          weight = weight_name + weight_author
                           end      
                           final_price = price_text[i].to_s.tr('A-Za-z.,','')
                           if (weight > 1) then
@@ -1138,56 +1127,43 @@ class Generalsearch_improved
               prices
           end
 
-          def parse_junglee(page, query,type)
+          def parse_junglee(doc, query,type)
             begin
                       @@logger.info("Parsing junglee")
-
-                      price_text = page.search("div.data div.prodAds span.price").map { |e| "#{e.content}" }
-                      #@@logger.info (price_text)
-                      name_text = page.search("div.data div.title a.title").map{ |e| "#{e.content} " }
-                      #@@logger.info (name_text)
-                      author_text = ""
-                      #@@logger.info (author_text )
-                      url_text = []
-                          page.search("div.data div.title a.title").each do |link|
-                      url_text << link.attributes['href'].content
-                      end   
-                      #@@logger.info (url_text )
-                      img_text = []
-                          page.search("div.image a img.productImage").each do |img|
-                          img_text << img.attributes['src'].content
-                      end
-                 
-                      #@@logger.info (img_text )
+                      price_text = doc.css("div.data div.prodAds span.price")
+                      name_text = doc.css("div.data h3.title a.title")
+                      author_text = doc.css("div.data h3.title span.ptBrand")
+                      url_text = doc.css("div.data h3.title a")
+                      img_text = doc.css("div.image a img.productImage")
                       discount_text = ""
-                      ####@@logger.info (discount_text )
-                      shipping_text = page.search("div.data div.offerCount").map { |e| "#{e.content}" }
+                      shipping_text = doc.css("div.data div.offerCount")
                       prices=[]
 
-                      (0...price_text.length).each do |i|
+                      (0...3).each do |i|
 
                           #@@logger.info (price_text[i])
                           #@@logger.info (author_text[i])
                           #@@logger.info (name_text[i])
-                          #Strip invalid UTF-8 Characters
-                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
-                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
-             
-                          if (name_text[i] == nil && author_text[i] != nil) then
-                                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-                          elsif (name_text[i] !=nil && author_text[i] == nil) then
-                                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                          if (name_text[i].text == nil && author_text[i].text != nil) then
+                                weight,cost = find_weight(author_text[i].text.strip, "#{query[:search_term]}" )
+                          elsif (name_text[i].text !=nil && author_text[i].text == nil) then
+                                weight,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
                           else
                                 weight_author=0
-                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
+                                weight_author,cost = find_weight(author_text[i].text.strip, "#{query[:search_term]}" )
                                 weight = weight_name + weight_author
 
                           end      
-                          final_price = strip_invalid_utf8_chars(price_text[i]).to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
-                          final_price = final_price.tr("₨","")                                 
+                          #final_price = strip_invalid_utf8_chars(price_text[i]).to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+                          #Nokogiri does not remove &nbsp; - http://www.vitarara.org/cms/hpricot_to_nokogiri_day_1
+                          final_price = price_text[i].text.gsub(/[A-Za-z:,\s]/,"").gsub(/^[.]/,"").tr("₨","").gsub!(/^[\302\240|\s]*|[\302\240|\s]*$/, '')
+
+                          
+                          #@@logger.info(final_price)
                           if (weight > 1) then
-                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Junglee', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i].text.strip), :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'Junglee', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i].text.strip} 
+                            #@@logger.info(price_info)
                             prices.push(price_info)
                           end
                         end
@@ -1740,59 +1716,39 @@ class Generalsearch_improved
               prices
           end
 
-          def parse_indiatimes(page,query,type)
-            ###@@logger.info ("parsing indiatimes")          
+          def parse_indiatimes(doc,query,type)
+            @@logger.info ("parsing indiatimes")
               begin
-                      price_text = page.search("table.gridViewNametd tbody tr td.link table tbody tr td span.Blackstrikered:nth-child(4)").map { |e| "#{e.content}" }
-                      ####@@logger.info (price_text)
-                      name_text = page.search("table.gridViewNametd div#parent span.bold").map{ |e| "#{e.content} " }
-                      ####@@logger.info (name_text)
+                      price_text = doc.css("div.productcoloumn div.productdetail div.newprice span.price")
+                      name_text = doc.css("div.productcoloumn div.productdetail a.itemname")
                       author_text = ""
-                      ####@@logger.info (author_text )
-                      url_text = []
-                      page.search("table.gridViewNametd div#parent a.searchLinks1").each do |link|
-                      url_text << link.attributes['href'].content
-                      end 	
-                      ####@@logger.info (url_text )
-                      img_text = []
-                      page.search("table.gridView tr td.searchimgtd img").each do |img|
-                      img_text << img.attributes['src'].content
-                      end
-                     
-                      ####@@logger.info (img_text )
+                      url_text = doc.css("div.productcoloumn div.productdetail a.itemname")
+                      img_text =doc.css("div.productcoloumn div.productthumb a.listproductthumb img")
                       discount_text = ""
                       shipping_text = ""
                       prices=[]
 
-                      (0...price_text.length).each do |i|
-
-                          ####@@logger.info (price_text[i])
-                          ####@@logger.info (author_text[i])
-                          ####@@logger.info (name_text[i])
-                          #Strip invalid UTF-8 Characters
-                          name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
-                          author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
-                          
-                          if (name_text[i] == nil && author_text[i] != nil) then
-                                weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                      (0...2).each do |i|
+                          if (name_text[i] == nil) then
+                                weight,cost = find_weight("", "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                           else
-                                          weight_author=0
-                                          weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                          weight = weight_name + weight_author
+                                weight_author=0
+                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                weight = weight_name + weight_author
 
                           end      
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://shopping.indiatimes.com/"+url_text[i], :source=>'Indiatimes', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> "-", :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>"http://shopping.indiatimes.com/"+url_text[i][:href], :source=>'Indiatimes', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
                             prices.push(price_info)
                           end
                        end
               rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
               end
               prices
           end
@@ -2225,44 +2181,22 @@ class Generalsearch_improved
                   prices
           end
 
-      def parse_buytheprice(page,query,type)
+      def parse_buytheprice(doc,query,type)
               @@logger.info('Parsing buytheprice')
-             # @@logger.info(page)
-              begin 
-                  price_text=[]
-                  page.search("div.product-sp").each do |item|
-                    #price_text << item.next.text.strip
-                    @@logger.info(item.text)
-                    price_text<<item.text
-                  end  
-              #    @@logger.info (price_text)
-                  name_text = page.search("div.product-block h2.product-name").map{ |e| "#{e.content} " }
-              #    @@logger.info (name_text)
+              begin
+                  price_text=doc.css("div.product-block1 a div.btn")
+                  name_text = doc.css("div.product-block1 h2.product-name")
                   author_text = ""
-              #    @@logger.info (author_text )
-                  url_text = []
-                  page.search("div.product-block a").each do |link|
-                      url_text << link.attributes['href'].content
-                  end   
-                  @@logger.info ("URL #{url_text}" )
-                  img_text = []
-                  page.search("div.product-block a img").each do |img|
-                      img_text << img.attributes['src'].content
-                  end
-                  @@logger.info (img_text )
+                  url_text = doc.css("div.product-block1 div.pro-block a.mosaic-backdrop")
+                  img_text =doc.css("div.product-block1 div.pro-block a.mosaic-backdrop img.product-image")
                   prices=[]
-                  
-                  discount_text = page.search("div.product-block div.product-save").map { |e| "#{e.content}" }
+                  discount_text = ""
                   shipping_text = ""
 
-                  i=0 
-                  (0...price_text.length).each do |i|
-                      @@logger.info (price_text[i])
-                      @@logger.info (author_text[i])
-                      @@logger.info (name_text[i])
-                      if (name_text[i] == nil && author_text[i] != nil) then
-                            weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-                      elsif (name_text[i] !=nil && author_text[i] == nil) then
+                  (0...4).each do |i|
+                      if (name_text[i] == nil) then
+                            weight,cost = find_weight("", "#{query[:search_term]}" )
+                      elsif (name_text[i] !=nil) then
                             weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                       else
                                 weight_author=0
@@ -2273,7 +2207,7 @@ class Generalsearch_improved
                       end      
                                 final_price = price_text[i].to_s.tr('[A-Z][a-z].,','')
                       if (weight > 1) then
-                        price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.buytheprice.com"+url_text[i], :source=>'BuyThePrice', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                        price_info = {:price => digitize_price(final_price),:author=> "-", :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'BuyThePrice', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
                         prices.push(price_info)
                       end
                   end
@@ -2434,7 +2368,8 @@ class Generalsearch_improved
               url
            end
            def get_indiatimes_url(query,type)
-              url="http://shopping.indiatimes.com/#{query[:search_term]}/search/ctl/20375476/"
+              #url="http://shopping.indiatimes.com/#{query[:search_term]}/search/ctl/20375476/"
+              url="http://shopping.indiatimes.com/control/keywordsearch?SEARCH_STRING=#{query[:search_term]}"
               url
            end
      	     def get_sangeeta_url(query,type)
@@ -2468,7 +2403,7 @@ class Generalsearch_improved
             url            
            end 
            def get_buytheprice_url(query,type)
-            url="http://www.buytheprice.com/search_products.php?product=#{query[:search_term]}"
+            url="http://www.buytheprice.com/search_products.php?product#{query[:search_term]}"
             url            
            end
 

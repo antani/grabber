@@ -23,6 +23,7 @@ gem 'sitemap_generator'
 gem 'nokogiri'
 gem 'execjs'
 gem 'therubyracer'
+#gem 'sanitize'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
