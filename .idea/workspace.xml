@@ -27,7 +27,7 @@
       <file leaf-file-name="generalsearch_improved.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/generalsearch_improved.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1163" column="385" selection-start="67821" selection-end="67821" vertical-scroll-proportion="-20.035715">
+            <state line="15" column="32" selection-start="173" selection-end="191" vertical-scroll-proportion="-9.107142">
               <folding />
             </state>
           </provider>
@@ -63,7 +63,25 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/content/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="28" selection-start="5520" selection-end="5520" vertical-scroll-proportion="0.9521127">
+            <state line="65" column="29" selection-start="3446" selection-end="3446" vertical-scroll-proportion="0.7605634">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/book/view.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="23" selection-start="1347" selection-end="1347" vertical-scroll-proportion="56.384617">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="55.384617">
               <folding />
             </state>
           </provider>
@@ -212,6 +230,28 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grabber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grabber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -232,6 +272,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grabber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grabber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="book" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -596,11 +658,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/book/view.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="79" selection-start="6777" selection-end="6782" vertical-scroll-proportion="0.95913464" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.1.6/lib/action_controller/metal/rescue.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="494" selection-end="494" vertical-scroll-proportion="0.61275625">
@@ -611,13 +668,6 @@
     <entry file="file://$PROJECT_DIR$/test/test_nokogiri.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="65" selection-start="858" selection-end="907" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/generalsearch_improved.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1163" column="385" selection-start="67821" selection-end="67821" vertical-scroll-proportion="-20.035715">
           <folding />
         </state>
       </provider>
@@ -636,9 +686,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/book/view.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="23" selection-start="1347" selection-end="1347" vertical-scroll-proportion="56.384617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="55.384617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/generalsearch_improved.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="32" selection-start="173" selection-end="191" vertical-scroll-proportion="-9.107142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/content/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="28" selection-start="5520" selection-end="5520" vertical-scroll-proportion="0.9521127">
+        <state line="65" column="29" selection-start="3446" selection-end="3446" vertical-scroll-proportion="0.7605634">
           <folding />
         </state>
       </provider>
