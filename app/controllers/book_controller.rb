@@ -57,19 +57,19 @@ class BookController < ApplicationController
             end  
             @stores = Rails.cache.fetch(@prices.cache_key, :expires_in => 3.hours)
        	    #Save top_search or increase existing count of a search
-            p = Topsearch.where({query: ss, type: @type})
-            q = Recentsearch.where({query: ss})
+            p = Topsearch.where(query: ss, type: @type)
+            q = Recentsearch.where(query: ss)
 
             if(!@stores.nil? && !@stores.empty? && q.empty?) then
-              recent=Recentsearch.create({:query => ss, :type=>tt, :ts=>Time.now}) 
+              recent=Recentsearch.create(:query => ss, :type=>tt, :ts=>Time.now) 
               recent.save             
             end
             if(!@stores.nil? && !@stores.empty?) then            
               if(p.empty?) then
-                  top=Topsearch.create({:query=> ss, :type=> tt, :cnt=> 1})
+                  top=Topsearch.create(:query=> ss, :type=> tt, :cnt=> 1)
                   top.save
               else
-                  Topsearch.where({:query=> ss, :type=> tt}).inc(:cnt, 1)
+                  Topsearch.where(:query=> ss, :type=> tt).inc(:cnt, 1)
               end
             end
             

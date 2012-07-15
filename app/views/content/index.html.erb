@@ -63,7 +63,7 @@ Cheapr brings you cheapest deals from <span id="india-stores" title="We search F
 
     @logger= Logger.new(STDOUT)
     @top_s = Topsearch.where(type: 'books').desc(:cnt).limit(10)
-    @logger.info("Top_s - #{@top_s}")
+    @logger.info("Top_s - #{@top_s[0][:query]}")
 
     @top_s.each do |s|
          @logger.info("----s[query] - #{s[:query]}")

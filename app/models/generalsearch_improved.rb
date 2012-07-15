@@ -1150,8 +1150,8 @@ class Generalsearch_improved
                                 weight,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
                           else
                                 weight_author=0
-                                weight_name,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
-                                weight_author,cost = find_weight(author_text[i].text.strip, "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i] ? name_text[i].text.strip : "", "#{query[:search_term]}" )
+                                weight_author,cost = find_weight(author_text[i] ? author_text[i].text.strip : "", "#{query[:search_term]}" )
                                 weight = weight_name + weight_author
 
                           end      
