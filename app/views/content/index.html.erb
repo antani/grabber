@@ -80,22 +80,26 @@ Cheapr brings you cheapest deals from <span id="india-stores" title="We search F
     <p class="top_p">Top Mobiles</p>
     <%
     @top_s = Topsearch.where(type: 'mobiles').desc(:cnt).limit(10)
-    @top_s.each do |s| %>	
-        <div class="div_top_mobiles">  
-	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %> </a></br>
-        </div>
-    <%end %>
+    if top_s then
+        @top_s.each do |s| %>	
+            <div class="div_top_mobiles">  
+    	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %> </a></br>
+            </div>
+        <%end 
+     end%>
     </div>
 
     <div class="fl grid_2 column">
     <p class="top_p">Top Cameras</p>
     <%
     @top_s = Topsearch.where(type: 'cameras').desc(:cnt).limit(10)
-    @top_s.each do |s| %>	
-        <div class="div_top_cameras">
-	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query] )%></a></br>
-        </div> 
-    <%end %>
+    if top_s then
+        @top_s.each do |s| %>	
+            <div class="div_top_cameras">
+          <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query] )%></a></br>
+            </div> 
+        <%end 
+     end%>
     </div>
     
     <div class="fl grid_2 column">
@@ -103,21 +107,25 @@ Cheapr brings you cheapest deals from <span id="india-stores" title="We search F
 
     <%
     @top_s = Topsearch.where(type: 'movies').desc(:cnt).limit(10)
-    @top_s.each do |s| %>	
-        <div class="div_top_movies">
-        <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%=dots( s[:query]) %></a></br>
-        </div>
-    <%end %>
+    if top_s then
+        @top_s.each do |s| %>	
+            <div class="div_top_movies">
+            <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%=dots( s[:query]) %></a></br>
+            </div>
+        <%end 
+    end%>
     </div>
 <div class="fl grid_2 column" >
     <p class="top_p">Recent</p>
     <%
     @top_s = Recentsearch.all_in().desc(:ts).limit(10)
-    @top_s.each do |s| %> 
-        <div class="div_top_books">  
-      <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a>&nbsp;
-        </div> 
-    <%end %>
+    if top_s then
+      @top_s.each do |s| %> 
+          <div class="div_top_books">  
+        <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a>&nbsp;
+          </div> 
+      <%end 
+    end%>
     
     </div>
     
