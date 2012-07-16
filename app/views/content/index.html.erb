@@ -63,16 +63,17 @@ Cheapr brings you cheapest deals from <span id="india-stores" title="We search F
 
     @logger= Logger.new(STDOUT)
     @top_s = Topsearch.where(type: 'books').desc(:cnt).limit(10)
-    @logger.info("Top_s - #{@top_s[0][:query]}")
-
-    @top_s.each do |s|
-         @logger.info("----s[query] - #{s[:query]}")
-         @logger.info("----s[query] - #{s[:type]}")
-         %>
-        <div class="div_top_books">  
-	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a></br>
-        </div> 
-    <%end %>
+    if top_s then
+        @logger.info("Top_s - #{@top_s[0][:query]}")
+        @top_s.each do |s|
+             #@logger.info("----s[query] - #{s[:query]}")
+             #@logger.info("----s[query] - #{s[:type]}")
+             %>
+            <div class="div_top_books">  
+    	    <a class="link-highlight ellipsis_text" href="view?utf8=✓&q=<%= s[:query] %>&last_search_type=<%=params[:search_type]%>&search_type=<%= s[:type] %>&commit=Search"><%= dots(s[:query]) %></a></br>
+            </div> 
+        <%end 
+     end%>
     
     </div>
 
