@@ -1,20 +1,11 @@
 production:
-  sessions:
-    default:
-      database: grbr_production
-      hosts:
-        - localhost:27017
-      options:
-        consistency: :strong
-        raise_not_found_error: false
-development:
   # Configure available database sessions. (required)
   sessions:
     # Defines the default session. (required)
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: grbr_development
+      database: grbr_production
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
@@ -77,3 +68,12 @@ test:
         consistency: :strong
         raise_not_found_error: false
 
+development:
+  sessions:
+    default:
+      database: grbr_development
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
+        raise_not_found_error: false
