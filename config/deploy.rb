@@ -6,8 +6,8 @@ require "rvm/capistrano"
 #set :rvm_bin_path, "/usr/local/bin"
 #set :rvm_bin_path, "$HOME/bin"
 set :rvm_bin_path, "/usr/local/rvm/bin"
-set :rvm_ruby_string, '1.9.3'
-set :rvm_type, :user
+set :rvm_ruby_string, 'default'
+set :rvm_type, :system
 
 #set :rvm_type, :system
 #set :default_environment, {
