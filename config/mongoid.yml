@@ -7,6 +7,7 @@ production:
       options:
         consistency: :strong
         raise_not_found_error: false
+        safe: true
 development:
   sessions:
     default:
