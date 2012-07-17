@@ -683,7 +683,7 @@ class Generalsearch_improved
                           shipping_text = page.css("div#search_results.search_results div.line div.unit div.line div.ship-det").map { |e| "#{e.content}" } 
                        end
                       prices=[]
-                      (0...price_text.length).each do |i|
+                      (0...5).each do |i|
                           ###@@logger.info(name_text[i])
                           ###@@logger.info(price_text[i])
                           ###@@logger.info(author_text[i])
@@ -717,13 +717,6 @@ class Generalsearch_improved
           def parse_infibeam(page, query, type)
                      begin   
                         what = type[:search_type]
-                        ###@@logger.info("Parsing infibeam")
-                        ####@@logger.info(what)
-                        #price_text=[]
-                        #author_text = []
-                        #name_text= []
-                        #url_text = []
-                        #img_text= []
                         discount_text = ""
                         shipping_text = ""
                         if what == 'books' then
@@ -949,7 +942,7 @@ class Generalsearch_improved
                 end
                 final_price = price_text[i].text.strip.tr('A-Za-z.,','')
                 if (weight > 1) then
-                  price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i].text.strip), :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>"http://www.simplybooks.in"+url_text[i][:href], :source=>'Simplybooks', :weight=>weight, :discount=>discount_text, :shipping => shipping_text}
+                  price_info = {:price => digitize_price(final_price),:author=> proper_case(ifNil(author_text[i]).strip), :name=>proper_case(ifNil(name_text[i]).strip), :img => img_text[i][:src],:url=>"http://www.simplybooks.in"+url_text[i][:href], :source=>'Simplybooks', :weight=>weight, :discount=>discount_text, :shipping => shipping_text}
                   prices.push(price_info)
                 end
               end
@@ -961,7 +954,7 @@ class Generalsearch_improved
           end
 
           def parse_nbcindia(page,query,type)
-                      ###@@logger.info('Parsing nbcindia')
+                @@logger.info('Parsing nbcindia')
                 begin      
                       price_text = page.search("div.fieldset ul li:nth-child(2) font").map { |e| "#{e.content}" }
                       ###@@logger.info (price_text)
@@ -1005,14 +998,14 @@ class Generalsearch_improved
                           end
                         end
                rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                end
                prices 
           end
 
           def parse_pustak(page, query, type)
-            ###@@logger.info("Parsing pustak")
+            @@logger.info("Parsing pustak")
             begin
                       price_text = page.search("div.search_landing_right_col span.prod_pg_prc_font").map { |e| "#{e.content}" }
                       ####@@logger.info (price_text)
@@ -1060,18 +1053,18 @@ class Generalsearch_improved
                           end
                         end
               rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
               end
 
               prices
           end
 
           def parse_ebay(page, query,type)
-            begin
-            	      ###@@logger.info("Parsing ebay")
-
-                      price_text = page.search("div#ResultSet table.li tr td.prc").map { |e| "#{e.content}" }
+            @@logger.info("Parsing ebay")
+            
+              begin
+            	        price_text = page.search("div#ResultSet table.li tr td.prc").map { |e| "#{e.content}" }
                       ###@@logger.info (price_text)
                       name_text = page.search("div#ResultSet table.li td:nth-child(2) div.ttl a").map{ |e| "#{e.content} " }
                       ###@@logger.info (name_text)
@@ -1121,8 +1114,8 @@ class Generalsearch_improved
                           end
                         end
               rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
               end
               prices
           end
@@ -1161,7 +1154,7 @@ class Generalsearch_improved
                          
                           #@@logger.info(final_price)
                           if (weight > 1) then
-                            price_info = {:price => digitize_price(final_price),:author=> author_text[i] ? proper_case(author_text[i].text.strip) : "" , :name=>name_text[i] ? proper_case(name_text[i].text.strip) : "", :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'Junglee', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i].text.strip}
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(ifNil(author_text[i]).strip) , :name=>proper_case(ifNil(name_text[i]).strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'Junglee', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i].text.strip}
                             #@@logger.info(price_info)
                             prices.push(price_info)
                           end
@@ -1205,7 +1198,7 @@ class Generalsearch_improved
                       end      
                       final_price = price_text[i].text.strip.tr('A-Za-z.,','')
                       if (weight > 1 and final_price.to_i > 0) then
-                        price_info = {:price => digitize_price(final_price),:author=> "", :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'Bookadda', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
+                        price_info = {:price => digitize_price(final_price),:author=> "", :name=>proper_case(ifNil(name_text[i]).strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'Bookadda', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
                         prices.push(price_info)
                       end
                   end
@@ -1218,7 +1211,7 @@ class Generalsearch_improved
 
           
           def parse_tradeus(page,query,type)
-            ###@@logger.info ("parsing tradeus")
+            @@logger.info ("parsing tradeus")
             begin
           		    price_text = page.search("div.productDetails div.productRatingPrice div.productPrice span strong").map { |e| "#{e.content}" }
           		    ####@@logger.info (price_text)
@@ -1241,45 +1234,37 @@ class Generalsearch_improved
           		    shipping_text = ""
           		    prices=[]
 
-  		    (0...price_text.length).each do |i|
+  		            (0...3).each do |i|
+                      #Strip invalid UTF-8 Characters
+                      name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
+                      author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
+          		        
+          		        if (name_text[i] == nil && author_text[i] != nil) then
+          		              weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+          		        elsif (name_text[i] !=nil && author_text[i] == nil) then
+          		              weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+          		        else
+                            weight_author=0
+                            weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                            weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                            weight = weight_name + weight_author
 
-
-              if (i >0)
-                break
-              end  
-  		        ####@@logger.info (price_text[i])
-  		        ####@@logger.info (author_text[i])
-  		        ####@@logger.info (name_text[i])
-                  #Strip invalid UTF-8 Characters
-                  name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
-                  author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
-  		        
-  		        if (name_text[i] == nil && author_text[i] != nil) then
-  		              weight,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-  		        elsif (name_text[i] !=nil && author_text[i] == nil) then
-  		              weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-  		        else
-                    weight_author=0
-                    weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                    weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-                    weight = weight_name + weight_author
-
-  		        end      
-  		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
-  		        if (weight > 1) then
-  		          price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Tradeus', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
-  		          prices.push(price_info)
-  		        end
-  		      end
+          		        end      
+          		        final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+          		        if (weight > 1) then
+          		          price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>url_text[i], :source=>'Tradeus', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+          		          prices.push(price_info)
+          		        end
+          		      end
                 rescue => ex
-                          ####@@logger.info ("#{ex.class} : #{ex.message}")
-                          ####@@logger.info (ex.backtrace)
+                          @@logger.info ("#{ex.class} : #{ex.message}")
+                          @@logger.info (ex.backtrace)
                 end
                 prices
           end
 
           def parse_crossword(page,query,type)
-            ###@@logger.info ("parsing crossword")          
+              @@logger.info ("parsing crossword")          
               begin 
                   price_text = page.search("ul#search-result-items li span.variant-final-price").map { |e| "#{e.content}" }
                   ####@@logger.info (price_text)
@@ -1304,14 +1289,10 @@ class Generalsearch_improved
                   discount_text = ""
 
 
-                  (0...price_text.length).each do |i|
+                  (0...3).each do |i|
                       ####@@logger.info (price_text[i])
                       ####@@logger.info (author_text[i])
                       ####@@logger.info (name_text[i])
-                      
-                      if (i > 0 ) then
-                        break
-                      end  
                       
                       #Strip invalid UTF-8 Characters
                       name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
@@ -1322,27 +1303,27 @@ class Generalsearch_improved
                       elsif (name_text[i] !=nil && author_text[i] == nil) then
                             weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                       else
-                                weight_author=0
-                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-			                    weight = weight_name + weight_author
+                            weight_author=0
+                            weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                            weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+		                        weight = weight_name + weight_author
 
                       end      
-                                            final_price = price_text[i].to_s.tr('A-Za-z.,','')
+                      final_price = price_text[i].to_s.tr('A-Za-z.,','')
                       if (weight > 1) then
                         price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://crossword.in/"+url_text[i], :source=>'Crossword', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                         prices.push(price_info)
                       end
                   end
                   rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                   end
                   prices
           end
           def parse_homeshop(page,query,type)
             
-            ##@@logger.info ("parsing homeshop")          
+                   @@logger.info ("parsing homeshop")          
                    begin
                       price_text = page.search("div.book_rock div.listView_details div.listView_price span.our_price").map { |e| "#{e.content}" }
                       ##@@logger.info (price_text)
@@ -1367,14 +1348,8 @@ class Generalsearch_improved
                       shipping_text = page.search("div.book_rock div.listView_details div.listView_price span.free_shipping strong").map { |e| "#{e.content}" }
                       prices=[]
 
-                      (0...price_text.length).each do |i|
-                          if i > 3
-                            break
-                          end 
-
-                          ####@@logger.info (price_text[i])
-                          ####@@logger.info (author_text[i])
-                          ####@@logger.info (name_text[i])
+                      (0...3).each do |i|
+                          
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -1405,7 +1380,7 @@ class Generalsearch_improved
           end
 
           def parse_letsbuy(page,query,type)
-            ##@@logger.info ("parsing letsbuy")          
+                  @@logger.info ("parsing letsbuy")          
                   begin
                       price_text = page.search("span.text12_stb").map { |e| "#{e.content}" }
                       ####@@logger.info (price_text)
@@ -1428,14 +1403,7 @@ class Generalsearch_improved
                       shipping_text = ""
                       prices=[]
 
-                      (0...price_text.length).each do |i|
-
-                          if i > 5
-                            break
-                          end   
-                          ####@@logger.info (price_text[i])
-                          ####@@logger.info (author_text[i])
-                          ####@@logger.info (name_text[i])
+                      (0...5).each do |i|
                           #Strip invalid UTF-8 Characters
                           name_text[i] = strip_invalid_utf8_chars(name_text[i] + ' ')[0..-2] unless name_text[i] == nil
                           author_text[i] = strip_invalid_utf8_chars(author_text[i] + ' ')[0..-2] unless author_text[i] == nil                     
@@ -1459,14 +1427,14 @@ class Generalsearch_improved
                           end
                       end
                     rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                     end
                     prices
           end
 
           def parse_futurebazaar(page,query,type)
-            ###@@logger.info ("parsing futurebazaar")          
+            @@logger.info ("parsing futurebazaar")          
             what = type[:search_type]
   		    begin
               if what == 'computers'
@@ -1539,13 +1507,13 @@ class Generalsearch_improved
 		              end
 		           end
                    rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                     end
                    prices 
           end
           def parse_adexmart(page,query,type)
-            #@@logger.info ("parsing adexmart")          
+              @@logger.info ("parsing adexmart")          
               begin
                       price_text = page.search("ul#product_list div.right_block span.price").map { |e| "#{e.content}" }
                       #@@logger.info (price_text)
@@ -1596,14 +1564,14 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        #@@logger.info ("#{ex.class} : #{ex.message}")
-                        #@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
               end
               prices
           end
 
           def parse_moviemart(page,query,type)
-            ###@@logger.info ("parsing moviemart")          
+              @@logger.info ("parsing moviemart")          
               begin
                       price_text = page.search("table tbody tr td span#dtMiddle_ctl01_lblMrpInRs").map { |e| "#{e.content}" }
                       ####@@logger.info (price_text)
@@ -1653,13 +1621,13 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
               end
               prices
           end
           def parse_moserbaer(page,query,type)
-            ###@@logger.info ("parsing moserbaer")          
+             @@logger.info ("parsing moserbaer")          
               begin
                       price_text = page.search("div.rightsearchframeaddtocartarealeft div.innerrowforall:nth-child(3) span.change").map { |e| "#{e.content}" }
                       ####@@logger.info (price_text)
@@ -1709,8 +1677,8 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
               end
               prices
           end
@@ -1741,7 +1709,7 @@ class Generalsearch_improved
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => digitize_price(final_price),:author=> "-", :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>"http://shopping.indiatimes.com/"+url_text[i][:href], :source=>'Indiatimes', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
+                            price_info = {:price => digitize_price(final_price),:author=> "-", :name=>proper_case(ifNil(name_text[i]).strip), :img => img_text[i][:src],:url=>"http://shopping.indiatimes.com/"+url_text[i][:href], :source=>'Indiatimes', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
                             prices.push(price_info)
                           end
                        end
@@ -1753,7 +1721,7 @@ class Generalsearch_improved
           end
 
 	def parse_sangeeta(page,query,type)
-            ###@@logger.info ("parsing sangeeta")	
+              @@logger.info ("parsing sangeeta")	
               begin
                       price_text = page.search("span.mtb-price label.mtb-ofr").map { |e| "#{e.content}" }
                       ####@@logger.info (price_text)
@@ -1802,8 +1770,8 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
               end
               prices
           end
@@ -1835,15 +1803,15 @@ class Generalsearch_improved
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
                                 weight,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
                           else
-                                          weight_author=0
-                                          weight_name,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
-                                          weight = weight_name + weight_author
+                                weight_author=0
+                                weight_name,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
+                                weight = weight_name + weight_author
 
                           end      
                           final_price = price_text[i].text.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'').tr('/-','')[1..-1]
                                                            
                           if (weight > 1) then
-                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i].text.strip), :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>"http://www.landmarkonthenet.com"+url_text[i][:href], :source=>'Landmark', :weight=>weight, :discount=>discount_text[i].text.strip, :shipping => shipping_text[i].text.strip}
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(ifNil(author_text[i])).strip, :name=>proper_case(ifNil(name_text[i]).strip), :img => img_text[i][:src],:url=>"http://www.landmarkonthenet.com"+url_text[i][:href], :source=>'Landmark', :weight=>weight, :discount=>discount_text[i].text.strip, :shipping => shipping_text[i].text.strip}
                             prices.push(price_info)
                           end
                        end
@@ -1903,8 +1871,8 @@ class Generalsearch_improved
                           end
                        end
               rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
               end
               prices
           end
@@ -1912,7 +1880,7 @@ class Generalsearch_improved
 
 
      def parse_coinjoos(page,query,type)
-              ###@@logger.info('Parsing coinjoos')
+              @@logger.info('Parsing coinjoos')
               begin 
                   price_text = page.search("div.listItem div.searchRes div.resItem form p span.info i strong").map { |e| "#{e.content}" }
                   ##@@logger.info (price_text)
@@ -1958,14 +1926,14 @@ class Generalsearch_improved
                       end
                   #end
                   rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                   end
                   prices
           end
 
     def parse_fotocenter(page,query,type)
-              ###@@logger.info('Parsing fotocenter')
+              @@logger.info('Parsing fotocenter')
               begin 
             
                   price_text = page.search("span.productSpecialPrice").map { |e| "#{e.content}" }
@@ -2013,13 +1981,13 @@ class Generalsearch_improved
                       end
                   #end
                   rescue => ex
-                        ####@@logger.info ("#{ex.class} : #{ex.message}")
-                        ####@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                   end
                   prices
           end
       def parse_greendust(page,query,type)
-              ##@@logger.info('Parsing greendust')
+              @@logger.info('Parsing greendust')
               begin 
                   price_text = page.search("span.home_gdprice").map { |e| "#{e.content}" }
                   ##@@logger.info (price_text)
@@ -2065,14 +2033,14 @@ class Generalsearch_improved
                       end
                   end
                   rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                   end
                   prices
           end
 
       def parse_retailmart(page,query,type)
-              ##@@logger.info('Parsing retailmart')
+              @@logger.info('Parsing retailmart')
               begin 
                   price_text = page.search("div.product_box1:nth-child(3) div.sale_text").map { |e| "#{e.content}" }
                   ##@@logger.info (price_text)
@@ -2118,14 +2086,14 @@ class Generalsearch_improved
                       end
                   end
                   rescue => ex
-                        ##@@logger.info ("#{ex.class} : #{ex.message}")
-                        ##@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                   end
                   prices
           end
 
-      def parse_ibazaar(page,query,type)
-              #@@logger.info('Parsing ibazaar')
+      def parse_ibazaar(doc,query,type)
+              @@logger.info('Parsing ibazaar')
               begin 
                   price_text=doc.css("div#products div#content div.rtSelingBox div.newarvBox p span.prdsym")
                   name_text =doc.css("div#products div#content div.rtSelingBox div.newarvBox p.verdana_11 a.verdana_11")
@@ -2147,21 +2115,23 @@ class Generalsearch_improved
                       elsif (name_text[i] !=nil ) then
                             weight,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
                       else
-                                weight_author=0
-                                weight_name,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
-                                weight_author,cost = find_weight("", "#{query[:search_term]}" )
-                                weight = weight_name + weight_author
+                            weight_author=0
+                            weight_name,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
+                            weight_author,cost = find_weight("", "#{query[:search_term]}" )
+                            weight = weight_name + weight_author
 
                       end      
-                                final_price = price_text[i].next_sibling().text.strip.gsub(/[A-Za-z:,\s]/,'')
-                      if (weight > 1) then
-                        price_info = {:price => digitize_price(final_price),:author=> "", :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'iBazaar', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
-                        prices.push(price_info)
-                      end
+                      if (price_text[i]) then
+                        final_price = price_text[i].next_sibling().text.strip.gsub(/[A-Za-z:,\s]/,'')
+                        if (weight > 1) then
+                          price_info = {:price => digitize_price(final_price),:author=> "", :name=>proper_case(name_text[i].strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'iBazaar', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
+                          prices.push(price_info)
+                        end
+                      end  
                   end
                   rescue => ex
-                        #@@logger.info ("#{ex.class} : #{ex.message}")
-                        #@@logger.info (ex.backtrace)
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
                   end
                   prices
           end
@@ -2184,15 +2154,15 @@ class Generalsearch_improved
                       elsif (name_text[i] !=nil) then
                             weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
                       else
-                                weight_author=0
-                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
-                                weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
-                                weight = weight_name + weight_author
+                            weight_author=0
+                            weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                            weight_author,cost = find_weight(author_text[i], "#{query[:search_term]}" )
+                            weight = weight_name + weight_author
 
                       end      
-                                final_price = price_text[i].to_s.tr('[A-Z][a-z].,','')
+                      final_price = price_text[i].to_s.tr('[A-Z][a-z].,','')
                       if (weight > 1) then
-                        price_info = {:price => digitize_price(final_price),:author=> "-", :name=>proper_case(name_text[i].text.strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'BuyThePrice', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
+                        price_info = {:price => digitize_price(final_price),:author=> "-", :name=>proper_case(name_text[i].strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'BuyThePrice', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
                         prices.push(price_info)
                       end
                   end
@@ -2561,16 +2531,14 @@ def digitize_price(price)
   end
    
 end
-
-
-def soundex(string)
-  copy = string.upcase.tr '^A-Z', ''
-  return nil if copy.empty?
-  first_letter = copy[0, 1]
-  copy.tr_s! 'AEHIOUWYBFPVCGJKQSXZDTLMNR', '00000000111122222222334556'
-  copy.sub!(/^(.)\1*/, '').gsub!(/0/, '')
-  "#{first_letter}#{copy.ljust(3,"0")}"
-end
+      def soundex(string)
+        copy = string.upcase.tr '^A-Z', ''
+        return nil if copy.empty?
+        first_letter = copy[0, 1]
+        copy.tr_s! 'AEHIOUWYBFPVCGJKQSXZDTLMNR', '00000000111122222222334556'
+        copy.sub!(/^(.)\1*/, '').gsub!(/0/, '')
+        "#{first_letter}#{copy.ljust(3,"0")}"
+      end
 
 
 	    def strip_invalid_utf8_chars(str)
@@ -2598,6 +2566,14 @@ end
       #tokens.reject { |t| STOP_WORDS.include?(t) }.uniq
       #string
     end
+
+    def ifNil(object)
+      if object.nil?
+        return ""
+      else
+        return object.text
+      end     
+    end  
 
   end #-------------------self -end
 
