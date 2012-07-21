@@ -201,6 +201,7 @@ a img {
 .link-highlight {
     background-color: #F5F0E9;
     border-radius: 3px 3px 3px 3px;
+    text-decoration:none;
 }
 
 .top_searches a:hover
@@ -514,7 +515,7 @@ background-image: url("http://l1.yimg.com/a/i/ww/met/th/slate/gsprite_pg_slate_2
 }
 #container
 {
-  margin-top: 10px;
+  /*margin-top: 10px;*/
 }
 #container blockquote {
   margin: 20px;
