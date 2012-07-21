@@ -1,16 +1,10 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
-
 require 'timeout'
 require 'amatch'
 require 'nokogiri'
 require 'vss'
-
-
 include Amatch
-#
-
-
 class Generalsearch_improved
   
   @@logger = Logger.new(STDOUT)
@@ -23,8 +17,6 @@ class Generalsearch_improved
   end
 
   def perform
-    #@@logger.info("Performing job for #{self.search_term} and #{self.search_type} at #{Time.now}")
-
     prices = self.class.prices(self.search_term,self.search_type)
     Rails.cache.write(self.cache_key, prices)
     prices
@@ -51,15 +43,8 @@ class Generalsearch_improved
                           @@logger.info("Time to process prices : ")
                           start_time = Time.now
                           price_array = prices_array.flatten
-                          ###@@logger.info(price_array)
-                          ###@@logger.info("-------------------------------------------")
                           prices_array = price_array.sort_by { |p| p[:weight].to_i }.reverse!
-                          #prices_array = price_array.sort_by { |p| p[:weight] }
-                          #####@@logger.info(prices_array)
                           top_weight = prices_array[0][:weight]
-                          ###@@logger.info("Top weight---------------------------")
-                          ###@@logger.info(top_weight)
-                          #Prices Array is sorted by weight
                           #We create 4 weighted arrays and store each of them by price
                           prices_top_1=[]
                           prices_top_2=[]                         
@@ -85,30 +70,6 @@ class Generalsearch_improved
                           prices_top_3 = prices_top_3.sort_by { |p| p[:price].to_i }
                           prices_top_4 = prices_top_4.sort_by { |p| p[:price].to_i }                                                                                      
                           final_prices= prices_top_1+prices_top_2+prices_top_3+prices_top_4
-#                          prices_array.each do |tt|
-
-#                            current_top_weight = tt[:weight] unless tt[:weight] == -999 
-#                            if (current_top_weight < top_weight) then
-#                              top_weight = current_top_weight
-#                              top_prices = top_prices.sort_by { |p| p[:price].to_i }
-#                                  top_prices.each do |tp|
-#                                      rest_prices.push(tp)
-#                                  end  
-#                                  top_prices=[] 
-#                            end  
-
-#                            if(tt[:weight] <= top_weight) then		           
-#                                 top_prices.push(tt) unless tt[:weight] == -999 
-#                            end
-#                          end
-                          #top_prices = top_prices.sort_by { |p| p[:price].to_i }
-                          #rest_prices = rest_prices.sort_by { |p| p[:price].to_i }
-                          ###@@logger.info(top_prices)
-                          ###@@logger.info(rest_prices)
-#                          final_prices = rest_prices + top_prices  
-                          #final_prices = final_prices.sort_by { |p| [-p[:weight], p[:price].to_i] }
-                          ###@@logger.info(Time.now - start_time)
-                          ###@@logger.info(final_prices)
                 rescue => ex
                        ###@@logger.info ("#{ex.class} : #{ex.message}")
                        ###@@logger.info (ex.backtrace)
@@ -274,6 +235,21 @@ class Generalsearch_improved
                        end
                      end
 
+                     url= get_uread_url(term, type)
+                     req_uread= Typhoeus::Request.new(url,:timeout=> 8000)
+                     req_uread.on_complete do |response|
+                       @@logger.info('uread response')
+                       @@logger.info(response.code)    # http status code
+                       @@logger.info(response.time)    # time in seconds the request took
+                       if response.success?
+                         doc= response.body
+                         page = Nokogiri::HTML::parse(doc)
+                         page
+                       else
+                         page="failed"
+                       end
+                     end
+
 
 
                      #Queue all requests
@@ -287,7 +263,7 @@ class Generalsearch_improved
                      hydra.queue req_landmark
                      hydra.queue req_indiaplaza
                      hydra.queue req_indiatimes
-
+                     hydra.queue req_uread    
 
                      if (mtype !='movies' and mtype !='books') then
                            url= get_letsbuy_url(term, type)
@@ -607,7 +583,7 @@ class Generalsearch_improved
                      prices.push(parse_landmark(req_landmark.handled_response,term, type)) unless req_landmark.handled_response =="failed"
                      prices.push(parse_indiaplaza(req_indiaplaza.handled_response,term, type)) unless req_indiaplaza.handled_response =="failed"
                      prices.push(parse_indiatimes(req_indiatimes.handled_response,term, type)) unless req_indiatimes.handled_response =="failed"
-
+                     prices.push(parse_uread(req_uread.handled_response,term, type)) unless req_uread.handled_response =="failed"
 
                      if mtype == 'movies' then
                                prices.push(parse_moviemart(req_moviemart.handled_response,term, type)) unless req_moviemart.handled_response =="failed"
@@ -1166,6 +1142,45 @@ class Generalsearch_improved
               end
               prices
           end
+
+          def parse_uread(doc,query,type)
+              @@logger.info ("parsing uread")
+               begin
+                  price_text = doc.css("div.product-vert-list-item div.product-vert-list-summary div.product-vert-list-price span.our-price")
+                  name_text = doc.css("div.product-vert-list-item div.product-vert-list-summary div.product-vert-list-title h2 a")
+                  author_text = doc.css("div.product-vert-list-item div.product-vert-list-summary div.product-vert-list-title strong a")
+                  url_text =doc.css("div.product-vert-list-item div.product-vert-list-summary div.product-vert-list-title h2 a")
+                  img_text = doc.css("div.product-vert-list-item div.product-vert-list-image a img")
+                  discount_text = ""
+                  shipping_text = ""
+                  prices=[]
+
+                  (0...[3,price_text.length].min).each do |i|                  
+                      
+                      if (name_text[i].text.strip == nil) then
+                            weight,cost = find_weight(author_text[i].text.strip, "#{query[:search_term]}" )
+                      elsif (name_text[i].text.strip !=nil) then
+                            weight,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
+                      else
+                            weight_author=0
+                            weight_name,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
+                            weight_author,cost = find_weight(author_text[i].text.strip, "#{query[:search_term]}" )
+                            weight = weight_name + weight_author
+
+                      end      
+                      final_price = price_text[i].text.strip.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'').tr("₨","")
+                      if (weight > 1 and final_price.to_i > 0) then
+                        price_info = {:price => digitize_price(final_price),:author=> author_text[i].text.strip, :name=>proper_case(ifNil(name_text[i]).strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'Uread', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
+                        prices.push(price_info)
+                      end
+                  end
+                  rescue => ex
+                        @@logger.info ("#{ex.class} : #{ex.message}")
+                        @@logger.info (ex.backtrace)
+                  end
+                  prices
+          end
+
 
 
          
@@ -2362,7 +2377,11 @@ class Generalsearch_improved
             url="http://www.buytheprice.com/search_products.php?product#{query[:search_term]}"
             url            
            end
-
+           def get_uread_url(query,type)
+            url="http://www.uread.com/search-books/#{query[:search_term]}".tr("+","-")
+            @@logger.info("uread url ; #{url}")
+            url            
+           end
            def get_junglee_url(query,type)
             url="http://www.junglee.com/mn/search/junglee/?k=#{query[:search_term]}"
             url            
