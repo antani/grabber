@@ -28,7 +28,7 @@
 }
 #container_wrap {
     background: url("/assets/big-fade.png?1295683141") repeat-x scroll -70% 0 transparent;
-    padding: 5px 0 30px;
+    /*padding: 5px 0 30px;*/
 }
 .center-container {
     margin: 0 auto;
