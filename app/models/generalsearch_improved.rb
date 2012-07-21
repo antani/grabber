@@ -123,7 +123,7 @@ class Generalsearch_improved
 
                      #Books and everything else
                      url= get_flipkart_url(term, type)
-                     req_flip= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_flip= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_flip.on_complete do |response|
                           @@logger.info('Flipkart response')
                           @@logger.info(response.code)    # http status code
@@ -137,7 +137,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_infibeam_url(term, type)
-                     req_infibeam= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_infibeam= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_infibeam.on_complete do |response|
                       @@logger.info('Infibeam response')
                       @@logger.info(response.code)    # http status code
@@ -152,7 +152,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_tradeus_url(term, type)
-                     req_tradeus= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_tradeus= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_tradeus.on_complete do |response|
                        @@logger.info('tradeus response')
                        @@logger.info(response.code)    # http status code
@@ -167,7 +167,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_homeshop_url(term, type)
-                     req_homeshop= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_homeshop= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_homeshop.on_complete do |response|
                           @@logger.info('Homeshop response')
                           @@logger.info(response.code)    # http status code
@@ -182,7 +182,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_futurebazaar_url(term, type)
-                     req_futurebazaar= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_futurebazaar= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_futurebazaar.on_complete do |response|
                           @@logger.info('Futurebazaar response')
                           @@logger.info(response.code)    # http status code
@@ -197,7 +197,7 @@ class Generalsearch_improved
                           end  
                      end
                      url= get_ebay_url(term, type)
-                     req_ebay= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_ebay= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_ebay.on_complete do |response|
                      @@logger.info('Ebay response')
                      @@logger.info(response.code)    # http status code
@@ -213,7 +213,7 @@ class Generalsearch_improved
                      end
                      #junglee/amazon.india
                      url= get_junglee_url(term, type)
-                     req_junglee= Typhoeus::Request.new(url,:timeout=> 5000)      
+                     req_junglee= Typhoeus::Request.new(url,:timeout=> 8000)      
                      req_junglee.on_complete do |response|
                      @@logger.info('Junglee response')
                      @@logger.info(response.code)    # http status code
@@ -229,7 +229,7 @@ class Generalsearch_improved
                      end
 
                      url= get_landmark_url(term, type)
-                     req_landmark = Typhoeus::Request.new(url,:timeout=> 5000)
+                     req_landmark = Typhoeus::Request.new(url,:timeout=> 8000)
                      req_landmark.on_complete do |response|
                        @@logger.info('Landmark response')
                        @@logger.info(response.code)    # http status code
@@ -245,7 +245,7 @@ class Generalsearch_improved
                      end
 
                      url= get_indiaplaza_url(term, type)
-                     req_indiaplaza = Typhoeus::Request.new(url,:timeout=> 5000)
+                     req_indiaplaza = Typhoeus::Request.new(url,:timeout=> 8000)
                      req_indiaplaza.on_complete do |response|
 
                        @@logger.info('indiaplaza response')
@@ -260,11 +260,11 @@ class Generalsearch_improved
                      end
 
                      url= get_indiatimes_url(term, type)
-                     req_indiatimes= Typhoeus::Request.new(url,:timeout=> 5000)
+                     req_indiatimes= Typhoeus::Request.new(url,:timeout=> 8000)
                      req_indiatimes.on_complete do |response|
                        @@logger.info('indiatimes response')
                        @@logger.info(response.code)    # http status code
-                                                       ##@@logger.info(response.time)    # time in seconds the request took
+                       @@logger.info(response.time)    # time in seconds the request took
                        if response.success?
                          doc= response.body
                          page = Nokogiri::HTML::parse(doc)
@@ -291,7 +291,7 @@ class Generalsearch_improved
 
                      if (mtype !='movies' and mtype !='books') then
                            url= get_letsbuy_url(term, type)
-                           req_letsbuy = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_letsbuy = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_letsbuy.on_complete do |response|
                            @@logger.info('Letsbuy response')
                            @@logger.info(response.code)    # http status code
@@ -308,7 +308,7 @@ class Generalsearch_improved
                            hydra.queue req_letsbuy
 
                            url= get_adexmart_url(term, type)
-                           req_adexmart = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_adexmart = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_adexmart.on_complete do |response|
                            @@logger.info('Adexmart response')
                            @@logger.info(response.code)    # http status code
@@ -325,7 +325,7 @@ class Generalsearch_improved
                            hydra.queue req_adexmart
 
                            url= get_greendust_url(term, type)
-                           req_greendust = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_greendust = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_greendust.on_complete do |response|
                            @@logger.info('Greendust response')
                            @@logger.info(response.code)    # http status code
@@ -342,7 +342,7 @@ class Generalsearch_improved
                            hydra.queue req_greendust
 
                            url= get_retailmart_url(term, type)
-                           req_retailmart = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_retailmart = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_retailmart.on_complete do |response|
                            @@logger.info('Retailmart response')
                            @@logger.info(response.code)    # http status code
@@ -362,7 +362,7 @@ class Generalsearch_improved
                      #only movies
                      if mtype == 'movies' then
                           url= get_moviemart_url(term, type)
-                          req_moviemart= Typhoeus::Request.new(url,:timeout=> 5000)      
+                          req_moviemart= Typhoeus::Request.new(url,:timeout=> 8000)      
                           req_moviemart.on_complete do |response|
                           @@logger.info('Moviemart response')
                           @@logger.info(response.code)    # http status code
@@ -376,7 +376,7 @@ class Generalsearch_improved
                               end    
                           end
                           url= get_moserbaer_url(term, type)
-                          req_moserbaer= Typhoeus::Request.new(url,:timeout=> 5000)      
+                          req_moserbaer= Typhoeus::Request.new(url,:timeout=> 8000)      
                           req_moserbaer.on_complete do |response|
                           @@logger.info('moserbaer response')
                           @@logger.info(response.code)    # http status code
@@ -397,7 +397,7 @@ class Generalsearch_improved
                      end
                      if mtype == 'cameras' then
                            url= get_fotocenter_url(term, type)
-                           req_fotocenter= Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_fotocenter= Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_fotocenter.on_complete do |response|
                            @@logger.info('fotocenter response')
                            @@logger.info(response.code)    # http status code
@@ -416,7 +416,7 @@ class Generalsearch_improved
                      #Only books
                      if mtype == 'books' then
                            url= get_rediff_url(term, type)
-                           req_rediff= Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_rediff= Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_rediff.on_complete do |response|
                            @@logger.info('Rediff response')
                            @@logger.info(response.code)    # http status code
@@ -433,7 +433,7 @@ class Generalsearch_improved
                            #Brings lot of crap - mute for now
 			   #
 		           #        url= get_nbcindia_url(term, type)
-		           #        req_nbcindia= Typhoeus::Request.new(url,:timeout=> 5000)      
+		           #        req_nbcindia= Typhoeus::Request.new(url,:timeout=> 8000)      
 		           #        req_nbcindia.on_complete do |response|
 		           #           if response.success?
 		           #               doc= response.body
@@ -444,7 +444,7 @@ class Generalsearch_improved
 		           #           end    
 		           #        end
                            url= get_pustak_url(term, type)
-                           req_pustak= Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_pustak= Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_pustak.on_complete do |response|
                            @@logger.info('Pustak response')
                            @@logger.info(response.code)    # http status code
@@ -460,7 +460,7 @@ class Generalsearch_improved
                            end
 
                            url= get_bookadda_url(term, type)
-                           req_bookadda= Typhoeus::Request.new(url,:timeout=> 5000)
+                           req_bookadda= Typhoeus::Request.new(url,:timeout=> 8000)
                            req_bookadda.on_complete do |response|
                            @@logger.info('Bookadda response')
                            @@logger.info(response.code)    # http status code
@@ -473,7 +473,7 @@ class Generalsearch_improved
                                 end    
                            end
                            url= get_crossword_url(term, type)
-                           req_crossword = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_crossword = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_crossword.on_complete do |response|
                            @@logger.info('Crossword response')
                            @@logger.info(response.code)    # http status code
@@ -488,7 +488,7 @@ class Generalsearch_improved
                               end    
                            end
                            url= get_coinjoos_url(term, type)
-                           req_coinjoos = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_coinjoos = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_coinjoos.on_complete do |response|
                            @@logger.info('Coinjoos response')
                            @@logger.info(response.code)    # http status code
@@ -505,7 +505,7 @@ class Generalsearch_improved
 
 
                            url= get_simplybooks_url(term, type)
-                           req_simplybooks = Typhoeus::Request.new(url,:timeout=> 5000)
+                           req_simplybooks = Typhoeus::Request.new(url,:timeout=> 8000)
                            req_simplybooks.on_complete do |response|
 
                              @@logger.info('simplybooks response')
@@ -531,7 +531,7 @@ class Generalsearch_improved
             		     if mtype == 'mobiles' then
 
 			               url= get_sangeeta_url(term, type)
-                           req_sangeeta = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_sangeeta = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_sangeeta.on_complete do |response|
                                  @@logger.info('Sangeeta response')
                                  @@logger.info(response.code)    # http status code
@@ -552,7 +552,7 @@ class Generalsearch_improved
                      #Mobile and Computers
                     if (mtype =='mobiles' or mtype =='computers') then
                            url= get_ibazaar_url(term, type)
-                           req_ibazaar = Typhoeus::Request.new(url,:timeout=> 5000)      
+                           req_ibazaar = Typhoeus::Request.new(url,:timeout=> 8000)      
                            req_ibazaar.on_complete do |response|
                            @@logger.info('ibazaar response')
                            @@logger.info(response.code)    # http status code
@@ -572,7 +572,7 @@ class Generalsearch_improved
                     if (mtype =='mobiles' or mtype =='cameras' or mtype =='computers') then
                          url= get_buytheprice_url(term, type)
                          @@logger.info("URL:#{url}")
-                         req_buytheprice = Typhoeus::Request.new(url,:timeout=> 5000)
+                         req_buytheprice = Typhoeus::Request.new(url,:timeout=> 8000)
                          req_buytheprice.on_complete do |response|
                          @@logger.info('buytheprice response')
                          @@logger.info(response.code)    # http status code
@@ -1150,8 +1150,9 @@ class Generalsearch_improved
                           end      
                           #final_price = strip_invalid_utf8_chars(price_text[i]).to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                           #Nokogiri does not remove &nbsp; - http://www.vitarara.org/cms/hpricot_to_nokogiri_day_1
-                          final_price = price_text[i].text.gsub(/[A-Za-z:,\s]/,"").gsub(/^[.]/,"").tr("₨","").gsub!(/^[\302\240|\s]*|[\302\240|\s]*$/, '')
-                         
+                          if(price_text[i])
+                            final_price = price_text[i].text.gsub(/[A-Za-z:,\s]/,"").gsub(/^[.]/,"").tr("₨","").gsub!(/^[\302\240|\s]*|[\302\240|\s]*$/, '')
+                          end                         
                           #@@logger.info(final_price)
                           if (weight > 1) then
                             price_info = {:price => digitize_price(final_price),:author=> proper_case(ifNil(author_text[i]).strip) , :name=>proper_case(ifNil(name_text[i]).strip), :img => img_text[i][:src],:url=>url_text[i][:href], :source=>'Junglee', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i].text.strip}
@@ -1684,30 +1685,30 @@ class Generalsearch_improved
           end
 
           def parse_indiatimes(doc,query,type)
-            @@logger.info ("parsing indiatimes")
+              @@logger.info ("parsing indiatimes")
               begin
-                      price_text = doc.css("div.productcoloumn div.productdetail div.newprice span.price")
-                      name_text = doc.css("div.productcoloumn div.productdetail a.itemname")
+                      price_text = doc.css("div.productrow div.flt div.productcoloumn div.productdetail div.newprice span.price")
+                      name_text = doc.css("div.productrow div.flt div.productcoloumn div.productdetail a.itemname")
                       author_text = ""
-                      url_text = doc.css("div.productcoloumn div.productdetail a.itemname")
-                      img_text =doc.css("div.productcoloumn div.productthumb a.listproductthumb img")
+                      url_text = doc.css("div.productrow div.flt div.productcoloumn div.productdetail a.itemname")
+                      img_text =doc.css("div.productrow div.flt div.productcoloumn div.productthumb a.listproductthumb img")
                       discount_text = ""
                       shipping_text = ""
                       prices=[]
 
-                      (0...2).each do |i|
+                      (0...[3,prices.length].min).each do |i|
                           if (name_text[i] == nil) then
                                 weight,cost = find_weight("", "#{query[:search_term]}" )
                           elsif (name_text[i] !=nil && author_text[i] == nil) then
-                                weight,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                weight,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
                           else
                                 weight_author=0
-                                weight_name,cost = find_weight(name_text[i], "#{query[:search_term]}" )
+                                weight_name,cost = find_weight(name_text[i].text.strip, "#{query[:search_term]}" )
                                 weight = weight_name + weight_author
-
                           end      
-                          final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
-                                                           
+
+                          final_price = price_text[i].text.strip.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
+                          @@logger.info("#{final_price} - #{weight}")                                 
                           if (weight > 1) then
                             price_info = {:price => digitize_price(final_price),:author=> "-", :name=>proper_case(ifNil(name_text[i]).strip), :img => img_text[i][:src],:url=>"http://shopping.indiatimes.com/"+url_text[i][:href], :source=>'Indiatimes', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]}
                             prices.push(price_info)
@@ -1765,7 +1766,7 @@ class Generalsearch_improved
                           final_price = price_text[i].to_s.gsub(/[A-Za-z:,\s]/,'').gsub(/^[.]/,'')
                                                            
                           if (weight > 1) then
-                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.sangeethamobiles.com"+url_text[i], :source=>'Sangeetha Mobile', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
+                            price_info = {:price => digitize_price(final_price),:author=> proper_case(author_text[i]), :name=>proper_case(name_text[i]), :img => img_text[i],:url=>"http://www.sangeethamobiles.com"+url_text[i], :source=>'SangeethaMobile', :weight=>weight, :discount=>discount_text[i], :shipping => shipping_text[i]} 
                             prices.push(price_info)
                           end
                        end

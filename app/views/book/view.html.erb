@@ -86,15 +86,16 @@
                                          end
                                       %>
                                   <tr>
-                                         <td>
+                                         <td class="source">
                                          <% if ["BuyThePrice","Landmark","IndiaPlaza","Simplybooks","Crossword"].include? data[:source]%>
-                                           <a onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>"><%= data[:source] %></a>
+                                           <a onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>">
                                          <%else%>
-                                           <a onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>&last_search_type=<%=params[:search_type]%>"><%= data[:source] %></a>
+                                           <a onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>&last_search_type=<%=params[:search_type]%>">
                                          <%end%>  
+                                          <img src='/assets/sites/<%= data[:source]%>.png' width="100%" alt="<%=data[:source]%>"></a>
                                           </td>  
                                           <td class="purchase">
-                                            <a onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>"><img src='/assets/cart.png'></a>
+                                            <a class="buybutton" onClick="recordOutboundLink(this, 'Outbound Links', '<%= data[:url] %>');return false;" rel="nofollow" target="_blank" href="<%= data[:url] %>">Buy</a>
                                           </td>  
                                           
                                            <td class="td_price">
@@ -109,8 +110,8 @@
                                             <td  class="td_author">
                                                 <%= data[:author] %>
                                             </td>
-                                         <td>
-                                                <img src='<%= data[:img] %>' width="64" height="100" class='prod_img'>
+                                         <td class="prod_img">
+                                                <img src='<%= data[:img] %>' width="80" height="100" >
                                           </td>
                                           <td>
                                             <ul class="tag_dummy">
@@ -130,7 +131,7 @@
                 <div id="loader">
                 <div id="wait-text">
                 <img src='images/9.gif' />
-                    We are fetching prices from <%= @prices.number_of_stores %> online stores...<strong>please be patient!</strong></div>
+                    We are fetching best prices from several online stores...<strong>please be patient!</strong></div>
                 </div>
                 </div>
 

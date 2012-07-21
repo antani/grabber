@@ -54,7 +54,7 @@
 
 }
 .desch3 {
-    font-family: 'Open sans','Droid Sans','Puritan',sans-serif; 
+    font-family: 'Oxygen','Droid Sans','Puritan',sans-serif; 
     font-size: 12px;
     padding: 5px;
     margin: 3px;
@@ -71,7 +71,7 @@
 .top_p_p
 {
     color: #888888;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oxygen', sans-serif;
     font-size: 14px;
     margin-bottom: 5px;
     font-weight: normal;
@@ -138,7 +138,7 @@ a img {
     font-size: 12px;
 }
 .textwrapper{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oxygen', sans-serif;
     /* old 
     color: #C24E42;*/
     color: #333333;
@@ -172,7 +172,7 @@ a img {
 }
 
 .top_searches{
-    font-family:'Open Sans','Puritan',sans-serif; 
+    font-family:'Oxygen','Puritan',sans-serif; 
     color: #333333;
     font-size: 110%;
     text-shadow: 0 2px 0 #FFFFFF;
@@ -193,8 +193,8 @@ a img {
 }
 .top_searches a, a:active, a:visited
 {
-	color: #3982E5;
-	text-decoration: none;
+	/*color: #3982E5;
+	text-decoration: none;*/
 
 }
 
@@ -271,7 +271,7 @@ table.price_list td
   padding: 15px;
   /*border-top: 1px solid #EEEEEE;*/
   /*border-bottom: 1px solid #FFFFFF;*/
-  font-family: 'Open sans','Lato','Droid Sans','Puritan',sans-serif; 
+  font-family: 'Oxygen','Lato','Droid Sans','Puritan',sans-serif; 
   border-bottom: 1px dotted #CCCCCC;
   vertical-align: top;
   background-color: white;
@@ -287,14 +287,17 @@ table.price_list td
   font-size: 10px;
   color: green;
 }
-
+.source{
+  width:130px;
+}
 .td_name
 {
   width: 500px;
 }
 .td_price
 {
-  width: 200px;
+  width: 150px;
+  text-align: center;
 }
 
 .gr_review_container
@@ -1165,7 +1168,7 @@ div.slide h3 {
 	padding-bottom: 2px;
   border-bottom: 2px dotted #C9C4BA;
   color: #888888 !important;
-  font-family: 'Open sans',sans-serif;
+  font-family: 'Oxygen',sans-serif;
 
 }
 div.divider-bar {
@@ -1198,7 +1201,7 @@ footer {
     font-weight: 600 ;
     border-bottom: 2px dotted #C9C4BA;
     color: #888888 !important;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oxygen', sans-serif;
     font-style: italic;
 
 }
@@ -1209,3 +1212,63 @@ footer {
      font-size: 12px;   
 
 }
+.buybutton {
+ display: inline-block;
+    background: #f5513c;
+    -webkit-box-shadow: 0px 1px 0px 0px #ff8272 inset, 0px 0px 0px 4px #e6e6e6;
+    -moz-box-shadow: 0px 1px 0px 0px #ff8272 inset, 0px 0px 0px 4px #e6e6e6;
+    box-shadow: 0px 1px 0px 0px #ff8272 inset, 0px 0px 0px 4px #e6e6e6;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: all 0s 0;
+    -moz-transition: all 0s 0;
+    -o-transition: all 0s 0;
+    transition: all 0s 0;
+    text-shadow: 0px 1px 1px #9c3528;
+    padding: 6px 8px;
+    border-color: #ec513c;
+    border-width: 1px;
+    border-style: solid;
+    font-family: Arial, Helvetica, Sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.buybutton:hover {
+background: #ff6551;
+    -webkit-box-shadow: 0px 0px 0px 4px #ffbfab;
+    -moz-box-shadow: 0px 0px 0px 4px #ffbfab;
+    box-shadow: 0px 0px 0px 4px #ffbfab;
+    border-color: #ed5e4b;
+}
+
+/*.buybutton {
+  -moz-box-shadow:inset 0px 1px 8px 1px #f29c93;
+  -webkit-box-shadow:inset 0px 1px 8px 1px #f29c93;
+  box-shadow:inset 0px 1px 8px 1px #f29c93;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100) );
+  background:-moz-linear-gradient( center top, #fe1a00 5%, #ce0100 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100');
+  background-color:#fe1a00;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #d83526;
+  display:inline-block;
+  color:#ffffff;
+  font-family: 'Oxygen','Droid Sans','Puritan',sans-serif; 
+  font-size:12px;
+  font-weight:bold;
+  padding:4px 10px;
+  text-decoration:none;
+  text-shadow:1px 1px 0px #b23e35;
+}.buybutton:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00) );
+  background:-moz-linear-gradient( center top, #ce0100 5%, #fe1a00 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100', endColorstr='#fe1a00');
+  background-color:#ce0100;
+}.buybutton:active {
+  position:relative;
+  top:1px;
+}*/
