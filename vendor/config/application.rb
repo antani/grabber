@@ -45,8 +45,8 @@ module Isbnnetin
     config.filter_parameters += [:password]
 
     # Logging
-    config.logger = Logger.new(STDOUT)
-    config.log_level = Logger::WARN
+    #config.logger = Logger.new(STDOUT)
+    #config.log_level = Logger::WARN
 
     # Caching
     config.cache_store = :dalli_store, { :namespace => 'isbnnetin' }

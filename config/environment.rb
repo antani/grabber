@@ -5,5 +5,6 @@ YAML::ENGINE.yamler= 'syck'
 Encoding.default_internal = 'UTF-8'
 # Initialize the rails application
 Isbnnetin::Application.initialize!
+Isbnnetin::Application.middleware.use( Oink::Middleware, :logger => Rails.logger )
 
 

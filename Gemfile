@@ -35,6 +35,7 @@ group :development, :test do
   gem 'gemedit'
   gem 'capistrano'
   gem 'rvm-capistrano'
+  gem "oink"
  # if RUBY_VERSION =~ /1.9/
     #gem 'ruby-debug19'
  #else

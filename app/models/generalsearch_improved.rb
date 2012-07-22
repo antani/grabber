@@ -235,20 +235,20 @@ class Generalsearch_improved
                        end
                      end
 
-                     url= get_uread_url(term, type)
-                     req_uread= Typhoeus::Request.new(url,:timeout=> 8000)
-                     req_uread.on_complete do |response|
-                       @@logger.info('uread response')
-                       @@logger.info(response.code)    # http status code
-                       @@logger.info(response.time)    # time in seconds the request took
-                       if response.success?
-                         doc= response.body
-                         page = Nokogiri::HTML::parse(doc)
-                         page
-                       else
-                         page="failed"
-                       end
-                     end
+                     # url= get_uread_url(term, type)
+                     # req_uread= Typhoeus::Request.new(url,:timeout=> 8000)
+                     # req_uread.on_complete do |response|
+                     #   @@logger.info('uread response')
+                     #   @@logger.info(response.code)    # http status code
+                     #   @@logger.info(response.time)    # time in seconds the request took
+                     #   if response.success?
+                     #     doc= response.body
+                     #     page = Nokogiri::HTML::parse(doc)
+                     #     page
+                     #   else
+                     #     page="failed"
+                     #   end
+                     # end
 
 
 
@@ -263,7 +263,7 @@ class Generalsearch_improved
                      hydra.queue req_landmark
                      hydra.queue req_indiaplaza
                      hydra.queue req_indiatimes
-                     hydra.queue req_uread    
+                     # hydra.queue req_uread    
 
                      if (mtype !='movies' and mtype !='books') then
                            url= get_letsbuy_url(term, type)
@@ -583,7 +583,7 @@ class Generalsearch_improved
                      prices.push(parse_landmark(req_landmark.handled_response,term, type)) unless req_landmark.handled_response =="failed"
                      prices.push(parse_indiaplaza(req_indiaplaza.handled_response,term, type)) unless req_indiaplaza.handled_response =="failed"
                      prices.push(parse_indiatimes(req_indiatimes.handled_response,term, type)) unless req_indiatimes.handled_response =="failed"
-                     prices.push(parse_uread(req_uread.handled_response,term, type)) unless req_uread.handled_response =="failed"
+                     # prices.push(parse_uread(req_uread.handled_response,term, type)) unless req_uread.handled_response =="failed"
 
                      if mtype == 'movies' then
                                prices.push(parse_moviemart(req_moviemart.handled_response,term, type)) unless req_moviemart.handled_response =="failed"
