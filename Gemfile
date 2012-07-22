@@ -23,6 +23,7 @@ gem 'sitemap_generator'
 gem 'nokogiri'
 gem 'execjs'
 gem 'therubyracer'
+gem 'newrelic_rpm'
 #gem 'sanitize'
 
 # Bundle gems for the local environment. Make sure to
