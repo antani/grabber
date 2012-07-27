@@ -2,15 +2,15 @@ source 'http://rubygems.org'
 
 gem 'rails'
 #gem 'jquery-rails'
-gem 'rake', '~> 0.8.7'
+gem 'rake'
 # http://mongoid.org/docs/installation/
 gem 'mongoid'
 gem 'bson','1.6.2'
 gem 'bson_ext','1.6.2'
-gem 'mongo_mapper'
+#gem 'mongo_mapper'
 gem 'dalli'
 gem 'configatron', :require => 'configatron' # https://github.com/markbates/configatron/
-gem 'jammit'
+#gem 'jammit'
 gem 'mechanize', :require => 'mechanize'
 gem 'amazon-ecs', :require => 'amazon/ecs'
 gem 'amatch'
@@ -23,7 +23,7 @@ gem 'sitemap_generator'
 gem 'nokogiri'
 gem 'execjs'
 gem 'therubyracer'
-gem 'newrelic_rpm'
+#gem 'newrelic_rpm'
 #gem 'sanitize'
 
 # Bundle gems for the local environment. Make sure to
